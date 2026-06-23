@@ -55,13 +55,13 @@
       </div>
 
       <nav class="nav-menu">
-        <li class="nav-item active" id="nav-dashboard">
+        <li class="nav-item" id="nav-dashboard">
           <a href="index.html" onclick="app.switchTab('dashboard'); return false;">
             <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
             <span>Trang chủ</span>
           </a>
         </li>
-        <li class="nav-item" id="nav-vocab">
+        <li class="nav-item active" id="nav-vocab">
           <a href="vocab.html" onclick="app.switchTab('vocab'); return false;">
             <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
             <span>Từ vựng</span>
@@ -124,7 +124,7 @@
       </header>
 
       <!-- SECTION: DASHBOARD (HOME) -->
-      <section id="section-dashboard" class="app-section active">
+      <section id="section-dashboard" class="app-section">
         <div class="section-header">
           <h1>Chào mừng đến với EnglishFree!</h1>
           <p>Hệ thống tự học IELTS Cambridge miễn phí 4 kỹ năng kết hợp cùng công nghệ Trợ lý AI.</p>
@@ -174,7 +174,7 @@
       </section>
 
       <!-- SECTION: VOCABULARY -->
-      <section id="section-vocab" class="app-section">
+      <section id="section-vocab" class="app-section active">
         <div class="vocab-layout">
           <!-- Area to pick a CEFR level -->
           <div id="vocab-topic-selector" style="width: 100%;">

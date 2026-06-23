@@ -3,6 +3,19 @@
 class App {
   constructor() {
     this.currentTab = 'dashboard';
+    const path = window.location.pathname.toLowerCase();
+    if (path.includes('vocab.html')) {
+      this.currentTab = 'vocab';
+    } else if (path.includes('listening.html')) {
+      this.currentTab = 'listening';
+    } else if (path.includes('reading.html')) {
+      this.currentTab = 'reading';
+    } else if (path.includes('speaking.html')) {
+      this.currentTab = 'speaking';
+    } else if (path.includes('writing.html')) {
+      this.currentTab = 'writing';
+    }
+
     let storedKey = localStorage.getItem('ef_gemini_api_key');
     const oldKeys = [
       'AQ.Ab8RN6J0X4L5c0o4gZl0wLZlEvHHXzag47HiCHiHD2IxNpgpCA',
@@ -65,6 +78,9 @@ class App {
     reading.init();
     speaking.init();
     writing.init();
+
+    // Activate the current tab section
+    this.switchTab(this.currentTab);
   }
 
   handleLoginSubmit() {
@@ -123,6 +139,9 @@ class App {
     speaking.init();
     writing.init();
 
+    // Activate the current tab section
+    this.switchTab(this.currentTab);
+
     this.showToast(`Chào mừng ${username} đã đăng nhập thành công!`, 'success');
   }
 
@@ -134,6 +153,26 @@ class App {
   }
 
   switchTab(tabId) {
+    const filename = tabId === 'dashboard' ? 'index.html' : `${tabId}.html`;
+    const path = window.location.pathname.toLowerCase();
+    
+    // Check if we need to redirect
+    let shouldRedirect = false;
+    if (tabId === 'dashboard') {
+      if (!path.endsWith('/') && !path.endsWith('/index.html') && !path.includes('index.html')) {
+        shouldRedirect = true;
+      }
+    } else {
+      if (!path.includes(filename)) {
+        shouldRedirect = true;
+      }
+    }
+    
+    if (shouldRedirect) {
+      window.location.href = filename;
+      return;
+    }
+
     // Deactivate previous nav item and section
     document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
     document.querySelectorAll('.app-section').forEach(sec => sec.classList.remove('active'));
