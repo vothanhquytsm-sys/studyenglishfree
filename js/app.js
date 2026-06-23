@@ -69,6 +69,7 @@ class App {
     listening.init();
     reading.init();
     speaking.init();
+    chatbot.init();
     writing.init();
 
     // Activate the current tab section
@@ -134,6 +135,7 @@ class App {
     listening.init();
     reading.init();
     speaking.init();
+    chatbot.init();
     writing.init();
 
     // Reload settings for this logged-in session
@@ -180,6 +182,7 @@ class App {
       'listening': 'Luyện nghe IELTS Listening',
       'reading': 'Luyện đọc IELTS Reading & Shadowing',
       'speaking': 'Luyện nói cùng Trợ lý AI Speaking',
+      'chatbot': 'Học cùng AI Chatbot (Trương Việt Hoàng)',
       'writing': 'Luyện viết IELTS Writing Task 1 & 2'
     };
     document.getElementById('current-section-title').textContent = titles[tabId] || 'EnglishFree';
@@ -196,6 +199,8 @@ class App {
       reading.resetView();
     } else if (tabId === 'speaking') {
       speaking.startConversation();
+    } else if (tabId === 'chatbot') {
+      chatbot.startConversation();
     } else if (tabId === 'writing') {
       writing.loadTask();
     }
