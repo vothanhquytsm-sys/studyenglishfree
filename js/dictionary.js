@@ -317,14 +317,14 @@ class VocabularyDictionary {
       }
     }
 
-    // 4. Ultimate fallback to Gemini API if online APIs failed and key is available
-    if (!translation && typeof app !== 'undefined' && app.apiKey) {
+    // 4. Ultimate fallback to AI API if online APIs failed
+    if (!translation && typeof app !== 'undefined') {
       const systemPrompt = `You are a helpful English-Vietnamese dictionary. Provide a precise, concise Vietnamese translation and a short explanation for the given word or phrase.
 Output format: '[Vietnamese Translation] - [Short explanation (under 15 words) in Vietnamese]'.
 Example: for 'curriculum', output: 'chương trình học - Các môn học được giảng dạy tại trường'.`;
       
       try {
-        const reply = await app.callGemini(systemPrompt, text, 60);
+        const reply = await app.callAI(systemPrompt, text, 60);
         if (reply) {
           translation = reply.trim();
           this.globalCache[cleanText] = translation;

@@ -4,7 +4,6 @@ class App {
   constructor() {
     this.currentTab = 'dashboard';
 
-    this.apiKey = localStorage.getItem('ef_gemini_api_key') || '';
     this.voiceGender = localStorage.getItem('ef_voice_gender') || 'female';
     this.theme = localStorage.getItem('ef_theme') || 'light';
     this.gitHubToken = localStorage.getItem('ef_github_token') || '';
@@ -34,7 +33,6 @@ class App {
     }
 
     // Apply settings values to modal inputs
-    document.getElementById('settings-api-key').value = this.apiKey;
     document.getElementById('settings-voice-gender').value = this.voiceGender;
     document.getElementById('settings-github-token').value = this.gitHubToken;
     this.updateSyncStatusText();
@@ -223,15 +221,12 @@ class App {
   }
 
   saveSettings() {
-    const key = document.getElementById('settings-api-key').value.trim();
     const gender = document.getElementById('settings-voice-gender').value;
     const ghToken = document.getElementById('settings-github-token').value.trim();
 
-    this.apiKey = key;
     this.voiceGender = gender;
     this.gitHubToken = ghToken;
 
-    localStorage.setItem('ef_gemini_api_key', key);
     localStorage.setItem('ef_voice_gender', gender);
     localStorage.setItem('ef_github_token', ghToken);
 
@@ -459,13 +454,9 @@ class App {
     }
   }
 
-  // Common wrapper to call Gemini API
-  async callGemini(systemPrompt, userPrompt, maxTokens = 1000) {
-    if (!this.apiKey) {
-      return null;
-    }
-
-    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${this.apiKey}`;
+  // Common wrapper to call keyless Pollinations AI API (GPT-4o-mini)
+  async callAI(systemPrompt, userPrompt, maxTokens = 1000) {
+    const endpoint = 'https://text.pollinations.ai/';
     
     try {
       const response = await fetch(endpoint, {
@@ -474,30 +465,30 @@ class App {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          contents: [
-            {
-              role: "user",
-              parts: [{ text: `${systemPrompt}\n\nUser Input: ${userPrompt}` }]
-            }
+          messages: [
+            { role: "system", content: systemPrompt },
+            { role: "user", content: userPrompt }
           ],
-          generationConfig: {
-            temperature: 0.7,
-            maxOutputTokens: maxTokens
-          }
+          model: "openai"
         })
       });
 
       if (!response.ok) {
-        throw new Error('API Response was not OK');
+        throw new Error('AI Response was not OK');
       }
 
-      const data = await response.json();
-      return data.candidates[0].content.parts[0].text;
+      const text = await response.text();
+      return text;
     } catch (e) {
-      console.error("Gemini API error:", e);
-      this.showToast('Lỗi kết nối Gemini API. Hãy kiểm tra API Key.', 'error');
+      console.error("AI API error:", e);
+      this.showToast('Lỗi kết nối máy chủ AI. Vui lòng kiểm tra lại mạng.', 'error');
       return null;
     }
+  }
+
+  // Deprecated alias for backward compatibility
+  async callGemini(systemPrompt, userPrompt, maxTokens = 1000) {
+    return this.callAI(systemPrompt, userPrompt, maxTokens);
   }
 
   // Global Text-to-Speech assistant with natural speed & premium voice prioritization

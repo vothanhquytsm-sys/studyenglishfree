@@ -177,17 +177,19 @@ class SpeakingModule {
       setTimeout(async () => {
         let aiReply = nextQ;
         
-        // If API Key is set, call Gemini for a dynamic question
-        if (app.apiKey) {
+        // Call AI for a dynamic question
+        try {
           const sysPrompt = `You are an IELTS Speaking Examiner conducting a practice interview on the topic: ${this.currentTopic}. 
 Respond to the user's previous answer dynamically, evaluate their language usage briefly (1-2 sentences), and ask the NEXT logical follow-up question.
 Keep your response short (under 80 words) and speak naturally.`;
           
           const conversationHistoryString = this.dialogueHistory.map(h => `${h.role === 'ai' ? 'Examiner' : 'Candidate'}: ${h.text}`).join('\n');
-          const reply = await app.callGemini(sysPrompt, conversationHistoryString);
+          const reply = await app.callAI(sysPrompt, conversationHistoryString);
           if (reply) {
             aiReply = reply;
           }
+        } catch (e) {
+          console.error("AI examiner call error:", e);
         }
 
         this.addChatBubble(aiReply, 'ai');
@@ -231,8 +233,8 @@ Keep your response short (under 80 words) and speak naturally.`;
 
     let evaluationData = null;
 
-    if (app.apiKey) {
-      // Call Gemini for advanced IELTS evaluation matching candidate target Band 6.0
+    try {
+      // Call AI for advanced IELTS evaluation matching candidate target Band 6.0
       const sysPrompt = `You are an IELTS Speaking Examiner specializing in helping candidates achieve a Target Band 6.0. Analyze the provided transcript and question strictly against the official IELTS Band Descriptors, focus feedback on helping them firmly secure a Band 6.0+.
 
 ### INPUT FORMAT:
@@ -265,7 +267,7 @@ Return the response STRICTLY in JSON format without markdown wrappers.
 
       const userPrompt = `- IELTS Part: ${ieltsPart}\n- Question:\n${questionStr}\n- Transcript:\n${transcriptStr}`;
       
-      const feedback = await app.callGemini(sysPrompt, userPrompt);
+      const feedback = await app.callAI(sysPrompt, userPrompt);
       if (feedback) {
         try {
           let cleanFeedback = feedback.trim();
@@ -277,6 +279,8 @@ Return the response STRICTLY in JSON format without markdown wrappers.
           console.error("JSON parse error for speaking feedback:", err, feedback);
         }
       }
+    } catch (e) {
+      console.error("AI overall speaking evaluation error:", e);
     }
 
     // Local Fallback Evaluation if API call fails or apiKey is absent

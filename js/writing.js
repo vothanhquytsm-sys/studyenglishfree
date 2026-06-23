@@ -239,7 +239,7 @@ In conclusion, both functions of university education are vital. A university sh
     feedbackBox.style.display = 'block';
     feedbackContent.innerHTML = '<p style="color:var(--text-muted);">AI đang đọc và chấm điểm bài viết của bạn theo khung tiêu chí IELTS...</p>';
 
-    if (app.apiKey) {
+    try {
       const sysPrompt = `You are a certified IELTS Writing Examiner grading an academic essay.
 Analyze the user's essay for the prompt: "${task.question}".
 Provide a professional score sheet containing:
@@ -251,12 +251,14 @@ Provide a professional score sheet containing:
 6. **Polished Version** (Rewrite their essay to achieve Band 8.0+)
 Output the feedback in Vietnamese so the user can easily study, but keep the technical English terms.`;
 
-      const feedbackText = await app.callGemini(sysPrompt, input);
+      const feedbackText = await app.callAI(sysPrompt, input);
       if (feedbackText) {
         feedbackContent.innerHTML = feedbackText.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
         app.saveProgress('writing', task.id);
         return;
       }
+    } catch (e) {
+      console.error("AI writing grader error:", e);
     }
 
     // Local Fallback Grader

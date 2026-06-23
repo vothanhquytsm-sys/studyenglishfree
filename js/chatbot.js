@@ -293,30 +293,28 @@ Cấu trúc JSON bắt buộc:
 
     try {
       let aiResult = null;
-      if (app.apiKey) {
-        const sysPrompt = this.currentTopic === 'grammar' ? this.grammarSystemPrompt : this.chatbotSystemPrompt;
-        
-        // Assemble conversation history for Gemini (keep last 10 messages to save tokens)
-        const recentHistory = this.dialogueHistory.slice(-10);
-        const historyStr = recentHistory.map(h => `${h.role === 'user' ? 'Học sinh' : 'Giáo viên'}: ${h.content}`).join('\n');
-        
-        const response = await app.callGemini(sysPrompt, `Lịch sử hội thoại:\n${historyStr}\n\nHọc sinh nói: ${text}`);
-        if (response) {
-          try {
-            let cleanResponse = response.trim();
-            if (cleanResponse.startsWith("```")) {
-              cleanResponse = cleanResponse.replace(/^```json\s*/, "").replace(/^```\s*/, "").replace(/```$/, "").trim();
-            }
-            aiResult = JSON.parse(cleanResponse);
-          } catch (jsonErr) {
-            console.error("Chatbot JSON parse error", jsonErr, response);
-            // Construct a basic structured object if JSON parsing failed
-            aiResult = {
-              response_english: "I understand. Let's keep practicing!",
-              explanation_vietnamese: "Thầy hiểu rồi. Chúng ta hãy tiếp tục luyện tập nhé! (Lưu ý: Phản hồi của hệ thống lỗi định dạng JSON: " + jsonErr.message + ")",
-              correction: ""
-            };
+      const sysPrompt = this.currentTopic === 'grammar' ? this.grammarSystemPrompt : this.chatbotSystemPrompt;
+      
+      // Assemble conversation history for AI (keep last 10 messages to save tokens)
+      const recentHistory = this.dialogueHistory.slice(-10);
+      const historyStr = recentHistory.map(h => `${h.role === 'user' ? 'Học sinh' : 'Giáo viên'}: ${h.content}`).join('\n');
+      
+      const response = await app.callAI(sysPrompt, `Lịch sử hội thoại:\n${historyStr}\n\nHọc sinh nói: ${text}`);
+      if (response) {
+        try {
+          let cleanResponse = response.trim();
+          if (cleanResponse.startsWith("```")) {
+            cleanResponse = cleanResponse.replace(/^```json\s*/, "").replace(/^```\s*/, "").replace(/```$/, "").trim();
           }
+          aiResult = JSON.parse(cleanResponse);
+        } catch (jsonErr) {
+          console.error("Chatbot JSON parse error", jsonErr, response);
+          // Construct a basic structured object if JSON parsing failed
+          aiResult = {
+            response_english: "I understand. Let's keep practicing!",
+            explanation_vietnamese: "Thầy hiểu rồi. Chúng ta hãy tiếp tục luyện tập nhé! (Lưu ý: Phản hồi của hệ thống lỗi định dạng JSON: " + jsonErr.message + ")",
+            correction: ""
+          };
         }
       }
 
@@ -367,24 +365,22 @@ Cấu trúc JSON bắt buộc:
 
     try {
       let lessonData = null;
-      if (app.apiKey) {
-        const prompt = this.lessonGeneratePrompt.replace(/{topic}/g, topic);
-        const reply = await app.callGemini(prompt, `Hãy tạo bài học tiếng Anh cho chủ đề: ${topic}`);
-        if (reply) {
-          try {
-            let cleanReply = reply.trim();
-            if (cleanReply.startsWith("```")) {
-              cleanReply = cleanReply.replace(/^```json\s*/, "").replace(/^```\s*/, "").replace(/```$/, "").trim();
-            }
-            lessonData = JSON.parse(cleanReply);
-          } catch (jsonErr) {
-            console.error("Lesson generation JSON parse failed", jsonErr, reply);
+      const prompt = this.lessonGeneratePrompt.replace(/{topic}/g, topic);
+      const reply = await app.callAI(prompt, `Hãy tạo bài học tiếng Anh cho chủ đề: ${topic}`);
+      if (reply) {
+        try {
+          let cleanReply = reply.trim();
+          if (cleanReply.startsWith("```")) {
+            cleanReply = cleanReply.replace(/^```json\s*/, "").replace(/^```\s*/, "").replace(/```$/, "").trim();
           }
+          lessonData = JSON.parse(cleanReply);
+        } catch (jsonErr) {
+          console.error("Lesson generation JSON parse failed", jsonErr, reply);
         }
       }
 
       if (!lessonData) {
-        lessonContent.innerHTML = '<p style="color:var(--danger-color);">Không thể tạo bài học. Vui lòng kiểm tra API Key hoặc thử lại chủ đề khác!</p>';
+        lessonContent.innerHTML = '<p style="color:var(--danger-color);">Không thể tạo bài học. Vui lòng kiểm tra lại kết nối mạng hoặc thử lại chủ đề khác!</p>';
         return;
       }
 
