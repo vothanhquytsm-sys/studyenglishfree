@@ -7,10 +7,11 @@ class App {
     let storedKey = localStorage.getItem('ef_gemini_api_key');
     const oldKeys = [
       'AQ.Ab8RN6J0X4L5c0o4gZl0wLZlEvHHXzag47HiCHiHD2IxNpgpCA',
-      'AQ.Ab8RN6LNAuCyi33lIfhLrMTInUzKMRIwVLI147Jab-ot2ZGxkQ'
+      'AQ.Ab8RN6LNAuCyi33lIfhLrMTInUzKMRIwVLI147Jab-ot2ZGxkQ',
+      'AQ.Ab8RN6IGq66Iv2O0kK-qRUoinOXQIqBqdTbRLBx-o_GGMRM1QA'
     ];
     if (!storedKey || oldKeys.includes(storedKey)) {
-      storedKey = 'AQ.Ab8RN6IGq66Iv2O0kK-qRUoinOXQIqBqdTbRLBx-o_GGMRM1QA';
+      storedKey = 'AQ.Ab8RN6KHcIu9pYhq0ThYnGRntG_LviYuIMaFTpmnzmVfw_-v-w';
       localStorage.setItem('ef_gemini_api_key', storedKey);
     }
     this.apiKey = storedKey;
