@@ -306,4 +306,3 @@ Output the feedback in Vietnamese so the user can easily study, but keep the tec
 }
 
 const writing = new WritingModule();
-exportDataWrite = writing;

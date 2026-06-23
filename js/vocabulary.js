@@ -371,4 +371,4 @@ class VocabularyModule {
 
 // Global instance
 const vocab = new VocabularyModule();
-exportData = vocab;
+

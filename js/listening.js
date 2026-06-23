@@ -419,4 +419,3 @@ class ListeningModule {
 }
 
 const listening = new ListeningModule();
-exportDataList = listening;

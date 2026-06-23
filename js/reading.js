@@ -418,4 +418,3 @@ class ReadingModule {
 }
 
 const reading = new ReadingModule();
-exportDataRead = reading;

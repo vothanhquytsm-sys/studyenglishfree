@@ -438,4 +438,3 @@ Return the response STRICTLY in JSON format without markdown wrappers.
 }
 
 const speaking = new SpeakingModule();
-exportDataSpeak = speaking;
