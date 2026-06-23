@@ -123,6 +123,113 @@ class VocabularyDictionary {
     }
   }
 
+  getPrefix(word) {
+    word = word.trim().toLowerCase();
+    if (!word) return null;
+    if (word.length === 1) {
+      return word + 'a';
+    }
+    const charCode0 = word.charCodeAt(0);
+    if (charCode0 < 97 || charCode0 > 122) { // not a-z
+      return '11';
+    }
+    const prefix = word.substring(0, 2);
+    const charCode1 = prefix.charCodeAt(1);
+    if (charCode1 < 97 || charCode1 > 122) { // second char is not a-z
+      return prefix[0] + 'a';
+    }
+    return prefix;
+  }
+
+  async lookupLocalDict(word) {
+    const prefix = this.getPrefix(word);
+    if (!prefix) return null;
+
+    try {
+      // Fetch the gzip-compressed file (served as dict/{prefix}.html)
+      const response = await fetch(`dict/${prefix}.html`);
+      if (!response.ok) {
+        console.warn(`Local dictionary shard not found for prefix: ${prefix}`);
+        return null;
+      }
+      
+      const arrayBuffer = await response.arrayBuffer();
+      const gzipData = new Uint8Array(arrayBuffer);
+      
+      // Decompress using fflate (loaded via CDN, available as global fflate)
+      if (typeof fflate === 'undefined') {
+        console.error('fflate library is not loaded');
+        return null;
+      }
+      
+      const decompressed = fflate.gunzipSync(gzipData);
+      const htmlText = new TextDecoder('utf-8').decode(decompressed);
+      
+      // Parse the decompressed HTML string
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(htmlText, 'text/html');
+      
+      let target = null;
+      try {
+        const safeWord = word.replace(/["\\]/g, '\\$&'); // escape for selector
+        target = doc.querySelector(`a[name="${safeWord}"], variant[name="${safeWord}"]`);
+      } catch (selErr) {
+        console.warn("querySelector failed, falling back to manual search", selErr);
+      }
+      
+      // Fallback search
+      if (!target) {
+        const anchors = doc.getElementsByTagName('a');
+        for (let i = 0; i < anchors.length; i++) {
+          if (anchors[i].getAttribute('name') === word) {
+            target = anchors[i];
+            break;
+          }
+        }
+      }
+      if (!target) {
+        const variants = doc.getElementsByTagName('variant');
+        for (let i = 0; i < variants.length; i++) {
+          if (variants[i].getAttribute('name') === word) {
+            target = variants[i];
+            break;
+          }
+        }
+      }
+      
+      if (!target) {
+        return null;
+      }
+      
+      // Find the closest <w> tag
+      const wElement = target.closest('w');
+      if (!wElement) return null;
+      
+      // Clone the element to manipulate and clean up
+      const clone = wElement.cloneNode(true);
+      
+      // Remove the <var>...</var> variant container
+      const varEl = clone.querySelector('var');
+      if (varEl) varEl.remove();
+      
+      // Remove the <a name="..."/> anchor
+      const aEl = clone.querySelector('a');
+      if (aEl) aEl.remove();
+      
+      // Remove any credit lines (like sachxy.com)
+      clone.querySelectorAll('span, div, p').forEach(el => {
+        if (el.textContent.includes('sachxy.com')) {
+          el.remove();
+        }
+      });
+      
+      return clone.innerHTML.trim();
+    } catch (err) {
+      console.error(`Error looking up word "${word}" in local dict:`, err);
+      return null;
+    }
+  }
+
   async translateSelectedText(text, markElement, lessonKey) {
     let translation = "";
     const cleanText = text.replace(/[.,\/#!$%\^&\*;:{}=\-_~()?]/g, "").toLowerCase().trim();
@@ -139,6 +246,20 @@ class VocabularyDictionary {
         translation = `${found.translation} - Từ vựng CEFR ${found.level}`;
         this.globalCache[cleanText] = translation;
         localStorage.setItem('ef_dict_cache', JSON.stringify(this.globalCache));
+      }
+    }
+
+    // 2.5 Check local compressed dictionary next (~2-5ms)
+    if (!translation) {
+      try {
+        const localDef = await this.lookupLocalDict(cleanText);
+        if (localDef) {
+          translation = localDef;
+          this.globalCache[cleanText] = translation;
+          localStorage.setItem('ef_dict_cache', JSON.stringify(this.globalCache));
+        }
+      } catch (localDictErr) {
+        console.warn("Local compressed dictionary lookup failed:", localDictErr);
       }
     }
 
@@ -251,7 +372,7 @@ Example: for 'curriculum', output: 'chương trình học - Các môn học đư
           <button id="tooltip-btn-delete" style="background:none; border:none; color:var(--danger-color); cursor:pointer; font-size:1rem; padding:0;" title="Xóa chú thích">🗑️</button>
         </div>
       </div>
-      <div style="font-size: 0.85rem; line-height: 1.4; color: var(--text-color);">${text}</div>
+      <div style="font-size: 0.85rem; line-height: 1.4; color: var(--text-color); max-height: 250px; overflow-y: auto; padding-right: 4px;">${text}</div>
     `;
 
     // Tooltip style settings
@@ -263,7 +384,7 @@ Example: for 'curriculum', output: 'chương trình học - Các môn học đư
       borderRadius: 'var(--radius-md)',
       padding: '10px 12px',
       boxShadow: 'var(--shadow-lg)',
-      maxWidth: '280px',
+      maxWidth: '320px',
       pointerEvents: 'auto',
       opacity: '0',
       transition: 'opacity 0.2s ease',
