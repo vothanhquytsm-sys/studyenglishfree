@@ -4,18 +4,7 @@ class App {
   constructor() {
     this.currentTab = 'dashboard';
 
-    let storedKey = localStorage.getItem('ef_gemini_api_key');
-    const oldKeys = [
-      'AQ.Ab8RN6J0X4L5c0o4gZl0wLZlEvHHXzag47HiCHiHD2IxNpgpCA',
-      'AQ.Ab8RN6LNAuCyi33lIfhLrMTInUzKMRIwVLI147Jab-ot2ZGxkQ',
-      'AQ.Ab8RN6IGq66Iv2O0kK-qRUoinOXQIqBqdTbRLBx-o_GGMRM1QA',
-      'AQ.Ab8RN6KHcIu9pYhq0ThYnGRntG_LviYuIMaFTpmnzmVfw_-v-w'
-    ];
-    if (!storedKey || oldKeys.includes(storedKey)) {
-      storedKey = 'AQ.Ab8RN6Kq-5KdH6Fmktd7NXufwLBpyTbgDWRUguwd-Q2j1N3N8w';
-      localStorage.setItem('ef_gemini_api_key', storedKey);
-    }
-    this.apiKey = storedKey;
+    this.apiKey = localStorage.getItem('ef_gemini_api_key') || '';
     this.voiceGender = localStorage.getItem('ef_voice_gender') || 'female';
     this.theme = localStorage.getItem('ef_theme') || 'light';
     this.gitHubToken = localStorage.getItem('ef_github_token') || '';
