@@ -3,18 +3,6 @@
 class App {
   constructor() {
     this.currentTab = 'dashboard';
-    const path = window.location.pathname.toLowerCase();
-    if (path.includes('vocab.html')) {
-      this.currentTab = 'vocab';
-    } else if (path.includes('listening.html')) {
-      this.currentTab = 'listening';
-    } else if (path.includes('reading.html')) {
-      this.currentTab = 'reading';
-    } else if (path.includes('speaking.html')) {
-      this.currentTab = 'speaking';
-    } else if (path.includes('writing.html')) {
-      this.currentTab = 'writing';
-    }
 
     let storedKey = localStorage.getItem('ef_gemini_api_key');
     const oldKeys = [
@@ -153,25 +141,6 @@ class App {
   }
 
   switchTab(tabId) {
-    const filename = tabId === 'dashboard' ? 'index.html' : `${tabId}.html`;
-    const path = window.location.pathname.toLowerCase();
-    
-    // Check if we need to redirect
-    let shouldRedirect = false;
-    if (tabId === 'dashboard') {
-      if (!path.endsWith('/') && !path.endsWith('/index.html') && !path.includes('index.html')) {
-        shouldRedirect = true;
-      }
-    } else {
-      if (!path.includes(filename)) {
-        shouldRedirect = true;
-      }
-    }
-    
-    if (shouldRedirect) {
-      window.location.href = filename;
-      return;
-    }
 
     // Deactivate previous nav item and section
     document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
