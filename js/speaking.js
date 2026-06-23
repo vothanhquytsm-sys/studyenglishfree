@@ -110,7 +110,7 @@ class SpeakingModule {
     }
   }
 
-  startConversation() {
+  startConversation(shouldSpeak = true) {
     this.dialogueHistory = [];
     this.localQuestionIndex = 0;
     
@@ -124,7 +124,9 @@ class SpeakingModule {
     // Say first question
     const firstQ = this.topicQuestions[this.currentTopic][0];
     this.addChatBubble(firstQ, 'ai');
-    this.speakText(firstQ);
+    if (shouldSpeak) {
+      this.speakText(firstQ);
+    }
     
     this.dialogueHistory.push({ role: 'ai', text: firstQ });
   }

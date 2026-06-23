@@ -178,7 +178,7 @@ Cấu trúc JSON bắt buộc:
     this.startConversation();
   }
 
-  startConversation() {
+  startConversation(shouldSpeak = true) {
     this.dialogueHistory = [];
     const chatContainer = document.getElementById('chatbot-chat-messages');
     if (chatContainer) chatContainer.innerHTML = '';
@@ -190,15 +190,15 @@ Cấu trúc JSON bắt buộc:
     if (this.currentTopic === 'chat') {
       welcomeMsg = "Hello! I am teacher Trương Việt Hoàng. Let's chat in English! I will check and correct your spelling and grammar as we converse. How is your day going?";
       this.addChatBubble({ response_english: welcomeMsg, explanation_vietnamese: "Xin chào! Thầy là giáo viên Trương Việt Hoàng. Chúng ta hãy cùng trò chuyện bằng tiếng Anh nhé! Thầy sẽ kiểm tra và sửa lỗi chính tả, ngữ pháp cho em trong quá trình nói chuyện. Ngày hôm nay của em thế nào rồi?" }, 'ai');
-      app.speak(welcomeMsg, 0.88);
+      if (shouldSpeak) app.speak(welcomeMsg, 0.88);
     } else if (this.currentTopic === 'grammar') {
       welcomeMsg = "Please send me any English sentence or paragraph you'd like me to review. I'll check it, correct any mistakes, and explain the grammar points!";
       this.addChatBubble({ response_english: welcomeMsg, explanation_vietnamese: "Em hãy gửi câu hoặc đoạn văn tiếng Anh muốn thầy kiểm tra nhé. Thầy sẽ sửa lỗi sai và giải thích chi tiết cấu trúc ngữ pháp cho em!" }, 'ai');
-      app.speak(welcomeMsg, 0.88);
+      if (shouldSpeak) app.speak(welcomeMsg, 0.88);
     } else if (this.currentTopic === 'lesson') {
       welcomeMsg = "Please enter a topic in the input box above, and I will generate a vocabulary lesson and dynamic exercises for you!";
       this.addChatBubble({ response_english: welcomeMsg, explanation_vietnamese: "Em hãy nhập chủ đề học ở khung phía trên, thầy sẽ biên soạn một bài học kèm bài tập thực hành dành riêng cho em!" }, 'ai');
-      app.speak(welcomeMsg, 0.88);
+      if (shouldSpeak) app.speak(welcomeMsg, 0.88);
     }
   }
 

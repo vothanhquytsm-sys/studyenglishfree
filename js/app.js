@@ -200,9 +200,9 @@ class App {
     } else if (tabId === 'reading') {
       reading.resetView();
     } else if (tabId === 'speaking') {
-      speaking.startConversation();
+      speaking.startConversation(false);
     } else if (tabId === 'chatbot') {
-      chatbot.startConversation();
+      chatbot.startConversation(false);
     } else if (tabId === 'writing') {
       writing.loadTask();
     }
