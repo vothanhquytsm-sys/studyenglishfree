@@ -541,31 +541,55 @@
     </main>
   </div>
 
-  <!-- MODAL: SETTINGS (AI Config) -->
+  <!-- MODAL: SETTINGS (AI Config & Sync) -->
   <div class="modal-overlay" id="settings-modal-overlay">
-    <div class="settings-modal">
+    <div class="settings-modal" style="max-height: 90vh; overflow-y: auto;">
       <div style="display: flex; justify-content: space-between; align-items: center;">
-        <h3>Cấu hình Trợ lý AI (Gemini API)</h3>
+        <h3>Cấu hình Hệ thống & Đồng bộ</h3>
         <button class="btn btn-secondary" onclick="app.closeSettings()" style="padding: 0.3rem 0.6rem;">✕</button>
       </div>
-      <p style="font-size: 0.9rem; color: var(--text-muted);">Trang web hỗ trợ giao tiếp tiếng Anh nâng cao bằng cách kết nối trực tiếp với Gemini API. Nhập API Key của bạn để trải nghiệm tốt nhất.</p>
       
-      <div class="form-group">
-        <label for="settings-api-key">Gemini API Key</label>
-        <input type="password" id="settings-api-key" class="input-field" placeholder="Nhập API Key của bạn (AIzaSy...)">
-        <p style="font-size: 0.8rem; color: var(--text-muted);"><a href="https://aistudio.google.com/" target="_blank" style="color: var(--primary-color);">Lấy API Key miễn phí tại Google AI Studio</a></p>
+      <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; margin-bottom: 1rem; margin-top: 1rem;">
+        <h4 style="margin-bottom: 0.5rem; color: var(--primary-color);">🤖 Cấu hình Trợ lý AI (Gemini)</h4>
+        <div class="form-group">
+          <label for="settings-api-key">Gemini API Key</label>
+          <input type="password" id="settings-api-key" class="input-field" placeholder="Nhập API Key của bạn (AIzaSy...)">
+          <p style="font-size: 0.8rem; color: var(--text-muted);"><a href="https://aistudio.google.com/" target="_blank" style="color: var(--primary-color);">Lấy API Key miễn phí tại Google AI Studio</a></p>
+        </div>
+        <div class="form-group">
+          <label for="settings-voice-gender">Giọng đọc IELTS Examiner</label>
+          <select id="settings-voice-gender" class="input-field">
+            <option value="male">Giọng Nam (UK/US)</option>
+            <option value="female" selected>Giọng Nữ (UK/US)</option>
+          </select>
+        </div>
       </div>
 
-      <div class="form-group">
-        <label for="settings-voice-gender">Giọng đọc IELTS Examiner</label>
-        <select id="settings-voice-gender" class="input-field">
-          <option value="male">Giọng Nam (UK/US)</option>
-          <option value="female" selected>Giọng Nữ (UK/US)</option>
-        </select>
+      <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; margin-bottom: 1rem;">
+        <h4 style="margin-bottom: 0.5rem; color: var(--primary-color);">☁️ Tự động Đồng bộ (GitHub Gist)</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.8rem; line-height: 1.4;">Đồng bộ tiến trình học tập của bạn qua GitHub Gist riêng tư để tránh mất dữ liệu khi đổi trình duyệt/thiết bị.</p>
+        <div class="form-group">
+          <label for="settings-github-token">GitHub Personal Access Token (PAT)</label>
+          <input type="password" id="settings-github-token" class="input-field" placeholder="Nhập GitHub PAT của bạn (ghp_...)">
+          <p style="font-size: 0.8rem; color: var(--text-muted);">Cần quyền `gist`. <a href="https://github.com/settings/tokens/new?scopes=gist&description=EnglishFree%20Sync" target="_blank" style="color: var(--primary-color);">Tạo Token nhanh tại đây</a></p>
+        </div>
+        <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+          <button class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;" onclick="app.syncProgressWithGist()">🔄 Đồng bộ ngay</button>
+          <span id="sync-status-text" style="font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center;">Chưa cấu hình đồng bộ cloud.</span>
+        </div>
       </div>
 
+      <div>
+        <h4 style="margin-bottom: 0.5rem; color: var(--primary-color);">💾 Sao lưu thủ công (Import/Export)</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.8rem; line-height: 1.4;">Sao lưu hoặc phục hồi dữ liệu từ vựng bằng file `.json` trực tiếp.</p>
+        <div style="display: flex; gap: 0.5rem;">
+          <button class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;" onclick="app.exportProgress()">📤 Xuất tiến trình (Export)</button>
+          <button class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;" onclick="document.getElementById('import-file-input').click()">📥 Nhập tiến trình (Import)</button>
+          <input type="file" id="import-file-input" style="display: none;" accept=".json" onchange="app.importProgress(event)">
+        </div>
+      </div>
 
-      <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1rem;">
+      <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1rem;">
         <button class="btn btn-secondary" onclick="app.closeSettings()">Hủy</button>
         <button class="btn btn-primary" onclick="app.saveSettings()">Lưu cấu hình</button>
       </div>

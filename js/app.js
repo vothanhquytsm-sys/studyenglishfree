@@ -16,6 +16,8 @@ class App {
     this.apiKey = storedKey;
     this.voiceGender = localStorage.getItem('ef_voice_gender') || 'female';
     this.theme = localStorage.getItem('ef_theme') || 'light';
+    this.gitHubToken = localStorage.getItem('ef_github_token') || '';
+    this.gistId = localStorage.getItem('ef_gist_id') || '';
     
     // Auth Session
     this.currentUser = localStorage.getItem('ef_current_user') || null;
@@ -43,6 +45,8 @@ class App {
     // Apply settings values to modal inputs
     document.getElementById('settings-api-key').value = this.apiKey;
     document.getElementById('settings-voice-gender').value = this.voiceGender;
+    document.getElementById('settings-github-token').value = this.gitHubToken;
+    this.updateSyncStatusText();
 
     // Authentication Gate
     if (!this.currentUser) {
@@ -69,6 +73,11 @@ class App {
 
     // Activate the current tab section
     this.switchTab(this.currentTab);
+
+    // Silent sync on startup
+    if (this.gitHubToken) {
+      this.syncProgressWithGist(true);
+    }
   }
 
   handleLoginSubmit() {
@@ -127,8 +136,19 @@ class App {
     speaking.init();
     writing.init();
 
+    // Reload settings for this logged-in session
+    this.gitHubToken = localStorage.getItem('ef_github_token') || '';
+    this.gistId = localStorage.getItem('ef_gist_id') || '';
+    document.getElementById('settings-github-token').value = this.gitHubToken;
+    this.updateSyncStatusText();
+
     // Activate the current tab section
     this.switchTab(this.currentTab);
+
+    // Sync on login
+    if (this.gitHubToken) {
+      this.syncProgressWithGist();
+    }
 
     this.showToast(`Chào mừng ${username} đã đăng nhập thành công!`, 'success');
   }
@@ -209,18 +229,27 @@ class App {
   saveSettings() {
     const key = document.getElementById('settings-api-key').value.trim();
     const gender = document.getElementById('settings-voice-gender').value;
+    const ghToken = document.getElementById('settings-github-token').value.trim();
 
     this.apiKey = key;
     this.voiceGender = gender;
+    this.gitHubToken = ghToken;
 
     localStorage.setItem('ef_gemini_api_key', key);
     localStorage.setItem('ef_voice_gender', gender);
+    localStorage.setItem('ef_github_token', ghToken);
 
+    this.updateSyncStatusText();
     this.closeSettings();
     this.showToast('Cấu hình đã được lưu thành công!', 'success');
 
     // Notify speaking module to restart voice parameters if active
     speaking.applyVoiceSettings();
+
+    // Trigger sync if token is provided
+    if (ghToken) {
+      this.syncProgressWithGist();
+    }
   }
 
   showToast(message, type = 'info') {
@@ -301,6 +330,11 @@ class App {
     
     this.updateProgress();
     this.renderStudyHistory();
+
+    // Auto-sync to Gist if token is configured
+    if (this.gitHubToken) {
+      this.syncProgressWithGist(true); // silent sync
+    }
   }
 
   renderStudyHistory() {
@@ -515,6 +549,213 @@ class App {
     }
 
     window.speechSynthesis.speak(utterance);
+  }
+
+  updateSyncStatusText() {
+    const el = document.getElementById('sync-status-text');
+    if (!el) return;
+    if (!this.gitHubToken) {
+      el.textContent = 'Chưa cấu hình đồng bộ cloud.';
+      el.style.color = 'var(--text-muted)';
+      return;
+    }
+    const lastSync = localStorage.getItem('ef_last_sync_time');
+    if (lastSync) {
+      el.textContent = `Đồng bộ lần cuối: ${lastSync}`;
+      el.style.color = 'var(--success-color)';
+    } else {
+      el.textContent = 'Sẵn sàng đồng bộ. Nhấp để đồng bộ ngay.';
+      el.style.color = 'var(--primary-color)';
+    }
+  }
+
+  async syncProgressWithGist(silent = false) {
+    if (!this.gitHubToken) {
+      if (!silent) this.showToast('Vui lòng cấu hình GitHub PAT trước!', 'error');
+      return;
+    }
+
+    if (!silent) this.showToast('Bắt đầu đồng bộ đám mây...', 'info');
+    
+    try {
+      let remoteProgress = null;
+      let gistId = this.gistId;
+      const headers = {
+        'Authorization': `token ${this.gitHubToken}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      };
+
+      // 1. If we don't have a gistId, search if a gist already exists with description 'EnglishFree Study Progress'
+      if (!gistId) {
+        const listResponse = await fetch('https://api.github.com/gists', { headers });
+        if (listResponse.ok) {
+          const gists = await listResponse.json();
+          const existingGist = gists.find(g => g.description === 'EnglishFree Study Progress');
+          if (existingGist) {
+            gistId = existingGist.id;
+            this.gistId = gistId;
+            localStorage.setItem('ef_gist_id', gistId);
+          }
+        }
+      }
+
+      // 2. Fetch remote progress if gistId is found
+      if (gistId) {
+        const gistResponse = await fetch(`https://api.github.com/gists/${gistId}`, { headers });
+        if (gistResponse.ok) {
+          const gistData = await gistResponse.json();
+          const fileContent = gistData.files['englishfree_progress.json'];
+          if (fileContent && fileContent.content) {
+            remoteProgress = JSON.parse(fileContent.content);
+          }
+        } else if (gistResponse.status === 404) {
+          // Reset Gist ID if deleted on remote
+          gistId = null;
+          this.gistId = '';
+          localStorage.removeItem('ef_gist_id');
+        }
+      }
+
+      // 3. Merge progress
+      let mergedProgress = this.progress;
+      if (remoteProgress) {
+        mergedProgress = this.mergeProgress(this.progress, remoteProgress);
+        this.progress = mergedProgress;
+        const progressKey = this.currentUser ? 'ef_progress_' + this.currentUser : 'ef_progress';
+        localStorage.setItem(progressKey, JSON.stringify(this.progress));
+        this.updateProgress();
+        this.renderStudyHistory();
+        // Reload views for active tab
+        if (this.currentTab === 'vocab') vocab.resetView();
+        else if (this.currentTab === 'listening') listening.resetView();
+        else if (this.currentTab === 'reading') reading.resetView();
+      }
+
+      // 4. Update or Create Gist
+      const gistPayload = {
+        description: 'EnglishFree Study Progress',
+        public: false,
+        files: {
+          'englishfree_progress.json': {
+            content: JSON.stringify(this.progress, null, 2)
+          }
+        }
+      };
+
+      let saveResponse;
+      if (gistId) {
+        saveResponse = await fetch(`https://api.github.com/gists/${gistId}`, {
+          method: 'PATCH',
+          headers,
+          body: JSON.stringify(gistPayload)
+        });
+      } else {
+        saveResponse = await fetch('https://api.github.com/gists', {
+          method: 'POST',
+          headers,
+          body: JSON.stringify(gistPayload)
+        });
+      }
+
+      if (saveResponse.ok) {
+        if (!gistId) {
+          const newGistData = await saveResponse.json();
+          this.gistId = newGistData.id;
+          localStorage.setItem('ef_gist_id', newGistData.id);
+        }
+        const now = new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) + ' ' + new Date().toLocaleDateString('vi-VN');
+        localStorage.setItem('ef_last_sync_time', now);
+        this.updateSyncStatusText();
+        if (!silent) this.showToast('Đồng bộ đám mây thành công!', 'success');
+      } else {
+        throw new Error('Gist save failed');
+      }
+    } catch (err) {
+      console.error('Sync error:', err);
+      if (!silent) this.showToast('Lỗi đồng bộ đám mây!', 'error');
+    }
+  }
+
+  mergeProgress(local, remote) {
+    const merged = {};
+    merged.wordsLearned = Array.from(new Set([...(local.wordsLearned || []), ...(remote.wordsLearned || [])]));
+    merged.listeningCompleted = Array.from(new Set([...(local.listeningCompleted || []), ...(remote.listeningCompleted || [])]));
+    merged.readingCompleted = Array.from(new Set([...(local.readingCompleted || []), ...(remote.readingCompleted || [])]));
+    merged.speakingCompleted = Array.from(new Set([...(local.speakingCompleted || []), ...(remote.speakingCompleted || [])]));
+    merged.writingCompleted = Array.from(new Set([...(local.writingCompleted || []), ...(remote.writingCompleted || [])]));
+    merged.testsPassed = Math.max(local.testsPassed || 0, remote.testsPassed || 0);
+
+    // Merge vocabProgress
+    merged.vocabProgress = {};
+    const levels = ['A1', 'A2', 'B1', 'B2'];
+    levels.forEach(lvl => {
+      const valLocal = (local.vocabProgress || {})[lvl] || 1;
+      const valRemote = (remote.vocabProgress || {})[lvl] || 1;
+      merged.vocabProgress[lvl] = Math.max(valLocal, valRemote);
+    });
+
+    // Merge dailyLog
+    merged.dailyLog = {};
+    const dates = new Set([...Object.keys(local.dailyLog || {}), ...Object.keys(remote.dailyLog || {})]);
+    dates.forEach(date => {
+      const logL = (local.dailyLog || {})[date] || { words: [], listening: [], reading: [] };
+      const logR = (remote.dailyLog || {})[date] || { words: [], listening: [], reading: [] };
+      merged.dailyLog[date] = {
+        words: Array.from(new Set([...(logL.words || []), ...(logR.words || [])])),
+        listening: Array.from(new Set([...(logL.listening || []), ...(logR.listening || [])])),
+        reading: Array.from(new Set([...(logL.reading || []), ...(logR.reading || [])]))
+      };
+    });
+
+    return merged;
+  }
+
+  exportProgress() {
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.progress, null, 2));
+    const downloadAnchor = document.createElement('a');
+    downloadAnchor.setAttribute("href", dataStr);
+    downloadAnchor.setAttribute("download", `englishfree_progress_${this.currentUser || 'user'}.json`);
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    downloadAnchor.remove();
+    this.showToast('Đã tải xuống file sao lưu tiến trình!', 'success');
+  }
+
+  importProgress(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      try {
+        const importedData = JSON.parse(e.target.result);
+        if (confirm('Bạn có muốn gộp dữ liệu từ file sao lưu này với tiến trình học hiện tại không?')) {
+          this.progress = this.mergeProgress(this.progress, importedData);
+          const progressKey = this.currentUser ? 'ef_progress_' + this.currentUser : 'ef_progress';
+          localStorage.setItem(progressKey, JSON.stringify(this.progress));
+          
+          this.updateProgress();
+          this.renderStudyHistory();
+          
+          // Reload views
+          if (this.currentTab === 'vocab') vocab.resetView();
+          else if (this.currentTab === 'listening') listening.resetView();
+          else if (this.currentTab === 'reading') reading.resetView();
+
+          this.showToast('Gộp tiến trình học thành công!', 'success');
+          
+          // Sync with Gist if configured
+          if (this.gitHubToken) {
+            this.syncProgressWithGist(true);
+          }
+        }
+      } catch (err) {
+        alert('Lỗi định dạng file! Vui lòng chọn file JSON sao lưu hợp lệ.');
+      }
+    };
+    reader.readAsText(file);
+    event.target.value = ''; // Reset file input
   }
 }
 
