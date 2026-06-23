@@ -142,14 +142,67 @@ class VocabularyDictionary {
       }
     }
 
-    // 3. Fallback to Gemini API call only if not found (latency ~1s)
+    // 3. Fallback to Online API calls (Google Translate + Free Dictionary API) - keyless, lightning-fast
+    if (!translation) {
+      try {
+        // Fetch translation from Google Translate (extremely fast, CORS-enabled, no key required)
+        const gTranslateUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&dt=t&q=${encodeURIComponent(cleanText)}`;
+        const gResponse = await fetch(gTranslateUrl);
+        let viTranslation = "";
+        if (gResponse.ok) {
+          const gData = await gResponse.json();
+          if (gData && gData[0] && gData[0][0] && gData[0][0][0]) {
+            viTranslation = gData[0][0][0].trim();
+          }
+        }
+
+        // Fetch English definition & pronunciation from Free Dictionary API (CORS-enabled, no key required)
+        let enDef = "";
+        let phonetic = "";
+        if (cleanText.split(/\s+/).length === 1) { // only lookup single words in dictionary
+          try {
+            const dictUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(cleanText)}`;
+            const dictResponse = await fetch(dictUrl);
+            if (dictResponse.ok) {
+              const dictData = await dictResponse.json();
+              if (dictData && dictData[0]) {
+                phonetic = dictData[0].phonetic || (dictData[0].phonetics && dictData[0].phonetics[0] ? dictData[0].phonetics[0].text : "");
+                if (dictData[0].meanings && dictData[0].meanings[0] && dictData[0].meanings[0].definitions && dictData[0].meanings[0].definitions[0]) {
+                  enDef = dictData[0].meanings[0].definitions[0].definition;
+                }
+              }
+            }
+          } catch (dictErr) {
+            console.warn("Free Dictionary API failed:", dictErr);
+          }
+        }
+
+        // Assemble translation
+        if (viTranslation) {
+          translation = viTranslation;
+          if (phonetic) {
+            translation += ` ${phonetic}`;
+          }
+          if (enDef) {
+            const shortDef = enDef.length > 80 ? enDef.substring(0, 77) + "..." : enDef;
+            translation += ` — Def: ${shortDef}`;
+          }
+          
+          this.globalCache[cleanText] = translation;
+          localStorage.setItem('ef_dict_cache', JSON.stringify(this.globalCache));
+        }
+      } catch (apiErr) {
+        console.error("Online API translation failed:", apiErr);
+      }
+    }
+
+    // 4. Ultimate fallback to Gemini API if online APIs failed and key is available
     if (!translation && typeof app !== 'undefined' && app.apiKey) {
       const systemPrompt = `You are a helpful English-Vietnamese dictionary. Provide a precise, concise Vietnamese translation and a short explanation for the given word or phrase.
 Output format: '[Vietnamese Translation] - [Short explanation (under 15 words) in Vietnamese]'.
 Example: for 'curriculum', output: 'chương trình học - Các môn học được giảng dạy tại trường'.`;
       
       try {
-        // Request with maxTokens = 60 for significantly faster API response time
         const reply = await app.callGemini(systemPrompt, text, 60);
         if (reply) {
           translation = reply.trim();
@@ -157,12 +210,12 @@ Example: for 'curriculum', output: 'chương trình học - Các môn học đư
           localStorage.setItem('ef_dict_cache', JSON.stringify(this.globalCache));
         }
       } catch (e) {
-        console.error("Gemini dictionary call error", e);
+        console.error("Gemini dictionary backup call error", e);
       }
     }
 
     if (!translation) {
-      translation = "Dịch nghĩa chưa khả dụng (Vui lòng cấu hình API Key)";
+      translation = "Dịch nghĩa chưa khả dụng (Hãy kiểm tra kết nối mạng)";
     }
 
     // Save annotation for this lesson
