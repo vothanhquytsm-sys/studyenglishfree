@@ -9,19 +9,20 @@ class ChatbotModule {
     this.lessonData = null;
     
     // System Prompts matching the python codebase
-    this.chatbotSystemPrompt = `Bạn là một giáo viên dạy tiếng Anh tận tình tên là Trương Việt Hoàng, luôn hướng dẫn học sinh từng bước.
+    this.chatbotSystemPrompt = `Bạn là một người bạn và trợ lý học tiếng Anh thân thiện tên là Janet.
 
 Nhiệm vụ của bạn:
-- Khi học sinh nhắn tin, hãy trả lời bằng tiếng Anh trước, sau đó giải thích bằng tiếng Việt.
-- Học sinh có thể đặt câu hỏi bằng tiếng Anh hoặc tiếng Việt. Bạn phải hiểu và xử lý được cả hai.
-- Nếu học sinh viết câu sai, hãy:
+- Khi bạn học nhắn tin, hãy trả lời bằng tiếng Anh trước, sau đó giải thích bằng tiếng Việt.
+- Trong giao tiếp tiếng Việt, hãy xưng hô là "mình" và gọi đối phương là "bạn".
+- Đối phương có thể đặt câu hỏi bằng tiếng Anh hoặc tiếng Việt. Bạn phải hiểu và xử lý được cả hai.
+- Nếu đối phương viết câu sai, hãy:
   1. Chỉ ra lỗi sai chính xác.
-  2. Giải thích tại sao sai.
+  2. Giải thích tại sao sai bằng tiếng Việt (xưng hô mình - bạn).
   3. Đưa ra ví dụ sửa đúng.
-- Khi trả lời câu hỏi, hãy giải thích chi tiết, rõ ràng, dễ hiểu cho học sinh cấp 2.
-- Duy trì thái độ kiên nhẫn, khích lệ, thân thiện.
-- Có thể hỏi ngược lại học sinh để kích thích suy nghĩ và thực hành.
-- Khi trả lời, xuống dòng bằng ký tự \\n. Không viết liền một đoạn.
+- Khi trả lời câu hỏi, hãy giải thích rõ ràng, dễ hiểu.
+- Duy trì thái độ thân thiện, khích lệ và tự nhiên của một người bạn.
+- Có thể hỏi ngược lại đối phương để kích thích suy nghĩ và thực hành.
+- Khi trả lời, xuống dòng bằng ký tự \n. Không viết liền một đoạn.
 
 ⚠️ QUY ĐỊNH QUAN TRỌNG:
 - Luôn trả về DUY NHẤT JSON thuần.
@@ -34,28 +35,28 @@ Nhiệm vụ của bạn:
 
 Cấu trúc JSON bắt buộc:
 {
-  "response_english": "Câu trả lời bằng tiếng Anh, có xuống dòng \\n nếu cần",
-  "explanation_vietnamese": "Giải thích bằng tiếng Việt, có xuống dòng \\n",
-  "correction": "Sửa câu nếu học sinh sai, hoặc để trống nếu không có lỗi"
+  "response_english": "Câu trả lời bằng tiếng Anh, có xuống dòng \n nếu cần",
+  "explanation_vietnamese": "Giải thích bằng tiếng Việt, có xuống dòng \n",
+  "correction": "Sửa câu nếu đối phương sai, hoặc để trống nếu không có lỗi"
 }
 
 Ví dụ đúng:
 {
-  "response_english": "I went to school yesterday.\\nThis is the correct past tense form.",
-  "explanation_vietnamese": "Bạn đã dùng sai thì quá khứ.\\nĐộng từ 'go' đổi thành 'went' trong quá khứ.",
+  "response_english": "I went to school yesterday.\nThis is the correct past tense form.",
+  "explanation_vietnamese": "Bạn đã dùng sai thì quá khứ rồi nè.\nĐộng từ 'go' đổi thành 'went' trong quá khứ nhé.",
   "correction": "I went to school yesterday."
 }`;
 
-    this.grammarSystemPrompt = `Bạn là một giáo viên dạy tiếng Anh tận tình tên là Trương Việt Hoàng. 
-Nhiệm vụ của bạn là sửa lỗi ngữ pháp và giải thích chi tiết cho câu học sinh gửi.
+    this.grammarSystemPrompt = `Bạn là một trợ lý học tiếng Anh thân thiện tên là Janet.
+Nhiệm vụ của bạn là sửa lỗi ngữ pháp và giải thích chi tiết cho câu bạn học gửi. Trong giao tiếp bằng tiếng Việt, hãy xưng hô là "mình" và gọi đối phương là "bạn".
 Định dạng câu trả lời bằng JSON thuần giống hệt như sau, không có markdown hay text khác ngoài JSON:
 {
   "response_english": "Sentence corrected or rewritten naturally, with explanations of structural points.",
-  "explanation_vietnamese": "Giải thích ngữ pháp chi tiết bằng tiếng Việt, các cấu trúc cần lưu ý, ví dụ tương đương.",
-  "correction": "Câu tiếng Anh đã được sửa đúng ngữ pháp hoàn chỉnh (để trống nếu câu học sinh gửi đã hoàn toàn chính xác)"
+  "explanation_vietnamese": "Giải thích ngữ pháp chi tiết bằng tiếng Việt (xưng hô mình - bạn), các cấu trúc cần lưu ý, ví dụ tương đương.",
+  "correction": "Câu tiếng Anh đã được sửa đúng ngữ pháp hoàn chỉnh (để trống nếu câu bạn học gửi đã hoàn toàn chính xác)"
 }`;
 
-    this.lessonGeneratePrompt = `Bạn là một giáo viên dạy tiếng Anh chuyên nghiệp. 
+    this.lessonGeneratePrompt = `Bạn là một trợ lý học tiếng Anh chuyên nghiệp tên là Janet. 
 Hãy soạn một bài học tiếng Anh ngắn gọn, chất lượng cao theo chủ đề: {topic}.
 Định dạng trả về là JSON thuần, KHÔNG CÓ MARKDOWN WRAPPER (\`\`\`json), KHÔNG CÓ TEXT ngoài JSON.
 
@@ -80,7 +81,7 @@ Cấu trúc JSON bắt buộc:
   ],
   "conversation": [
     {
-      "speaker": "Teacher",
+      "speaker": "Janet",
       "text": "Câu nói tiếng Anh",
       "translation": "Dịch tiếng Việt"
     },
@@ -104,6 +105,10 @@ Cấu trúc JSON bắt buộc:
 
   init() {
     this.initSpeechRecognition();
+  }
+
+  applyVoiceSettings() {
+    console.log("Voice settings updated. Gender:", app.voiceGender);
   }
 
   initSpeechRecognition() {
@@ -188,16 +193,16 @@ Cấu trúc JSON bắt buộc:
 
     let welcomeMsg = "";
     if (this.currentTopic === 'chat') {
-      welcomeMsg = "Hello! I am teacher Trương Việt Hoàng. Let's chat in English! I will check and correct your spelling and grammar as we converse. How is your day going?";
-      this.addChatBubble({ response_english: welcomeMsg, explanation_vietnamese: "Xin chào! Thầy là giáo viên Trương Việt Hoàng. Chúng ta hãy cùng trò chuyện bằng tiếng Anh nhé! Thầy sẽ kiểm tra và sửa lỗi chính tả, ngữ pháp cho em trong quá trình nói chuyện. Ngày hôm nay của em thế nào rồi?" }, 'ai');
+      welcomeMsg = "Hello! I am Janet. Let's chat in English! I will check and correct your spelling and grammar as we converse. How is your day going?";
+      this.addChatBubble({ response_english: welcomeMsg, explanation_vietnamese: "Xin chào! Mình là Janet. Chúng ta hãy cùng trò chuyện bằng tiếng Anh nhé! Mình sẽ kiểm tra và sửa lỗi chính tả, ngữ pháp cho bạn trong quá trình nói chuyện. Ngày hôm nay của bạn thế nào rồi?" }, 'ai');
       if (shouldSpeak) app.speak(welcomeMsg, 0.88);
     } else if (this.currentTopic === 'grammar') {
       welcomeMsg = "Please send me any English sentence or paragraph you'd like me to review. I'll check it, correct any mistakes, and explain the grammar points!";
-      this.addChatBubble({ response_english: welcomeMsg, explanation_vietnamese: "Em hãy gửi câu hoặc đoạn văn tiếng Anh muốn thầy kiểm tra nhé. Thầy sẽ sửa lỗi sai và giải thích chi tiết cấu trúc ngữ pháp cho em!" }, 'ai');
+      this.addChatBubble({ response_english: welcomeMsg, explanation_vietnamese: "Bạn hãy gửi câu hoặc đoạn văn tiếng Anh muốn mình kiểm tra nhé. Mình sẽ sửa lỗi sai và giải thích chi tiết cấu trúc ngữ pháp cho bạn!" }, 'ai');
       if (shouldSpeak) app.speak(welcomeMsg, 0.88);
     } else if (this.currentTopic === 'lesson') {
       welcomeMsg = "Please enter a topic in the input box above, and I will generate a vocabulary lesson and dynamic exercises for you!";
-      this.addChatBubble({ response_english: welcomeMsg, explanation_vietnamese: "Em hãy nhập chủ đề học ở khung phía trên, thầy sẽ biên soạn một bài học kèm bài tập thực hành dành riêng cho em!" }, 'ai');
+      this.addChatBubble({ response_english: welcomeMsg, explanation_vietnamese: "Bạn hãy nhập chủ đề học ở khung phía trên, mình sẽ biên soạn một bài học kèm bài tập thực hành dành riêng cho bạn!" }, 'ai');
       if (shouldSpeak) app.speak(welcomeMsg, 0.88);
     }
   }
@@ -218,7 +223,7 @@ Cấu trúc JSON bắt buộc:
 
       let html = `
         <div style="font-weight: 700; color: var(--primary-color); display: flex; align-items: center; justify-content: space-between; gap: 8px; border-bottom: 1px dashed var(--border-color); padding-bottom: 4px; margin-bottom: 6px; font-size: 0.85rem;">
-          <span>👨‍🏫 Thầy Việt Hoàng</span>
+          <span>👩‍🏫 Janet</span>
           <button class="btn-tts-read" style="background:none; border:none; cursor:pointer; font-size:1rem; padding:0; color: var(--text-muted);" title="Phát âm">🔊</button>
         </div>
         <div class="english-box" style="font-weight: 600; font-size: 0.95rem; line-height: 1.5; color: var(--text-color);">${englishText.replace(/\n/g, '<br/>')}</div>
@@ -276,7 +281,7 @@ Cấu trúc JSON bắt buộc:
     const chatContainer = document.getElementById('chatbot-chat-messages');
     const loadingBubble = document.createElement('div');
     loadingBubble.className = 'chat-bubble loading-bubble';
-    loadingBubble.textContent = 'Thầy Hoàng đang nhập tin nhắn...';
+    loadingBubble.textContent = 'Janet đang nhập tin nhắn...';
     Object.assign(loadingBubble.style, {
       alignSelf: 'flex-start',
       backgroundColor: 'var(--panel-bg)',
@@ -297,9 +302,9 @@ Cấu trúc JSON bắt buộc:
       
       // Assemble conversation history for AI (keep last 10 messages to save tokens)
       const recentHistory = this.dialogueHistory.slice(-10);
-      const historyStr = recentHistory.map(h => `${h.role === 'user' ? 'Học sinh' : 'Giáo viên'}: ${h.content}`).join('\n');
+      const historyStr = recentHistory.map(h => `${h.role === 'user' ? 'Bạn học' : 'Janet'}: ${h.content}`).join('\n');
       
-      const response = await app.callAI(sysPrompt, `Lịch sử hội thoại:\n${historyStr}\n\nHọc sinh nói: ${text}`);
+      const response = await app.callAI(sysPrompt, `Lịch sử hội thoại:\n${historyStr}\n\nBạn học nói: ${text}`);
       if (response) {
         try {
           let cleanResponse = response.trim();
@@ -312,7 +317,7 @@ Cấu trúc JSON bắt buộc:
           // Construct a basic structured object if JSON parsing failed
           aiResult = {
             response_english: "I understand. Let's keep practicing!",
-            explanation_vietnamese: "Thầy hiểu rồi. Chúng ta hãy tiếp tục luyện tập nhé! (Lưu ý: Phản hồi của hệ thống lỗi định dạng JSON: " + jsonErr.message + ")",
+            explanation_vietnamese: "Mình hiểu rồi. Chúng ta hãy tiếp tục luyện tập nhé! (Lưu ý: Phản hồi của hệ thống lỗi định dạng JSON: " + jsonErr.message + ")",
             correction: ""
           };
         }
@@ -324,7 +329,7 @@ Cấu trúc JSON bắt buộc:
       if (!aiResult) {
         aiResult = {
           response_english: "Sorry, I am having trouble connecting to my brain right now. Please check your network connection.",
-          explanation_vietnamese: "Xin lỗi em, thầy đang gặp chút trục trặc kết nối. Hãy kiểm tra lại mạng Internet nhé.",
+          explanation_vietnamese: "Xin lỗi bạn, mình đang gặp chút trục trặc kết nối. Hãy kiểm tra lại mạng Internet nhé.",
           correction: ""
         };
       }

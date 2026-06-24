@@ -82,13 +82,7 @@
         <li class="nav-item" id="nav-speaking">
           <a href="#" onclick="app.switchTab('speaking'); return false;">
             <svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg>
-            <span>Speaking</span>
-          </a>
-        </li>
-        <li class="nav-item" id="nav-chatbot">
-          <a href="#" onclick="app.switchTab('chatbot'); return false;">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
-            <span>AI Chatbot</span>
+            <span>Speaking (Janet)</span>
           </a>
         </li>
         <li class="nav-item" id="nav-writing">
@@ -430,59 +424,8 @@
         </div>
       </section>
 
-      <!-- SECTION: SPEAKING -->
+      <!-- SECTION: SPEAKING (Janet Chatbot) -->
       <section id="section-speaking" class="app-section">
-        <div class="speaking-layout">
-          <!-- Left side: topic selector -->
-          <div class="speaking-topics">
-            <h3>Chủ đề giao tiếp</h3>
-            <button class="speaking-topic-btn active" id="speaking-topic-intro" onclick="speaking.selectTopic('intro')">
-              <strong>1. Giới thiệu bản thân</strong>
-              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Trả lời câu hỏi tự giới thiệu bản thân thông dụng.</p>
-            </button>
-            <button class="speaking-topic-btn" id="speaking-topic-restaurant" onclick="speaking.selectTopic('restaurant')">
-              <strong>2. Đi nhà hàng</strong>
-              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Đặt đồ ăn, tương tác tại nhà hàng.</p>
-            </button>
-            <button class="speaking-topic-btn" id="speaking-topic-ielts" onclick="speaking.selectTopic('ielts')">
-              <strong>3. IELTS Speaking Test</strong>
-              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Luyện phản xạ với câu hỏi thi IELTS ngẫu nhiên.</p>
-            </button>
-          </div>
-
-          <!-- Right side: chat area -->
-          <div style="display: flex; flex-direction: column; gap: 1.5rem; flex-grow: 1;">
-            <div class="speaking-chat-pane">
-              <div class="chat-messages" id="speaking-chat-messages">
-                <!-- Chat bubbles -->
-              </div>
-              <div class="speaking-input-area">
-                <input type="text" class="chat-input" id="speaking-text-input" placeholder="Nhập câu trả lời của bạn hoặc nhấp nút micro..." onkeydown="speaking.handleInputKeydown(event)">
-                <button class="btn btn-danger btn-icon" id="btn-speaking-mic" onclick="speaking.toggleMic()">
-                  <svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg>
-                </button>
-                <button class="btn btn-primary" onclick="speaking.sendUserMessage()">Gửi</button>
-              </div>
-            </div>
-
-            <!-- Speech visual status -->
-            <div id="speaking-status-alert" style="text-align: center; color: var(--primary-color); font-weight: 600; display: none;">
-              🎙️ AI đang lắng nghe... hãy bắt đầu nói tiếng Anh.
-            </div>
-
-            <!-- Feedback card -->
-            <div class="ai-feedback-card" id="speaking-feedback-box" style="display: none;">
-              <h3>Đánh giá câu trả lời & Sửa lỗi</h3>
-              <div id="speaking-feedback-content" style="margin-top: 0.75rem; font-size: 1rem; line-height: 1.6;">
-                <!-- Feedbacks -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SECTION: AI CHATBOT -->
-      <section id="section-chatbot" class="app-section">
         <div class="speaking-layout">
           <!-- Left side: topic selector -->
           <div class="speaking-topics">
@@ -493,7 +436,7 @@
             </button>
             <button class="speaking-topic-btn" id="chatbot-topic-grammar" onclick="chatbot.selectTopic('grammar')">
               <strong>✍️ Sửa lỗi & Giải thích</strong>
-              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Gửi bất kỳ câu tiếng Anh nào để thầy sửa lỗi ngữ pháp chi tiết.</p>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Gửi bất kỳ câu tiếng Anh nào để Janet sửa lỗi ngữ pháp chi tiết.</p>
             </button>
             <button class="speaking-topic-btn" id="chatbot-topic-lesson" onclick="chatbot.selectTopic('lesson')">
               <strong>📖 Tạo bài học & Bài tập</strong>
@@ -666,12 +609,11 @@
   <script src="https://cdn.jsdelivr.net/npm/fflate@0.8.2/lib/browser.min.js"></script>
   <script src="js/dictionary.js?v=1.0.4"></script>
   
-  <script src="js/app.js?v=1.0.4"></script>
-  <script src="js/vocabulary.js?v=1.0.4"></script>
-  <script src="js/listening.js?v=1.0.4"></script>
-  <script src="js/reading.js?v=1.0.4"></script>
-  <script src="js/speaking.js?v=1.0.4"></script>
-  <script src="js/chatbot.js?v=1.0.4"></script>
-  <script src="js/writing.js?v=1.0.4"></script>
+  <script src="js/app.js?v=1.0.5"></script>
+  <script src="js/vocabulary.js?v=1.0.5"></script>
+  <script src="js/listening.js?v=1.0.5"></script>
+  <script src="js/reading.js?v=1.0.5"></script>
+  <script src="js/chatbot.js?v=1.0.5"></script>
+  <script src="js/writing.js?v=1.0.5"></script>
 </body>
 </html>

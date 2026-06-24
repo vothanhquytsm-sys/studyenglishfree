@@ -57,7 +57,6 @@ class App {
     vocab.init();
     listening.init();
     reading.init();
-    speaking.init();
     chatbot.init();
     writing.init();
 
@@ -123,7 +122,6 @@ class App {
     vocab.init();
     listening.init();
     reading.init();
-    speaking.init();
     chatbot.init();
     writing.init();
 
@@ -170,8 +168,7 @@ class App {
       'vocab': 'Từ vựng thông dụng (3000 từ)',
       'listening': 'Luyện nghe IELTS Listening',
       'reading': 'Luyện đọc IELTS Reading & Shadowing',
-      'speaking': 'Luyện nói cùng Trợ lý AI Speaking',
-      'chatbot': 'Học cùng AI Chatbot (Trương Việt Hoàng)',
+      'speaking': 'Trò chuyện & Luyện nói cùng Janet (AI)',
       'writing': 'Luyện viết IELTS Writing Task 1 & 2'
     };
     document.getElementById('current-section-title').textContent = titles[tabId] || 'EnglishFree';
@@ -187,8 +184,6 @@ class App {
     } else if (tabId === 'reading') {
       reading.resetView();
     } else if (tabId === 'speaking') {
-      speaking.startConversation(false);
-    } else if (tabId === 'chatbot') {
       chatbot.startConversation(false);
     } else if (tabId === 'writing') {
       writing.loadTask();
@@ -235,7 +230,7 @@ class App {
     this.showToast('Cấu hình đã được lưu thành công!', 'success');
 
     // Notify speaking module to restart voice parameters if active
-    speaking.applyVoiceSettings();
+    chatbot.applyVoiceSettings();
 
     // Trigger sync if token is provided
     if (ghToken) {
