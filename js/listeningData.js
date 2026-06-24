@@ -1,9 +1,10 @@
 // IELTS Listening Data for EnglishFree
-// Contains 75 fully-detailed lessons with transcripts and quizzes scraped from elllo.org.
+// Contains 75 rebuilt Ello lessons (gapfill 10 questions) and 4 custom IELTS simulation lessons.
 
 const LISTENING_DATA = [
   {
     "id": "001",
+    "category": "ello",
     "title": "Athletes and Pay",
     "audioFile": "audio/001-MXR-athletes.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -11,72 +12,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Jeanie says ________ do not get paid enough.",
-        "options": [
-          "athletes",
-          "firemen",
-          "teachers"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Jeannie: \"I do think ________ athletes do make too much money, just by comparison with other professions, for example teachers, who I think are a lot more important with the job that they do.\"",
+        "answer": "professional"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Kate says _______ make too much.",
-        "options": [
-          "hockey players",
-          "most atheletes do not"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeannie: \"They don't get paid ________ and then you have people who are just playing a game and they get paid so much money and I think it's a little unfair.\"",
+        "answer": "enough"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Jim talks about _________ .",
-        "options": [
-          "American soccer players",
-          "nurses and doctors",
-          "policemen"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Kate: \"________, I heard about the NHL in Canada, the hockey, and their asking for more money, and more money, and I think it's, they should just take the money that they have because they get a lot of money already.\"",
+        "answer": "However"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Rina things athletes should _________ .",
-        "options": [
-          "reap the benefits",
-          "earn less",
-          "risk their lives"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jim: \"I think athletes make far too much money, ________ footballers.\"",
+        "answer": "especially"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "One player makes 100,000 pounds _______ every.",
-        "options": [
-          "year",
-          "month",
-          "seven days"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Jim: \"I think that ________ like nurses, doctors, teachers, they should be getting more money, not people who play sport.\"",
+        "answer": "people"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Todd thinks the athletes _______ the money.",
-        "options": [
-          "deserve",
-          "do not deserve"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Rina: \"They're protraying their image publicly and risking their bodies to ________ us and there's a lot of money that goes into it, why shouldn't they reap the benefits .\"",
+        "answer": "entertain"
+      },
+      {
+        "id": "q7",
+        "type": "gapfill",
+        "question": "Al: \"Yes, I certainly think, especially ________ footballers earn much too much money.\"",
+        "answer": "professional"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Todd: \"Ah, no, I don't think they make too much ________.\"",
+        "answer": "money"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Todd: \"I mean they make a lot of money, and it seems crazy that they make so much money, but the ________ line is so many people watch their games buy their jerseys.\"",
+        "answer": "bottom"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Todd: \"Maybe they should give a little more to ________, or give some of the money back to the communities, but yeah, they deserve the money they get.\"",
+        "answer": "charity"
       }
     ]
   },
   {
     "id": "002",
+    "category": "ello",
     "title": "Bad Jobs",
     "audioFile": "audio/002-MXR-badjob.mp3",
     "description": "Listen to what six people talk about a job that they would hate to do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -84,80 +82,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Why doesn\\'t Akane want to be a homemaker?",
-        "options": [
-          "She doesn\\'t like to stay at home",
-          "She doesn\\'t know how to cook"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Akane: \"What is one job that you would ________ to do?\"",
+        "answer": "hate"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Barbara thinks being a salesperson is difficult because __________.",
-        "options": [
-          "people never need things",
-          "people spend money they don't have."
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Akane: \"Well, I suppose one job that I would really hate to do is to be a homemaker, and I know that this is a very ________ job, and a very respectful one, but I don't think it's for me.\"",
+        "answer": "important"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Naomi thinks an office job would be _______.",
-        "options": [
-          "relaxing",
-          "boring"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Barbara: \"One job that I would really ________ to do would be to be a salesperson.\"",
+        "answer": "hate"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Simon says that when you sit in an office cubical________.",
-        "options": [
-          "the lights are bad",
-          "you can enjoy nature"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Barbara: \"I would really ________ to do that.\"",
+        "answer": "hate"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Why does Mark think arbage collecting would be a terrible job?",
-        "options": [
-          "Garbage smells",
-          "You don't get paid well"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Naomi: \"One job that I wouldn't like to do is a office job, ________ in the office, all the time, 9 to 5, five-days-week office job.\"",
+        "answer": "completely"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "It would be hard for Ruth to be a vet because __________.",
-        "options": [
-          "she hates animals",
-          "sick animals make her sad"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Simon: \"Yeah, hi, what job ________'t I do?\"",
+        "answer": "couldn"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What reasons AREN\\'T given for a job being bad?",
-        "options": [
-          "boring",
-          "too many people",
-          "disgusting",
-          "no respect"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Simon: \"You're crunching numbers all day, everyday with no ________, no energy, yeah.\"",
+        "answer": "creativity"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Mark: \"I ________, ah, it's gross, it stinks.\"",
+        "answer": "just"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Ruth: \"Oh, ________, that has to be a vet.\"",
+        "answer": "yeah"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Ruth: \"No, I ________ that as being a really awful job, and I have real respect for people who do it.\"",
+        "answer": "associate"
       }
     ]
   },
   {
     "id": "003",
+    "category": "ello",
     "title": "Cats vs. Dogs",
     "audioFile": "audio/003-MXR-catsdogs.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -165,80 +152,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Kate prefers dogs because ____________.",
-        "options": [
-          "they are like children",
-          "they are cuter than cats"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Kate: \"Between cats and dogs I ________ prefer dogs.\"",
+        "answer": "definitely"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What problem does Tres have with cats?",
-        "options": [
-          "There are stupid",
-          "He has allergies"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Kate: \"________ cats are very cute, but dogs also, I like to be active.\"",
+        "answer": "Although"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Ruth thinks cats are _________.",
-        "options": [
-          "needy",
-          "independent"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Kate: \"I own a dog in New Zealand and every day I take him for a walk and feed him just like my own ________ child.\"",
+        "answer": "little"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Jim says that dogs _________.",
-        "options": [
-          "get excited when you come home",
-          "only think about themselves"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Tres: \"On the other hand, dogs have ________.\"",
+        "answer": "personality"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "In Eucharia\\'s opinion, cats _____________.",
-        "options": [
-          "need extra attention",
-          "can take care of themselves"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Ruth: \"Cats or dogs, that's a ________ question.\"",
+        "answer": "good"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Alan believes cats are __________ .",
-        "options": [
-          "easy to take care of",
-          "unhappy animals"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jim: \"I prefer dogs to cats ________ I think they're loyal and always pleased to see you.\"",
+        "answer": "because"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What is a common reason for liking cats?",
-        "options": [
-          "They are independent",
-          "They are loyal",
-          "They go for walks",
-          "They can save your life"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Eucharia: \"I think cats are better pet than dogs ________ cats don't need to be minded .\"",
+        "answer": "because"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Eucharia: \"A cat is ________ and will walk itself, so um, also they don't require as much training as dogs so they're a much nicer pet I think.\"",
+        "answer": "independent"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Alan: \"You let them out ________ in awhile.\"",
+        "answer": "once"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Alan: \"I used to have a cat and I was quite ________ with it.\"",
+        "answer": "happy"
       }
     ]
   },
   {
     "id": "004",
+    "category": "ello",
     "title": "Cinema vs. DVD",
     "audioFile": "audio/004-MXR-cinema.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -246,80 +222,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Why does Anita think that it\\'s better to go the cinema?",
-        "options": [
-          "It\\'s cheaper than renting a movie",
-          "The sound system is better than at home"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Anita: \"What would I rather do, what a movie on DVD or at the ________?\"",
+        "answer": "cinema"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Martin prefers the cinema because __________",
-        "options": [
-          "the screen is really big at the cinema",
-          "they have better movies at the cinema"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Anita: \"Of course, watching a movie on DVD is good ________ you can relax at home but I would choose to spend the money and go to the cinema and have a really good time.\"",
+        "answer": "because"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Going to the cinema reminds Barbara ____________.",
-        "options": [
-          "that she wanted to be an actress",
-          "of when she was a kid"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Martin: \"I think that's the most important thing as well as the sound in a cinema is a lot nicer than the one in my home, but seeing Laurence on Arabia or any other epic on a big screen is quite the ________ and I'm willing to go take the time and see it at the cinema rather than at home.\"",
+        "answer": "experience"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "For Ruth, one negative of watching a movie at home is ______.",
-        "options": [
-          "she watches with friends",
-          "she gets distracted"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Barbara: \"There's a special magic at the ________.\"",
+        "answer": "cinema"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Simon believes watching a movie at the cinema_________.",
-        "options": [
-          "is too expensive",
-          "is a special experience"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Barbara: \"That reminds me of, you know, having fun in ________.\"",
+        "answer": "childhood"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Jeannie likes to watch movies with people because _________.",
-        "options": [
-          "they explain the movie",
-          "they have interesting reactions"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Ruth: \"I ________ I really like watching DVDs with my friends.\"",
+        "answer": "mean"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "According to the interview, watching a DVD at home is _________.",
-        "options": [
-          "more comfortable",
-          "fun to do with friends",
-          "less expensive",
-          "more interesting"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Ruth: \"If I watch a DVD at ________.\"",
+        "answer": "home"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Ruth: \"I can't focus, so I would say that I like the ________.\"",
+        "answer": "cinema"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Simon: \"You ________, watching a DVD at home is kind of like watching TV.\"",
+        "answer": "know"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Jeannie: \"Unfortunately a lot of times, it's just cheaper to see it on a DVD for me ________ people often give me DVDs as gifts.\"",
+        "answer": "because"
       }
     ]
   },
   {
     "id": "005",
+    "category": "ello",
     "title": "The City vs. The Country",
     "audioFile": "audio/005-MXR-City.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -327,80 +292,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "How does Jeyong feel about the people in the city?",
-        "options": [
-          "They make it difficult to move around",
-          "It is crowded in a good way"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeyong: \"I like living in cities more than the country because I like the crowndiness of people all busy walking around and ________ like going to clubs, being with many people and talking to new people is something that I live very much.\"",
+        "answer": "especially"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Why would Al want a house in the city?",
-        "options": [
-          "He likes the noise and energy",
-          "He wants to socialize there"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Al: \"I think ideally I'd like to do both, so have, be rich and have a house in the ________ and and a house in the city and spend my weekdays in the country, in a stone house, and go to the city on weekends and party .\"",
+        "answer": "country"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "What does Joel like about his life in the country?",
-        "options": [
-          "He lives on a farm",
-          "He has time for his hobbies"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Joel: \"Well, I've lived in very big cities for most of my life: Tokyo, Bangkok, Los Angeles, and now is the first time ever that I've lived in the ________ and I'm finding that I like it a lot better.\"",
+        "answer": "country"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Why was growing up in the country difficult for Martin?",
-        "options": [
-          "The animals were a big problem",
-          "There wasn't very much to do"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Joel: \"I have time to do things that I could never do in the city, like play guitar or even read the news, and I'm enjoying a peaceful ________ a lot more than the busy city life.\"",
+        "answer": "lifestyle"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "What does Mitchell dislike about the city?",
-        "options": [
-          "Life is fast and stressful",
-          "It is too relaxed"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Martin: \"If I wanted to live in the city or ________, I'd have to say nowadays , in the city.\"",
+        "answer": "country"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Shuan prefers life in the city because he _________.",
-        "options": [
-          "gets scared when he\\'s alone",
-          "he likes to go places"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Martin: \"I enjoyed the clean air and the ________ around but it was boring.\"",
+        "answer": "wildlife"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Why DON\\'T people want to live in the country?",
-        "options": [
-          "It\\'s too expensive",
-          "There aren\\'t any restaurants",
-          "It is a boring place",
-          "Farms smell bad"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Martin: \"The city is much more exciting and a lot more to do and see and ________, so by and large , the city for me is the way to go.\"",
+        "answer": "experience"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Mitchell: \"I would rather live in the ________ because I'm from the islands and and everythings more peaceful, relax, and time seems to go by slowly.\"",
+        "answer": "countryside"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Mitchell: \"Compared to the city, it seems like every one is in a rush, moving around fast, trying to get things done as soon as possible, that's why I'd rather live in the ________.\"",
+        "answer": "countryside"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Shuan: \"I like being active, and I like going out so living in the ________ would be, I would think, boring, compared to the city.\"",
+        "answer": "country"
       }
     ]
   },
   {
     "id": "006",
+    "category": "ello",
     "title": "Are you a clean freak?",
     "audioFile": "audio/006-MXR-clean.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -408,80 +362,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "When does Tres clean the house?",
-        "options": [
-          "When people come to visit",
-          "Whenever he goes out"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Tres: \"I cannot leave my house without scrubbing my ________ floors, without washing down the kitchen, washing my dishes, even you know, scrubbing under my sinks.\"",
+        "answer": "bathroom"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "How does Rina feel if someone has a messy kitchen?",
-        "options": [
-          "The person she is visiting rude",
-          "She doesn't care at all"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Rina: \"I hate when my place is messy, ________ kitchens.\"",
+        "answer": "particularly"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Why does Jeannie clean her room?",
-        "options": [
-          "Her mother tells her to do it",
-          "She needs to organize her brain"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeannie: \"OK, am I a neat ________?\"",
+        "answer": "freak"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Jim is a clean freak because _______.",
-        "options": [
-          "he likes to have a clean body",
-          "he likes to hoover"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jim: \"I don't think I'm a ________ freak.\"",
+        "answer": "clean"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Marion thinks clean freaks are ___________.",
-        "options": [
-          "very logical people",
-          "difficult to be around"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jim: \"Uh, not really, but she likes to keep the ________ very clean.\"",
+        "answer": "house"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Todd's apartment is _______?",
-        "options": [
-          "very organized",
-          "a disaster"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Marion: \"I'm ________ not a clean freak.\"",
+        "answer": "definitely"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Having an organized place is good because _________.",
-        "options": [
-          "it gives you a hobby",
-          "other people prefer you to be clean",
-          "to have an organized life",
-          "you aren't embarrassed if people visit"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Marion: \"And I tidy up maybe every ________ of weeks depending how messy my house gets.\"",
+        "answer": "couple"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Todd: \"I'm ________ the biggest slob that I know.\"",
+        "answer": "about"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Todd: \"I let it get out of ________ .\"",
+        "answer": "control"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Todd: \"This is not a knock on my poor mother, ________ my mother is very, very clean and she raised me to be clean, and I don't know, something went wrong, and I'm just a total slob.\"",
+        "answer": "because"
       }
     ]
   },
   {
     "id": "007",
+    "category": "ello",
     "title": "The Death Penalty",
     "audioFile": "audio/007-MXR-dealthpenalty.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -489,80 +432,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Jeannie feels that an eye for an eye ____________.",
-        "options": [
-          "helps people learn from mistakes",
-          "is not a good way to punish people"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeannie: \"I don't ________ in the death penalty because for me it's always a thing of, you know, who gets who gets to judge who gets to live or die.\"",
+        "answer": "believe"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Why does Kate think criminals should spend time in jail?",
-        "options": [
-          "They will feel responsibility",
-          "They work hard in jail"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeannie: \"Even if the person being killed is being killed ________ they killed someone, I still don't go for that , eye-for-an-eye type thing.\"",
+        "answer": "because"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Nitya thinks the death penalty should be used ________.",
-        "options": [
-          "for all crimes",
-          "for specific crimes"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Kate: \"No, I don't ________ in the death penalty.\"",
+        "answer": "believe"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Joel\\'s problem with the death penalty is that __________.",
-        "options": [
-          "an innocent person might be killed",
-          "it shows people that murder is okay"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Kate: \"If they don't, if they ________ the death penalty, they will not feel the shame and will not realize the consequences.\"",
+        "answer": "serve"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "For Steve, an element of doubt means that __________.",
-        "options": [
-          "he\\'s curious about the death penalty",
-          "we can never be 100% certain what happened"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Nitya: \"I believe in the death penalty because I think rape and terrorism are some crimes which are totally so disgusting towards the human race and that's, I don't think it encouraged by anyone in the whole world, and ________ wants peace so I think, yeah there are some reasons why the death penalty should be there.\"",
+        "answer": "everyone"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Marion believes in the death penalty ________.",
-        "options": [
-          "when she\\'s really angry",
-          "for adults only"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Joel: \"It would ________ stop me from doing certain crimes if I knew that I was going to be killed if I did them, but the problem with it is, is that you can never be sure if the person actually did it, so if we convict someone and then kill him and later find out that the person actually didn't do the crime, then I think that's a tragedy.\"",
+        "answer": "definitely"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What is one postive effect of the death penalty discussed?",
-        "options": [
-          "There would be less people in jail",
-          "Criminals would die almost painlessly",
-          "Criminals wouldn't commit crimes again",
-          "People would be scared to commit crimes"
-        ],
-        "answer": 3
+        "type": "gapfill",
+        "question": "Steve: \"I'm ________ the death penalty, for, well, the main reason I'm against it, is that there's always an element of doubt .\"",
+        "answer": "against"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Steve: \"well, murder is usually the main reason for the death penalty, so there's always an ________ of doubt.\"",
+        "answer": "element"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Steve: \"You can never be quite sure, so I think there's ________ a risk, and you shouldn't kill someone.\"",
+        "answer": "always"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Marion: \"Most of the time, I think that I'm against the death penalty, but then, you know, you read stories in the newspaper, especially about children being killed, ________ cruel ways of ending people's lives, and then sometimes, I get so angry that I think, yeah, just kill that person because they deserve it, but really, when I calm down, I don't believe in the death penalty.\"",
+        "answer": "particularly"
       }
     ]
   },
   {
     "id": "008",
+    "category": "ello",
     "title": "Dream Job",
     "audioFile": "audio/008-MXR-dreamjob.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -570,80 +502,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Tres wants to work for Bill Gates because he could _____ .",
-        "options": [
-          "learn a lot",
-          "make a lot of money"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Tres: \"My dream job, ________ best job in the world, would be working for Bill Gates, and being able to give my advice for a price.\"",
+        "answer": "absolute"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Naomi would like to  ___________.",
-        "options": [
-          "meet people",
-          "live in Europe"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Tres: \"He asks me what I think about Longhorn, it sucks , redo it , I get a few ________.\"",
+        "answer": "million"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Alan\\'s dream job is an NHL player because __________.",
-        "options": [
-          "people would respect him",
-          "he could work half the year"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Tres: \"How could you ask for ________ more?\"",
+        "answer": "anything"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Why would Anita be good at a mass communication job?",
-        "options": [
-          "People like her",
-          "She is creative"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Naomi: \"My ________ job would be to work at the United Nations.\"",
+        "answer": "dream"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Jim\\'s dream job __________.",
-        "options": [
-          "wouldn\\'t require him to work a lot",
-          "would give him lots of power"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Alan: \"Ah, my dream job, well, I would like to be an NHL ________ player, and All-Star in the NHL, getting paid millions of dollars a year, scoring a lot of goals.\"",
+        "answer": "hockey"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Kate like to ________ .",
-        "options": [
-          "snowboard in competitions",
-          "own a snowboard company"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Alan: \"Having lots of ________ honor me and look up to me and just be a good hockey player.\"",
+        "answer": "people"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Which are NOT reasons that people want their dream jobs?",
-        "options": [
-          "money",
-          "fame",
-          "love",
-          "travel"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Jim: \"My dream job would ________ first of all , very, very high salary.\"",
+        "answer": "involve"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Jim: \"I would start work at about 10 am, lunch at 12 for 2 hours, and then work in the ________ until 4.\"",
+        "answer": "afternoon"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Kate: \"My dream job is have my own ________.\"",
+        "answer": "business"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Kate: \"Every year I'm going snowboarding, and I have a lot of ________ in teaching snowboarding, instructing, and also I'm at university now so I'm learning how to run my own business, and accounting, et cetera , so I'd love to be a snowboarding, to own my own snowboarding tour company.\"",
+        "answer": "experience"
       }
     ]
   },
   {
     "id": "009",
+    "category": "ello",
     "title": "Is fashion important to you?",
     "audioFile": "audio/009-MXR-fashion.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -651,80 +572,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "What motivates Eucharia when she shops?",
-        "options": [
-          "She always buys the same brands",
-          "She buys clothes that look good"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Eucharia: \"Fashion, well, I can only go shopping once a year so I'm not very fashion ________ .\"",
+        "answer": "conscious"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What type of clothes does Jim buy?",
-        "options": [
-          "Dirty, used clothes",
-          "Professional looking clothes"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Eucharia: \"I like ________ that fit me rather than, and suit me , rather than brand labels.\"",
+        "answer": "clothes"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Jeannine likes to wear ___________.",
-        "options": [
-          "only expensive clothes",
-          "clothes that feel good"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jim: \"Fashion isn't really ________ to me.\"",
+        "answer": "important"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Why does Kate sometimes put an effort into how she looks?",
-        "options": [
-          "She wants to be a model",
-          "Fashion makes her different"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jim: \"If they got holes in them, that's no good but I'm not a follower of ________.\"",
+        "answer": "fashion"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "How does Rina choose her clothes?",
-        "options": [
-          "She wears what she likes",
-          "She wears what is fashionable"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeannie: \"I usually wear whatever is ________.\"",
+        "answer": "comfortable"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "What causes Marion to like new styles?",
-        "options": [
-          "She reads fashion magazines",
-          "She sees people wearing a new style"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeannie: \"I ________ go with what looks best on me and, yeah, it's got to be cool.\"",
+        "answer": "just"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What is a big reason these people buy the clothes they do?",
-        "options": [
-          "price",
-          "comfort",
-          "friends",
-          "jobs"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Kate: \"I think that fashion expresses who you are and it can differentiate you from others but however on the other hand, people can judge you on fashion and your ________ and this is not a good thing.\"",
+        "answer": "appearance"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Kate: \"You should look further than the ________.\"",
+        "answer": "appearance"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Rina: \"I try not to be a slave to ________ logos and I just know what I like and I dress the way I like and if I see something that is in fashion and I like I'll wear it and if I see something that isn't in fashion, or is in fashion and I don't like it, I won't wear it.\"",
+        "answer": "corporate"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Marion: \"I think it's more important to wear clothes that you're comfortble in and clothes that express your ________ in some way, so perhaps sometimes I'll see something that's the latest fashion and I might like it but usually, if it's something a bit crazy, I don't like it, but sometimes, then after awhile, after I see a lot of people wearing it, it grows on me .\"",
+        "answer": "personality"
       }
     ]
   },
   {
     "id": "010",
+    "category": "ello",
     "title": "Favorite Country",
     "audioFile": "audio/010-MXR-favcountry.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -732,80 +642,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Why did Eucharia like Melbourne?",
-        "options": [
-          "It was diverse",
-          "It was small"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Eucharia: \"Oh, my most favorite country, that's so hard because I've loved every country I've visited for different reasons but I really loved Australia and in ________ Melbourne city.\"",
+        "answer": "particular"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Why did Jeannie think New Zealand was special?",
-        "options": [
-          "It was naturally beautiful",
-          "It\\'s a good place for a family"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Eucharia: \"Now, I'm not a city person but Melbourne is a really ________ , vibrant city.\"",
+        "answer": "dynamic"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Mark enjoyed Budapest because ______________.",
-        "options": [
-          "there were interesting things to see",
-          "he could speak Hungarian"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Eucharia: \"There are people from all around the world, so it's just a really ________ place to be.\"",
+        "answer": "exciting"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "What did Alan enjoy most about Thailand?",
-        "options": [
-          "The relaxing, tropical areas",
-          "The food and shopping"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeannie: \"I only visited there for about two weeks one time, but it was very ________.\"",
+        "answer": "beautiful"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Why is Lebanon special for Rina?",
-        "options": [
-          "She met her boyfriend there.",
-          "It\\'s where her parents were born."
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Mark: \"Apart from my ________, my favorite country would be Hungary.\"",
+        "answer": "country"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Why did Kate like Paris?",
-        "options": [
-          "She likes art.",
-          "She likes fashion."
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Mark: \"Lots of really great old buildings, very ________ cuisine, and intelligent and friendly people.\"",
+        "answer": "interesting"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What is NOT mentioned about favorite countries?",
-        "options": [
-          "food",
-          "nature",
-          "music",
-          "people"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Alan: \"Well, I would ________ to say Thailand.\"",
+        "answer": "have"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Alan: \"There're quite friendly, and I ________ enjoy the beaches, because I enjoy swimming and lying on the beach and getting a good tan, and I also find that it's relatively cheap to go to Thailand, especially in the summer time, but also in the winter, even though the prices are higher, it's a good place to go for a tropical get-away .\"",
+        "answer": "especially"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Rina: \"It is one of the most ________ countries I've ever seen in my whole life and I hope to live there in a few years.\"",
+        "answer": "beautiful"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Kate: \"It was really beautiful, the ******, and you see the art museum, art galleries, and also I'd really like to go to the south of France, and see the ________.\"",
+        "answer": "countryside"
       }
     ]
   },
   {
     "id": "011",
+    "category": "ello",
     "title": "First Job",
     "audioFile": "audio/011-MXR-firstjob.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -813,80 +712,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "What did Eucharia learn from her job?",
-        "options": [
-          "To work hard for money",
-          "How to ride horses"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Eucharia: \"My ________ part-time job was washing dishes in a restaurant.\"",
+        "answer": "first"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What did Tres do at the museum?",
-        "options": [
-          "Sold tickets",
-          "Taught children"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Eucharia: \"It wasn't a very glamourous job, but I really wanted it ________ I wanted to pay for horse-riding lessons, so every Saturday night I went to this restaurant and worked for maybe five hours every night.\"",
+        "answer": "because"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Why was Jeannie's job difficult?",
-        "options": [
-          "People were frustrated with her",
-          "She had to sit all day"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Tres: \"My first part-time job: I was living in a small town, Tulsa, Oklahoma, and I worked for the Harmon ________, and they owned a hands-on , science and math museum for children, so every day I would run a laser light show, and once I was through with that I would give museum tours and explain the science and math background to each exhibit, to adults and children.\"",
+        "answer": "Foundation"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Why did Alan quit his job?",
-        "options": [
-          "He found a new job",
-          "He got bored"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Tres: \"I really, really enjoyed that, and so I hope that some of those kids that did come in, to the ________, I hope they did create a future in science.\"",
+        "answer": "museum"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Who liked Kate\\'s first job?",
-        "options": [
-          "Kate",
-          "Her brother"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeannie: \"My ________ part-time job was as a cashier at a supermarket.\"",
+        "answer": "first"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "What did Mark do at his job?",
-        "options": [
-          "He made pizza",
-          "He wore a costume"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeannie: \"It's not a job I would go ________ to.\"",
+        "answer": "back"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Most first jobs were _________.",
-        "options": [
-          "part-time",
-          "good money",
-          "with friends",
-          "outside"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Alan: \"When I was ________, I had a job at McDonald's flipping burgers , doing fries, cooking, not taking orders.\"",
+        "answer": "fifteen"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Alan: \"I enjoyed it for awhile, about two or three months, btu then I started losing ________ in it, and after six months, I quit the job, but it was a good job for a fifteen year old.\"",
+        "answer": "interest"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Mark: \"My first part-time job was at a restaurant called Chucky ________.\"",
+        "answer": "Cheese"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Mark: \"He's the character for Chucky Cheese, and so I was, I would dress up in a big mouse costume and go around ________ little kids.\"",
+        "answer": "entertaining"
       }
     ]
   },
   {
     "id": "012",
+    "category": "ello",
     "title": "Sleep Routine",
     "audioFile": "audio/012-MXR-getup.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -894,80 +782,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "When does Marion wake up on weekends?",
-        "options": [
-          "At six thirty",
-          "Later than in the week"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Marion: \"Well, usually on a work day, I get up at half past six in the ________ because I start work at eight o'clock.\"",
+        "answer": "morning"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "About how much sleep does Naomi get?",
-        "options": [
-          "More than 10 hours",
-          "About 5 hours"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Marion: \"Usually I go to be quite late, which isn't very good but maybe about ________, sometimes later.\"",
+        "answer": "midnight"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Does Jeff like getting up early?",
-        "options": [
-          "It\\'s natural for him",
-          "It\\'s difficult for him"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Naomi: \"Well, I'm a ________ owl so I usually don't go to bed until about 3 a.m.\"",
+        "answer": "night"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "What does Barbara do when she wakes up?",
-        "options": [
-          "Stays in be for a bit",
-          "Makes herself breakfast"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeff: \"What ________ do I get up and what time do I go to bed?\"",
+        "answer": "time"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Al gets up ______________.",
-        "options": [
-          "earlier when he works",
-          "at 2 or 3"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeff: \"I like to get up early but getting up is a ________ thing to do, so I try to go the bed early.\"",
+        "answer": "difficult"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Why does Akane go to bed early?",
-        "options": [
-          "Because she is a morning person",
-          "Because she has to work"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Barbara: \"Well, I usually wake up, maybe 5 or 6 in the ________, but I don't get up straight away .\"",
+        "answer": "morning"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What is NOT a reason given for sleeping schedule?",
-        "options": [
-          "work",
-          "weekends",
-          "children",
-          "enough rest"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Barbara: \"If it's a day off, I get up at nine or ten, and in the ________ I usually go to bed around 10, 11, sometimes 12.\"",
+        "answer": "evening"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Al: \"If I'm working I get up ________ 9, and I go to bed when feel tired, so that's usually about 1 or 2 or 3 a.m.\"",
+        "answer": "about"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Akane: \"I usually get up in the ________ about 6:30, but that's only because I have to go to work.\"",
+        "answer": "morning"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Akane: \"so that I can get enough rest that I can get up in the ________ for work, but I'd really rather stay up late, because I'm night person.\"",
+        "answer": "morning"
       }
     ]
   },
   {
     "id": "013",
+    "category": "ello",
     "title": "No Place Like Home",
     "audioFile": "audio/013-MXR-goodtown.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -975,80 +852,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "What does Akane like about Toronto?",
-        "options": [
-          "Her family lives there",
-          "It\\'s an international city"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Akane: \"What is good ________ your hometown?\"",
+        "answer": "about"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Barbara thinks Perth is beautiful because______.",
-        "options": [
-          "there are natural places",
-          "it\\'s in the country"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Akane: \"That means that there are many ________ people from many different countries, all over the world, so I really enjoy going out and eating different kinds of foods from different places.\"",
+        "answer": "different"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Marks says that people in Alabama ______.",
-        "options": [
-          "speak differently",
-          "smile a lot"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Barbara: \"One good thing ________ my hometown?\"",
+        "answer": "about"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Jeannie thinks Philadelphia is famous for _______.",
-        "options": [
-          "summers",
-          "food"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Barbara: \"Ah, the best thing ________ my hometown is well, it's got a lot of parks and gardens and wide open spaces.\"",
+        "answer": "about"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Naomi\\'s hometown is __________.",
-        "options": [
-          "in the mountains",
-          "a big city"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Barbara: \"You can really enjoy fresh air and ________.\"",
+        "answer": "sunshine"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Ruth believes her hometown is ________.",
-        "options": [
-          "inexpensive",
-          "exciting"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Mark: \"The south has a reputation for being friendly, and it's true, when you're there, people are generally very nice to you, and pretty much anywhere you go, even complete strangers will be nice to you, and we have a unique accent in Alabama, I don't normally talk that way but it's usually ________ for other English speakers to hear.\"",
+        "answer": "interesting"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "A common theme people discuss is _______.",
-        "options": [
-          "houses",
-          "education",
-          "food",
-          "jobs"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Naomi: \"My hometown is a very small town called Melanie, on the ________ Coast.\"",
+        "answer": "Sunshine"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Naomi: \"It has ________ views of the Sunshine Coast, all the way down to the beach, and it's got a really nice sense of community being such a small town.\"",
+        "answer": "beautiful"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Ruth: \"I really like the people in my hometown, and I also like the fact that if you go shopping ________ is really quite cheap and I can g et to town really easily from my house.\"",
+        "answer": "everything"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Ruth: \"The cost and ________ is really good.\"",
+        "answer": "everything"
       }
     ]
   },
   {
     "id": "014",
+    "category": "ello",
     "title": "Hanging Out",
     "audioFile": "audio/014-MXR-hangout.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -1056,80 +922,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "What does Jeyong do with his sister?",
-        "options": [
-          "They go to the cinema",
-          "They go to school"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeyong: \"I'm a student abroad in Japan and I go back to Korean during summer break and during my free time, I usually spend a lot of time with my older sister and I feel ________ talking to her because she cares for me very much and gives me advice of how a university life should be like, and we go shopping together, hang out , eat food and go to movies together and so on.\"",
+        "answer": "comfortable"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Why does Joel like to stay home?",
-        "options": [
-          "To be with friends",
-          "To be with his son"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Joel: \"Well, I used to hang out with my friends all the time, go out on the weekends, and maybe we go to a bar drinking or something, but I'm ________ and I have a son now so I usually hang out with my family.\"",
+        "answer": "married"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "What is Lucinda's hobby?",
-        "options": [
-          "She watches television",
-          "She doesn't have free time"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Joel: \"I'm happier ________ staying home and playing with my kid.\"",
+        "answer": "just"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "What does Martin do with his girlfriend?",
-        "options": [
-          "They go for walks",
-          "They cook together"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Lucinda: \"We at the ________, is the MBA League pass on Sky TV and we've just been watching the last two games and that's about it.\"",
+        "answer": "moment"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Ruth likes to hang out with ________.",
-        "options": [
-          "her classmates",
-          "her family"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Lucinda: \"That's all I really do is watch TV with my ________ time.\"",
+        "answer": "free"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Who are Tom\\'s friends?",
-        "options": [
-          "He doesn\\'t have any",
-          "Radio employees"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Martin: \"we always, we share a common ________ and like to spend time with each other, just go out, walk around, see movies, or just chat and have coffee or dinner together, but normally I'm very busy these days and I don't have that much free time.\"",
+        "answer": "interest"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Who do these people hang out with?",
-        "options": [
-          "co-workers",
-          "social groups",
-          "school friends",
-          "family"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Ruth: \"Well, I think that depends on the situation and on the day, when I'm at work, at lunchtime I hang out with my workmates , but in the evenings, and at the weekends, I hang ________ with my best friend, and with my other friends, and often I also hang around with my parents.\"",
+        "answer": "around"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Ruth: \"I really ________ spending time with them.\"",
+        "answer": "like"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Tom: \"I came here a month ago and I don't speak the ________ and I don't really know anybody so in my free time I stay home.\"",
+        "answer": "language"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Tom: \"That keeps me ________ and I've learned how to cook up some simple food to stop myself from getting too hungry, but in terms of who do I hang out with, I might say hello to the lady in the supermarket, but no one really.\"",
+        "answer": "company"
       }
     ]
   },
   {
     "id": "015",
+    "category": "ello",
     "title": "Have you changed?",
     "audioFile": "audio/015-MXR-highschool.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -1137,80 +992,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "What is different about Ruth now?",
-        "options": [
-          "She doesn\\'t wear her glasses much",
-          "Nothing. She looks exactly the same"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Ruth: \"The same as I did in ________ school?\"",
+        "answer": "high"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Naomi thinks she looks ______.",
-        "options": [
-          "the same",
-          "very old"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Ruth: \"I look the same in that I wore glasses then and I still wear glasses now but ________ more often than not I wear my contact lenses now and I was smaller in high school.\"",
+        "answer": "actually"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Martin thinks that now _______.",
-        "options": [
-          "his hair style is different",
-          "he has a few wrinkles"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Naomi: \"some people that ________ saw me in primary school, and didn't see me for over ten years saw me again and said you look exactly the same as you did in primary school.\"",
+        "answer": "actually"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "What was Todd\\'s hair like in high school?",
-        "options": [
-          "really curly",
-          "falling out"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Martin: \"I'm ________ the same heigh as I was, same hair style.\"",
+        "answer": "about"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "What is different about Jeyong now?",
-        "options": [
-          "He is really fat",
-          "He has lost weight"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Martin: \"The only thing probably, a ________ bit of hair color.\"",
+        "answer": "little"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "How were Akane\\'s clothes different before?",
-        "options": [
-          "She wore bright colors",
-          "She wore high heels"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Todd: \"OK, do I look ________ than I did in high school?\"",
+        "answer": "different"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "One difference people talk about is ____",
-        "options": [
-          "hair loss",
-          "wrinkles",
-          "taller",
-          "shorter"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Todd: \"________ in high school, I had really bad acne.\"",
+        "answer": "Also"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Jeyong: \"Do I ________ the same as I did in high school?\"",
+        "answer": "look"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Akane: \"Do you ________ the same as you did in high school?\"",
+        "answer": "look"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Akane: \"________ when I was in high school, I used to wear clothes that were a bit more revealing and I used to wear heels and I don't do that anymore, and I am beginning to get a bit of wrinkles under my eyes, so I do think that I've changed.\"",
+        "answer": "Definitely"
       }
     ]
   },
   {
     "id": "016",
+    "category": "ello",
     "title": "A Ideal Day Off",
     "audioFile": "audio/016-MXR-idealday.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -1218,80 +1062,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Akane would like to _________.",
-        "options": [
-          "go to bed late",
-          "sleep in a little"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Akane: \"What would be an ________ day on your day off ?\"",
+        "answer": "ideal"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Al wants to eat ________.",
-        "options": [
-          "hamburgers and fries",
-          "while he's in bed"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Akane: \"An ideal day I suppose would be to wake up really really late in the morning, maybe around 10 or 11am, and then have a late ________ in bed and then maybe go out again for a late lunch with friends.\"",
+        "answer": "breakfast"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "How does Jeannie want to meditate?",
-        "options": [
-          "In yoga classes",
-          "Next to the water"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Al: \"My ideal day off would be ________ in bed followed by a movie in the afternoon then a football game, live footbal game in the evening and dinner in a very nice restaurant and then a night club.\"",
+        "answer": "breakfast"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Where does Mark like to relax?",
-        "options": [
-          "In the mountains",
-          "Next to the ocean"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeanie: \"OK, my ideal day off would be a ________ of meditation and either extreme relaxation, like on a beach, lying in the sun , just really relaxing or doing extreme sports or something of that nature, like skiing, snowboarding, skydiving even.\"",
+        "answer": "combination"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "What does Naomi do at the beach?",
-        "options": [
-          "Play with friends",
-          "Listen to music"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Mark: \"My ideal day off would ________ be spent at the beach.\"",
+        "answer": "likely"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "On Ruth\\'s day off she would _____.",
-        "options": [
-          "sleep late",
-          "do exercise"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Mark: \"You know one question people ask sometimes is, \"Do you like the beach or the mountains better?\" I am ________ a beach person, so if I have the day off, I'd love to go to the beach and maybe take a cooler with some drinks and get some sun , swim in the ocean.\"",
+        "answer": "definitely"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Many people would like to ________.",
-        "options": [
-          "hang out at the ocean",
-          "stay in bed all day",
-          "spend time with friends",
-          "clean the house"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Naomi: \"An ideal day off for me would be spent laying on the beach, ________ reading a book and swimming and hanging out with my friends or my little sister, maybe doing some sports, sometimes I like to play volleyball on the beach as well.\"",
+        "answer": "perhaps"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Naomi: \"Yeah, just a ________ day off is the best for me.\"",
+        "answer": "relaxing"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Ruth: \"Well, I would get up early so that I could make the most of the day and I wouldn't be tired and then I would probably go for a run and then have a yummy ________, and mybe meet my friends and go shopping and go out for lunch and then maybe go to the gym or something and then finish the evening by going out with friends, maybe going to the cinema and then going out for some drinks.\"",
+        "answer": "breakfast"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Ruth: \"That would be my ________ day off.\"",
+        "answer": "perfect"
       }
     ]
   },
   {
     "id": "017",
+    "category": "ello",
     "title": "Introductions",
     "audioFile": "audio/017-MXR-introductions.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -1299,80 +1132,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Anita says Taiwan ________.",
-        "options": [
-          "has a good climate",
-          "has too many people"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Anita: \"Hello, my name is Anita and I'm from Taiwan and Taiwan is a very small ________ and I'm not sure where Taiwan can be considered a country or not.\"",
+        "answer": "country"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What does Jeyong think about Korean food?",
-        "options": [
-          "It\\'s terrible.",
-          "It can be spicy"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Anita: \"I ________ to stay in Taiwan very much.\"",
+        "answer": "like"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Martin says the University of Washington is _______.",
-        "options": [
-          "very smalll",
-          "diverse"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeyong: \"Koreans like Kim-chi, yes, and most of the Koreans like spicy food, but I for ________ cannot eat spicy food very well because my tongue gets really hot and, mm.\"",
+        "answer": "example"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Naomi spends her time at home _______.",
-        "options": [
-          "inside because it\\'s cold",
-          "outside, next to the water"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Martin: \"It's very ________ for salmon and the space needle.\"",
+        "answer": "famous"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Marion says that Ireland is good for ______.",
-        "options": [
-          "meeting people",
-          "exercise"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Martin: \"It's a very ________ campus .\"",
+        "answer": "beautiful"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Akane says Canada is a good place for _____.",
-        "options": [
-          "royalty",
-          "apples"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Martin: \"________ from all over the world, just like I'm sure you've seen.\"",
+        "answer": "People"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Two people like to _______ at home.",
-        "options": [
-          "go to school",
-          "grow apples",
-          "be outside",
-          "go to clubs"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Naomi: \"We have very ________ beaches, so often.\"",
+        "answer": "beautiful"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Marion: \"________, my name is Marion and I'm from Ireland.\"",
+        "answer": "Hello"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Marion: \"We have lots of space in Ireland and lots of nature, so lots of green fields and mountains and it's great to be able to go and walk along the hills and the mountains, when you feel like taking some ________ .\"",
+        "answer": "exercise"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Akane: \"Usually you can get them for about 99 cents a pound and there are many varieties such as Granny Smith, and Macintosh, which were invented in Ontario, and Red ________, Golden Delicious, my favorite is Royal Gala.\"",
+        "answer": "Delicious"
       }
     ]
   },
   {
     "id": "018",
+    "category": "ello",
     "title": "Junk Food",
     "audioFile": "audio/018-MXR-junkfood.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -1380,68 +1202,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "When does Anita eat junk food?",
-        "options": [
-          "All the time",
-          "With her friends"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Anita: \"What junk ________ do I eat?\"",
+        "answer": "foods"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Does Mitchell eat a lot of junk food?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Anita: \"________ I like it, but I'm controlling myself right now.\"",
+        "answer": "Actually"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "What does Ruth like to eat?",
-        "options": [
-          "cake and crisps",
-          "french fries"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Ruth: \"Well, ________ I try really hard not to eat junk food.\"",
+        "answer": "actually"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "What junk food does Lucinda like?",
-        "options": [
-          "Fast food breakfast",
-          "Chips and cookies"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Ruth: \"I think it goes in ________.\"",
+        "answer": "phases"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "What does Alan consider himself?",
-        "options": [
-          "Junk food fanatic",
-          "Health nut"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Ruth: \"The rest of the ________, no, I think it's OK.\"",
+        "answer": "time"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "When does Mark slip and eat fast food?",
-        "options": [
-          "When he has little money",
-          "When he wants a hamburger"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Lucinda: \"I like cholate occasionally, but very bitter ________.\"",
+        "answer": "chocolate"
+      },
+      {
+        "id": "q7",
+        "type": "gapfill",
+        "question": "Alan: \"What junk ________ do I eat?\"",
+        "answer": "food"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Alan: \"I'm ________ what you call a junk food fanatic .\"",
+        "answer": "actually"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Alan: \"I used to eat more of it when I was younger, but I've kind of trimmed it down a little bit, and I got older, how ever, I still enjoy a good bag of potato chips while I watch TV, or a ________ bar occasionally, after lunch or dinner, so I would say.\"",
+        "answer": "chocolate"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Mark: \"Like I ________ never eat at McDonald's, but if I'm really hungry, or I'm really broke and don't have a lot of money, or I just want something fast, I might sneak into a McDonalds, once every two weeks or something like that.\"",
+        "answer": "almost"
       }
     ]
   },
   {
     "id": "019",
+    "category": "ello",
     "title": "Travel Wish List",
     "audioFile": "audio/019-MXR-wantvisit.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -1449,80 +1272,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "What is Martin curious about in New Zealand?",
-        "options": [
-          "How water goes down the toilet",
-          "How Lord of the Rings was made"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Martin: \"The one ________ I would most like to visit would have to be New Zealand.\"",
+        "answer": "country"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Akane would like to go to France ________.",
-        "options": [
-          "to see art museums",
-          "to practice speaking"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Martin: \"Many reasons, the number one being it looks like an ________ gorgeous country, especially having seen Lord of the Rings and that is one of my favorite movies.\"",
+        "answer": "absolutely"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Why is it strange that Todd hasn\\'t been to Canada?",
-        "options": [
-          "He lives close to it",
-          "His parents are Canadian"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Akane: \"One ________ that I would like to visit is France.\"",
+        "answer": "country"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Why does Naomi think Vietnam is beautiful?",
-        "options": [
-          "People have told her stories",
-          "She has seen some videos"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Todd: \"If I could visit any ________ in the world, believe it or not, I'd go to Canada.\"",
+        "answer": "country"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Malawi is special for Ruth because ______ .",
-        "options": [
-          "her mom lived there",
-          "she was born there"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Todd: \"I've been to many countries, probably 25 at least, Japan, France, Italy, Thailand, many, many places, but I've never been to Canada and I have so many Canadian friends that I would really like to go to Canada and see their ________ for the first time.\"",
+        "answer": "country"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Why did Simon like Cuba?",
-        "options": [
-          "There is cool fashion",
-          "The beaches are great"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Naomi: \"I've never been anywhere in that area of Asia actually but I've seen a lot of footage of Vietnam on television and it looks really ________.\"",
+        "answer": "beautiful"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Which reason for visiting is NOT discussed?",
-        "options": [
-          "food",
-          "fashion",
-          "shopping",
-          "memories"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Ruth: \"One country I'd really like to visit is ________ Malawi.\"",
+        "answer": "actually"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Ruth: \"She lived there for two years, and I've seen some of her photos and it looks ________, so I'd like to go there.\"",
+        "answer": "amazing"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Ruth: \"That's where I'd ________ to go.\"",
+        "answer": "like"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Simon: \"It has tropical weather, interesting Latin culture and music, a strange government system that has made 1950's cars common and behive haircuts mixed with hip-hop gear, fashions, yeah, really, really cool, plus the ________.\"",
+        "answer": "architecture"
       }
     ]
   },
   {
     "id": "020",
+    "category": "ello",
     "title": "Free Time Wish List",
     "audioFile": "audio/020-MXR-moretime.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -1530,80 +1342,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Anita would like to _________.",
-        "options": [
-          "be in a band",
-          "practice music"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Anita: \"What is something I wish I ________ more time to do?\"",
+        "answer": "have"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Al thinks it would be good to ________.",
-        "options": [
-          "spend more time with people",
-          "start a weekend club"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Anita: \"Actually, I'm a member in a band at my university and I spend a lot of time with those members practicing music but I think I would like to have some more time to play music with them because I think to play with, to play music with those members is really ________.\"",
+        "answer": "interesting"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Why doesn\\'t Barbara study Japanese?",
-        "options": [
-          "She doesn't have enough money",
-          "She needs time to study to improve"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Al: \"Something I wish I had more time to do is socialize cause I don't go out and meet people as much as I would like to so it would be nice to be a member of a club or join a circle of some kind where I can meet more people, ________ at the weekend.\"",
+        "answer": "perhaps"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "What does Mark regret?",
-        "options": [
-          "He doesn\\'t like work",
-          "He doesn\\'t read enough"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Barbara: \"At the moment, I'm self-employed so I have to work ________ to get enough money to make ends meet so I don't really have enough time for studying Japanese, which is what I would really like to do.\"",
+        "answer": "everyday"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "If Ruth had more free time she would ______ .",
-        "options": [
-          "watch television",
-          "be outdoors"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Barbara: \"You have to spend a certain amount of time each day doing it otherwise you won't make any ________ .\"",
+        "answer": "progress"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Why doesn't Simon see his friends?",
-        "options": [
-          "It\\'s the summer",
-          "Everyone is busy"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Mark: \"I wish I had ________ time to read.\"",
+        "answer": "more"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What do people want to do in their free time?",
-        "options": [
-          "waste time on the internet",
-          "make new friends",
-          "learn something new",
-          "travel to a new country"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Mark: \"I enjoy reading but I waste so much time, whether on the ________ or at work.\"",
+        "answer": "internet"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Mark: \"________ times I think, \"Ah, I really need to read more.\"\"",
+        "answer": "Many"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Ruth: \"There are many things that I wish I had more time to do but probably the main one is I wish I had more time to spend outside looking at the beauty of nature cause we tend to spend a lot of time inside at work and I don't think I wish I had more time for things like watching TV or ________ like that because I think that's quite boring really.\"",
+        "answer": "anything"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Simon: \"I wish I had more time to just hang out with friends, you know, not only me but also friends don't have a lot of free time but since it's summer now it would be ________ that if three days a week I could just hang out and have a barbeque with my friends\"",
+        "answer": "great"
       }
     ]
   },
   {
     "id": "021",
+    "category": "ello",
     "title": "Rain",
     "audioFile": "audio/021-MXR-rain.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -1611,80 +1412,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "How does Marion feel about the rain?",
-        "options": [
-          "She hates it",
-          "She\\'s used to it"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Marion: \"Well, in Ireland we ________ have a lot of rain.\"",
+        "answer": "always"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What does Kate do on rainy days?",
-        "options": [
-          "She goes for a run",
-          "She sleeps late"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Marion: \"I don't ________ really, really hard rain that stops you from doing things.\"",
+        "answer": "like"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Why doesn\\'t Jeyong like rainy days?",
-        "options": [
-          "They make him sad",
-          "The internet doesn\\'t work"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Kate: \"On a rainy day, I just love to sleep in , until about 11 or 12 o'clock, because I can feel, I feel more calmer and I feel more relaxed, and then I might watch some TV, watch a movie with my friends at home, cook some popcorn, and ________ for the whole day, we just relax at home.\"",
+        "answer": "generally"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "What does Jeannie like about rain?",
-        "options": [
-          "The smell",
-          "The sound"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeannie: \"I ________ the sound of it.\"",
+        "answer": "like"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "How does Barbara feel outside in rain?",
-        "options": [
-          "Really cold",
-          "Comfortable"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeannie: \"Sometimes I like to walk ________ in the rain, with or without umbrella, depending on my mood .\"",
+        "answer": "around"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Why does rain make Ruth laugh?",
-        "options": [
-          "People don\\'t like to get wet",
-          "It feels funny on her skin"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Barbara: \"How do I feel ________ the rain?\"",
+        "answer": "about"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Most people interviewed ________ rainy days.",
-        "options": [
-          "are scared of",
-          "enjoy",
-          "hate",
-          "want"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Barbara: \"It's ________ by me to go out in the rain.\"",
+        "answer": "fine"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Barbara: \"You can go for a ________ in the rain.\"",
+        "answer": "walk"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Barbara: \"Actually, I prefer cooler weather to warm weather and if the rain is part of that, that's no problem as far as I'm ________ .\"",
+        "answer": "concerned"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Ruth: \"I think ________ likes the sun and I love snow but if I were asked what is my favorite weather, I would have to say the rain because I just love getting wet outside.\"",
+        "answer": "everybody"
       }
     ]
   },
   {
     "id": "022",
+    "category": "ello",
     "title": "Saving Money",
     "audioFile": "audio/022-MXR-savingmoney.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -1692,80 +1482,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Why is Anita bad at saving money?",
-        "options": [
-          "She gives money to her friends",
-          "She buys a lot of things"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Anita: \"Am I good at saving ________?\"",
+        "answer": "money"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What does Martin think about saving money?",
-        "options": [
-          "He doesn\\'t want to do it",
-          "He will learn to do it"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Anita: \"I don't think that I'm good at saving money ________ I spend a lot.\"",
+        "answer": "because"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Why is Jeannie\\'s family jealous?",
-        "options": [
-          "She has a lot of nice things",
-          "She is good at saving money"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Martin: \"I have to say, if there's one thing I wish I was ________ at, it's saving money.\"",
+        "answer": "better"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "When does Mark spend a lot of money?",
-        "options": [
-          "When he has it",
-          "When it\\'s the weekend"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeanie: \"OK, am I good at saving ________.\"",
+        "answer": "money"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Ruth spends money ________.",
-        "options": [
-          "on things she needs",
-          "about one day a month"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeanie: \"Even when I didn't have a job, I would ________ have money just backed up somewhere and people would often have to try and get money from me on loan.\"",
+        "answer": "always"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "What does Simon spend money on?",
-        "options": [
-          "nothing",
-          "everything"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Mark: \"And it's something that I think about a lot ________ I know I have to get better at it but after payday, that money just burns a hole in my pocket .\"",
+        "answer": "because"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "In general, most people are_____",
-        "options": [
-          "excellent at saving",
-          "not very good at saving",
-          "hardworking",
-          "good at planning"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Ruth: \"Well, I think I am quite good at saving money, ________ sometimes I am a little bit naughty and I tend to spend, spend, spend.\"",
+        "answer": "except"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Ruth: \"I don't spend too much ________.\"",
+        "answer": "money"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Simon: \"I'm not good at saving ________.\"",
+        "answer": "money"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Simon: \"I buy a lot of things that don't have any resale ________ , like services and beer, things like that: food, restaurants.\"",
+        "answer": "value"
       }
     ]
   },
   {
     "id": "023",
+    "category": "ello",
     "title": "Shopping",
     "audioFile": "audio/023-MXR-shopping.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -1773,80 +1552,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Where does Kate usually buy clothes?",
-        "options": [
-          "At used clothing stores",
-          "At department stores"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Kate: \"I like to go shopping and I usually go to the ________ stores, although they can be a little bit expensive, and I usually shop at Gap or some of the cheaper places in my country, in New Zealand, it's called Glassins and also there are flea markets which I enjoy to just have a look around .\"",
+        "answer": "department"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What kind of shopper is Mark?",
-        "options": [
-          "He likes to know what he wants",
-          "He likes to look around the store"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Kate: \"I don't buy used ________ that often unless I need them for an event or university event or something.\"",
+        "answer": "clothes"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "What does Jeanie like to shop for?",
-        "options": [
-          "clothes",
-          "jewelry"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Mark: \"I'd rather go to the store, ________ what I want to get, go in, get that thing, buy it and get out.\"",
+        "answer": "know"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Where does Jim get his clothes?",
-        "options": [
-          "at the supermarket",
-          "from his mother"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeanie: \"OK, what do I think about ________?\"",
+        "answer": "shopping"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "What does Eucharia buy at charity shops?",
-        "options": [
-          "fancy dresses",
-          "shoes and boots"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeanie: \"I try to make really quick decisions, the only exception being with jewelry because it always catches my attention , and then I end up spending too much money, so yes, shopping is ________ not a thing I like to do very often.\"",
+        "answer": "definitely"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "What does Alan like to shop for?",
-        "options": [
-          "clothes",
-          "food"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jim: \"The only time I really go ________ is when I go to the super market to get some food or some supplies.\"",
+        "answer": "shopping"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "In general, the men usually __________.",
-        "options": [
-          "spend a lot of time shopping",
-          "don\\'t like shopping",
-          "buy things that they need",
-          "go shopping with friends"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Eucharia: \"In Ireland there are many charity shops, with kind of once worn, or unwanted gift type dresses, so I really like shopping there for really exotic dresses, and when I go shopping, the one time in the year I go shopping I have to think about clothes to wear for distinct seasons of the year, so it's quite a ________.\"",
+        "answer": "challenge"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Alan: \"What do I think about ________?\"",
+        "answer": "shopping"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Alan: \"If I need them, I will go out and buy them, but I don't really like to browse and look around too much, window shop, ________ like that.\"",
+        "answer": "anything"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Alan: \"________ has to food shop at least once a week, so I enjoy shopping for food more than I do shopping for other things.\"",
+        "answer": "Everyone"
       }
     ]
   },
   {
     "id": "024",
+    "category": "ello",
     "title": "Is TV a bad influence?",
     "audioFile": "audio/024-MXR-tvgood.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -1854,80 +1622,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "What opinion did Eucharia\\'s teacher have?",
-        "options": [
-          "People learn from television",
-          "Violence and media are separate"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Eucharia: \"Is TV a good or bad ________?\"",
+        "answer": "influence"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Why doesn't Mark watch TV?",
-        "options": [
-          "He doesn\\'t like the programs",
-          "It's easy to watch for a long time"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Eucharia: \"He used the example of Japan at that time having the lowest crime rate in the world and the most violent media in the world, ________ video games, manga, which are the comics, and in general, Japanese TV, so yeah, there are two ways to think about it.\"",
+        "answer": "including"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "What kinds of programs does Kate like?",
-        "options": [
-          "Educational programs",
-          "Children's programs"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Mark: \"I don't think TV's a bad thing but I never ever watch it because it is ________ addictive , or I'm extremely, I can get very addicted to it.\"",
+        "answer": "extremely"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Jeannie thinks some programs __________.",
-        "options": [
-          "teach children",
-          "teach violence"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Kate: \"I think TV can be ________ and bad.\"",
+        "answer": "good"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Rina feels that ____________.",
-        "options": [
-          "television is negative",
-          "television is easy entertainment"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Kate: \"However, of course there's bad points to TV such as violence and ________ which should not be watched by small children.\"",
+        "answer": "fighting"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Why does Todd think TV is good?",
-        "options": [
-          "It\\'s interesting",
-          "It\\'s good employment"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeannie: \"It's not really the TV's fault what ________ are putting on it.\"",
+        "answer": "people"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What is one negative that many people discuss?",
-        "options": [
-          "TVs are expensive",
-          "TV is boring",
-          "TV programs are violent",
-          "TV makes people lazy"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Jeannie: \"I used to sit my neice in front of a child's program and she picked up her ABC's pretty quickly and she sung along with the songs and ________, so I think that was pretty good but of course you have programs that are a bit too violent maybe but they're learning opportunities and you have your nonsense\"",
+        "answer": "everything"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Rina: \"Well, for me I think it's wonderful because it's a form of something that entertains me without asking ________ in return.\"",
+        "answer": "anything"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Todd: \"I think television is a very ________ thing.\"",
+        "answer": "good"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Todd: \"You need local people to be the actors, technicians, things like that so TV is not and industry where you can export jobs and it's an industry where ________ a lot of jobs are provided for local people, so yeah, I think television's a good thing.\"",
+        "answer": "basically"
       }
     ]
   },
   {
     "id": "025",
+    "category": "ello",
     "title": "Is TV a bad influence?",
     "audioFile": "audio/025-MXR-typicalmorning.mp3",
     "description": "Listen to what six people talk about their bad habits, or things they should not do but do. Students can listen, take a quiz, read the script and learn new vocabulary.",
@@ -1935,80 +1692,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "How does Akane make her breakfast?",
-        "options": [
-          "on the stove",
-          "in a toaster"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Akane: \"What is a typical ________ for you?\"",
+        "answer": "morning"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What does Martin do first in the morning?",
-        "options": [
-          "Reads the news",
-          "Eats breakfast"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Akane: \"A typical morning for me involves getting up with the alarm clock, turning on the news, taking a shower, and I make toast ________, but I don't have a toaster so I have to toast my toast on the frying pan and then flip it over to the other side and then I put margarin on it and a slice of cheese and I have that with a cup of tea every morning.\"",
+        "answer": "everyday"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "What does Naomi do after breakfast?",
-        "options": [
-          "Drinks coffee",
-          "Prepares lessons"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Martin: \"After that I take a shower like ________ else , shave, and then have to have my coffee and my yogurt, and then maybe a quick 5, 10 minute workout and off to work I go.\"",
+        "answer": "everybody"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "What does Jeyong do last?",
-        "options": [
-          "Dry his hair",
-          "Eat something"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Naomi: \"Often also, I'll toast ________ some bread with butter and Veggiemite.\"",
+        "answer": "myself"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Why does Mark wake up early on the weekend?",
-        "options": [
-          "He has to work.",
-          "He wants to enjoy his day off"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeyong: \"A typical ________ for me would be getting up at 7 o'clock in the morning.\"",
+        "answer": "morning"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "What are Jeannie\\'s mornings like?",
-        "options": [
-          "Relaxed",
-          "Rushed"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeyong: \"That would be a typical ________ for me.\"",
+        "answer": "morning"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What do most people do in the morning?",
-        "options": [
-          "exercise",
-          "have breafast",
-          "clean the house",
-          "take a shower"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Mark: \"I usually don't eat ________ right away, but I get a shower and get dressed for work and usually grab a quick breakfast on my way out the door .\"",
+        "answer": "breakfast"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Mark: \"On the weekend, I used to sleep in but ________ these day, I like to get up earlier on the weekend, than during the week because I feel that's my one free day, so I get up pretty early and usually go do something on that Saturday or Sunday.\"",
+        "answer": "actually"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Jeanie: \"It usually involves squeezing too many things in too ________ time.\"",
+        "answer": "little"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Jeanie: \"After which, I have to take a shower and ________ myself for classes I'll be teaching, not just for one day, but mostly for the whole week, reviewing things that have gone wrong, and things that can maybe be improved.\"",
+        "answer": "prepare"
       }
     ]
   },
   {
     "id": "026",
+    "category": "ello",
     "title": "ELLLO Views #26 Shopping Wish List",
     "audioFile": "audio/026-MXR-wantbuy.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #26 shopping wish list.",
@@ -2016,80 +1762,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Why does Jeanie want to buy a house?",
-        "options": [
-          "It\\'s a good investment",
-          "To thank her mom"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeanie: \"One thing I really wish I had enough money to buy is ________ a new home for my mother, because she has done so much for me in life and I feel like I'd like to do something really special for her.\"",
+        "answer": "actually"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Naomi wants a new car because _______.",
-        "options": [
-          "She doesn\\'t have transportation",
-          "Her car is getting really old"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeanie: \"Aside from that, as far as for me ________ I'd like to have enough money just to be able to travel the world.\"",
+        "answer": "personally"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Why does Mark want a boat?",
-        "options": [
-          "To relax",
-          "To travel"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Naomi: \"________ the car I drive around now is a 1983 Suburu wagon which is full of rust , but it does go pretty well.\"",
+        "answer": "Actually"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Simon would buy an island _________.",
-        "options": [
-          "So his family could visit",
-          "So he could feel like a king"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Mark: \"If money were no ________, and money were not a problem, I would like to buy a boat.\"",
+        "answer": "object"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "What does Ruth want to buy?",
-        "options": [
-          "An expensive car",
-          "She doesn\\'t know"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Mark: \"There's something about when I'm on the water in a boat I just feel ________ relaxed, yeah, and definitely, that's what I'd buy if I had the money.\"",
+        "answer": "completely"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Why does Barbara want a computer",
-        "options": [
-          "It would be convenient",
-          "Hers was stolen"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Simon: \"One thing that I would like to buy if I had enough money, or if I had enough money to buy something, I would buy an island, which would mean that I got a lot of money to ________ to be the king of a place.\"",
+        "answer": "basically"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "At least two people want to ______ .",
-        "options": [
-          "buy a restaurant",
-          "own a business",
-          "travel",
-          "buy clothes"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Simon: \"I want to have an ________.\"",
+        "answer": "island"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Barbara: \"Something I really wish I had enough money to buy is my own ________.\"",
+        "answer": "computer"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Barbara: \"At the moment I just have to go to the ________ cafe, or use the computers in my guesthouse, and often they don't work.\"",
+        "answer": "internet"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Barbara: \"I really wish I had enough money to buy my own laptop ________.\"",
+        "answer": "computer"
       }
     ]
   },
   {
     "id": "027",
+    "category": "ello",
     "title": "ELLLO Views #MX27 Waste Of Time",
     "audioFile": "audio/027-MXR-wastetime.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #mx27 waste of time.",
@@ -2097,80 +1832,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "What does Jeanie worry about?",
-        "options": [
-          "The future",
-          "Her health"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeanie: \"Something that I waste a lot of time doing is worrying unnecessarily about ________ things in my life.\"",
+        "answer": "different"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What do people do on Cyworld?",
-        "options": [
-          "Start relationships",
-          "Contact friends"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeanie: \"One ________ is I often worry about what to do in the future so \"Should I keep teaching?\"",
+        "answer": "example"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Who does Martin play Playstation with?",
-        "options": [
-          "A friend",
-          "His students"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeyong: \"I waste time using the ________, for example MSN and sending e-mails to friends and theirs a homepage in Korea called cyworld and it's really popular among the Koreans and you put up the pictures, go to other people's homepage and write up visiting comments and I think it's a good way to keep in touch with friends all over the world.\"",
+        "answer": "internet"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Why has Simon recently watched a lot of TV?",
-        "options": [
-          "He has more channels now",
-          "He didn\\'t have a TV before"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Martin: \"Sadly, I'd ________ to say the playstation is a big waste of time.\"",
+        "answer": "have"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "What does Ruth think is okay on the internet?",
-        "options": [
-          "Chatting with friends",
-          "Reading about world events"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Martin: \"That usually takes up ________ from thirty minutes to five hours.\"",
+        "answer": "anywhere"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "What does Todd talk to pepole about?",
-        "options": [
-          "Social lives",
-          "Work topics"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Simon: \"Ah, lately I've been wasting my ________ watching TV.\"",
+        "answer": "time"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Many people waste time _________.",
-        "options": [
-          "spending time outside",
-          "traveling to work",
-          "using electronics",
-          "spending time with friends"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Ruth: \"Probably the worst thing for me is going on the internet, so I go to work, and I get there and I spend the first 30 minutes, or half an hour checking my e-mails which is a complete waste of time , and checking the news, which OK, is ________ but is not the most important thing I should be doing that day.\"",
+        "answer": "important"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Todd: \"Something that I waste ________ doing?\"",
+        "answer": "time"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Todd: \"At work, I have a meeting, I have to talk with my ________ about something important, I go to their desk and we start talking about the news, about our friends, about our weekend, and we talk and talk and talk.\"",
+        "answer": "colleague"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Todd: \"He gets upset but yeah, at ________ I talk way too much.\"",
+        "answer": "work"
       }
     ]
   },
   {
     "id": "028",
+    "category": "ello",
     "title": "ELLLO Views #28 Good Weather Spots",
     "audioFile": "audio/028-MXR-weather.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #28 good weather spots.",
@@ -2178,80 +1902,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Akane says weather is best on the West Coast___.",
-        "options": [
-          "Because it\\'s cold",
-          "Because it\\'s comfortable"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Akane: \"What part of your ________ has the best weather and the worst weather?\"",
+        "answer": "country"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Simon says weather is bad on the West Coast ____.",
-        "options": [
-          "Because it\\'s too hot",
-          "Because it rains all the time"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Akane: \"That means that the winters aren't too ________.\"",
+        "answer": "cold"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Why does Joel like weather in Colorado?.",
-        "options": [
-          "There are different seasons",
-          "It\\'s usually cloudy"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Akane: \"They stay quite ________ in the summer.\"",
+        "answer": "cool"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Where does Mitchell spend most of his time?",
-        "options": [
-          "In his office",
-          "On the beach"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Simon: \"West ________ in the summer time.\"",
+        "answer": "Coast"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Why does Lucinda dislike Wellington weather?",
-        "options": [
-          "It\\'s too windy",
-          "It\\'s very tropical"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Simon: \"Ah, the worst weather in my ________ is also the West Coast for the rest of the year.\"",
+        "answer": "country"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "When does Tom think Lake District is nice?",
-        "options": [
-          "When it\\'s rainy",
-          "When it\\'s sunny"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Joel: \"Well, I think the worst weather, some me people would ________, but I think the worst weather is up in the Pacific Northwest, like Seattle and Portland.\"",
+        "answer": "disagree"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "In general, people think _____ places have nice weather?",
-        "options": [
-          "cold",
-          "sunny",
-          "really hot",
-          "very windy"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Mitchell: \"Well, since I'm from Hawaii, it's summer all year round, and ________ winter all it does is rain occassionally, so pretty much you can find me at the beach 7 days a week, 24 hours a day, barbequeing, enjoying the sun and catching a tan with my friends.\"",
+        "answer": "during"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Mitchell: \"We got ________ trade winds coming in.\"",
+        "answer": "nice"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Lucinda: \"Ah, the part of New Zealand that has the worst weather is Wellington, I think, because of the wind, and all of the houses are on the ________ so when the wind comes, all the houses get the worst part of the weather, and one of my, actually my Japanese teacher was walking down the street and got hit by lightning in Wellington through her umbrella and the part of the country that has the best weather I think is where I live which is the Bay of Islands.\"",
+        "answer": "mountain"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Tom: \"It can be miserable and grey and rainy and really just the wettest and dampest place in the country, but then when the sum comes out ________ is green and beautiful and that's why it's such a popular place to go camping and hiking, because when it is good it is really, really beuatiful there.\"",
+        "answer": "everything"
       }
     ]
   },
   {
     "id": "029",
+    "category": "ello",
     "title": "ELLLO Views #29 The World - Better or Worse",
     "audioFile": "audio/029-MXR-world.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #29 the world - better or worse.",
@@ -2259,80 +1972,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "How does Eucharia think the world is improving?",
-        "options": [
-          "It has better weather now",
-          "People are more connected"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Eucharia: \"Is the world a better place, well, I do think so because of influences such as the internet and globalization and growing interest in intercultural ________ so people are more interested in each other where as before people were more introverted and inward looking especially in island countries.\"",
+        "answer": "communication"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What problems does Jeannie think the world has?",
-        "options": [
-          "There is more violence",
-          "People are more superficial"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeannie: \"I think the world is becoming a worse ________.\"",
+        "answer": "place"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Jim thinks the world seems worse now ______.",
-        "options": [
-          "because there are more people",
-          "because we know what\\'s happening"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jim: \"Is the world becoming a ________ or worse place?\"",
+        "answer": "better"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "In what ways does Kate think the world is better?",
-        "options": [
-          "There are cures for sickness",
-          "Now we can travel easily"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Kate: \"I think this world is becoming somewhat a better place in ________ to technology advancements.\"",
+        "answer": "respect"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Why does Rina think the world is worse now?",
-        "options": [
-          "Problems with the environment",
-          "People are more selfish"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Kate: \"And with the technology advancements, medications and diseases can be cured a lot faster and ________.\"",
+        "answer": "better"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "What does Simon think causes problems?",
-        "options": [
-          "Differences between people",
-          "Improvements in communication"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Rina: \"I think the world is becoming a ________ place in some areas and a worse place in some areas.\"",
+        "answer": "better"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What do many people think is a positive change?",
-        "options": [
-          "Better transportation",
-          "Better education",
-          "Better technology",
-          "Better lifestyles"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Rina: \"When it comes to humanity and being ________ people, I think in a lot of areas it's getting worse.\"",
+        "answer": "better"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Rina: \"I think a lot of people are more ________ about themselves than other peoples welfare.\"",
+        "answer": "concerned"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Simon: \"I wish it were becoming better and that people would get on with each other and forget about differences but I think we're going in the opposite ________.\"",
+        "answer": "direction"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Simon: \"It seems like people want a better world but too few people are willing to ________ stand up and do something about what they believe in.\"",
+        "answer": "actually"
       }
     ]
   },
   {
     "id": "030",
+    "category": "ello",
     "title": "ELLLO Views #30 Early Bird or Night Owl",
     "audioFile": "audio/030-MX-NightOwl.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #30 early bird or night owl.",
@@ -2340,80 +2042,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Why does Jeannie try to go to bed early?",
-        "options": [
-          "She likes to wake up early",
-          "She has to work"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeannie: \"I am ________ a night owl .\"",
+        "answer": "definitely"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "How has Jim\\'s lifestyle changed?",
-        "options": [
-          "He wakes up earlier",
-          "He goes to bed later now"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeannie: \"I can stay up all night and be fine but getting up early in the ________ is always painful for me.\"",
+        "answer": "morning"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "How does Kate feel when she wakes up?",
-        "options": [
-          "She wants to sleep more",
-          "Ready to start the day"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeannie: \"with my ________ job, I always have to get up really early, but I still can't manage to get to bed before 1 o'clock in the morning.\"",
+        "answer": "current"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "When is Martin the most productive?",
-        "options": [
-          "Late at night",
-          "In the morning"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jim: \"I have to go to bed, so nowadays I'm up a lot more earlier in the morning and I think I'm more ________ in the morning.\"",
+        "answer": "productive"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Why does Nitya like to wake up early?.",
-        "options": [
-          "She has an early part-time job",
-          "It\\'s a good start to the day"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Kate: \"I'm more of an early ________ person.\"",
+        "answer": "morning"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "When is Rina tired?",
-        "options": [
-          "When she stays up late",
-          "She usually isn\\'t"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Kate: \"I wake up about 10 o'clock, which is quite late, I think, I guess, but when I wake up, I feel really refreshed and I'm ready to go to class and I'm awake and listening to the lecturer, but then by about 3 o'clock in the ________, I need a nap.\"",
+        "answer": "afternoon"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "A few people say they do their best work ____",
-        "options": [
-          "in the afternoon",
-          "late at night",
-          "after school",
-          "when they get up"
-        ],
-        "answer": 3
+        "type": "gapfill",
+        "question": "Martin: \"I ________ the best in the morning, so I would have to say I'm an early bird.\"",
+        "answer": "function"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Martin: \"I can stay up late and I enjoy doing that now and then but by-and-large, more often than not , I do my best work in the ________.\"",
+        "answer": "morning"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Martin: \"I can get up early and don't really ________ too much about it, so I'm an early bird.\"",
+        "answer": "complain"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Rina: \"I am the person that stays up till 4 in the ________ and then I will have to get up at 8 in the morning and I'll do that repetitively every night, and I'm never tired I don't know what's wrong with me.\"",
+        "answer": "morning"
       }
     ]
   },
   {
     "id": "031",
+    "category": "ello",
     "title": "ELLLO Views #31 Waste of Money",
     "audioFile": "audio/031-MX-WasteMoney.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #31 waste of money.",
@@ -2421,80 +2112,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Barbara hates it when ___________.",
-        "options": [
-          "she has nothing to read",
-          "she washes her hair"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Barbara: \"Something that I waste ________ on would probably be books.\"",
+        "answer": "money"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Jeannie buys jewelry because ______.",
-        "options": [
-          "she always wears it",
-          "it catches her eye"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Barbara: \"It's terrible if I'm stuck on the train or waiting for something and I don't have something to read so I tend to buy a lot of books, novels, a few magazines, reader's digest and also I waste a lot of money on shampoo ________ I have long hair and I have to wash my face every day.\"",
+        "answer": "because"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "What does Mark spend his money on?",
-        "options": [
-          "Experiences with friends",
-          "Loud stereo equipment"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeannie: \"I often spend too much money on jewelry ________ shiny things really attract me.\"",
+        "answer": "because"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Todd thinks that maybe he should ______.",
-        "options": [
-          "buy some  new electronics",
-          "rent movies instead of buying"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeannie: \"If I'm ________ somewhere and there's something flashy shining at me I usually stop and look and often times the salesperson can get me to buy.\"",
+        "answer": "shopping"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Why does Naomi like shopping?",
-        "options": [
-          "She does it with friends",
-          "It helps her relax"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Mark: \"Ah, I waste money on, I guess mostly on going out, like whether it's going to restaurants or, I don't really go to clubs or anything, but, yeah, I just spend money ________ things.\"",
+        "answer": "temporary"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "What does Jeyong spend his money on?",
-        "options": [
-          "Shoes",
-          "Sweets"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Mark: \"I don't actually buy a lot of objects like a stereo or a CD, or anything like that, I just spend money on going out with my friends, and just food and drinks ________ .\"",
+        "answer": "basically"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Two people waste money on _____.",
-        "options": [
-          "travel",
-          "food",
-          "books",
-          "concerts"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Todd: \"I'm always buying DVDs and I'll be in some ________, like store, and I'll see a new DVD and I'll buy it rather than just go to the video store and rent it.\"",
+        "answer": "electronics"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Todd: \"I don't know why but I like to buy the DVD when it has the special stuff on the back, but still, it's pretty ________ when you think about it, so, yeah, I waste way too much money on DVDs.\"",
+        "answer": "expensive"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Naomi: \"I guess because I'm a girl to start with ________ is always a fun pastime and I find it relaxing, actually I call it shopping therapy to go and buy some new clothes often buy myself, I go shopping but shopping is something I spend or waste money on.\"",
+        "answer": "shopping"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Jeyong: \"I like desserts, ________ ice cream so when I go out for dinner I would definitely have a dessert afterwards and cakes, candies, chocolates, all those things, I spend money on.\"",
+        "answer": "especially"
       }
     ]
   },
   {
     "id": "032",
+    "category": "ello",
     "title": "ELLLO Views #32 Food Cravings",
     "audioFile": "audio/032-MXR-FoodCravings.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #32 food cravings.",
@@ -2502,80 +2182,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "How did Eucharia\\'s grandmother make bread?",
-        "options": [
-          "In a bread machine",
-          "In a special oven"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Eucharia: \"A food I ________ crave, well, now I'm not living in Ireland.\"",
+        "answer": "always"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What does Jeannie like with her popcorn?",
-        "options": [
-          "Soda",
-          "Butter"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Eucharia: \"I ________ crave Irish soda bread.\"",
+        "answer": "always"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Why does Martin like gyros?",
-        "options": [
-          "He likes the sauce",
-          "He likes the bread"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Eucharia: \"It's kind of, some people ________ it as cake without bread, without sugar, but it's quite heavy and it's really healthy and good for the body.\"",
+        "answer": "describe"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Todd thinks ______ is essential to a hot dog.",
-        "options": [
-          "basketball",
-          "mustard"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeannie: \"I can ________ get tired of pizza.\"",
+        "answer": "never"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Why doesn\\'t Nitya eat much Indian food?",
-        "options": [
-          "She doesn\\'t know how to make it",
-          "She\\'s too lazy to make it"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeannie: \"________ one I often crave is popcorn.\"",
+        "answer": "Another"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Rina eats turkey dinner _________.",
-        "options": [
-          "for breakfast",
-          "on Christmas"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Martin: \"If there's, if I can only ________ one food I crave, I'd have to say a euro.\"",
+        "answer": "mention"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What is one type of food NOT discussed?",
-        "options": [
-          "Irish",
-          "meat",
-          "sweets",
-          "snack"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Todd: \"The one food that I ________ crave is hot dogs.\"",
+        "answer": "always"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Todd: \"I don't know why, maybe because I love ________, but a hot dog and a nice hot dog bun with good mustard is just the best food in the world, and I know hot dogs are terrible.\"",
+        "answer": "baseball"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Todd: \"They're not good for your body, but there's just something ________ the taste of a nice hot dog and a coke.\"",
+        "answer": "about"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Rina: \"Something I always crave would have to turkey dinner cause when my mom makes Turkey dinner I eat it for about 4 days straight , ________ lunch and supper.\"",
+        "answer": "breakfast"
       }
     ]
   },
   {
     "id": "033",
+    "category": "ello",
     "title": "ELLLO Views #33 Family Size",
     "audioFile": "audio/033-MXR-Family.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #33 family size.",
@@ -2583,80 +2252,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Akane thinks big families are good because____.",
-        "options": [
-          "she had a big family",
-          "she had a small family"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Akane: \"Is it ________ to have a big family or a small family?\"",
+        "answer": "better"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What does Jeff think you learn from a big family?",
-        "options": [
-          "To share everything",
-          "To tell the truth"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Akane: \"Well, I've ________ like the idea of having a big family so I think that having a big family is a really good thing.\"",
+        "answer": "always"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Jeyong thinks big families are interesting _______.",
-        "options": [
-          "because everyone is the same",
-          "because everyone is different"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Akane: \"I only have one ________, so if I could afford it, I think I would really like to have a big family When I get older.\"",
+        "answer": "brother"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Why does Ruth like big families?",
-        "options": [
-          "They are more interesting",
-          "They laugh together"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeff: \"I grew up in a big ________ and it was really good: four brothers and one sister and my parents and a dog, so there were lots of people around and I think a big family is good.\"",
+        "answer": "family"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "What does Simon say about only children?",
-        "options": [
-          "They get a lot of attention",
-          "They get whatever they want"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeyong: \"I think it's better to have a big family ________ for instance, I have a family of six members: my dad, my mom, older sister, younger sister and a younger brother and me, so when we are all together, the six of us, it's very fun talking and eating food.\"",
+        "answer": "because"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Why does Todd think small families are easier?",
-        "options": [
-          "You can live in an apartment",
-          "Big families are expensive"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeyong: \"It's ________ how everybody is very different from each other.\"",
+        "answer": "interesting"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What are positives of big families?",
-        "options": [
-          "You have a big house",
-          "You can be alone",
-          "You can share memories",
-          "You are never lonely"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Ruth: \"You have a wider variety of people to spend time with, and I ________ big families with fun and laughter, so I think I would prefer a big family even though I like my small family.\"",
+        "answer": "associate"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Simon: \"I'm an only child, so I've only known life in a small ________.\"",
+        "answer": "family"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Simon: \"You're parents do ________ for you.\"",
+        "answer": "everything"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Todd: \"I think for the child it's better to have a big family because then you have more brothers and sisters to do stuff with and you'll have special memories and when you get older you'll be able to look back and think of all the good times you had with your brothers and sisters, but I think for parents, these days it's better to just have a very small family, maybe just one or two children because things are so ________ and it's just really hard to raise a big family these days.\"",
+        "answer": "expensive"
       }
     ]
   },
   {
     "id": "034",
+    "category": "ello",
     "title": "ELLLO Views #34 Where to Eat",
     "audioFile": "audio/034-MXR-CookEatOut.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #34 where to eat.",
@@ -2664,80 +2322,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Alan enjoys cooking because _______.",
-        "options": [
-          "he has a chance to be creative",
-          "it's too expensive to eat out"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Alan: \"Do I prefer to ________ at home or eat out?\"",
+        "answer": "cook"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Jeff thinks cooking helps him ________.",
-        "options": [
-          "be a vegetarian",
-          "relieve stress"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Alan: \"It gives me ________ to do.\"",
+        "answer": "something"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Why is eating out fun for Lucinda?",
-        "options": [
-          "She used to eat at home a lot",
-          "She always goes to fancy places"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Alan: \"I enjoy eating them, and ________ I enjoy cooking for other people, cooking for them and watching them enjoy the food that I cook.\"",
+        "answer": "actually"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Ruth says it\\'s healthier _______.",
-        "options": [
-          "to eat out",
-          "to eat at home"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Lucinda: \"I was raised in the ________, so we always cooked at home, so I prefer to eat out any chance I can get I would prefer to eat out than cook at home.\"",
+        "answer": "country"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Why does Simon like going out?",
-        "options": [
-          "It\\'s something special",
-          "The food is better"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Ruth: \"If you ask me that ________ time, I would say,eat out.\"",
+        "answer": "every"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Why doesn\\'t Todd cook much?",
-        "options": [
-          "He has no kitchen",
-          "He doesn\\'t know how"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Ruth: \"You'd know ________ what you're eating so it depends if I'm on a diet or not: if I'm not eating out, If I am eating at home.\"",
+        "answer": "exactly"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "In general, eating in a restaurant is ______.",
-        "options": [
-          "more fun",
-          "less expensive",
-          "healthier",
-          "stressful"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Simon: \"I like ________ but going out is an event.\"",
+        "answer": "cooking"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Simon: \"Yeah, going out is an ________.\"",
+        "answer": "event"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Todd: \"________ this is not a choice because every night I eat out.\"",
+        "answer": "Actually"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Todd: \"No cleaning up ________, just buy it and eat.\"",
+        "answer": "afterwards"
       }
     ]
   },
   {
     "id": "035",
+    "category": "ello",
     "title": "ELLLO Views #35 High School",
     "audioFile": "audio/035-MXR-SameHS.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #35 high school.",
@@ -2745,80 +2392,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Jeannie had _____ in high school.",
-        "options": [
-          "bad teachers",
-          "good friends"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeannie: \"High school was a very good ________ for me.\"",
+        "answer": "experience"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What does Jim think of his high school?",
-        "options": [
-          "It was average",
-          "It was the best"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeannie: \"________ my high school years, I was having a lot of trouble at home so school was where I went to escape all my problems and I really put myself into my work and I loved my teachers and a lot of us are still friends so, yeah, high school was great.\"",
+        "answer": "During"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Why did Martin like his senior year?",
-        "options": [
-          "He had a beautiful girlfriend",
-          "He didn\\'t go to school much"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jim: \"My ________ school wasn't a fantanstic school, but I had lots of good friends and some good teachers.\"",
+        "answer": "high"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Who did Nitya study with?",
-        "options": [
-          "her friends",
-          "her teachers"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Martin: \"________ school for me was, well, they call it formative years .\"",
+        "answer": "High"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Rina says her high school was ______",
-        "options": [
-          "boring",
-          "small"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Martin: \"Overall, ________ school was like it is from some of the movies from the 1980's.\"",
+        "answer": "high"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "What did Todd do in high school?",
-        "options": [
-          "Joined clubs",
-          "Worked a lot"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Nitya: \"OK, I think I loved my ________ school.\"",
+        "answer": "high"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Most people ___________ high school.",
-        "options": [
-          "didn't go to",
-          "made good friends in",
-          "were bored in",
-          "never graduated from"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Nitya: \"It's really tough, but I had ________ friends so we did a lot of joint studies and great fun, ideas, yep.\"",
+        "answer": "great"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Todd: \"I have to ________, I loved high school.\"",
+        "answer": "admit"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Todd: \"It's a really good time, you know, you know you play sports, you're in clubs, you're hanging out with your friends, but what I remember most ________ high school though, is that I thought it would never end .\"",
+        "answer": "about"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Todd: \"They're never going to let me out of school.\" But ________ they did.\"",
+        "answer": "eventually"
       }
     ]
   },
   {
     "id": "036",
+    "category": "ello",
     "title": "ELLLO Views #36 Celebrity Life",
     "audioFile": "audio/036-MXR-Famous.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #36 celebrity life.",
@@ -2826,80 +2462,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Why would Jeff be a musician?",
-        "options": [
-          "Because musicians travel",
-          "You can do it a long time"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeff: \"Would I like to be a ________, athlete, a movie star or a musician?\"",
+        "answer": "politician"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What scenes would Jeyong be good at?",
-        "options": [
-          "fighting",
-          "crying"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeff: \"I'd hate to be a ________, and I'd hate to be a movie star, and there's not much difference between a politician and a movie star because they're both great actors.\"",
+        "answer": "politician"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Why does\\'t Martin want to be a politician?",
-        "options": [
-          "There is too much competition",
-          "People investigate your life"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeff: \"A ________, you can do it until you're old and gray and you can keep wailing on your guitar, your saxaphone, and I'd like to be a musician.\"",
+        "answer": "musician"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "What would Ruth do as a movie star?",
-        "options": [
-          "Complain all the time",
-          "Wear fancy clothes"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Martin: \"What would I rather be, a movie star, a ________, a pro athlete, or a musician?\"",
+        "answer": "politician"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Why would Simon be an athlete?",
-        "options": [
-          "He could be like a hero",
-          "So he could be inside a lot"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Martin: \"I can make ________ decisions and hopefully make better movies than are out there right now.\"",
+        "answer": "direction"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Todd would be a politician to _________.",
-        "options": [
-          "lie to people",
-          "make changes"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Ruth: \"I'd like to be glamorous and able to dress up on the red ________.\"",
+        "answer": "carpet"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Many people WOULDN\\'T be a politician _______.",
-        "options": [
-          "because they don\\'t make money",
-          "because they aren\\'t famous",
-          "because they don\\'t tell the truth",
-          "because they work too much"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Simon: \"So, I think I'd want to be a pro ________.\"",
+        "answer": "athlete"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Simon: \"Something that I wouldn't want to do would be to be a ________.\"",
+        "answer": "politician"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Todd: \"Yeah, I think I'd want to be a ________ because if you're a politician you can make changes, you can influence people's lives.\"",
+        "answer": "politician"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Todd: \"You can't have a very long career either, so I think the best bet is to be a ________ and influence people and be productive your entire life.\"",
+        "answer": "politician"
       }
     ]
   },
   {
     "id": "037",
+    "category": "ello",
     "title": "ELLLO Views #37 Young Doctor vs. Older Doctor",
     "audioFile": "audio/037-MXR-Doctor.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #37 young doctor vs. older doctor.",
@@ -2907,80 +2532,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Why would Martin trust and old doctor?",
-        "options": [
-          "more education",
-          "more experience"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Martin: \"Do I prefer a young or an older ________?\"",
+        "answer": "doctor"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Why would Mitchell want a female doctor?",
-        "options": [
-          "Because he would feel comfortable",
-          "Because he would go to the doctor more"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Mitchell: \"It doesn't matter if it's young or old, but I prefer an old male doctor, because he has ________, I would think, but if it was a female, I would prefer a young female doctor because I'll be more likely to go the doctor if I'm sick, or if I catch a cold or.\"",
+        "answer": "experience"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Ruth thinks younger doctors _______.",
-        "options": [
-          "don\\'t listen",
-          "are relaxing"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Ruth: \"They're easier to deal with and they ________ more to what you have to say.\"",
+        "answer": "listen"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Shuan thinks an old doctor _________.",
-        "options": [
-          "wouldn\\'t understand new techniques",
-          "would have less experience"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Ruth: \"BUt my own doctor, we've been with the same doctor for several years and he's kind of older but ________ we've always gone to him he's really easy to talk to.\"",
+        "answer": "because"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Simon thinks a new doctor would be ______.",
-        "options": [
-          "more enthusiastic",
-          "less careful"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Shuan: \"An old doctor might not be as well-versed in new medicines that have some out but a new doctor might, or a young doctor might, but obviously I would think that the new doctor would have more ________ over all .\"",
+        "answer": "experience"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Why does Tom want a younger doctor?",
-        "options": [
-          "They would be close in age",
-          "Maybe they could be friends"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Simon: \"I think I would prefer the young ________.\"",
+        "answer": "doctor"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What is one reason people prefer older doctors?",
-        "options": [
-          "They make more money",
-          "They are hard workers",
-          "They understand patients better",
-          "They have more experience"
-        ],
-        "answer": 3
+        "type": "gapfill",
+        "question": "Simon: \"Also, they're probably more gung-ho , care more about the patients ________ they're new and they want to impress.\"",
+        "answer": "because"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Tom: \"Yeah, there are a lot of reasons I would prefer to be seen by a younger ________.\"",
+        "answer": "doctor"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Tom: \"They'd be closer to my age, which makes it easier to talk to them and to ________ what's going on.\"",
+        "answer": "discuss"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Tom: \"________, if they're younger, they're working harder.\"",
+        "answer": "Plus"
       }
     ]
   },
   {
     "id": "038",
+    "category": "ello",
     "title": "ELLLO Views #38 Fashion Magazine",
     "audioFile": "audio/038-MXR-Fashion.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #38 fashion magazine.",
@@ -2988,80 +2602,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Eucharia likes fashion magazines because _____.",
-        "options": [
-          "she learns about new styles",
-          "they are really easy to read"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Eucharia: \"Women's fashion's magazines: I like reading them on airplanes cause they don't really require a lot of ________ , and they're better on an airplane than a novel because I don't have the concentration when I'm flying for twelve hours to concentrate on a novel so women's fashions magazines are sort of chewing gum for the mind , excellent on a long, long flight.\"",
+        "answer": "concentration"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "When does Jeannie read fashion magazines?",
-        "options": [
-          "All the time",
-          "Never"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeannie: \"I don't pay ________ to them at all.\"",
+        "answer": "attention"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Why doesn\\'t Jim like fashion magazines?",
-        "options": [
-          "They are unrealistic",
-          "They took his photo"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jim: \"I think ________ magaizines are a bad idea.\"",
+        "answer": "fashion"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Kate thinks clothes in the magazines are _____.",
-        "options": [
-          "Not for use in daily life",
-          "Great for everyone"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jim: \"I think they show an image of women that the ________ woman maybe can't emulate and lead to a lot of unhappiness.\"",
+        "answer": "average"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "What doesn\\'t Rina pay attention to?",
-        "options": [
-          "new fashion styles",
-          "the models' body types"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jim: \"I was in central London and a woman came up to me and asked me some opinions about relationships and took my ________ and a month later I was in the magazine.\"",
+        "answer": "photograph"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Todd thinks that fashion magazines ______",
-        "options": [
-          "are not like real life",
-          "are a good guide for shopping"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Kate: \"Women's ________ magazines - I often buy magazines just to have a look but I find that the clothes that they wear are kind of extreme, and for example, someone like Paris Hilton who was recently in the fashion magazines a lot, that the clothes that she wears, a lot of people, a lot of teenages, 20 year-olds around my age, will not wear outside.\"",
+        "answer": "fashion"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Most of the women think fashion magazines ______",
-        "options": [
-          "are too expensive",
-          "give good style ideas",
-          "can be entertaining",
-          "are good for young girls"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Rina: \"I try not to pay ________ too much to that.\"",
+        "answer": "attention"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Rina: \"I do like looking at them just ________ they're fun to look at the articles are good.\"",
+        "answer": "because"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Todd: \"The models ________ just look ridiculous.\"",
+        "answer": "always"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Todd: \"It's pretty rare, so yeah, I think ________ magazines, for the most part, are pretty ridiculous.\"",
+        "answer": "fashion"
       }
     ]
   },
   {
     "id": "039",
+    "category": "ello",
     "title": "ELLLO Views #39 Typical Evening",
     "audioFile": "audio/039-MXR-Typical.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #39 typical evening.",
@@ -3069,80 +2672,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "On most nights Simon ________ after work.",
-        "options": [
-          "watches television",
-          "is with his girlfriend"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Simon: \"OK, so what is typical workday for me, basically come home from work and I place a lot of ________ on dinner so I try to make something nice for dinner and then after that I basically listen to my girlfriend complain and argue and that's about it.\"",
+        "answer": "importance"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What does Ruth do when she is in England?",
-        "options": [
-          "She sometimes goes to the gym",
-          "She usually cooks dinner"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Ruth: \"I'm not sure that I have a typical ________ really.\"",
+        "answer": "evening"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "How does Todd end his night?",
-        "options": [
-          "He goes to the supermarket",
-          "He watches television"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Ruth: \"________ when I'm in the U.K.\"",
+        "answer": "Usually"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "What does Martin usually do at night?",
-        "options": [
-          "Studies a little",
-          "Calls his family"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Ruth: \"Occassionally I stay in and maybe watch TV with my my parents and quite often I go to the gym or I go swimming in the ________.\"",
+        "answer": "evening"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "How does Greg relax?",
-        "options": [
-          "He goes for a walk",
-          "He listens to music"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Ruth: \"I suppose it depends on what ________ of the week it is.\"",
+        "answer": "night"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "How does Asako describe her evenings?",
-        "options": [
-          "Boring",
-          "Relaxing"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Todd: \"OK, a typical ________ for me, I usually get home at about 7 o'clock, quickly change my clothes, put on my running gear.\"",
+        "answer": "evening"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Many people ________ every night.",
-        "options": [
-          "work",
-          "go out",
-          "cook",
-          "dance"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Todd: \"Jog back by the supermarket on the way home, pick up my ________ and eat my dinner, take a shower, eat my dinner and watch TV.\"",
+        "answer": "dinner"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Martin: \"Well, a typical evening for me I would have to say is ________ spent, making dinner, cleaning dishes, doing other domestic things such as that and then usually as being a student still, a doing a lot of research and reading and usually chatting with friends abroad, and basically a very domestic evening.\"",
+        "answer": "generally"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Greg: \"A typical evening involves dinner and I'm a bit of a workoholic, so I work, and the ________ part comes I guess when I walk my dog, and sometimes my wife comes along with me and that's, that's really nice too.\"",
+        "answer": "relaxing"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Asako: \"My typical evening involves cooking, ________ and sometimes cleaning, doing laundry, working and then sleeping.\"",
+        "answer": "definitely"
       }
     ]
   },
   {
     "id": "040",
+    "category": "ello",
     "title": "ELLLO Views #40 Family Resemblance",
     "audioFile": "audio/040-MXR-Resemble.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #40 family resemblance.",
@@ -3150,80 +2742,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Who does Akane look like now?",
-        "options": [
-          "Her brother",
-          "Her mother"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Akane: \"Who in your ________ do you resemble most and why?\"",
+        "answer": "family"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Martin and his father __________.",
-        "options": [
-          "have similar personalities",
-          "don\\'t get along very well"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Martin: \"I would say the one person I resemble the most in my family, it would ________ have to be my dad.\"",
+        "answer": "obviously"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Naomi most resembles _______",
-        "options": [
-          "nobody",
-          "her sister"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Martin: \"We always have very ________ conversations about politics, baseball and all manner of things that are going on in the world, so my dad and I are the closest people in my family.\"",
+        "answer": "interesting"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Simon and his dad have the same _______",
-        "options": [
-          "eyes",
-          "smile"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Naomi: \"My family are all so ________.\"",
+        "answer": "different"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Greg thinks he looks like ______",
-        "options": [
-          "his dog",
-          "his mother"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Naomi: \"My mom, she has very ________ hair.\"",
+        "answer": "dark"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Asako thinks she shares _______ with her mom",
-        "options": [
-          "appearance",
-          "personality"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Naomi: \"That's similar I guess but other than that, we all look ________ different.\"",
+        "answer": "completely"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Most people think they resemble their _____",
-        "options": [
-          "pets",
-          "parents",
-          "grandparent",
-          "friends"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Simon: \"I ________ like and act like my dad for sure.\"",
+        "answer": "look"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Simon: \"We ________ like the same kinds of sports.\"",
+        "answer": "both"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Greg: \"Who in my ________ do I resemble most?\"",
+        "answer": "family"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Asako: \"My ________ is actually like my mom, and let's see, my sister was, she looked really different before but as we get older, it seems like we are getting more and more resembled.\"",
+        "answer": "personality"
       }
     ]
   },
   {
     "id": "041",
+    "category": "ello",
     "title": "ELLLO Views #41 News Source",
     "audioFile": "audio/041-MXR-HowGetNews.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #41 news source.",
@@ -3231,80 +2812,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "How did Alan get his news before?",
-        "options": [
-          "He went on the internet",
-          "He watched it on TV"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Alan: \"How do I get my ________?\"",
+        "answer": "news"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What does Asako do sometimes?",
-        "options": [
-          "Listens to the news",
-          "Buys an newspaper"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Alan: \"Well, when I lived in Canada I got my news from primarily watching television and reading the ________.\"",
+        "answer": "newspaper"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Greg likes to read ______.",
-        "options": [
-          "Japanese newspapers",
-          "Tabloid magazines"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Alan: \"Surfing the net for various news sites and the TV and ________ become secondary sources for news.\"",
+        "answer": "newspaper"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "When does Lucinda read the paper?",
-        "options": [
-          "When it's for school",
-          "When she eats breakfast"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Asako: \"My news source would be usually the ________.\"",
+        "answer": "internet"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Martin learns about world news ______.",
-        "options": [
-          "from his friends",
-          "by comparing information"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Asako: \"Other than that we don't have a TV so I don't watch TV so sometimes when I drive ________ I do listen to news.\"",
+        "answer": "actually"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "How does Todd get news at home?",
-        "options": [
-          "On the internet",
-          "On television"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Greg: \"Most of my news comes from ________ Internet news sources such as BBC or, I can't remember the names right now but different sites and I also read newspapers such as the Daily Yomiuri and the Japan times.\"",
+        "answer": "different"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What is the most popular way to get news?",
-        "options": [
-          "radio",
-          "magazines",
-          "internet",
-          "television"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Lucinda: \"I don't think I've ever voluntarily read a ________.\"",
+        "answer": "newspaper"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Lucinda: \"That's quite embarassing but I prefer to watch TV, or ________ to the radio to find out about news or things like that.\"",
+        "answer": "listen"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Martin: \"I don't really watch TV so I don't watch a lot of that, but the other ________ way I get news is from the newspaper and my favorite magazine, The Economist, but I'd say the most important way is off the internet, reading a whole bunch of different newspapers on the Internet at once is a really great way to understand and see what's going on in the world.\"",
+        "answer": "important"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Todd: \"I like the old ________ news, you know the big TV station, and they have the 6 o'clock news.\"",
+        "answer": "network"
       }
     ]
   },
   {
     "id": "042",
+    "category": "ello",
     "title": "ELLLO Views #42 Newspapers",
     "audioFile": "audio/042-MXR-NewsPart.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #42 newspapers.",
@@ -3312,80 +2882,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "What\\'s the first thing Mitchell reads?",
-        "options": [
-          "the style section",
-          "the sports reviews"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Mitchell: \"I always tend to read the sports section first ________ I enjoy sports.\"",
+        "answer": "because"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Anita reads _____ first.",
-        "options": [
-          "the headlines",
-          "the book reviews"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Mitchell: \"I get to ________ what athletes are doing well.\"",
+        "answer": "check"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Why does Asako read the cover page?",
-        "options": [
-          "It has nice pictures",
-          "It\\'s a quick read"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Mitchell: \"And since I'm from Hawaii, the Hawaii ________, I tends to read the Island Style section, where it keeps you updated on local news.\"",
+        "answer": "newspaper"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "What does Greg read to relax",
-        "options": [
-          "comics",
-          "international news"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Anita: \"When I read the newspaper, the first thing I will read, about the cover sheet, and check up on what's the most important thing of the newspaper for the day, and after than I will check out the TV programs and some ________ news, and of course I will check out the weather and the currency of each country as well.\"",
+        "answer": "entertainment"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "When does Ruth stop reading the paper?",
-        "options": [
-          "When she has to teach",
-          "At the sports section"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Asako: \"Let's see, I don't read the ________, therefore I can't answer this questions, however when I look at the Internet, the news site, I usually start with of course, the cover site, cover page, cover site and just look really fast and find out what's going on in the world.\"",
+        "answer": "newspaper"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Why does Simon read the sports first",
-        "options": [
-          "It isn\\'t interesting",
-          "It\\'s easy to read"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Greg: \"I start with the front page and then I start shifting throught he pages and towards the ________ news but if I by chance see the comics first I go to the comics.\"",
+        "answer": "international"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Most men enjoy reading about________.",
-        "options": [
-          "fashion",
-          "movies",
-          "comics",
-          "sport"
-        ],
-        "answer": 3
+        "type": "gapfill",
+        "question": "Ruth: \"Well, let me start by telling you the ________ that I read last.\"",
+        "answer": "part"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Ruth: \"I leave the sport until last because the sport for me is not really that ________.\"",
+        "answer": "interesting"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Ruth: \"It's a little bit pointless , so usually I begin with the front page, and I read the ________ in order then when it gets to the sports page, I stop and I finished.\"",
+        "answer": "newspaper"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Simon: \"Sports is nice ________ reading, and you don't have to think too much and it's fun and then after sports finished, I get into the heavy stuff like world news and all that kind of Jazz .\"",
+        "answer": "light"
       }
     ]
   },
   {
     "id": "043",
+    "category": "ello",
     "title": "ELLLO Views #43 Cold Remedy",
     "audioFile": "audio/043-MXR-ColdRemedy.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #43 cold remedy.",
@@ -3393,80 +2952,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "How does Al get better?",
-        "options": [
-          "He eats spicy food",
-          "Sees a doctor"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Al: \"When I have a cold, I don't take the traditional ________, or lemon, hot lemon drinks or anything like that.\"",
+        "answer": "medicine"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Anita\\'s grandmother gave her ________",
-        "options": [
-          "A hot bath",
-          "Hot tea"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Al: \"I take ceyene pepper, red pepper powder and I put it in ________ I'm eating and that works for me.\"",
+        "answer": "everything"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Ruth thinks you can cure a cold by _______",
-        "options": [
-          "Drinking lemon water",
-          "Letting time pass"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Anita: \"When I've got a cold, I will stay at home and my ________ always gives me a special herb tea for colds, and my grandmother always gives me a hand massage.\"",
+        "answer": "grandmother"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "What does Tres think kills a cold?",
-        "options": [
-          "Watching television",
-          "A special drink"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Anita: \"I will ________ my fingers and my hands.\"",
+        "answer": "massage"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "How does Ruth feel about remedies?",
-        "options": [
-          "They help you get better",
-          "They don\\'t help at all"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Ruth: \"Usually, if I have holidays from work I will go to bed for the weekend, ________ drink lots of hot drink and sometimes eat oranges and citrus fruit for vitimin C, but I think the only think you can do with a cold is to wait it out .\"",
+        "answer": "maybe"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Simon thinks that _____ the cold is good.",
-        "options": [
-          "attacking",
-          "ignoring"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Tres: \"It's also good to have a hot toddy - liquor, like whiskey, ________, honey, heat it up, drink it.\"",
+        "answer": "lemon"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "________ is one of the good ideas discussed.",
-        "options": [
-          "Taking a bath",
-          "Drinking beer",
-          "Exercise",
-          "Resting"
-        ],
-        "answer": 3
+        "type": "gapfill",
+        "question": "Ruth: \"I don't really understand these cold remedies and my theory is that, if you have a cold and you take all of these cold remedies and antibiotics, they don't help because your body is immune to them, so you may as well just not take ________ let your body heal itself.\"",
+        "answer": "anything"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Ruth: \"________ on occasion, when my cold has been really bad, I have taken somthing.\"",
+        "answer": "Although"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Simon: \"Well, I ________ lots of fluids.\"",
+        "answer": "drink"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Simon: \"I don't get colds that often so it doesn't really matter , or ________ way is just pretend the cold isn't there.\"",
+        "answer": "another"
       }
     ]
   },
   {
     "id": "044",
+    "category": "ello",
     "title": "ELLLO Views #44 Best City",
     "audioFile": "audio/044-MXR-GoodTown.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #44 best city.",
@@ -3474,80 +3022,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "What does Simon like about Vancouver?",
-        "options": [
-          "There are things to do",
-          "It is very small"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Simon: \"What's the best city in my ________?\"",
+        "answer": "country"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Where does Ruth really like to shop?",
-        "options": [
-          "London",
-          "Leeds"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Simon: \"It has trees and it's got ________ life.\"",
+        "answer": "city"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "What didn\\'t Tres like about New York City?",
-        "options": [
-          "It was boring",
-          "It was dirty"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Ruth: \"Well, ________, I really like London and I really like that fact that it's so cosmopolitan and I think it's amazing for shopping.\"",
+        "answer": "actually"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "What does Ruth like about Dublin?",
-        "options": [
-          "The nightlife",
-          "The restaurants"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Tres: \"I don't think I've been to ________ American cities really to answer that question.\"",
+        "answer": "enough"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Why does Al prefer Newcastle?",
-        "options": [
-          "The people aren\\'t rude",
-          "He can watch rugby"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Ruth: \"The best city in my ________ is probably Dublin, the capitol.\"",
+        "answer": "country"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Martin likes the _____ in Seattle.",
-        "options": [
-          "the people",
-          "the landscape"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Al: \"The city in my ________ is probably Newcastle.\"",
+        "answer": "country"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What don\\'t people like about some cities?",
-        "options": [
-          "Weather is too hot",
-          "People aren\\'t nice",
-          "It's too big",
-          "Beautiful landscapes"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Al: \"There's lots of ________ to do.\"",
+        "answer": "things"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Martin: \"The best city in my ________, I'd have to say, is Seattle.\"",
+        "answer": "country"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Martin: \"It's got lovely mountains ________, great ocean views, and a lot of salmon.\"",
+        "answer": "everywhere"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Martin: \"It's really ________ and it's very happy.\"",
+        "answer": "clean"
       }
     ]
   },
   {
     "id": "045",
+    "category": "ello",
     "title": "ELLLO Views #45 Bad Things about Home",
     "audioFile": "audio/045-MXR-BadAboutHome.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #45 bad things about home.",
@@ -3555,80 +3092,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "What does Anita think are problems with Taipei?",
-        "options": [
-          "There is pollution",
-          "There are no jobs"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Anita: \"What is bad ________ my hometown?\"",
+        "answer": "about"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Al says that Stevenich is _________",
-        "options": [
-          "boring",
-          "beautiful"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Anita: \"I'm from Taiwan and I come from Taipei, and Taipei is a very big city in Taiwan but it's very ________ and the air is bad, the traffic is bad.\"",
+        "answer": "dirty"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "What is Barbara\\'s problem with Perth?",
-        "options": [
-          "Buses are late",
-          "Buildings are old"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Al: \"My hometown is called Stevenich and there's ________ I can say that's positive about my hometown.\"",
+        "answer": "nothing"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "It\\'s good Jeff\\'s hometown is boring because ___",
-        "options": [
-          "He doesn\\'t go out a lot",
-          "He learned to create fun"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Barbara: \"One thing bad about my hometown, well, my hometown is Perth, in Western Australia, and I guess the only bad thing I can think of is the public ________ system, the buses, they really don't run on time .\"",
+        "answer": "transport"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Mark says his hometown isn\\'t ________",
-        "options": [
-          "very modern",
-          "international"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Barbara: \"That's really one bad thing ________ my hometown.\"",
+        "answer": "about"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Simon thinks Vancouver isn\\'t ________",
-        "options": [
-          "beautiful",
-          "cosmopolitan"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeff: \"I live in a small ________ island on the east coast of Canada and there's not much there.\"",
+        "answer": "little"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What is NOT a problem mentioned?",
-        "options": [
-          "weather",
-          "diversity",
-          "transport",
-          "boring"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeff: \"Some ________ would say very boring, but I think you have to find other things to do like hiking or you learn how to play the guitar and play music and reading and writing so I think the bad thing about my hometown is there's not much to do, but it makes you create other things and do other things.\"",
+        "answer": "people"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Mark: \"There's lots of white ________ and lots of black people, but that's about it.\"",
+        "answer": "people"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Simon: \"Well, I think that the ________ of Vancouver overrate the city, and that's kind of, they think it's the best place to live on earth.\"",
+        "answer": "people"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Simon: \"It's a really nice ________ to live but it also rains eight months of the year and it's probably not the most cosmopolitan city on earth.\"",
+        "answer": "place"
       }
     ]
   },
   {
     "id": "046",
+    "category": "ello",
     "title": "ELLLO Views #46 Favorite Country",
     "audioFile": "audio/046-MXR-FavCountry.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #46 favorite country.",
@@ -3636,80 +3162,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Why does Akane like Japan?",
-        "options": [
-          "She has friends there",
-          "She has family there"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Akane: \"Of all the countries you ________ visited, which one was your favorite?\"",
+        "answer": "have"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Barbaras says Japan is _______.",
-        "options": [
-          "busy",
-          "safe"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Akane: \"-- My favorite country to visit is Japan because I have many family members in Japan and every time I come here, ________ treats me really well and I have lots of great memories from when I was a child, spending time with my cousins and uncles and aunts.\"",
+        "answer": "everybody"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "What does Jeff like about India?",
-        "options": [
-          "It\\'s different from home",
-          "There are lots of people"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Barbara: \"Of all the countries I've visited, I would probably say my favorite is Japan ________ it's clean, safe, the food is healthy -- this is traditional Japanese food I mean -- and it's a place where I can make a living as an English teacher.\"",
+        "answer": "because"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Al think Barcelona is perfect for _____.",
-        "options": [
-          "living",
-          "vacationing"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Barbara: \"I can't do that in ________.\"",
+        "answer": "Australia"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Ruth liked Egypt because it\\'s______.",
-        "options": [
-          "inexpensive",
-          "historical"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeff: \"The world's a big ________, and I've been to a few of the countries in the world and maybe I can't pick one favorite coountry.\"",
+        "answer": "place"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Simon thinks Laos is ______",
-        "options": [
-          "traditional",
-          "modern"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeff: \"They are very foreign from my home country, Canada, and there's a lot of things that are ________ that I don't understand, that are very exotic and rare so I think India and Japan are my two favorite countries in the world.\"",
+        "answer": "different"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What positive reason is NOT given?",
-        "options": [
-          "nice weather",
-          "good shopping",
-          "good food",
-          "extreme"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Al: \"My favorite country is -- that I've visited -- is probably Spain because I'm not keen on Europe for vacation usually but I've been to Barcelona and Barcelona had everything that you could possibly want from a holiday ________, so Spain I think.\"",
+        "answer": "destination"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Ruth: \"My favorite ________ I've been to?\"",
+        "answer": "country"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Ruth: \"I've been to lots of really nice countries but probably I would say Egypt because Egypt for me is really ________ because of the history of the country and I say some really important places when I went to Egypt.\"",
+        "answer": "important"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Simon: \"My favorite country at the moment is probably Laos because it has ________ what people sort of think old Asia is, you know, people with the bamboo hats, you know, livestock running to and fro , water buffaloes, dirt roads, you know, it's kind of like the romantic idea of old Asia.\"",
+        "answer": "everything"
       }
     ]
   },
   {
     "id": "047",
+    "category": "ello",
     "title": "ELLLO Views #47 Happy Place",
     "audioFile": "audio/047-MXR-HappyLiveNow.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #47 happy place.",
@@ -3717,80 +3232,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Why does Anita like her apartment?",
-        "options": [
-          "It\\'s large",
-          "It\\'s cheap"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Anita: \"Am I ________ where I live now?\"",
+        "answer": "happy"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Simon doesn\\'t like that his apartment is ____",
-        "options": [
-          "small",
-          "loud"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Anita: \"It's because my ________ is big and it's new.\"",
+        "answer": "apartment"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Why is Al scared to go home?",
-        "options": [
-          "His area is dangerous",
-          "He doesn\\'t like his neighbor"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Anita: \"The neighborhoods are good the people around is good and it actually is very ________ because there are many stores and restaurant around.\"",
+        "answer": "convenient"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Mitchell lives in ______.",
-        "options": [
-          "the city",
-          "the country"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Simon: \"I would ________ to say \"no\".\"",
+        "answer": "have"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Why is Ruth fortunate?",
-        "options": [
-          "Many things are close",
-          "She has a big house"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Simon: \"It's too busy and too loud and filled with ________.\"",
+        "answer": "pollution"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "What is one negative about Todd\\'s home?",
-        "options": [
-          "His neighbor is noisy",
-          "Everything is far"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Al: \"We ________ have a big rat problem where I live so.\"",
+        "answer": "also"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What are positives that people discuss?",
-        "options": [
-          "nice people",
-          "next to the ocean",
-          "safe",
-          "really cheap"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Mitchell: \"I met a lot of nice people, especially now that I'm living in Japan and the culture is real different and the people are really nice and I enjoy entering onsen, which is hot springs, which is natural hot springs in the mountain and plus where I live is kind of ________, so I enjoy that.\"",
+        "answer": "countryside"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Ruth: \"It's not always ideal because of the fact that there's not so much to do, but having said that, there are a lot of good places to go to within half-an-hours drive so really I'm quite ________.\"",
+        "answer": "fortunate"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Todd: \"There's a ________ of restaurant's near my house.\"",
+        "answer": "bunch"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Todd: \"The only thing I don't like is ________ next door plays his music way too loud, but besides that, it's a good place.\"",
+        "answer": "neighbor"
       }
     ]
   },
   {
     "id": "048",
+    "category": "ello",
     "title": "ELLLO Views #48 Hospitals",
     "audioFile": "audio/048-MXR-Hospitals.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #48 hospitals.",
@@ -3798,80 +3302,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Why doesn\\'t Al go to hopitals?",
-        "options": [
-          "He\\'s scared",
-          "He\\'s not sick"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Al: \"No, I'm not ________ of hospitals.\"",
+        "answer": "afraid"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Mitchell is a little afraid because ____",
-        "options": [
-          "he had a bad experience",
-          "he thinks he might get sick"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Al: \"I think there is something quite weird and ________ about hospitals, so I shouldn't say that.\"",
+        "answer": "interesting"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Everytime Keiko goes to the hospital _____",
-        "options": [
-          "he gets bad news",
-          "he gets sick"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Mitchell: \"I am not afraid of hospitals, but at the same time I'm also afraid of hospitals because I tend to think that there's a lot of viruses in hospitals since ________ who is sick tends to go to hospitals and coughs and gets well at the hospital but in general I'm not afraid of hospitals.\"",
+        "answer": "everyone"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "What did Tres do at the hospital?",
-        "options": [
-          "He had surgery",
-          "He played with doctors"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Keiko: \"Every time I go there, I never had good news ________.\"",
+        "answer": "obviously"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "What does Simon think of hospitals?",
-        "options": [
-          "They\\'re full of happiness",
-          "They\\'re full of pain"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Tres: \"I am not at all ________ of hospitals and I don't know why anyone would be afraid.\"",
+        "answer": "afraid"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Why was Ruth excited to go to the hospital?",
-        "options": [
-          "It was her first experience",
-          "To see her new brother"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Tres: \"My sister was asthmatic growing up so I spent a lot of ________ in hospitals playing with the doctors and the nurses.\"",
+        "answer": "time"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Why are people are scared of hospitals?",
-        "options": [
-          "People die",
-          "People are sick",
-          "Doctors are scary",
-          "People are mean"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Simon: \"There's probably a lot of ________ in hospitals.\"",
+        "answer": "pain"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Simon: \"There's ________ to say, but that's it for now.\"",
+        "answer": "more"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Ruth: \"I think I'm one of the very few people who ________ loves hospitals.\"",
+        "answer": "absolutely"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Ruth: \"I don't know, there is something ________ it.\"",
+        "answer": "about"
       }
     ]
   },
   {
     "id": "049",
+    "category": "ello",
     "title": "ELLLO Views #49 To The Airport",
     "audioFile": "audio/049-MXR-Airport.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #49 to the airport.",
@@ -3879,80 +3372,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Anita thinks _____ is a cheap way there.",
-        "options": [
-          "driving",
-          "the bus"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Anita: \"From my city what is the best way to get to the ________?\"",
+        "answer": "airport"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Martin says ______ aren\\'t convenient.",
-        "options": [
-          "buses",
-          "cars"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Anita: \"I live in Taipei and the best way to get to the airport is to drive the car but because of traffic is bad, recently I took the bus to the airport and I think that's the very ________ way and fastest way.\"",
+        "answer": "economic"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Simon says taxis are ______.",
-        "options": [
-          "too expensive",
-          "very easy"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Matt: \"The airport is about 20 miles to the south and there's no buses so it not very ________ to take a bus so if you take a car it takes about 25 minutes to get there and is the best way and is the most convenient.\"",
+        "answer": "convenient"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Keiko thinks the aiport train is ______.",
-        "options": [
-          "economic",
-          "very busy"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Simon: \"A taxi cost ________ 25 bucks.\"",
+        "answer": "about"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Al would recommend ______.",
-        "options": [
-          "the train",
-          "the subway"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Simon: \"It's ________ and no hassles .\"",
+        "answer": "easy"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Todd says parking at the airport is ____.",
-        "options": [
-          "expensive",
-          "the best idea"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Simon: \"You got to go through ________.\"",
+        "answer": "people"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "In many places it is easy to ____ to the airport.",
-        "options": [
-          "take a train",
-          "take a bus",
-          "ride a bicycle",
-          "walk"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Keiko: \"I think it's the ________ way.\"",
+        "answer": "best"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Al: \"If you are going from London to Heathrow ________, I wouldn't recommend taking the subway.\"",
+        "answer": "Airport"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Us: \"OK, the best way to get to the ________.\"",
+        "answer": "airport"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Us: \"The only problem is is you have to pay for parking and parking is really ________ at the airport if you drive so, even if you are from the south you might want to consider taking a bus.\"",
+        "answer": "expensive"
       }
     ]
   },
   {
     "id": "050",
+    "category": "ello",
     "title": "ELLLO Views #50 Dressing Up",
     "audioFile": "audio/050-MXR-DressUp.mp3",
     "description": "Six speakers from around the world share their thoughts on elllo views #50 dressing up.",
@@ -3960,80 +3442,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Jeannie wants to relive her prom to _____.",
-        "options": [
-          "dance all night",
-          "wear something pretty"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeannie: \"I usually ________ up for work.\"",
+        "answer": "dress"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What does Kate wear to university?",
-        "options": [
-          "Shoes with heels.",
-          "Casual clothes"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeannie: \"If I have a ________ who wants to take me out somewhere really nice, then I will put on a nice dress.\"",
+        "answer": "boyfriend"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "What clothes does Rina wear to a wedding?.",
-        "options": [
-          "formal",
-          "professional"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeannie: \"I ________ that, but yeah, those are the only occasions.\"",
+        "answer": "love"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "When does Ruth dress up?",
-        "options": [
-          "For family parties",
-          "When she works"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Kate: \"At university I just wear jeans and T-shirt, kind of casual ________, but when I go to the party, I'll wear some nice skirt or black pants with a nice top which match and also the shoes will be, will have a heel, and guess that's to make you look more mature or something.\"",
+        "answer": "clothes"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Why does Keiko usually wear pants?.",
-        "options": [
-          "She doesn\\'t have skirts",
-          "She feels most comfortable"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Rina: \"Oh, when do I ________ up?\"",
+        "answer": "dress"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "When does Ruth wear heels?",
-        "options": [
-          "When she goes to church",
-          "When she goes out with friends."
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Rina: \"There's going drinking and dancing dressing up, so I usually wear dress pants and a cute shirt, and then there's going to a wedding dressing up, when it's more formal and then there is work dressing up, and that's when I'm more ________.\"",
+        "answer": "professional"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "When do people usually dress up?",
-        "options": [
-          "When they go to school",
-          "When they walk around the city",
-          "When they go out with friends",
-          "When they go shopping"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Ruth: \"I ________ dress up if I'm going to the pub or a club.\"",
+        "answer": "might"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Ruth: \"Put on some ________-up, a bit of perfume.\"",
+        "answer": "make"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Keiko: \"It doesn't matter ________ I feel most myself when I'm wearing pants and, yeah, I wear pants a lot.\"",
+        "answer": "because"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Ruth: \"For ________ if I was going to church, I would merely wear jeans, but if I was going out with my friends, I guess I could also wear jeans too, or maybe a black skirt and some high heel shoes.\"",
+        "answer": "example"
       }
     ]
   },
   {
     "id": "051",
+    "category": "ello",
     "title": "Seasons",
     "audioFile": "audio/051-MXR-BestSeason.mp3",
     "description": "Six people share their favorite season. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -4041,80 +3512,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Why does Akane like spring?",
-        "options": [
-          "It\\'s nice after a long winter",
-          "She can carry around a jacket"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Akane: \"What is your favorite ________ and your least favorite season?\"",
+        "answer": "season"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Al likes the weather best____",
-        "options": [
-          "when it's cold",
-          "before the fall"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Akane: \"My favorite season is spring ________ where I'm from in Toronto the winters are very, very long and cold and and harsh so after that ends and the sun comes out and the birds start coming back and the trees start getting greener it makes me feel very good and refreshed in the spring time, so I love the spring.\"",
+        "answer": "because"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Why doesn\\'t Ruth like summer?",
-        "options": [
-          "Mosquitos love her",
-          "She can\\'t wear jeans"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Al: \"Yeah, my favortie ________ is the time just before autumn.\"",
+        "answer": "season"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Why is winter hard for Tres?",
-        "options": [
-          "There's no moisture in the air",
-          "It's really cold when he skis"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Al: \"I don't like cold weather, so I like the summer but I also like the freshness or ________, or the autumn evenings.\"",
+        "answer": "autumn"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Simon likes summer because ____.",
-        "options": [
-          "there are things to do",
-          "he doesn\\'t go to school"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Ruth: \"I don't really ________ summer though.\"",
+        "answer": "like"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "When does Keiko feel comfortable?",
-        "options": [
-          "In hot weather",
-          "In warm clothes"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Ruth: \"And I tend to get bitten an awful lot and also ________ I sweat so much.\"",
+        "answer": "because"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What is a reason people like a season?",
-        "options": [
-          "special food",
-          "holidays",
-          "activities",
-          "weather"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Tres: \"My least favorite season would probably be winter ________ it's dry, but then again you can go skiing and I love skiing, so I don't really know if I have a least favorite season.\"",
+        "answer": "because"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Simon: \"I ________ stuff that you can do in the summer.\"",
+        "answer": "like"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Simon: \"You ________, you can go hiking - stuff like that.\"",
+        "answer": "know"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Keiko: \"I ________ like the feel of winter.\"",
+        "answer": "just"
       }
     ]
   },
   {
     "id": "052",
+    "category": "ello",
     "title": "Transportation",
     "audioFile": "audio/052-MXR-Transport.mp3",
     "description": "People evaluate their public transportation. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -4122,80 +3582,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "What\\'s an easy way to get to Ruth\\'s town?",
-        "options": [
-          "By tram",
-          "By train"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Ruth: \"Not really because I'm from a small village but then if you ________ go into the town itself, then things aren't too bad.\"",
+        "answer": "actually"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "When would Akane travel by train?",
-        "options": [
-          "If she is not going far",
-          "If she's going a long distance"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Ruth: \"We don't have a tram or ________ like that but we don't need one.\"",
+        "answer": "anything"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Where can Jeyong go in the subway?",
-        "options": [
-          "Only outside the city",
-          "Almost anywhere"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Akane: \"Does your hometown ________ a good transportation?\"",
+        "answer": "have"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Naomi lives in __________.",
-        "options": [
-          "The city",
-          "The country"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Akane: \"The highway system is quite ________ and there are buses and subway systems and long distance trains throughout.\"",
+        "answer": "extensive"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "What problems does Ruth have with buses?",
-        "options": [
-          "They aren't always on time",
-          "They are too expensive"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeyong: \"I'm from Seoul, Korea and \"Yes\" we have a good transportation because we have a lot of buses and we have a very convenient subway which almost goes around places around Seoul area, and outside of Seoul, so basically you can reach any place by riding the subway, and buses, even though there's a big traffic, still I think it's very ________.\"",
+        "answer": "comfortable"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Why does Todd say the transport is efficient?",
-        "options": [
-          "You can use a bus and subway",
-          "It runs on electricity"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Naomi: \"You ________ need your own car to get around.\"",
+        "answer": "definitely"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What is a common problem with buses?",
-        "options": [
-          "They are expensive",
-          "They can be late",
-          "They need repairs",
-          "They are old"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Ruth: \"The ________ in my hometown isn't too bad.\"",
+        "answer": "transport"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Ruth: \"There are buses as well that run ________ Dublin city but sometimes they can be late or delayed.\"",
+        "answer": "into"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Todd: \"The best thing ________ it, it's really cheap.\"",
+        "answer": "about"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Todd: \"Also we have the ________ cars and there's pretty cool.\"",
+        "answer": "cable"
       }
     ]
   },
   {
     "id": "053",
+    "category": "ello",
     "title": "Shopping",
     "audioFile": "audio/053-MXR-Shopping.mp3",
     "description": "See what people like and don",
@@ -4203,80 +3652,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "What isn\\'t interesting for Ruth?",
-        "options": [
-          "Shopping for tools",
-          "Shopping for pants"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Ruth: \"Maybe the one ________ would be shopping for DIY things : things like pliers and gardening tools and wallpaper.\"",
+        "answer": "exception"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What does Simon look at in the supermarket?",
-        "options": [
-          "frozen dinners",
-          "strange food"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Ruth: \"I'm not really ________ in things like that but that's the exception.\"",
+        "answer": "interested"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "What does Al like about a bread shop?",
-        "options": [
-          "The people",
-          "The smell"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Simon: \"I like shopping for food, going to the supermarket looking at -- ________ a nice good supermarket and looking at all the weird and cool and wacky food .\"",
+        "answer": "especially"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Why doesn\\'t Mitchell like shopping with girls?",
-        "options": [
-          "He has to spend money",
-          "They are very slow"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Simon: \"I'm not really a big ________ fan.\"",
+        "answer": "shopping"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "When does Ruth get bored of shoes?",
-        "options": [
-          "Never",
-          "After an hour"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Al: \"I don't really enjoy ________ at all but I guess if I have to go shopping, the one type of shopping I enjoy is bread shopping.\"",
+        "answer": "shopping"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Why does Tres like to shop?",
-        "options": [
-          "To try new things",
-          "To spend money"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Al: \"I really enjoy looking for really good bread and smelling the bread in the bread shop, but usually I don't, I'm not a big fan of ________ anyway.\"",
+        "answer": "shopping"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What do most of the men like to shop for?",
-        "options": [
-          "shoes",
-          "jewelry",
-          "food",
-          "watches"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Mitchell: \"I do not like ________ with girls because they tend to take long and look at every item at least ten seconds but I enjoy shopping for food for myself.\"",
+        "answer": "shopping"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Ruth: \"I ________ shop and shop and never get tired of them.\"",
+        "answer": "could"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Ruth: \"I bought ________ pairs of shoes in three days.\"",
+        "answer": "five"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Tres: \"The only thing I ________ about it are the prices of course, but I really have a good time going out and looking for things - that hunter-gatherer instinct in me.\"",
+        "answer": "dislike"
       }
     ]
   },
   {
     "id": "054",
+    "category": "ello",
     "title": "Favorite Colors",
     "audioFile": "audio/054-MXR-Color.mp3",
     "description": "The mixer group talks about colors they like. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -4284,80 +3722,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Why doesn\\'t Adrienne wear yellow?",
-        "options": [
-          "It looks bad on her",
-          "She doesn\\'t like it"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Adrienne: \"I ________ don't have a favorite color.\"",
+        "answer": "actually"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What colors are in Barbara\\'s house?",
-        "options": [
-          "green and purple",
-          "black and red"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Adrienne: \"I don't really like the way it looks, but then ________ I do like the sun so it's good there, so it just depends on where the color is, whether I like it or not.\"",
+        "answer": "again"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Conrad thinks blue matches his _______",
-        "options": [
-          "eyes",
-          "attitude"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Barbara: \"Apart from ________ , my favorite color I guess would be green.\"",
+        "answer": "clothes"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Why can\\'t Phil wear red?",
-        "options": [
-          "He has red hair",
-          "It gives him a headache"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Barbara: \"________ and purple go together well I think.\"",
+        "answer": "Green"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Simone\\'s favorite color changes with _____",
-        "options": [
-          "the season",
-          "her mood"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Conrad: \"In ________ I am wearing navy blue right now.\"",
+        "answer": "fact"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Why does Skip like aquamarine?",
-        "options": [
-          "It\\'s alive like the ocean",
-          "It reminds him of mountains"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Conrad: \"I don't ________ pink so much.\"",
+        "answer": "like"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What is NOT a reason for a favorite color?",
-        "options": [
-          "sports team",
-          "nature",
-          "personality",
-          "luck"
-        ],
-        "answer": 3
+        "type": "gapfill",
+        "question": "Phil: \"My favorite color has to be red because my favorite ________ team in England is a team called ***** and they always play in red shirts and red shorts.\"",
+        "answer": "football"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Simone: \"It depends on my mood or what goes with what ________ I don't have a favorite color.\"",
+        "answer": "because"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Skip: \"Aqua ________ water and marine meaning, referring to the ocean.\"",
+        "answer": "meaning"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Skip: \"________ when you can see like the sunlight reflecting on the surface, like a little iridescent aqua-marine, that is my favorite color because it seems like the color of life to me.\"",
+        "answer": "Especially"
       }
     ]
   },
   {
     "id": "055",
+    "category": "ello",
     "title": "Ghosts",
     "audioFile": "audio/055-MXR-Ghosts.mp3",
     "description": "Six people discuss if they believe in ghosts. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -4365,80 +3792,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Why does Adrienne believe in ghosts?",
-        "options": [
-          "She has experience",
-          "She's read about them"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Adrienne: \"I struggle with it, but I ________ think I lived with one time .\"",
+        "answer": "actually"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What does Barbara believe in?",
-        "options": [
-          "human ghosts",
-          "unexplainable things"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Adrienne: \"There were a lot of really strange events happening in this house where I lived and my roommates and I were ________ that we had a ghost in the house.\"",
+        "answer": "convinced"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Conrad only believes in ________",
-        "options": [
-          "happy ghosts",
-          "what he sees"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Adrienne: \"It was hard to think about but yeah, I think I do ________ in ghosts.\"",
+        "answer": "believe"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "When is Phil scared of ghosts?",
-        "options": [
-          "After a movie",
-          "In his house"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Conrad: \"I'm kind of the type of person that only believes in things that I can see or that can be proven and until I see a ghost, I won't ________ in them.\"",
+        "answer": "believe"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Simone thinks she _____ her grandfather\\'s ghost.",
-        "options": [
-          "hugged",
-          "created"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Conrad: \"Of course there might be Casper the ________ ghost, but I don't believe in ghosts as a scary being or anything like that.\"",
+        "answer": "friendly"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "When does Simon believe in ghosts?",
-        "options": [
-          "If he\\'s with his family",
-          "He never believes in them"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Phil: \"Maybe it's my imagination or lack of imagination or, why, but I just don't ________ in ghosts.\"",
+        "answer": "believe"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Most people _________ ghosts?",
-        "options": [
-          "believe in",
-          "do not believe in",
-          "have seen",
-          "have touched"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Phil: \"________ when I go to the movies and watch a ghost movie, sometimes I do get very scared by them.\"",
+        "answer": "However"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Simone: \"I think it was my own mind who conjured the ________ , so, no, I don't.\"",
+        "answer": "image"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Simon: \"Yeah, that there's some supernatural beings that are floating ________ and scaring everybody, I don't think so.\"",
+        "answer": "everywhere"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Simon: \"There's not such thing as ________.\"",
+        "answer": "ghosts"
       }
     ]
   },
   {
     "id": "056",
+    "category": "ello",
     "title": "ELLLO Views #56 Fear",
     "audioFile": "audio/056-MXR-Fear.mp3",
     "description": "Listen to six people discuss what they are afraid of. Students can watch an audio slide show, read a script, download the audio and take two quizzes.",
@@ -4446,80 +3862,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Adrienne doesn\\'t like snakes ____.",
-        "options": [
-          "in her aparment",
-          "as a design"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Adrienne: \"Probably the same things that most ________ are afraid of.\"",
+        "answer": "people"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Why doesn't Conrad like snakes?",
-        "options": [
-          "They're mean",
-          "They're ugly"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Adrienne: \"I don't like strange and large insects, ________ in my apartment.\"",
+        "answer": "especially"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Sharks made Peter afraid of ______",
-        "options": [
-          "fishing",
-          "swimming"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Conrad: \"I've ________ been afraid of snakes.\"",
+        "answer": "always"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Peter is afraid of ________",
-        "options": [
-          "High places.",
-          "Parachutes"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Peter: \"I would ________ have to say sharks because just the look of sharks really scares me and also made me scared of water as well.\"",
+        "answer": "actually"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "What is Skip scared of?",
-        "options": [
-          "A big city",
-          "Criminals"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Philip: \"So what am I ________ of?\"",
+        "answer": "afraid"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Why is Barbara scared of cockroaches?.",
-        "options": [
-          "They're hard to kill",
-          "There's never just one"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Philip: \"I went to a parachuting school session ________ with my friends in England and I was more scared than I have ever been in my life, so my biggest fear has to be heights.\"",
+        "answer": "once"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What are people NOT afraid of?",
-        "options": [
-          "flying",
-          "fire",
-          "insects",
-          "animals"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Skip: \"I don't but compared to the people, regular people walking around on the street, I look like I have a lot of money, and so I suppose that made me think that, gee, I'm really afraid of someone thinking that I have a lot of money and trying to rob me, ________ if they have a gun.\"",
+        "answer": "especially"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Skip: \"But, yeah, especially maybe in a big city where I don't know people and maybe I'm in a ________ I'm not familiar with or I don't know well.\"",
+        "answer": "neighborhood"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Barbara: \"You ________ know where they are going to head next.\"",
+        "answer": "never"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Barbara: \"Where there is one, there is ________ more.\"",
+        "answer": "always"
       }
     ]
   },
   {
     "id": "057",
+    "category": "ello",
     "title": "First Thing",
     "audioFile": "audio/057-MXR-FirstThing32.mp3",
     "description": "Six people share what they do in the morning. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -4527,80 +3932,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "What does Adrienne think everyone does?",
-        "options": [
-          "Uses the bathroom immediately",
-          "Eat their breakfast last"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Adrienne: \"What is the first thing I do in the ________?\"",
+        "answer": "morning"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Why does it take Barbara a while to check email?",
-        "options": [
-          "She has many accounts",
-          "Her computer is slow"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Adrienne: \"Well, I guess the first thing I do is I go to the bathroom, but I think ________ does that.\"",
+        "answer": "everybody"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Why does Conrad go into bathroom right away?",
-        "options": [
-          "He drinks a lot of water",
-          "He likes to brush his teeth"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Adrienne: \"After that, I usually take a shower and brush my teeth and get myself ________ and so the last thing that I do before I leave the house in the morning is usually eat my breakfast.\"",
+        "answer": "organized"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "The first thing Phil does is _______.",
-        "options": [
-          "brush his teeth",
-          "drink his coffee"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Barbara: \"I have a couple of ________ e-mail accounts: gmail, yahoo and hotmail and I have to check each of them just to see what message might have come to me since the last time I checked.\"",
+        "answer": "different"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Why does Skip try to wake up before the alarm?",
-        "options": [
-          "It\\'s a game he plays",
-          "He hates the sound"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Conrad: \"The first thing I do in the morning is go to the ________.\"",
+        "answer": "bathroom"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "What does Simone do when she wakes up?",
-        "options": [
-          "Goes back to sleep",
-          "Move the alarm clock"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Conrad: \"Usually, I always drink a lot the night before, drink water, and I don't like to wake up during the middle of the night so as soon as I wake up I go to the restroom and then I'll probably drink ________ glass of water.\"",
+        "answer": "another"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Many people ______ when they first wake up?",
-        "options": [
-          "watch TV",
-          "try to sleep more",
-          "use the bathroom",
-          "exercise"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Phil: \"I go to work very early in the morning so usually when I wake up I'm feeling very, very tired and very angry because I'm awake so ________ the first thing I do in the morning is drink a lot of ice coffee and then I will go and clean my teeth and have a wash or a shower.\"",
+        "answer": "normally"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Skip: \"The first thing I do in the morning is turn off the alarm clock before I smash it because if it goes off I'm going to go ________ crazy so I try and usually set my alarm for seven a.m.\"",
+        "answer": "completely"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Skip: \"and I try and wake up at six ________-six, or six fifty seven and shut the stupid thing off so it doesn't pierce my ears, then I have my own like Skip's snooze alarm and I go back to sleep for five or ten minutes and then I slowly roll out of bed and then usually after that I take a shower.\"",
+        "answer": "fifty"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Simone: \"I put the ________ clock on snooze and sleep some more.\"",
+        "answer": "alarm"
       }
     ]
   },
   {
     "id": "058",
+    "category": "ello",
     "title": "Cooking",
     "audioFile": "audio/058-MXR-Cook32.mp3",
     "description": "Six people share what dishes they can cook. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -4608,80 +4002,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Skip\\'s dishes are ________ to make",
-        "options": [
-          "expensive",
-          "quick"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Skip: \"What is something I can ________ well?\"",
+        "answer": "cook"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Where did Adrienne learn to make curry?",
-        "options": [
-          "In Thailand",
-          "In the U.S."
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Skip: \"I have two main dishes when I cook for ________ or even for friends.\"",
+        "answer": "myself"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Matt really likes _________",
-        "options": [
-          "to eat pasta",
-          "lots of rice"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Skip: \"I have several versions that I can do pretty well, and the ________ is spaghetti.\"",
+        "answer": "other"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "What does Peter say about ingredients?",
-        "options": [
-          "You have to find good ones",
-          "They aren\\'t that important"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Adrienne: \"What is something I can ________ really well?\"",
+        "answer": "cook"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Phil says he is a ______ cook.",
-        "options": [
-          "good",
-          "lazy"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Adrienne: \"This is one of my favorite dishes so when I went to Thailand I learned how to cook it at ________ class and so now I make it all the time because I really enjoy it.\"",
+        "answer": "cooking"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Lisa makes excellent ________.",
-        "options": [
-          "avocados",
-          "sauces"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Matt: \"I'm a big ________ guy .\"",
+        "answer": "Italian"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Many people like to make food that is ____",
-        "options": [
-          "healthy",
-          "cheap",
-          "fast",
-          "easy"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Peter: \"What I can ________ well is chili con carne.\"",
+        "answer": "cook"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Phil: \"That's a very ________ question because my cooking is awful.\"",
+        "answer": "difficult"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Lisa: \"What is something I can ________ really well?\"",
+        "answer": "cook"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Lisa: \"I can make ________ mexican dips, such as quacamole with avocados and lemons and spices or tzatziki, which is a greek cucumber yogurt dip with yogurt cucumber, dill and lots of garlic.\"",
+        "answer": "great"
       }
     ]
   },
   {
     "id": "059",
+    "category": "ello",
     "title": "Clothes",
     "audioFile": "audio/059-MXR-Clothes32.mp3",
     "description": "What are you wearing? Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -4689,80 +4072,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Conrad is wearing ______.",
-        "options": [
-          "athletic shorts",
-          "work clothes"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Conrad: \"I'm wearing my Japan ________ soccer jersey.\"",
+        "answer": "national"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Why is Adrienne wearing all pink?",
-        "options": [
-          "She has no clean clothes",
-          "It\\'s her favorite color"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Conrad: \"It's ________ of a polo shirt.\"",
+        "answer": "more"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Matt\\'s clothes are ________",
-        "options": [
-          "professional",
-          "casual"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Conrad: \"________, they didn't get as far as I had wanted them to.\"",
+        "answer": "Unfortunately"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Why is Simone dressed casual?",
-        "options": [
-          "She always dresses casually",
-          "She partied last night"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Adrienne: \"I'm wearing pink sweat pants and a pink tank top and and I kind of look like a big piece of bubble gum ________ it's laundry day.\"",
+        "answer": "because"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Skip\\'s clothes are _______.",
-        "options": [
-          "formal",
-          "practical"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Matt: \"I've got a white ________-down shirt, navy blue power tie .\"",
+        "answer": "button"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Babara thinks her clothes ________.",
-        "options": [
-          "Should be ironed",
-          "Make a statement"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Matt: \"I've got some navy ________ slacks that need to be ironed, some socks and a pair of shoes.\"",
+        "answer": "blue"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "People who aren\\'t working are wearing _____.",
-        "options": [
-          "sports clothes",
-          "formal clothes",
-          "designer clothes",
-          "comfortable clothes"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Simone: \"A blue sweater and and just black jeans and I'm not wearing ________ else.\"",
+        "answer": "anything"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Skip: \"Started out with a Minnesota Vikings t-shirt that is ________ a friend of mine who is also from Minnesota gave me this t-shirt - the Minnesota Vikings football team and that is set off by a dark Navy blue pair of pants that I bought in Sydney earlier this year and to complete the set a pair of brown socks.\"",
+        "answer": "actually"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Barbara: \"So, what am I ________ today?\"",
+        "answer": "wearing"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Barbara: \"It doesn't say too much but I think it makes an ________ .\"",
+        "answer": "impact"
       }
     ]
   },
   {
     "id": "060",
+    "category": "ello",
     "title": "Animals",
     "audioFile": "audio/060-MXR-Animals32.mp3",
     "description": "The mixer group discusses animals. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -4770,80 +4142,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Barbara likes cats because __________.",
-        "options": [
-          "they understand her",
-          "they are intelligent"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Barbara: \"So, what is my favorite ________?\"",
+        "answer": "animal"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Why does Conrad think he is like a dog?",
-        "options": [
-          "He looks like one",
-          "He acts like one"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Barbara: \"He was ________ black with white paws and the tip of his tails was white and he was dead cute and he lived to be seventeen years old which is quite old for a cat.\"",
+        "answer": "mostly"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "When did Lisa start to like cats?",
-        "options": [
-          "A few years ago",
-          "When she was a kid"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Conrad: \"My favorite animal is ________ a dog.\"",
+        "answer": "definitely"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Phil thinks penguins are ______.",
-        "options": [
-          "really funny",
-          "like humans"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Conrad: \"They're such giving animals and we have a German Sheperd at my ________'s home in California and I really miss him now.\"",
+        "answer": "parent"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Why does Adrienne like cat?",
-        "options": [
-          "They're easy to care for",
-          "They're very strong"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Lisa: \"If you asked me this question last year or two years ago I would say a dog, cause dogs are loyal and friendly and cute but two years ago I acquired a car and since then I have grown to find cats more ________ than dogs, not so friendly but when they cuddle on you you love them more.\"",
+        "answer": "intelligent"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "What image does a wolf have for Skip?",
-        "options": [
-          "independent",
-          "intelligent"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Phil: \"They nurture and ________ to grow up.\"",
+        "answer": "help"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Many people talk about _______.",
-        "options": [
-          "birds",
-          "cats",
-          "lizards",
-          "fish"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Phil: \"OK, I also like monkeys because they're funny and very cute, but my favorite animal is ________ a penguin.\"",
+        "answer": "definitely"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Adrienne: \"That suits me very well, but I recently saw a movie called The March of the Penguins and I suddenly have a very big appreciation for penguins and how ________ they are and how cute they are, really, so I think maybe penguins and cats.\"",
+        "answer": "strong"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Skip: \"I don't want to say live like but that I think about most is the wolf ________ I grew up in Minnesota and Minnesota in the U.S.\"",
+        "answer": "because"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Skip: \"you know, strong and ________, but works well in a group.\"",
+        "answer": "independent"
       }
     ]
   },
   {
     "id": "061",
+    "category": "ello",
     "title": "Favorite Food",
     "audioFile": "audio/061-MXR-Food32.mp3",
     "description": "Six people talk about the food they love. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -4851,80 +4212,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Adrienne likes _________ food.",
-        "options": [
-          "spicy",
-          "healthy"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Adrienne: \"I don't ________ a favorite food.\"",
+        "answer": "have"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Phil says Okonomoyaki is prepared _______.",
-        "options": [
-          "without meat",
-          "in front of you"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Adrienne: \"I do like spicy food though, so ________ spicy is good for me and the best foods are Mexican, Indian, Vietnamese, Thai.\"",
+        "answer": "anything"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Barbara doesn\\'t like _______.",
-        "options": [
-          "grapes",
-          "green apples"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Phil: \"It's similar I guess to an English pancake but it involves ________ kinds of cabbage and meat and an egg.\"",
+        "answer": "different"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "What\\'s the best kind of bagel for Lisa?.",
-        "options": [
-          "Onion and garlic",
-          "Freshly baked"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Phil: \"I ________ like paella, which is Spanish food.\"",
+        "answer": "also"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Simone\\'s favorite food is ______.",
-        "options": [
-          "Swedish",
-          "Japanese"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Barbara: \"Well, these days I really love fruit, ________ grapes and I also like avocados.\"",
+        "answer": "especially"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Skip\\'s favorite curry is from ______.",
-        "options": [
-          "Thailand",
-          "Mexico"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Lisa: \"My favorite food, or my favorite foods are bagel locks and cream ________, which is bagels smoked salmon and cream cheese.\"",
+        "answer": "cheese"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Two people like _______ food.",
-        "options": [
-          "Japanese",
-          "vegetarian",
-          "spicy",
-          "sweet"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Lisa: \"Two, Greek souvlaki from Arahovas in Montreal, really heavy on the garlic and with tzatziki, nice succulent ________.\"",
+        "answer": "chicken"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Simone: \"I can ________ stop eating that.\"",
+        "answer": "never"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Skip: \"OK, what is my favorite ________?\"",
+        "answer": "food"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Skip: \"I ________ if I had to say one it would be curry.\"",
+        "answer": "guess"
       }
     ]
   },
   {
     "id": "062",
+    "category": "ello",
     "title": "Plans for the night",
     "audioFile": "audio/062-MXR-Plans32.mp3",
     "description": "See what six people have planned for tonight. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -4932,80 +4282,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Why is Phil staying in tonight?",
-        "options": [
-          "He\\'s tired",
-          "It\\'s cheaper"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Phil: \"What are my plans for ________?\"",
+        "answer": "tonight"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What is Adrienne doing tonight?",
-        "options": [
-          "Playing in a band",
-          "Going to a restaurant"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Phil: \"My plans for tonight are ________ movies.\"",
+        "answer": "watching"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Mark is going to a bar ______.",
-        "options": [
-          "to watch music",
-          "to do business"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Phil: \"I don't have much money, so staying in is ________ a good idea for me.\"",
+        "answer": "definitely"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Why is Simone staying in tonight?",
-        "options": [
-          "She\\'s tired",
-          "It\\'s raining"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Adrienne: \"Well, tonight I'm going to go out with a friend for dinner and then ________, we're planning to go see a bluegrass band.\"",
+        "answer": "afterwards"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Conrad is going to ____.",
-        "options": [
-          "hang out with his wife",
-          "make himself dinner"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Adrienne: \"It's kind of ________ kind of music, not very common, and we're gonna listen to the band and hopefully we'll get to sing with them too.\"",
+        "answer": "interesting"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Barbara plans to _____ tonight.",
-        "options": [
-          "relax",
-          "party"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Mark: \"Well, first of all, I'm going to have ________ with my wife probably in a few hours, and then hopefully we'll go to a local bar.\"",
+        "answer": "dinner"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "A few people are _____ tonight.",
-        "options": [
-          "going to the cinema",
-          "watching a sports game",
-          "going to a concert",
-          "staying at home"
-        ],
-        "answer": 3
+        "type": "gapfill",
+        "question": "Mark: \"We need to chat about a little bit of ________.\"",
+        "answer": "business"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Simone: \"I'm really tired today ________ I was doing stuff yesterday so today I'm just gonna relax with my friends and watch a movie.\"",
+        "answer": "because"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Conrad: \"Well, it's a Friday night so I've got some time ________ my wife is in California and I think I'm gonna make some Mexican food which is a very popular food in California with all of the Mexicans who live there, and I'll probably make some burritos with salsa.\"",
+        "answer": "because"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Barbara: \"Well, I think I'm going to watch a DVD and I'm going to open a ________ of wine, sit back and relax and enjoy the movie - take it easy after a long, hard days work.\"",
+        "answer": "bottle"
       }
     ]
   },
   {
     "id": "063",
+    "category": "ello",
     "title": "Sports",
     "audioFile": "audio/063-MXR-Sports.mp3",
     "description": "Six people discuss their favorite sports. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -5013,80 +4352,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Swimming is a sport that Adrienne likes to ___.",
-        "options": [
-          "do",
-          "watch"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Adrienne: \"My favorite sport to ________ in is actually swimming, and I used to do it competitively when I was younger.\"",
+        "answer": "participate"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What sport does Mark like to watch?",
-        "options": [
-          "football",
-          "all of them"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Adrienne: \"I had a really ________ time watching the world cup this year.\"",
+        "answer": "good"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Lisa thinks hockey is ______.",
-        "options": [
-          "sexy",
-          "boring"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Mark: \"By far , my favorite sport is ________, or in America they call it soccer because I love the passion of football and it's a very fast game, so I look to watch and also play football, but I like most sports really.\"",
+        "answer": "football"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Peter doesn\\'t like _______.",
-        "options": [
-          "to talk about sports",
-          "to play badminton"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Lisa: \"My favorite sport to watch is ice-________.\"",
+        "answer": "hockey"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Why doesn\\'t Skip try Sumo?",
-        "options": [
-          "He\\'s too scared",
-          "He\\'s too small"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Peter: \"My favorite sport would ________ be only badminton because I hate sports.\"",
+        "answer": "actually"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "When Phil was in England he ______ football.",
-        "options": [
-          "watched",
-          "played"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Peter: \"You don't want to do any thing ________?\"",
+        "answer": "else"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Which sport is very popular?",
-        "options": [
-          "wrestling",
-          "tennis",
-          "football",
-          "volleyball"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Skip: \"Some ________ arts are not really sports.\"",
+        "answer": "martial"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Skip: \"As far as watching, that's a ________ question.\"",
+        "answer": "good"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Skip: \"I would have to probably be three times as big as I am to even begin to ________ for something like that but, yeah, I enjoy watching it a lot.\"",
+        "answer": "qualify"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Phil: \"They're in the fourth ________ in the English League and very, very weak, but when I was in England, I used to travel every weekend to go and watch them play, no matter what the weather or no matter what the results of the likelihood was going to be.\"",
+        "answer": "division"
       }
     ]
   },
   {
     "id": "064",
+    "category": "ello",
     "title": "Worry",
     "audioFile": "audio/064-MXR-Worry32.mp3",
     "description": "Six people talk about what makes them worry. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -5094,80 +4422,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Adrienne thinks worrying about money is _____.",
-        "options": [
-          "normal",
-          "unusual"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Adrienne: \"What is something that I worry ________?\"",
+        "answer": "about"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What does Mark worry about?",
-        "options": [
-          "Traveling overseas",
-          "Being far from his family"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Adrienne: \"Making sure you have ________ of it.\"",
+        "answer": "enough"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Why does Lisa worry about her weight?",
-        "options": [
-          "Because she\\'s getting older",
-          "Because she hates buying clothes"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Adrienne: \"Making sure you have ________ to do what you need to do all of the time, so I think that's probably the biggest worry but I don't think that's unusual at all.\"",
+        "answer": "enough"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Phil is worried about ______.",
-        "options": [
-          "having no friends",
-          "being too old"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Mark: \"Also because I'm living overseas at the moment, I worry about my family and my mom and dad because if ________ happens to them then I am a long way from home so it would take a long time to get back home.\"",
+        "answer": "anything"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Barbara worries most about _______.",
-        "options": [
-          "money",
-          "health"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Lisa: \"Well, there are many things that I worry ________.\"",
+        "answer": "about"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Conrad worries about taking care of _____.",
-        "options": [
-          "his family",
-          "his company"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Lisa: \"Money of course because I like shopping a lot and use my credit card more than I should probably and getting fat because any women in their thirties, that's what they're obsessed about ________ if they are single.\"",
+        "answer": "especially"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What is the most common worry?",
-        "options": [
-          "weight",
-          "career",
-          "money",
-          "family"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Phil: \"I'm 26 now and I've spend a lot of the last fews years traveling ________ since I left university and most of my friends have settled down and have a good job and a good career behind them, so sometimes I do worry that when I go back I will be too old for companies to want me, so I'm slightly worried about having a future career.\"",
+        "answer": "around"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Barbara: \"I guess I worry about the usual things, for ________, having money in the bank and being healthy.\"",
+        "answer": "example"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Conrad: \"I don't worry that much but sometimes I do think about after my ________ and where am I going to be living, what are my kids going to be doing.\"",
+        "answer": "retirement"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Conrad: \"but that's a very minor worry and I don't think I worry ________ much.\"",
+        "answer": "about"
       }
     ]
   },
   {
     "id": "065",
+    "category": "ello",
     "title": "Action or Relaxation",
     "audioFile": "audio/065-MXR-Vacation32.mp3",
     "description": "Hear what six people would prefer to do on vacation. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -5175,80 +4492,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Why does Adrienne want a relaxing vacation?",
-        "options": [
-          "She likes to be lazy",
-          "She needs to de-stress"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Adrienne: \"On vacation do I prefer to have adventure or ________?\"",
+        "answer": "relaxation"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Mark thought rafting was _______.",
-        "options": [
-          "exciting",
-          "terrifying"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Adrienne: \"I think it's nice to go somewhere and not to have to think about work, not have to think about my regular life and all of the busy things I have to do ________ so something that will take my mind off of that and I can just relax and sleep and enjoy.\"",
+        "answer": "everyday"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "What does Lisa want on vacation.",
-        "options": [
-          "To do nothing",
-          "To go exploring"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Mark: \"I hate sitting on the beach or sitting by the side of the pool, so I like to get out there and do things and the crazier the better, so for ________ when I was in New Zealand not so long ago I went white water rafting.\"",
+        "answer": "example"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Why would Phil want adventure?",
-        "options": [
-          "His life is very calm",
-          "He likes to be scared"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Lisa: \"I prefer to go somewhere where I wouldn't have to do ________ or someone would bring me my meals and all I had to do was choose from what I was going to eat or a menu of what I was going to do or what I was going to drink without having to do anything for myself.\"",
+        "answer": "anything"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "When would Simone relax?",
-        "options": [
-          "All day, every day",
-          "After an adventure"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Phil: \"That's a very ________ question because I enjoy both on vacation however I think because my life is very relaxing at home and my work is very easy, I'd like to have some kind of adventure on holidays.\"",
+        "answer": "difficult"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Skip thinks that vacations are for ______.",
-        "options": [
-          "adventure",
-          "relaxation"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Phil: \"It was very, very warm and I didn't take enough drinks, or I prepared very badly so it was a really ________ climb.\"",
+        "answer": "difficult"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Why do some people want to relax?",
-        "options": [
-          "Because their lives are stressful",
-          "Because they are always lazy",
-          "Because they don\\'t like adventure",
-          "Because they\\'re scared of new things"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Simone: \"I think you need a ________ to really relax.\"",
+        "answer": "mixture"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Simone: \"I guess, both ________ and adventure.\"",
+        "answer": "relaxation"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Skip: \"On vacation do I prefer to have adventure or ________?\"",
+        "answer": "relaxation"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Skip: \"I do like ________, but I don't like to have an adventure in a strange place because it's easy for things to get out of control so I suppose usually if I take a vacation, vacation it's to relax, but I do love adventure.\"",
+        "answer": "adventure"
       }
     ]
   },
   {
     "id": "066",
+    "category": "ello",
     "title": "Best quality?",
     "audioFile": "audio/066-MXR-BestQ32.mp3",
     "description": "Six people say are their best qualities. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -5256,80 +4562,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Adrienne likes to _______ people.",
-        "options": [
-          "entertain",
-          "argue with"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Adrienne: \"What are my ________ qualities ?\"",
+        "answer": "best"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "For Conrad, being friendly is _____.",
-        "options": [
-          "difficult",
-          "natural"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Adrienne: \"I think my ________ qualities are probably that I have a good sense of humor.\"",
+        "answer": "best"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Lisa likes to be ______ her friends.",
-        "options": [
-          "important to",
-          "supportive for"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Conrad: \"I'd say my ________ quality is my friendliness.\"",
+        "answer": "best"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Phil thinks it\\'s important to _______.",
-        "options": [
-          "laugh at others",
-          "laugh at yourself"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Conrad: \"It's just part of my ________.\"",
+        "answer": "personality"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Simone thinks she learns because she is ____.",
-        "options": [
-          "open-minded",
-          "close-minded"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Lisa: \"I'm always there to hear if my friends having a bad day or just really needs to talk, and I think I'm just really nice, even though I'm not always nice to ________.\"",
+        "answer": "everyone"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "What keeps Chip creative?",
-        "options": [
-          "reading books",
-          "new experiences"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Lisa: \"I will always make them very ________ in my life.\"",
+        "answer": "important"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What quality is not discussed?",
-        "options": [
-          "sense of humor",
-          "friendliness",
-          "honesty",
-          "good listener"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Simone: \"I think it's that I'm very open minded so I ________...\"",
+        "answer": "always"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Chip: \"OK, what are my ________ qualities?\"",
+        "answer": "best"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Chip: \"I want to ________ out new things, I want to go places.\"",
+        "answer": "find"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Chip: \"I like to have new things happen to me and meet new people and that is what keeps me ________ and I have fresh ideas that way.\"",
+        "answer": "creative"
       }
     ]
   },
   {
     "id": "067",
+    "category": "ello",
     "title": "Worst quality?",
     "audioFile": "audio/067-MXR-WorstQ32.mp3",
     "description": "Six people say what are their worst qualities. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -5337,80 +4632,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Adrienne is stubborn ________.",
-        "options": [
-          "only when she\\'s right",
-          "even when she\\'s wrong"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Adrienne: \"Well, let's just stick with one for now ________ the list could be very long if we did all of my worst qualities.\"",
+        "answer": "cause"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Peter says he doesn\\'t have patience for _____.",
-        "options": [
-          "making music",
-          "anything"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Adrienne: \"I think one of my worst qualities is that often times I can be very stubborn, ________ when I think I'm right, even when I'm not, so stubbornness definitely is one of my worst qualities.\"",
+        "answer": "especially"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Lisa says she always _______.",
-        "options": [
-          "waits until the last minute",
-          "does things right away"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Peter: \"It doesn't ________ what I'm doing.\"",
+        "answer": "matter"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "How does Phil know he\\'s impatient.",
-        "options": [
-          "He gets angry on the street",
-          "A doctor told him"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Lisa: \"My worst, ________ worst quality is procrastinating.\"",
+        "answer": "absolute"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Simone\\'s room is probably _____.",
-        "options": [
-          "a disaster",
-          "well organized"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Lisa: \"I will wait to pack for a big vacation on the day of the trip, on the day that I ________.\"",
+        "answer": "leave"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Chip thinks that he ____ too often",
-        "options": [
-          "volunteers to do things",
-          "doesn\\'t say what he means"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Lisa: \"I used to start twenty page papers two days ________ they were due .\"",
+        "answer": "before"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "What bad trait is NOT mentioned?",
-        "options": [
-          "impatience",
-          "procrastination",
-          "punctuality",
-          "organization"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Phil: \"Sometimes when I walking down the street, I get very frustrated by ________ walking slowly in front of me, or people riding their bicycles and sometimes they nearly hit me on street and I get very angry for no real reason so I think sometimes I'm very impatient.\"",
+        "answer": "people"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Simone: \"I ________ it's I'm very messy.\"",
+        "answer": "think"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Chip: \"Well, sometimes I say I want to do a big project but then I realize, \"Oh, wait a ________!\"",
+        "answer": "minute"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Chip: \"I should just keep quiet and do it and then have ________ else talk about it.\"",
+        "answer": "everyone"
       }
     ]
   },
   {
     "id": "068",
+    "category": "ello",
     "title": "Addiction",
     "audioFile": "audio/068-MXR-Addiction.mp3",
     "description": "Six people say what they are addicted to. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -5418,80 +4702,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Why is it easy for Arienne to quit smoking in Norway?",
-        "options": [
-          "cigarettes are really expensive",
-          "there are many places you can\\'t smoke"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Arienne: \"Unfortunately, I'm addicted to smoking, which is really bad because cigarettes are very bad for everyone's body and health ________.\"",
+        "answer": "basically"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "How often does Jeff need physical exercise?",
-        "options": [
-          "Basically every day",
-          "A few times a week"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Arienne: \"In Norway, where I'm from, we're not allowed to smoke ins restaurants, whereas a lot of other places in the world people smoke in restaurants, so when I'm abroad it makes it very ________ to try to quit, which I have many times.\"",
+        "answer": "difficult"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Why does Fred go to the gym?",
-        "options": [
-          "To get big muscles",
-          "To reduce stress"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeff: \"I played sports all my life and I do it ________ day and I need to do it every day and if I don't do it every day then I don't feel very good so I'm addicted to sports.\"",
+        "answer": "every"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Kevin is addicted to ______.",
-        "options": [
-          "sweet foods",
-          "eating everything"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Fred: \"When I have a lot of work from school, or I feel stressed out , it really relieves me from quite a bit of ________ and so I think going to the gym is a good thing for me.\"",
+        "answer": "pressure"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "What doees Reky do every Monday?",
-        "options": [
-          "Homework",
-          "Watches Heroes"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Kevin: \"I ________ keep at least three or four puddings, always there ready for eating.\"",
+        "answer": "always"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Rebecca eats a lot of ________.",
-        "options": [
-          "chocolate",
-          "bananas"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Reky: \"Now there is a very ________ TV show called Heroes.\"",
+        "answer": "interesting"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Two people are addicted to __________.",
-        "options": [
-          "sweets",
-          "exercise",
-          "television",
-          "smoking"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Reky: \"I like heroes because it's a fiction story and there are very ________ characters inside it.\"",
+        "answer": "interesting"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Reky: \"someone can ________ or read people's minds or can do many different things, so I kind of like it.\"",
+        "answer": "disappear"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Rebecca: \"My favorite ________ is milk chocolate.\"",
+        "answer": "chocolate"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Rebecca: \"That is my favorite ________ of the day...\"",
+        "answer": "meal"
       }
     ]
   },
   {
     "id": "069",
+    "category": "ello",
     "title": "Birthdays",
     "audioFile": "audio/069-MXR-Birthday32.mp3",
     "description": "Listen to six people talk about their birthday. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -5499,80 +4772,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "What did people wear to Arienne\\'s party?",
-        "options": [
-          "formal clothes",
-          "Hawaiian clothes"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Arienne: \"My ________ is July 23rd or the 23rd of July, whichever way you say it.\"",
+        "answer": "birthday"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Jeff likes his birthday because ______",
-        "options": [
-          "it means spring is coming",
-          "he gets great presents"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Arienne: \"It was a lot of fun and it was a Hawaiian ________ so we all had Hawaiian outfits and a lot of lights.\"",
+        "answer": "party"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Why did Fred like turning 10?",
-        "options": [
-          "He had a huge party",
-          "He felt older"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeff: \"And, ________ year I know spring is coming.\"",
+        "answer": "every"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Why did Lupe like her 21st birthday?",
-        "options": [
-          "Her friends gave her a surprise party",
-          "It was the first time she could smoke"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Fred: \"My ________ is March 12th 1985 so that would make me 22 years old.\"",
+        "answer": "birthday"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Why is Rebecca\\'s birthday special?",
-        "options": [
-          "It\\'s on a public holiday",
-          "It\\'s after a public holiday"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Fred: \"And so I spent it with all my ________ and my parents.\"",
+        "answer": "friends"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "What tradition does Reky hate?",
-        "options": [
-          "throwing stinky things",
-          "birthday celebrations"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Lupe: \"My ________ is May 30th, and this year I'll be turning 24.\"",
+        "answer": "birthday"
       },
       {
         "id": "q7",
-        "type": "multiple",
-        "question": "Many people talk about celebrating birthdays with ____?",
-        "options": [
-          "co-workers",
-          "friends",
-          "teachers",
-          "nobody"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Lupe: \"I had a really, really ________ time.\"",
+        "answer": "good"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Lupe: \"Had a few drinks because that was the first time I was able to do it legally, so I would have to say my 21st ________ was by far the best.\"",
+        "answer": "birthday"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Rebecca: \"This year my friend got together, brought me a ________, and went out to the clubs.\"",
+        "answer": "costume"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Reky: \"So when I was in high school my ________ have this basket full of coke, coffee, eggs, and other stinky things, and they throw me with that.\"",
+        "answer": "friend"
       }
     ]
   },
   {
     "id": "070",
+    "category": "ello",
     "title": "TV Time",
     "audioFile": "audio/ELLLO Mixer 70 TV Time.mp3",
     "description": "How much time do people spend watching TV? Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -5580,74 +4842,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "How often does Good watch TV?",
-        "options": [
-          "Often",
-          "Not often",
-          "Never"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Good: \"I don't ________ watching TV that much.\"",
+        "answer": "like"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "How often does Shibika watch TV in India?",
-        "options": [
-          "Often",
-          "Not often",
-          "Never"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Shibika: \"At ________, in India I watch TV a lot.\"",
+        "answer": "home"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "What does Kevin like about TV?",
-        "options": [
-          "The shows",
-          "The noise",
-          "The cost"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Shibika: \"I ________ all these Indian serials and stuff, so I watch TV a lot.\"",
+        "answer": "like"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "How often does Jeff watch TV?",
-        "options": [
-          "Often",
-          "Not often",
-          "Never"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Kevin: \"It's just that, you know, it's good to have some ________ in your room.\"",
+        "answer": "noise"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "How much TV does Rebecca watch?",
-        "options": [
-          "Too much",
-          "A lot",
-          "Not much"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeff: \"I don't ________ own a TV.\"",
+        "answer": "even"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "How much TV does Sabriya watch in Oman?",
-        "options": [
-          "Not that much",
-          "Quite a bit",
-          "Less than now"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeff: \"It's an ________ that people can't quit, so I don't TV.\"",
+        "answer": "addiction"
+      },
+      {
+        "id": "q7",
+        "type": "gapfill",
+        "question": "Rebecca: \"How ________ TV do I watch?\"",
+        "answer": "much"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Rebecca: \"I like to watch it for the news to see what's happening ________ the world and in my own town.\"",
+        "answer": "around"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Rebecca: \"And I also like some of my favorite crime scene ________ programs.\"",
+        "answer": "investigation"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Sabriya: \"I watch a lot of Arabic soap operas and a lot of sitcoms as well, and that's what keeps me locked ________ the TV all the time.\"",
+        "answer": "onto"
       }
     ]
   },
   {
     "id": "071",
+    "category": "ello",
     "title": "School Subjects",
     "audioFile": "audio/071-MXR-Subject32.mp3",
     "description": "People talk about subjects they liked in school. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -5655,74 +4912,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "What is a subject Arienne did not like?",
-        "options": [
-          "Languages",
-          "Sciences",
-          "History"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Arienne: \"In school, when I was younger, I had a bunch of subjects, but my favorite subjects were maybe ________ subjects and math.\"",
+        "answer": "language"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What did Lupe enjoy?",
-        "options": [
-          "Book reports",
-          "English tests",
-          "Writing"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Arienne: \"The subject I was not very good in was history and ________, basically just because I didn't like them very much.\"",
+        "answer": "geography"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "What did Fred like later in life?",
-        "options": [
-          "Languages",
-          "Humanities",
-          "Sciences"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Lupe: \"I loved to read and write so I used to really like getting to do essay assignments ________ I could write on for hours.\"",
+        "answer": "because"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "What made Jeff like geography?",
-        "options": [
-          "A trip he took",
-          "Santa Claus",
-          "A special teacher"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Lupe: \"I can ________ all the time and I love reading new books.\"",
+        "answer": "write"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "What interests Shibika?",
-        "options": [
-          "The human body",
-          "The human mind",
-          "The humanaties"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Lupe: \"The one thing I didn't like ________ the English class was that we had to do book reports.\"",
+        "answer": "about"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "What was Rebecca poor at?",
-        "options": [
-          "Sports",
-          "Computers",
-          "English"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Fred: \"Well, when I was in high school, I loved physics and math and ________ but then I changed my mind quite drastically I became to love topics such as humanities, psychology, philosophy and subjects like those.\"",
+        "answer": "chemistry"
+      },
+      {
+        "id": "q7",
+        "type": "gapfill",
+        "question": "Jeff: \"My favorite subject: my favorite subject is ________ and I remember one year, I had a geography teacher named Mr.Hall and he was a great big tall man with a long grey beard and a great big belly and he looked like Santa Claus and it was lots of fun always learning about the world and the cities and the countries from Mr.\"",
+        "answer": "geography"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Shibika: \"My favorite subject would be biology, you know, because I have a lot of ________ in the human body and I like to study, yeah, about it.\"",
+        "answer": "interest"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Rebecca: \"The subjects I was good at school was the physical ________, which I loved because we played a lot of sports all the time.\"",
+        "answer": "education"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Rebecca: \"The one ________ that I was not good at was English which is funnily enough.\"",
+        "answer": "subject"
       }
     ]
   },
   {
     "id": "072",
+    "category": "ello",
     "title": "Favorite Season",
     "audioFile": "audio/072-MXR-Season.mp3",
     "description": "People talk about what season they enjoy the most. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -5730,74 +4982,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "What does Jeff like about the his favorite season?",
-        "options": [
-          "The atmosphere",
-          "The food",
-          "The festivals"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeff: \"I love the fall ________ it's perfect, a perfect time of year.\"",
+        "answer": "because"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What does Shibika like about her favorite season?",
-        "options": [
-          "The time off school",
-          "Her garden",
-          "The fashion"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Jeff: \"There's lots of ________ in the earth, in the sky, in the leaves, in the trees.\"",
+        "answer": "color"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "What does Kevin like about his favorite season?",
-        "options": [
-          "There are no bugs.",
-          "He can wear sweaters.",
-          "He can play snow sports."
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Jeff: \"I ________ the fall the best.\"",
+        "answer": "like"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "What does Rebecca like about her favorite season?",
-        "options": [
-          "The food",
-          "The atmosphere",
-          "The fashion"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Shibika: \"I think I would have to say summer, ________ I really like summers, you know, you can just go out, wear whatever you want to, you know, in winters you have to be all dressed up , sweaters and stuff and you can eat all cold stuff.\"",
+        "answer": "because"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "What does Sabriya like about her favorite season?",
-        "options": [
-          "It's lively.",
-          "School is closed.",
-          "People are cool."
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Kevin: \"I like winter because, well, I love to play snow sports, ________ skiis, snowboarding.\"",
+        "answer": "including"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "What does Tini like about her favorite season?",
-        "options": [
-          "It is not cool.",
-          "You lose weight.",
-          "You eat fresh foods."
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Kevin: \"Well, in winter I ________ go to a ski resort for a week or two.\"",
+        "answer": "always"
+      },
+      {
+        "id": "q7",
+        "type": "gapfill",
+        "question": "Rebecca: \"All the birds start ________ .\"",
+        "answer": "chirping"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Rebecca: \"The ________ starts to warm up.\"",
+        "answer": "weather"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Sabriya: \"I think summer is a lively ________ and I'm a lively person and in winter I tend to be cold and quiet and, you know, all closed up.\"",
+        "answer": "season"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Tini: \"It is when it's not very cold, and it's not very hot and then the flowers are blooming and then you can just be fresh, and well usually ________ say that you gain weight in winter and you lost weight in spring and then so that is why I prefer spring more.\"",
+        "answer": "people"
       }
     ]
   },
   {
     "id": "073",
+    "category": "ello",
     "title": "Big Regret",
     "audioFile": "audio/073-MXR-Regret.mp3",
     "description": "People talk about their regrets. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -5805,74 +5052,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "What is Arienne's big regret?",
-        "options": [
-          "Not studying in America",
-          "Not going to Japan",
-          "Nothing"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Arienne: \"I can't really answer that ________ I don't really have any regrets.\"",
+        "answer": "because"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What is Jeff's big regret?",
-        "options": [
-          "Not playing sports",
-          "Not learning music",
-          "Not going to university"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Arienne: \"All my life I have ________ had a few dreams and my dreams I have basically fulfilled .\"",
+        "answer": "basically"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "What is Sabriya's biggest regret?",
-        "options": [
-          "Not going to university",
-          "Selecting the wrong major",
-          "Not accepting a scholarship"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Jeff: \"I don't regret very much but I have a ________ of regrets.\"",
+        "answer": "couple"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "What is Fred's regret?",
-        "options": [
-          "Not going to Spain",
-          "Not staying in Spain",
-          "Not studying in Spain"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeff: \"One is that I played too much sports when I was ________ and I didn't pick up any music.\"",
+        "answer": "young"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "What is Kevin's big regret?",
-        "options": [
-          "Going to Canada",
-          "Leaving Canada early",
-          "Not studying very hard"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Jeff: \"I only speak one ________ and I would have liked to learn another language when I was young.\"",
+        "answer": "language"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "What does Rebecca regret?",
-        "options": [
-          "Not traveling more",
-          "Not studying more",
-          "Working too much"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Shibika: \"My biggest regret is not excepting a ________ offer that I was given a few years ago.\"",
+        "answer": "scholarship"
+      },
+      {
+        "id": "q7",
+        "type": "gapfill",
+        "question": "Fred: \"My biggest regret would have to be four years ago, I was living in Spain and I was having such a great time and then for some reasons, I had to go back to Canada and still to this day, I'm having a hard time with that ________.\"",
+        "answer": "decision"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Fred: \"I wish I had stayed in Spain ________ my life was so great.\"",
+        "answer": "because"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Kevin: \"About seven or eight years ago, I was staying in Canada, but I had to come back then ________ my father had some problem in his company, but he told us that we could stay for a year or two longer, but so I hope I could have stayed a little longer.\"",
+        "answer": "because"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Rebecca: \"When I was younger, I really wish that I could have travelled overseas during high school, taken up some ________ programs like I am now, through university, even travelled with my family overseas, but then it does it's own problems, that I have been able to travel in my own country throughout the years, so that's my regret.\"",
+        "answer": "exchange"
       }
     ]
   },
   {
     "id": "074",
+    "category": "ello",
     "title": "Favorite Music",
     "audioFile": "audio/074-MXR-Music.mp3",
     "description": "Six people talk about their preferences in music. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -5880,74 +5122,69 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "What does Jeff mention about music?",
-        "options": [
-          "Situations when he listens",
-          "His favorite band",
-          "Music he does not like"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeff: \"What kind of music do I ________ to?\"",
+        "answer": "listen"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "What does Shibika love to listen to?",
-        "options": [
-          "Rap and Hip-hop",
-          "English podcasts",
-          "Indian music"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Jeff: \"If I'm doing work, I want to ________ to something mellow or if I'm exercising, I listen to something more upbeat so I love all kinds of music and it just depends on my mood.\"",
+        "answer": "listen"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "What is Fred's favorite music?",
-        "options": [
-          "Blues",
-          "Jazz",
-          "Folk"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Fred: \"My favorite ________ would have to be Jazz.\"",
+        "answer": "music"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "What does Lupe have?",
-        "options": [
-          "Favorite genres",
-          "Favorite singers",
-          "Favorite songs"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Fred: \"It really brings out so many ________ emotions in me.\"",
+        "answer": "great"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "What does Rebecca prefer?",
-        "options": [
-          "Live music",
-          "Local radio",
-          "Classic rock"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Lupe: \"I'm a music lover so when ________ ask me what my favorite type of music is I really never have a straight answer .\"",
+        "answer": "people"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "What does Swinki like to listen to?",
-        "options": [
-          "The sounds of weather",
-          "The sounds of whales",
-          "Only R&B and hip-hop"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Lupe: \"I really ________ to whatever I'm in the mood for.\"",
+        "answer": "listen"
+      },
+      {
+        "id": "q7",
+        "type": "gapfill",
+        "question": "Lupe: \"If I just want to relax, I'll ________ maybe to a little bit of jazz, blues, or just lounging music.\"",
+        "answer": "listen"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Rebecca: \"________, they are really good to go and watch.\"",
+        "answer": "Generally"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Rebecca: \"________ every Saturday night we go to a band and watch it.\"",
+        "answer": "Generally"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Swinky: \"I can't really point out what kind of music I like but I'm more inclined to R&B and you know nature music, like listening to whales listening to each other and I also like Bollywood music and reggae, some styles of reggae are really ________.\"",
+        "answer": "enjoyable"
       }
     ]
   },
   {
     "id": "075",
+    "category": "ello",
     "title": "Favorite Movie",
     "audioFile": "audio/075-MXR-Movie.mp3",
     "description": "Six people talk about their best movie. Students can learn natural English by listening to six people from around the world share their feelings about the same topic. This lesson comes with a video, quiz, script and vocabulary lessons.",
@@ -5955,69 +5192,343 @@ const LISTENING_DATA = [
     "quiz": [
       {
         "id": "q1",
-        "type": "multiple",
-        "question": "Jeff says his favorite movie was _______.",
-        "options": [
-          "funny",
-          "sad",
-          "a true story"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeff: \"I just got a favorite ________ last year.\"",
+        "answer": "movie"
       },
       {
         "id": "q2",
-        "type": "multiple",
-        "question": "Fred says  _______.",
-        "options": [
-          "he liked the first one the best.",
-          "all three were great.",
-          "he only saw the first one."
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Jeff: \"It's an Indian Bollywood movie and it's about three brothers who get separated after they're born and they are Hindu, but they get separated and one gets raised as a Muslim, one gets raised as a Christian, and one gets raises as a Buddhist and it's a hilarious Bollywood ________, about three brothers who get separated at birth and then they reunite later on in their life in a very comical way.\"",
+        "answer": "comedy"
       },
       {
         "id": "q3",
-        "type": "multiple",
-        "question": "Good says her favorite movie was _______.",
-        "options": [
-          "gory",
-          "non-fiction",
-          "mysterious"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Fred: \"It would sound a bit cliche but I really thought it was such an advancement in technology when they came out with the ________ one.\"",
+        "answer": "first"
       },
       {
         "id": "q4",
-        "type": "multiple",
-        "question": "Rebecca says her favorite movie was _______.",
-        "options": [
-          "a chick-flick",
-          "really scary",
-          "a true story"
-        ],
-        "answer": 1
+        "type": "gapfill",
+        "question": "Good: \"I ________ watching movies when I have free time.\"",
+        "answer": "love"
       },
       {
         "id": "q5",
-        "type": "multiple",
-        "question": "Katia says her favorite movie was _______.",
-        "options": [
-          "inspirational",
-          "very high-tech",
-          "sad at the end"
-        ],
-        "answer": 0
+        "type": "gapfill",
+        "question": "Rebecca: \"My favorite ________ was The Descent.\"",
+        "answer": "movie"
       },
       {
         "id": "q6",
-        "type": "multiple",
-        "question": "Reky says she watched her favorite movie ______.",
-        "options": [
-          "at her high school",
-          "more than she can remember",
-          "more than five times"
-        ],
-        "answer": 2
+        "type": "gapfill",
+        "question": "Rebecca: \"The three of us were ________ scared.\"",
+        "answer": "extremely"
+      },
+      {
+        "id": "q7",
+        "type": "gapfill",
+        "question": "Rebecca: \"I couldn't watch it at ________.\"",
+        "answer": "night"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Katia: \"It has action, but defintiley, it has a lot of inspiration and the history is also very ________, so I would have to say Braveheart is my favorite movie.\"",
+        "answer": "interesting"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "Reky: \"I watched when I was in ________ school.\"",
+        "answer": "high"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "Reky: \"I still like the ________ now.\"",
+        "answer": "movie"
+      }
+    ]
+  },
+  {
+    "id": "ielts_001",
+    "category": "ielts",
+    "title": "Hotel Booking (Section 1 - Easy)",
+    "audioFile": "TTS_HOTEL_BOOKING",
+    "description": "Luyện nghe các thông tin chi tiết như tên riêng, ngày tháng, số điện thoại và giá cả trong cuộc hội thoại đặt phòng khách sạn.",
+    "transcript": "Receptionist: Good morning, Grand View Hotel. How can I help you today?\nCustomer: Hello, I'd like to book a double room for next week, please.\nReceptionist: Certainly. May I have your full name, please?\nCustomer: Yes, it's Mark Thomson. That's T-H-O-M-S-O-N.\nReceptionist: Thank you, Mr. Thomson. And what date will you be arriving?\nCustomer: On the twelfth of July, and we plan to stay for three nights.\nReceptionist: Let me check availability. Yes, we have a deluxe double room available for those dates. The price is one hundred and forty dollars per night.\nCustomer: That sounds fine. Does the price include breakfast?\nReceptionist: Yes, it includes full English breakfast and free access to the gym. Can I get a contact number, please?\nCustomer: Sure, my mobile number is zero-seven-two-four, double-three-nine, one-five-eight.\nReceptionist: Zero-seven-two-four, double-three-nine, one-five-eight. Got it. And how will you be paying for the room?\nCustomer: By credit card.\nReceptionist: Perfect. We look forward to seeing you on the twelfth, Mr. Thomson.",
+    "quiz": [
+      {
+        "id": "q1",
+        "type": "gapfill",
+        "question": "Customer's last name is ________.",
+        "answer": "Thomson"
+      },
+      {
+        "id": "q2",
+        "type": "gapfill",
+        "question": "Arrival date is July ________.",
+        "answer": "12"
+      },
+      {
+        "id": "q3",
+        "type": "gapfill",
+        "question": "The customer will stay for ________ nights.",
+        "answer": "3"
+      },
+      {
+        "id": "q4",
+        "type": "gapfill",
+        "question": "The room booked is a ________ double room.",
+        "answer": "deluxe"
+      },
+      {
+        "id": "q5",
+        "type": "gapfill",
+        "question": "The room price is $________ per night.",
+        "answer": "140"
+      },
+      {
+        "id": "q6",
+        "type": "gapfill",
+        "question": "The price includes a full English ________.",
+        "answer": "breakfast"
+      },
+      {
+        "id": "q7",
+        "type": "gapfill",
+        "question": "Guests have free access to the ________.",
+        "answer": "gym"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Contact mobile number: 0724________158.",
+        "answer": "339"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "The customer chooses to pay by ________ card.",
+        "answer": "credit"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "The reservation is made at the ________ View Hotel.",
+        "answer": "Grand"
+      }
+    ]
+  },
+  {
+    "id": "ielts_002",
+    "category": "ielts",
+    "title": "Bus Ticket Booking (Section 1 - Easy)",
+    "audioFile": "TTS_BUS_TICKET",
+    "description": "Luyện nghe ghi lại thông tin vé xe khách đi đường dài, thông tin hành khách và cổng khởi hành.",
+    "transcript": "Agent: Express Coaches, good afternoon.\nCustomer: Hello, I'd like to book a return bus ticket from London to Manchester for tomorrow morning.\nAgent: Yes, we have coaches leaving at seven o'clock and nine-thirty. Which one would you prefer?\nCustomer: The nine-thirty one is better for me.\nAgent: And when would you like to return?\nCustomer: On Friday afternoon, preferably around four p.m.\nAgent: We have a coach departing Manchester at four-fifteen p.m. Is that alright?\nCustomer: Yes, that's perfect.\nAgent: Are you traveling alone, or is anyone else with you?\nCustomer: Just myself and my daughter, so two tickets in total. She is fifteen, so does she qualify for a child discount?\nAgent: Children under sixteen get a thirty percent discount. So it will be one adult ticket and one student ticket. The total cost is forty-two pounds.\nCustomer: Okay, that's fine. Where is the main departure station in London?\nAgent: It departs from Victoria Coach Station, Gate number fourteen.\nCustomer: Victoria Coach Station, Gate fourteen. Thank you. And under what name should I book the tickets?\nCustomer: My name is Sarah Jenkins. That's J-E-N-K-I-N-S.\nAgent: Thank you, Mrs. Jenkins. Your booking is confirmed.",
+    "quiz": [
+      {
+        "id": "q1",
+        "type": "gapfill",
+        "question": "Route: London to ________.",
+        "answer": "Manchester"
+      },
+      {
+        "id": "q2",
+        "type": "gapfill",
+        "question": "Departure time selected is ________.",
+        "answer": "9:30"
+      },
+      {
+        "id": "q3",
+        "type": "gapfill",
+        "question": "The return day is ________ afternoon.",
+        "answer": "Friday"
+      },
+      {
+        "id": "q4",
+        "type": "gapfill",
+        "question": "The return coach leaves Manchester at ________ p.m.",
+        "answer": "4:15"
+      },
+      {
+        "id": "q5",
+        "type": "gapfill",
+        "question": "Number of tickets booked: ________.",
+        "answer": "2"
+      },
+      {
+        "id": "q6",
+        "type": "gapfill",
+        "question": "The daughter is ________ years old.",
+        "answer": "15"
+      },
+      {
+        "id": "q7",
+        "type": "gapfill",
+        "question": "The child discount is ________ percent.",
+        "answer": "30"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "The total cost of the tickets is ________ pounds.",
+        "answer": "42"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "The bus departs from ________ Coach Station.",
+        "answer": "Victoria"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "The customer's last name is ________.",
+        "answer": "Jenkins"
+      }
+    ]
+  },
+  {
+    "id": "ielts_003",
+    "category": "ielts",
+    "title": "Gym Membership Enrollment (Section 1 - Medium)",
+    "audioFile": "TTS_GYM_MEMBERSHIP",
+    "description": "Luyện nghe cuộc đối thoại đăng ký thẻ thành viên phòng gym, điền thông tin cá nhân và phương thức thanh toán.",
+    "transcript": "Staff: Welcome to Gold Medal Fitness. How can I help you?\nCustomer: Hi, I'd like to sign up for a membership.\nStaff: Excellent. We have a few options. Our gold membership is fifty pounds a month, which includes all classes and pool access. The silver membership is thirty-five pounds, which excludes pool access.\nCustomer: I think I'll go with the gold membership.\nStaff: Great. Let's get your details. First, your full name, please?\nCustomer: Yes, it's David Harrison. H-A-R-R-I-S-O-N.\nStaff: Thank you. And your date of birth?\nCustomer: The twelfth of September, nineteen-ninety-four.\nStaff: Twelve September, nineteen-ninety-four. And your home address?\nCustomer: Thirty-two West Forest Avenue, post code EH4 2LN.\nStaff: EH4 2LN. Got it. Do you have an email address?\nCustomer: Yes, it's david.h@netlink.com.\nStaff: Okay. We also need an emergency contact.\nCustomer: That would be my brother, Paul Harrison, and his phone number is zero-seven-seven-eight, double-five-one, two-three-four.\nStaff: Perfect. Your membership card will be ready on Monday. Your first direct debit payment will be taken on the first of next month.",
+    "quiz": [
+      {
+        "id": "q1",
+        "type": "gapfill",
+        "question": "The customer chooses the ________ membership option.",
+        "answer": "gold"
+      },
+      {
+        "id": "q2",
+        "type": "gapfill",
+        "question": "The chosen membership costs ________ pounds a month.",
+        "answer": "50"
+      },
+      {
+        "id": "q3",
+        "type": "gapfill",
+        "question": "The customer's last name is spelled ________.",
+        "answer": "Harrison"
+      },
+      {
+        "id": "q4",
+        "type": "gapfill",
+        "question": "The birth month is ________.",
+        "answer": "September"
+      },
+      {
+        "id": "q5",
+        "type": "gapfill",
+        "question": "The birth year is ________.",
+        "answer": "1994"
+      },
+      {
+        "id": "q6",
+        "type": "gapfill",
+        "question": "Home address: ________ West Forest Avenue.",
+        "answer": "32"
+      },
+      {
+        "id": "q7",
+        "type": "gapfill",
+        "question": "Road name of home address: ________ Forest Avenue.",
+        "answer": "West"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "Email address: david.h@________.com.",
+        "answer": "netlink"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "The emergency contact is the customer's ________.",
+        "answer": "brother"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "The first debit payment will be taken on the ________ of next month.",
+        "answer": "first"
+      }
+    ]
+  },
+  {
+    "id": "ielts_004",
+    "category": "ielts",
+    "title": "Shopping Mall Map Layout (Section 2 - Hard)",
+    "audioFile": "TTS_MALL_MAP",
+    "description": "Luyện nghe bài thuyết trình mô tả vị trí các cửa hàng, quầy thông tin và khu ẩm thực trong trung tâm thương mại mới xây.",
+    "transcript": "Guide: Hello everyone, and welcome to the preview tour of the new Plaza Shopping Center. Before you explore, let me give you a quick overview of the ground floor layout.\nWe are currently standing at the Main Entrance, which is at the south end of the mall. Directly ahead of you is the Central Plaza with a large fountain.\nNow, if you look to your left, in the southwest corner, you will find the Pharmacy. It is right next to the clothing outlet, which is convenient for getting medical supplies.\nIf you walk past the Pharmacy along the west aisle, the large store at the end of the aisle is the Supermarket. That occupies the northwest corner of the building.\nMoving to the east side of the mall, immediately to your right from the Main Entrance is the Information Desk. If you need a printed map or help, that is the place to go.\nFurther down the east aisle, just past the shoe store, there is a cafe called Daily Brew. It is located exactly opposite the Central Plaza fountain.\nAt the far end of the east aisle, in the northeast corner of the mall, you will find the Restrooms, and right next to them is the Play Area for children.\nFinally, if you go straight through the Central Plaza, the large area at the north end, situated between the Supermarket and the Play Area, is our Food Court, featuring twelve different restaurants.\nPlease enjoy your visit, and feel free to ask if you have any questions!",
+    "quiz": [
+      {
+        "id": "q1",
+        "type": "gapfill",
+        "question": "The tour starts at the ________ Entrance.",
+        "answer": "Main"
+      },
+      {
+        "id": "q2",
+        "type": "gapfill",
+        "question": "The Main Entrance is located at the ________ end of the mall.",
+        "answer": "south"
+      },
+      {
+        "id": "q3",
+        "type": "gapfill",
+        "question": "In the Central Plaza, there is a large ________.",
+        "answer": "fountain"
+      },
+      {
+        "id": "q4",
+        "type": "gapfill",
+        "question": "The Pharmacy is in the ________ corner.",
+        "answer": "southwest"
+      },
+      {
+        "id": "q5",
+        "type": "gapfill",
+        "question": "The Supermarket occupies the ________ corner.",
+        "answer": "northwest"
+      },
+      {
+        "id": "q6",
+        "type": "gapfill",
+        "question": "To the right of the entrance is the ________ Desk.",
+        "answer": "Information"
+      },
+      {
+        "id": "q7",
+        "type": "gapfill",
+        "question": "The name of the cafe is ________ Brew.",
+        "answer": "Daily"
+      },
+      {
+        "id": "q8",
+        "type": "gapfill",
+        "question": "The cafe is directly opposite the central ________.",
+        "answer": "fountain"
+      },
+      {
+        "id": "q9",
+        "type": "gapfill",
+        "question": "The Restrooms are located in the ________ corner.",
+        "answer": "northeast"
+      },
+      {
+        "id": "q10",
+        "type": "gapfill",
+        "question": "At the north end of the mall, you will find the ________ Court.",
+        "answer": "Food"
       }
     ]
   }

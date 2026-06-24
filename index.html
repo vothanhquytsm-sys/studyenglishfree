@@ -273,8 +273,14 @@
       <section id="section-listening" class="app-section">
         <div class="listening-layout">
           <!-- Sidebar: List of lessons -->
-          <div class="listening-sidebar" id="listening-lessons-list">
-            <!-- Dynamically populated -->
+          <div class="listening-sidebar">
+            <div class="listening-category-tabs" style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; flex-shrink: 0;">
+              <button class="btn btn-primary" id="btn-list-cat-ello" onclick="listening.switchCategory('ello')" style="flex: 1; padding: 0.5rem 0.25rem; font-size: 0.85rem; font-weight: 600; min-height: 38px;">Bài nghe Ello</button>
+              <button class="btn btn-secondary" id="btn-list-cat-ielts" onclick="listening.switchCategory('ielts')" style="flex: 1; padding: 0.5rem 0.25rem; font-size: 0.85rem; font-weight: 600; min-height: 38px;">Luyện thi IELTS</button>
+            </div>
+            <div id="listening-lessons-list" style="display: flex; flex-direction: column; gap: 0.5rem; flex-grow: 1; overflow-y: auto; padding-right: 2px;">
+              <!-- Dynamically populated -->
+            </div>
           </div>
 
           <!-- Main workspace -->
@@ -604,16 +610,16 @@
 
   <!-- Load Scripts -->
   <script src="js/vocabularyData.js?v=1.0.4"></script>
-  <script src="js/listeningData.js?v=1.0.4"></script>
+  <script src="js/listeningData.js?v=1.0.8"></script>
   <script src="js/readingData.js?v=1.0.4"></script>
   <script src="https://cdn.jsdelivr.net/npm/fflate@0.8.2/lib/browser.min.js"></script>
   <script src="js/dictionary.js?v=1.0.4"></script>
   
-  <script src="js/app.js?v=1.0.7"></script>
-  <script src="js/vocabulary.js?v=1.0.7"></script>
-  <script src="js/listening.js?v=1.0.7"></script>
-  <script src="js/reading.js?v=1.0.7"></script>
-  <script src="js/chatbot.js?v=1.0.7"></script>
-  <script src="js/writing.js?v=1.0.7"></script>
+  <script src="js/app.js?v=1.0.8"></script>
+  <script src="js/vocabulary.js?v=1.0.8"></script>
+  <script src="js/listening.js?v=1.0.8"></script>
+  <script src="js/reading.js?v=1.0.8"></script>
+  <script src="js/chatbot.js?v=1.0.8"></script>
+  <script src="js/writing.js?v=1.0.8"></script>
 </body>
 </html>

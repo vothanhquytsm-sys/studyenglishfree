@@ -1,15 +1,26 @@
-// EnglishFree - Listening Module
-
+// EnglishFree - Listening Module with Ello and IELTS sub-categories and premium TTS engine
 class ListeningModule {
   constructor() {
     this.currentLesson = null;
     this.isPlaying = false;
     this.activeSubTab = 'transcript'; // 'transcript' or 'quiz'
     this.quizGraded = false;
+    
+    // Categorization
+    this.currentCategory = 'ello'; // 'ello' or 'ielts'
+    
+    // TTS engine parameters
+    this.ttsUtterance = null;
+    this.ttsInterval = null;
+    this.ttsCurrentTime = 0;
+    this.ttsDuration = 0;
+    this.audioFinished = false;
+    this.quizGradedSubmit = false;
+    this.quizScore = 0;
   }
 
   init() {
-    this.renderLessonsSidebar();
+    this.switchCategory('ello');
     this.setupAudioListeners();
   }
 
@@ -23,29 +34,37 @@ class ListeningModule {
     document.getElementById('listening-quiz-pane').style.display = 'none';
   }
 
+  switchCategory(category) {
+    this.currentCategory = category;
+    this.pauseAudio();
+    
+    const btnEllo = document.getElementById('btn-list-cat-ello');
+    const btnIelts = document.getElementById('btn-list-cat-ielts');
+    
+    if (category === 'ello') {
+      if (btnEllo) btnEllo.className = 'btn btn-primary';
+      if (btnIelts) btnIelts.className = 'btn btn-secondary';
+    } else {
+      if (btnEllo) btnEllo.className = 'btn btn-secondary';
+      if (btnIelts) btnIelts.className = 'btn btn-primary';
+    }
+    
+    this.renderLessonsSidebar();
+    
+    // Reset workspace view on category switch
+    document.getElementById('listening-no-selection').style.display = 'block';
+    document.getElementById('listening-main-content').style.display = 'none';
+    this.currentLesson = null;
+  }
+
   renderLessonsSidebar() {
     const sidebar = document.getElementById('listening-lessons-list');
-    sidebar.innerHTML = '<h3>Danh sách bài nghe</h3>';
+    sidebar.innerHTML = '';
 
-    // Combine detailed LISTENING_DATA and LISTENING_INDEX index
-    // To present a unified list
-    const allLessons = [...LISTENING_DATA];
-    
-    // Add index entries if they aren't already in list
-    LISTENING_INDEX.forEach(idxItem => {
-      if (!allLessons.some(l => l.id === idxItem.id)) {
-        allLessons.push({
-          id: idxItem.id,
-          title: idxItem.title,
-          audioFile: idxItem.file,
-          description: "Listen to the natural conversation and practice comprehension.",
-          transcript: "Bản Script mẫu đang được cập nhật...",
-          quiz: []
-        });
-      }
-    });
+    // Filter lessons by category
+    const filteredLessons = LISTENING_DATA.filter(l => (l.category || 'ello') === this.currentCategory);
 
-    allLessons.forEach((lesson, index) => {
+    filteredLessons.forEach((lesson, index) => {
       const item = document.createElement('div');
       item.className = 'audio-item';
       item.id = `listening-item-${lesson.id}`;
@@ -55,10 +74,12 @@ class ListeningModule {
         ? '<span style="color:var(--success-color); font-weight:700;">✓ Đã xong</span>' 
         : '<span style="color:var(--text-muted);">Chưa học</span>';
 
+      const typeLabel = this.currentCategory === 'ello' ? 'Ello Listening' : 'IELTS Practice';
+
       item.innerHTML = `
         <div class="audio-item-title">${index + 1}. ${lesson.title}</div>
         <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-top:0.5rem;">
-          <span>IELTS Cambridge</span>
+          <span>${typeLabel}</span>
           ${status}
         </div>
       `;
@@ -74,11 +95,31 @@ class ListeningModule {
     this.quizGradedSubmit = false;
     this.quizScore = 0;
     
-    // Reset player elements
+    // Reset player elements & cancel ongoing speech synthesis
     this.pauseAudio();
+    
     const audio = document.getElementById('main-audio-element');
-    audio.src = lesson.audioFile;
-    audio.load();
+    const slider = document.getElementById('player-timeline-slider');
+    const curTime = document.getElementById('player-time-current');
+    const durTime = document.getElementById('player-time-duration');
+    
+    if (lesson.audioFile.startsWith('TTS_')) {
+      // Setup TTS simulated timings
+      const wordsCount = lesson.transcript.split(/\s+/).length;
+      const speedVal = parseFloat(document.getElementById('player-speed-select').value) || 1.0;
+      
+      this.ttsCurrentTime = 0;
+      this.ttsDuration = Math.round(wordsCount / (2.2 * speedVal));
+      
+      slider.max = this.ttsDuration;
+      slider.value = 0;
+      curTime.textContent = "00:00";
+      durTime.textContent = this.formatTime(this.ttsDuration);
+      audio.src = '';
+    } else {
+      audio.src = lesson.audioFile;
+      audio.load();
+    }
 
     // Highlights active item in list
     document.querySelectorAll('.audio-item').forEach(el => el.classList.remove('active'));
@@ -110,22 +151,28 @@ class ListeningModule {
     const durTime = document.getElementById('player-time-duration');
 
     audio.addEventListener('timeupdate', () => {
-      if (!isNaN(audio.duration)) {
-        slider.value = audio.currentTime;
-        curTime.textContent = this.formatTime(audio.currentTime);
+      if (this.currentLesson && !this.currentLesson.audioFile.startsWith('TTS_')) {
+        if (!isNaN(audio.duration)) {
+          slider.value = audio.currentTime;
+          curTime.textContent = this.formatTime(audio.currentTime);
+        }
       }
     });
 
     audio.addEventListener('loadedmetadata', () => {
-      slider.max = audio.duration;
-      durTime.textContent = this.formatTime(audio.duration);
+      if (this.currentLesson && !this.currentLesson.audioFile.startsWith('TTS_')) {
+        slider.max = audio.duration;
+        durTime.textContent = this.formatTime(audio.duration);
+      }
     });
 
     audio.addEventListener('ended', () => {
-      this.isPlaying = false;
-      document.getElementById('player-btn-play').innerHTML = '<svg viewBox="0 0 24 24" id="play-svg"><path d="M8 5v14l11-7z"/></svg>';
-      this.audioFinished = true;
-      this.checkCompletionStatus();
+      if (this.currentLesson && !this.currentLesson.audioFile.startsWith('TTS_')) {
+        this.isPlaying = false;
+        document.getElementById('player-btn-play').innerHTML = '<svg viewBox="0 0 24 24" id="play-svg"><path d="M8 5v14l11-7z"/></svg>';
+        this.audioFinished = true;
+        this.checkCompletionStatus();
+      }
     });
   }
 
@@ -136,50 +183,194 @@ class ListeningModule {
   }
 
   togglePlay() {
+    if (!this.currentLesson) return;
+    
     const audio = document.getElementById('main-audio-element');
     const btn = document.getElementById('player-btn-play');
 
-    if (this.isPlaying) {
-      this.pauseAudio();
-    } else {
-      audio.play().then(() => {
+    if (this.currentLesson.audioFile.startsWith('TTS_')) {
+      if (this.isPlaying) {
+        this.pauseAudio();
+      } else {
+        // If we are currently paused inside SpeechSynthesis, resume
+        if (window.speechSynthesis.speaking && window.speechSynthesis.paused) {
+          window.speechSynthesis.resume();
+          this.isPlaying = true;
+          btn.innerHTML = '<svg viewBox="0 0 24 24" id="pause-svg" style="width:20px;height:20px;fill:currentColor;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+          this.startTtsTimer();
+          return;
+        }
+        
+        // Start speech from current time position
+        window.speechSynthesis.cancel();
+        
+        // Filter out speaker names for natural narration
+        const fullText = this.currentLesson.transcript.replace(/\w+:\s*/g, '');
+        const ratio = this.ttsCurrentTime / this.ttsDuration;
+        const startChar = Math.round(fullText.length * ratio);
+        const speechText = fullText.substring(startChar);
+        
+        const speedVal = parseFloat(document.getElementById('player-speed-select').value) || 1.0;
+        this.ttsUtterance = new SpeechSynthesisUtterance(speechText);
+        this.ttsUtterance.lang = 'en-US';
+        this.ttsUtterance.rate = speedVal;
+        
+        // Apply premium voice based on preferences
+        const voices = window.speechSynthesis.getVoices();
+        const enVoices = voices.filter(v => v.lang.startsWith('en'));
+        if (enVoices.length > 0) {
+          const genderTerm = app.voiceGender === 'male' ? 'male' : 'female';
+          const scoreVoice = (v) => {
+            let score = 0;
+            const name = v.name.toLowerCase();
+            if (name.includes(genderTerm)) score += 10;
+            else if (genderTerm === 'female' && (name.includes('samantha') || name.includes('zira') || name.includes('karen') || name.includes('moira') || name.includes('tessa') || name.includes('veena') || name.includes('siri') || name.includes('hazel'))) score += 5;
+            else if (genderTerm === 'male' && (name.includes('david') || name.includes('mark') || name.includes('alex') || name.includes('daniel') || name.includes('rishi') || name.includes('james'))) score += 5;
+            if (name.includes('natural')) score += 100;
+            if (name.includes('google')) score += 80;
+            if (name.includes('siri')) score += 70;
+            if (name.includes('enhanced')) score += 50;
+            if (name.includes('premium')) score += 40;
+            if (v.lang === 'en-US' || v.lang === 'en-GB') score += 20;
+            return score;
+          };
+          enVoices.sort((a, b) => scoreVoice(b) - scoreVoice(a));
+          this.ttsUtterance.voice = enVoices[0];
+        }
+
+        this.ttsUtterance.onend = () => {
+          // If ended naturally without pausing
+          if (this.isPlaying) {
+            this.isPlaying = false;
+            this.audioFinished = true;
+            clearInterval(this.ttsInterval);
+            btn.innerHTML = '<svg viewBox="0 0 24 24" id="play-svg"><path d="M8 5v14l11-7z"/></svg>';
+            document.getElementById('player-timeline-slider').value = this.ttsDuration;
+            document.getElementById('player-time-current').textContent = this.formatTime(this.ttsDuration);
+            this.checkCompletionStatus();
+          }
+        };
+
+        this.ttsUtterance.onerror = (err) => {
+          console.error("SpeechSynthesis error:", err);
+          clearInterval(this.ttsInterval);
+        };
+
+        window.speechSynthesis.speak(this.ttsUtterance);
         this.isPlaying = true;
         btn.innerHTML = '<svg viewBox="0 0 24 24" id="pause-svg" style="width:20px;height:20px;fill:currentColor;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
-      }).catch(e => {
-        console.error("Audio playback error:", e);
-        app.showToast('Không thể phát âm thanh. File âm thanh chưa sẵn sàng.', 'error');
-      });
+        this.startTtsTimer();
+      }
+    } else {
+      if (this.isPlaying) {
+        this.pauseAudio();
+      } else {
+        audio.play().then(() => {
+          this.isPlaying = true;
+          btn.innerHTML = '<svg viewBox="0 0 24 24" id="pause-svg" style="width:20px;height:20px;fill:currentColor;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+        }).catch(e => {
+          console.error("Audio playback error:", e);
+          app.showToast('Không thể phát âm thanh. File âm thanh chưa sẵn sàng.', 'error');
+        });
+      }
     }
   }
 
+  startTtsTimer() {
+    clearInterval(this.ttsInterval);
+    this.ttsInterval = setInterval(() => {
+      if (this.isPlaying && !window.speechSynthesis.paused) {
+        this.ttsCurrentTime += 1;
+        if (this.ttsCurrentTime > this.ttsDuration) {
+          this.ttsCurrentTime = this.ttsDuration;
+        }
+        document.getElementById('player-timeline-slider').value = this.ttsCurrentTime;
+        document.getElementById('player-time-current').textContent = this.formatTime(this.ttsCurrentTime);
+      }
+    }, 1000);
+  }
+
   pauseAudio() {
-    const audio = document.getElementById('main-audio-element');
-    const btn = document.getElementById('player-btn-play');
-    if (audio) {
-      audio.pause();
+    clearInterval(this.ttsInterval);
+    
+    if (this.currentLesson && this.currentLesson.audioFile.startsWith('TTS_')) {
+      if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.pause();
+      }
       this.isPlaying = false;
+    } else {
+      const audio = document.getElementById('main-audio-element');
+      if (audio) {
+        audio.pause();
+        this.isPlaying = false;
+      }
     }
+    
+    const btn = document.getElementById('player-btn-play');
     if (btn) {
       btn.innerHTML = '<svg viewBox="0 0 24 24" id="play-svg"><path d="M8 5v14l11-7z"/></svg>';
     }
   }
 
   skipSeconds(secs) {
-    const audio = document.getElementById('main-audio-element');
-    audio.currentTime = Math.max(0, Math.min(audio.duration || 0, audio.currentTime + secs));
+    if (this.currentLesson && this.currentLesson.audioFile.startsWith('TTS_')) {
+      const targetTime = Math.max(0, Math.min(this.ttsDuration || 0, this.ttsCurrentTime + secs));
+      document.getElementById('player-timeline-slider').value = targetTime;
+      this.seekAudio();
+    } else {
+      const audio = document.getElementById('main-audio-element');
+      audio.currentTime = Math.max(0, Math.min(audio.duration || 0, audio.currentTime + secs));
+    }
   }
 
   seekAudio() {
-    const audio = document.getElementById('main-audio-element');
     const slider = document.getElementById('player-timeline-slider');
-    audio.currentTime = slider.value;
+    
+    if (this.currentLesson && this.currentLesson.audioFile.startsWith('TTS_')) {
+      const val = parseFloat(slider.value);
+      this.ttsCurrentTime = val;
+      document.getElementById('player-time-current').textContent = this.formatTime(val);
+      
+      if (this.isPlaying) {
+        // Force restart speech from new position
+        this.isPlaying = false;
+        window.speechSynthesis.cancel();
+        this.togglePlay();
+      }
+    } else {
+      const audio = document.getElementById('main-audio-element');
+      audio.currentTime = slider.value;
+    }
   }
 
   changeSpeed() {
-    const audio = document.getElementById('main-audio-element');
     const speed = document.getElementById('player-speed-select').value;
-    audio.defaultPlaybackRate = parseFloat(speed);
-    audio.playbackRate = parseFloat(speed);
+    
+    if (this.currentLesson && this.currentLesson.audioFile.startsWith('TTS_')) {
+      const wordsCount = this.currentLesson.transcript.split(/\s+/).length;
+      const speedVal = parseFloat(speed) || 1.0;
+      
+      // Calculate current percentage progress and update estimated total duration
+      const oldDuration = this.ttsDuration;
+      const progressRatio = this.ttsCurrentTime / (oldDuration || 1);
+      
+      this.ttsDuration = Math.max(1, Math.round(wordsCount / (2.2 * speedVal)));
+      this.ttsCurrentTime = Math.round(this.ttsDuration * progressRatio);
+      
+      document.getElementById('player-timeline-slider').max = this.ttsDuration;
+      document.getElementById('player-timeline-slider').value = this.ttsCurrentTime;
+      document.getElementById('player-time-duration').textContent = this.formatTime(this.ttsDuration);
+      
+      if (this.isPlaying) {
+        this.isPlaying = false;
+        window.speechSynthesis.cancel();
+        this.togglePlay();
+      }
+    } else {
+      const audio = document.getElementById('main-audio-element');
+      audio.defaultPlaybackRate = parseFloat(speed);
+      audio.playbackRate = parseFloat(speed);
+    }
   }
 
   switchSubTab(tabName) {
@@ -212,7 +403,7 @@ class ListeningModule {
       lineDiv.className = 'speaker-line';
 
       // Parse Speaker name (e.g. Todd:)
-      const match = line.match(/^([A-Za-z]+):(.*)/);
+      const match = line.match(/^([A-Za-z\s]+):(.*)/);
       if (match) {
         const speaker = match[1];
         const text = match[2];
@@ -238,7 +429,7 @@ class ListeningModule {
     const quizList = this.currentLesson.quiz;
     
     if (!quizList || quizList.length === 0) {
-      container.innerHTML = '<p style="text-align:center; padding: 2rem;">Bài tập trắc nghiệm đang được cập nhật cho bài nghe này. Hãy nghe và theo dõi transcript ở tab bên cạnh nhé!</p>';
+      container.innerHTML = '<p style="text-align:center; padding: 2rem;">Bài tập điền từ đang được cập nhật cho bài nghe này. Hãy nghe và theo dõi transcript ở tab bên cạnh nhé!</p>';
       document.getElementById('btn-submit-listening-quiz').style.display = 'none';
       return;
     }
@@ -253,7 +444,7 @@ class ListeningModule {
       
       const title = document.createElement('h4');
       title.style.marginBottom = '0.75rem';
-      title.textContent = `Câu ${idx + 1}: ${q.question}`;
+      title.textContent = `Câu ${idx + 1}:`;
       qDiv.appendChild(title);
 
       if (q.type === 'multiple') {
@@ -282,17 +473,43 @@ class ListeningModule {
         });
         qDiv.appendChild(optsDiv);
       } else {
-        // Gap fill
-        const inputDiv = document.createElement('div');
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.className = 'input-field';
-        input.style.width = '100%';
-        input.placeholder = 'Nhập đáp án của bạn (ví dụ: teachers)';
-        input.id = `input-q-${q.id}`;
-        
-        inputDiv.appendChild(input);
-        qDiv.appendChild(inputDiv);
+        // Gap fill / Cloze
+        const questionTextContainer = document.createElement('div');
+        questionTextContainer.style.fontSize = '1.05rem';
+        questionTextContainer.style.lineHeight = '1.6';
+        questionTextContainer.style.marginBottom = '0.5rem';
+
+        // Render question text with an actual inline input box
+        const textParts = q.question.split('________');
+        if (textParts.length > 1) {
+          questionTextContainer.appendChild(document.createTextNode(textParts[0]));
+          
+          const input = document.createElement('input');
+          input.type = 'text';
+          input.className = 'input-field';
+          input.style.width = '160px';
+          input.style.display = 'inline-block';
+          input.style.margin = '0 8px';
+          input.style.padding = '0.25rem 0.5rem';
+          input.placeholder = '...';
+          input.id = `input-q-${q.id}`;
+          
+          questionTextContainer.appendChild(input);
+          questionTextContainer.appendChild(document.createTextNode(textParts[1]));
+        } else {
+          // Fallback if no blanks are represented
+          questionTextContainer.textContent = q.question;
+          const input = document.createElement('input');
+          input.type = 'text';
+          input.className = 'input-field';
+          input.style.width = '100%';
+          input.style.marginTop = '0.5rem';
+          input.placeholder = 'Nhập đáp án của bạn...';
+          input.id = `input-q-${q.id}`;
+          questionTextContainer.appendChild(input);
+        }
+
+        qDiv.appendChild(questionTextContainer);
       }
 
       container.appendChild(qDiv);
@@ -314,11 +531,9 @@ class ListeningModule {
         let selectedValue = -1;
         radios.forEach(r => {
           if (r.checked) selectedValue = parseInt(r.value);
-          // disable interaction
           r.disabled = true;
         });
 
-        // Highlight correct option label
         const correctLabel = document.getElementById(`lbl-q-${q.id}-opt-${q.answer}`);
         if (correctLabel) {
           correctLabel.style.color = 'var(--success-color)';
@@ -347,10 +562,10 @@ class ListeningModule {
         } else {
           input.style.borderColor = 'var(--danger-color)';
           input.style.backgroundColor = 'var(--danger-light)';
-          // Show correct answer next to it
+          
           const hint = document.createElement('span');
           hint.style.color = 'var(--success-color)';
-          hint.style.marginLeft = '1rem';
+          hint.style.marginLeft = '0.5rem';
           hint.style.fontWeight = '700';
           hint.textContent = `(Đáp án đúng: ${q.answer})`;
           input.parentNode.appendChild(hint);
@@ -369,7 +584,6 @@ class ListeningModule {
   checkCompletionStatus() {
     if (!this.currentLesson) return;
     
-    // Skip if already marked completed
     if (app.progress.listeningCompleted.includes(this.currentLesson.id)) {
       return;
     }
