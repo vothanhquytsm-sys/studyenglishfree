@@ -217,19 +217,7 @@ class ListeningModule {
         const speaker = match[1];
         const text = match[2];
 
-        // Highlight certain academic words dynamically for learning
-        const words = text.split(' ');
-        const processedWords = words.map(w => {
-          const cleanW = w.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, "").toLowerCase().trim();
-          // Match with VOCABULARY_DATA to add hover translations
-          const found = VOCABULARY_DATA.find(vocabObj => vocabObj.word.toLowerCase() === cleanW);
-          if (found) {
-            return `<span class="highlight-word" title="${found.translation} (${found.ipa})">${w}</span>`;
-          }
-          return w;
-        });
-
-        lineDiv.innerHTML = `<span class="speaker-name">${speaker}:</span> ${processedWords.join(' ')}`;
+        lineDiv.innerHTML = `<span class="speaker-name">${speaker}:</span>${text}`;
       } else {
         lineDiv.textContent = line;
       }
@@ -241,22 +229,6 @@ class ListeningModule {
     if (typeof vocabDictionary !== 'undefined') {
       vocabDictionary.applySavedAnnotations('listening-transcript-content', 'listening_' + this.currentLesson.id);
     }
-  }
-
-  toggleTranscriptWords() {
-    const highlights = document.querySelectorAll('.highlight-word');
-    highlights.forEach(el => {
-      el.classList.toggle('highlight-disabled');
-      if (el.classList.contains('highlight-disabled')) {
-        el.style.backgroundColor = 'transparent';
-        el.style.borderBottom = 'none';
-        el.style.cursor = 'default';
-      } else {
-        el.style.backgroundColor = 'rgba(99, 102, 241, 0.15)';
-        el.style.borderBottom = '2px solid var(--primary-color)';
-        el.style.cursor = 'help';
-      }
-    });
   }
 
   renderQuiz() {
