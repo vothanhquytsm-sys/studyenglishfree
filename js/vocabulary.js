@@ -101,21 +101,23 @@ class VocabularyModule {
     const listContainer = document.getElementById('vocab-topics-list');
     listContainer.innerHTML = '';
 
-    const levels = ["A1", "A2", "B1", "B2"];
+    const levels = ["A1", "A2", "B1", "B2", "PV"];
     const levelNamesVi = {
       "A1": "Cơ bản (Beginner)",
       "A2": "Sơ cấp (Elementary)",
       "B1": "Trung cấp (Intermediate)",
-      "B2": "Trung cao cấp (Upper Intermediate)"
+      "B2": "Trung cao cấp (Upper Intermediate)",
+      "PV": "Cụm động từ (Phrasal Verbs)"
     };
     const levelDescriptions = {
       "A1": "Các từ vựng giao tiếp rất đơn giản, quen thuộc hàng ngày.",
       "A2": "Từ vựng thông dụng về bản thân, gia đình và môi trường sống.",
       "B1": "Từ vựng diễn tả ý kiến, kế hoạch, công việc và đời sống xã hội.",
-      "B2": "Từ vựng học thuật phức tạp hơn, phục vụ tốt cho kỳ thi IELTS."
+      "B2": "Từ vựng học thuật phức tạp hơn, phục vụ tốt cho kỳ thi IELTS.",
+      "PV": "100 cụm động từ thông dụng nhất giúp bạn giao tiếp và viết tiếng Anh tự nhiên."
     };
     const levelEmojis = {
-      "A1": "🌱", "A2": "🌿", "B1": "🌳", "B2": "👑"
+      "A1": "🌱", "A2": "🌿", "B1": "🌳", "B2": "👑", "PV": "💬"
     };
 
     levels.forEach(lvl => {

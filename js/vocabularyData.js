@@ -30002,4 +30002,1005 @@ const VOCABULARY_DATA = [
     "level": "B2",
     "family": "urban"
   }
+,
+  {
+    "word": "account for",
+    "ipa": "/əˈkaʊnt fɔːr/",
+    "partOfSpeech": "phr v",
+    "translation": "giải thích, chiếm",
+    "example": "All people who were working in the building have now been accounted for.",
+    "exampleVi": "Tất cả những người làm việc trong tòa nhà hiện đã được xác nhận.",
+    "level": "PV",
+    "family": "account"
+  },
+  {
+    "word": "allow for",
+    "ipa": "/əˈlaʊ fɔːr/",
+    "partOfSpeech": "phr v",
+    "translation": "tính đến, xem xét đến",
+    "example": "She allows for me to follow her.",
+    "exampleVi": "Cô ấy cho phép tôi đi theo.",
+    "level": "PV",
+    "family": "allow"
+  },
+  {
+    "word": "ask after",
+    "ipa": "/ɑːsk ˈɑːftər/",
+    "partOfSpeech": "phr v",
+    "translation": "hỏi thăm sức khỏe",
+    "example": "If you want to know how he is now, you should ask after him.",
+    "exampleVi": "Nếu bạn muốn biết bây giờ anh ấy thế nào, bạn nên hỏi thăm anh ấy.",
+    "level": "PV",
+    "family": "ask"
+  },
+  {
+    "word": "ask for",
+    "ipa": "/ɑːsk fɔːr/",
+    "partOfSpeech": "phr v",
+    "translation": "hỏi xin",
+    "example": "I was driving, a man asking me for a lift.",
+    "exampleVi": "Tôi đang lái xe thì một người đàn ông xin đi nhờ.",
+    "level": "PV",
+    "family": "ask"
+  },
+  {
+    "word": "advance on",
+    "ipa": "/ədˈvɑːns ɒn/",
+    "partOfSpeech": "phr v",
+    "translation": "tiến lên, tấn công",
+    "example": "The army began to advance on the city.",
+    "exampleVi": "Quân đội bắt đầu tiến về phía thành phố.",
+    "level": "PV",
+    "family": "advance"
+  },
+  {
+    "word": "agree on",
+    "ipa": "/əˈɡriː ɒn/",
+    "partOfSpeech": "phr v",
+    "translation": "đồng ý về",
+    "example": "They agreed to meet on Sunday.",
+    "exampleVi": "Họ đã đồng ý gặp nhau vào Chủ nhật.",
+    "level": "PV",
+    "family": "agree"
+  },
+  {
+    "word": "agree with",
+    "ipa": "/əˈɡriː wɪð/",
+    "partOfSpeech": "phr v",
+    "translation": "đồng ý với",
+    "example": "I agree with you.",
+    "exampleVi": "Tôi đồng ý với bạn.",
+    "level": "PV",
+    "family": "agree"
+  },
+  {
+    "word": "answer for",
+    "ipa": "/ˈɑːnsər fɔːr/",
+    "partOfSpeech": "phr v",
+    "translation": "chịu trách nhiệm về",
+    "example": "You have to answer for your trouble at the meeting tomorrow.",
+    "exampleVi": "Bạn sẽ phải chịu trách nhiệm về những rắc rối của mình tại cuộc họp ngày mai.",
+    "level": "PV",
+    "family": "answer"
+  },
+  {
+    "word": "attend on",
+    "ipa": "/əˈtend ɒn/",
+    "partOfSpeech": "phr v",
+    "translation": "chăm sóc, phục vụ",
+    "example": "A nurse attended to his needs constantly.",
+    "exampleVi": "Một y tá liên tục chăm sóc các nhu cầu của anh ấy.",
+    "level": "PV",
+    "family": "attend"
+  },
+  {
+    "word": "attend to",
+    "ipa": "/əˈtend tuː/",
+    "partOfSpeech": "phr v",
+    "translation": "chú ý, giải quyết",
+    "example": "Doctors tried to attend to the worst injured soldiers first.",
+    "exampleVi": "Các bác sĩ đã cố gắng cứu chữa những người lính bị thương nặng nhất trước.",
+    "level": "PV",
+    "family": "attend"
+  },
+  {
+    "word": "bring in",
+    "ipa": "/brɪŋ ɪn/",
+    "partOfSpeech": "phr v",
+    "translation": "mang lại, giới thiệu",
+    "example": "She brings in about $600 a week.",
+    "exampleVi": "Cô ấy kiếm được khoảng 600 đô la một tuần.",
+    "level": "PV",
+    "family": "bring"
+  },
+  {
+    "word": "bring up",
+    "ipa": "/brɪŋ ʌp/",
+    "partOfSpeech": "phr v",
+    "translation": "nuôi dưỡng, đề cập",
+    "example": "An aunt brought him up.",
+    "exampleVi": "Một người dì đã nuôi nấng anh ấy.",
+    "level": "PV",
+    "family": "bring"
+  },
+  {
+    "word": "back up",
+    "ipa": "/bæk ʌp/",
+    "partOfSpeech": "phr v",
+    "translation": "ủng hộ, sao lưu",
+    "example": "The traffic is starting to back up on the highway.",
+    "exampleVi": "Giao thông đang bắt đầu ùn ứ trên đường cao tốc.",
+    "level": "PV",
+    "family": "back"
+  },
+  {
+    "word": "belong to",
+    "ipa": "/bɪˈlɒŋ tuː/",
+    "partOfSpeech": "phr v",
+    "translation": "thuộc về",
+    "example": "Does this book belong to you or to Sarah?",
+    "exampleVi": "Cuốn sách này thuộc về bạn hay của Sarah?",
+    "level": "PV",
+    "family": "belong"
+  },
+  {
+    "word": "break in",
+    "ipa": "/breɪk ɪn/",
+    "partOfSpeech": "phr v",
+    "translation": "đột nhập, ngắt lời",
+    "example": "As she was talking, he suddenly broke in, saying, “That’s a lie.”",
+    "exampleVi": "Khi cô ấy đang nói, anh ta đột nhiên xen vào: \"Đó là lời nói dối.\"",
+    "level": "PV",
+    "family": "break"
+  },
+  {
+    "word": "break away",
+    "ipa": "/breɪk əˈweɪ/",
+    "partOfSpeech": "phr v",
+    "translation": "trốn thoát, rời bỏ",
+    "example": "He grabbed her, but she managed to break away.",
+    "exampleVi": "Anh ta chộp lấy cô, nhưng cô đã xoay xở trốn thoát được.",
+    "level": "PV",
+    "family": "break"
+  },
+  {
+    "word": "break down",
+    "ipa": "/breɪk daʊn/",
+    "partOfSpeech": "phr v",
+    "translation": "hỏng, suy sụp",
+    "example": "Oh no – has your washing machine broken down again?",
+    "exampleVi": "Ôi không – máy giặt của bạn lại bị hỏng nữa rồi à?",
+    "level": "PV",
+    "family": "break"
+  },
+  {
+    "word": "break up",
+    "ipa": "/breɪk ʌp/",
+    "partOfSpeech": "phr v",
+    "translation": "chia tay, tan rã",
+    "example": "He moved away after the break-up of his marriage.",
+    "exampleVi": "Anh ấy đã chuyển đi nơi khác sau khi cuộc hôn nhân tan vỡ.",
+    "level": "PV",
+    "family": "break"
+  },
+  {
+    "word": "break off",
+    "ipa": "/breɪk ɒf/",
+    "partOfSpeech": "phr v",
+    "translation": "đột ngột dừng lại, bẻ gãy",
+    "example": "The narrator broke off in the middle of the story.",
+    "exampleVi": "Người kể chuyện đột ngột dừng lại ở giữa câu chuyện.",
+    "level": "PV",
+    "family": "break"
+  },
+  {
+    "word": "bring down",
+    "ipa": "/brɪŋ daʊn/",
+    "partOfSpeech": "phr v",
+    "translation": "hạ xuống, đánh sập",
+    "example": "The old building finally was brought down.",
+    "exampleVi": "Tòa nhà cũ cuối cùng đã bị đánh sập.",
+    "level": "PV",
+    "family": "bring"
+  },
+  {
+    "word": "bring out",
+    "ipa": "/brɪŋ aʊt/",
+    "partOfSpeech": "phr v",
+    "translation": "làm nổi bật, đưa ra",
+    "example": "The artists' greatest wish was to bring out the best in their admirers.",
+    "exampleVi": "Ước nguyện lớn nhất của các nghệ sĩ là khơi gợi điều tốt đẹp nhất ở những người ngưỡng mộ họ.",
+    "level": "PV",
+    "family": "bring"
+  },
+  {
+    "word": "bring off",
+    "ipa": "/brɪŋ ɒf/",
+    "partOfSpeech": "phr v",
+    "translation": "thành công, hoàn thành",
+    "example": "England was close to victory, but they couldn't quite bring it off.",
+    "exampleVi": "Nước Anh đã ở rất gần chiến thắng, nhưng họ đã không thể hoàn thành mục tiêu.",
+    "level": "PV",
+    "family": "bring"
+  },
+  {
+    "word": "burn out",
+    "ipa": "/bɜːn aʊt/",
+    "partOfSpeech": "phr v",
+    "translation": "kiệt sức, cháy trụi",
+    "example": "Everyone in the building was scattered because an apartment burned out.",
+    "exampleVi": "Mọi người trong tòa nhà đã chạy tán loạn vì một căn hộ bị cháy rụi.",
+    "level": "PV",
+    "family": "burn"
+  },
+  {
+    "word": "call off",
+    "ipa": "/kɔːl ɒf/",
+    "partOfSpeech": "phr v",
+    "translation": "hủy bỏ",
+    "example": "Union leaders called the strike off at the last minute.",
+    "exampleVi": "Các nhà lãnh đạo công đoàn đã hủy bỏ cuộc đình công vào phút cuối.",
+    "level": "PV",
+    "family": "call"
+  },
+  {
+    "word": "come up with",
+    "ipa": "/kʌm ʌp wɪð/",
+    "partOfSpeech": "phr v",
+    "translation": "nghĩ ra, nảy ra",
+    "example": "He came up with a great idea for the ad campaign.",
+    "exampleVi": "Anh ấy đã nghĩ ra một ý tưởng tuyệt vời cho chiến dịch quảng cáo.",
+    "level": "PV",
+    "family": "come"
+  },
+  {
+    "word": "clean up",
+    "ipa": "/kliːn ʌp/",
+    "partOfSpeech": "phr v",
+    "translation": "dọn dẹp, làm sạch",
+    "example": "It’s time you gave your bedroom a good clean up.",
+    "exampleVi": "Đã đến lúc bạn nên dọn dẹp phòng ngủ của mình thật sạch sẽ rồi.",
+    "level": "PV",
+    "family": "clean"
+  },
+  {
+    "word": "cut down",
+    "ipa": "/kʌt daʊn/",
+    "partOfSpeech": "phr v",
+    "translation": "cắt giảm, chặt",
+    "example": "She used to work 50 hours a week, but recently she’s cut down.",
+    "exampleVi": "Cô ấy từng làm việc 50 giờ một tuần, nhưng gần đây cô ấy đã cắt giảm.",
+    "level": "PV",
+    "family": "cut"
+  },
+  {
+    "word": "catch up with",
+    "ipa": "/kætʃ ʌp wɪð/",
+    "partOfSpeech": "phr v",
+    "translation": "bắt kịp, đuổi kịp",
+    "example": "His lies will catch up with him one day.",
+    "exampleVi": "Những lời nói dối của anh ta sẽ có ngày phải trả giá.",
+    "level": "PV",
+    "family": "catch"
+  },
+  {
+    "word": "come about",
+    "ipa": "/kʌm əˈbaʊt/",
+    "partOfSpeech": "phr v",
+    "translation": "xảy ra",
+    "example": "How did the problem come about in the first place?",
+    "exampleVi": "Làm thế nào mà vấn đề này lại xảy ra ngay từ đầu?",
+    "level": "PV",
+    "family": "come"
+  },
+  {
+    "word": "check in",
+    "ipa": "/tʃek ɪn/",
+    "partOfSpeech": "phr v",
+    "translation": "đăng ký vào, nhận phòng",
+    "example": "Passengers are requested to check in two hours before the flight.",
+    "exampleVi": "Hành khách được yêu cầu làm thủ tục trước chuyến bay hai giờ.",
+    "level": "PV",
+    "family": "check"
+  },
+  {
+    "word": "check out",
+    "ipa": "/tʃek aʊt/",
+    "partOfSpeech": "phr v",
+    "translation": "trả phòng, thanh toán",
+    "example": "Please remember to leave your room keys at reception when you check out.",
+    "exampleVi": "Xin nhớ để lại chìa khóa phòng tại quầy lễ tân khi bạn trả phòng.",
+    "level": "PV",
+    "family": "check"
+  },
+  {
+    "word": "call up",
+    "ipa": "/kɔːl ʌp/",
+    "partOfSpeech": "phr v",
+    "translation": "gọi điện, gọi nhập ngũ",
+    "example": "He used to call me up in the middle of the night.",
+    "exampleVi": "Anh ấy thường gọi điện cho tôi vào giữa đêm.",
+    "level": "PV",
+    "family": "call"
+  },
+  {
+    "word": "carry out",
+    "ipa": "/ˈkæri aʊt/",
+    "partOfSpeech": "phr v",
+    "translation": "thực hiện, tiến hành",
+    "example": "I was elected to carry out a program, the governor said.",
+    "exampleVi": "Thống đốc cho biết: \"Tôi được bầu ra để thực hiện một chương trình.\"",
+    "level": "PV",
+    "family": "carry"
+  },
+  {
+    "word": "come apart",
+    "ipa": "/kʌm əˈpɑːt/",
+    "partOfSpeech": "phr v",
+    "translation": "rã ra, vỡ vụn",
+    "example": "I picked up the book and it came apart in my hands.",
+    "exampleVi": "Tôi nhặt cuốn sách lên và nó rã ra trên tay tôi.",
+    "level": "PV",
+    "family": "come"
+  },
+  {
+    "word": "dress up",
+    "ipa": "/dres ʌp/",
+    "partOfSpeech": "phr v",
+    "translation": "ăn diện, mặc đẹp",
+    "example": "You don’t need to dress up to go to the mall.",
+    "exampleVi": "Bạn không cần phải diện đồ đẹp để đi đến trung tâm thương mại đâu.",
+    "level": "PV",
+    "family": "dress"
+  },
+  {
+    "word": "drop by",
+    "ipa": "/drɒp baɪ/",
+    "partOfSpeech": "phr v",
+    "translation": "ghé thăm, tạt qua",
+    "example": "I dropped in on George on my way home from school.",
+    "exampleVi": "Tôi đã ghé vào thăm George trên đường đi học về.",
+    "level": "PV",
+    "family": "drop"
+  },
+  {
+    "word": "delight in",
+    "ipa": "/dɪˈlaɪt ɪn/",
+    "partOfSpeech": "phr v",
+    "translation": "thích thú với",
+    "example": "My brother always delights in telling me when I make a mistake.",
+    "exampleVi": "Anh trai tôi luôn thích thú chỉ ra cho tôi thấy khi tôi mắc sai lầm.",
+    "level": "PV",
+    "family": "delight"
+  },
+  {
+    "word": "die away",
+    "ipa": "/daɪ əˈweɪ/",
+    "partOfSpeech": "phr v",
+    "translation": "tắt dần, nhỏ dần",
+    "example": "The last notes die away and the audience burst into applause.",
+    "exampleVi": "Những nốt nhạc cuối cùng tắt dần và khán giả bùng nổ trong tiếng vỗ tay.",
+    "level": "PV",
+    "family": "die"
+  },
+  {
+    "word": "die down",
+    "ipa": "/daɪ daʊn/",
+    "partOfSpeech": "phr v",
+    "translation": "dịu đi, lắng xuống",
+    "example": "The fire began to die down after the rain started.",
+    "exampleVi": "Ngọn lửa bắt đầu dịu dần sau khi cơn mưa bắt đầu.",
+    "level": "PV",
+    "family": "die"
+  },
+  {
+    "word": "die for",
+    "ipa": "/daɪ fɔːr/",
+    "partOfSpeech": "phr v",
+    "translation": "rất muốn, thèm chết được",
+    "example": "I'm dying for the weekend - this week's been so hard.",
+    "exampleVi": "Tôi rất mong đợi đến cuối tuần - tuần này thật là vất vả.",
+    "level": "PV",
+    "family": "die"
+  },
+  {
+    "word": "drop off",
+    "ipa": "/drɒp ɒf/",
+    "partOfSpeech": "phr v",
+    "translation": "ngủ thiếp đi, giảm đi",
+    "example": "I dropped off during the play and woke up when it ended.",
+    "exampleVi": "Tôi ngủ thiếp đi trong suốt vở kịch và thức dậy khi nó kết thúc.",
+    "level": "PV",
+    "family": "drop"
+  },
+  {
+    "word": "fall down",
+    "ipa": "/fɔːl daʊn/",
+    "partOfSpeech": "phr v",
+    "translation": "ngã xuống, đổ sập",
+    "example": "Our apple tree fell down in the storm.",
+    "exampleVi": "Cây táo của chúng tôi đã bị đổ trong trận bão.",
+    "level": "PV",
+    "family": "fall"
+  },
+  {
+    "word": "fall back",
+    "ipa": "/fɔːl bæk/",
+    "partOfSpeech": "phr v",
+    "translation": "rút lui, lùi lại",
+    "example": "The army fell back after losing the battle.",
+    "exampleVi": "Quân đội đã rút lui sau khi thua trận.",
+    "level": "PV",
+    "family": "fall"
+  },
+  {
+    "word": "fall for",
+    "ipa": "/fɔːl fɔːr/",
+    "partOfSpeech": "phr v",
+    "translation": "yêu thích, bị lừa bởi",
+    "example": "He fell for her the moment their eyes met.",
+    "exampleVi": "Anh ấy đã yêu cô ấy ngay từ khoảnh khắc mắt họ chạm nhau.",
+    "level": "PV",
+    "family": "fall"
+  },
+  {
+    "word": "find out",
+    "ipa": "/faɪnd aʊt/",
+    "partOfSpeech": "phr v",
+    "translation": "tìm ra, phát hiện",
+    "example": "How did you find out about the party?",
+    "exampleVi": "Làm sao bạn biết được về bữa tiệc?",
+    "level": "PV",
+    "family": "find"
+  },
+  {
+    "word": "face off",
+    "ipa": "/feɪs ɒf/",
+    "partOfSpeech": "phr v",
+    "translation": "đối đầu, thi đấu",
+    "example": "The two rival companies will face off in court.",
+    "exampleVi": "Hai công ty đối thủ sẽ đối đầu với nhau tại tòa án.",
+    "level": "PV",
+    "family": "face"
+  },
+  {
+    "word": "faff about",
+    "ipa": "/fæf əˈbaʊt/",
+    "partOfSpeech": "phr v",
+    "translation": "lãng phí thời gian, làm việc vớ vẩn",
+    "example": "He told her to stop faffing about and make her mind up.",
+    "exampleVi": "Anh ấy bảo cô ấy thôi lãng phí thời gian và hãy đưa ra quyết định.",
+    "level": "PV",
+    "family": "faff"
+  },
+  {
+    "word": "grow up",
+    "ipa": "/ɡrəʊ ʌp/",
+    "partOfSpeech": "phr v",
+    "translation": "lớn lên, trưởng thành",
+    "example": "What do you want to be when you grow up?",
+    "exampleVi": "Bạn muốn làm nghề gì khi lớn lên?",
+    "level": "PV",
+    "family": "grow"
+  },
+  {
+    "word": "give in",
+    "ipa": "/ɡɪv ɪn/",
+    "partOfSpeech": "phr v",
+    "translation": "chịu thua, nộp (bài)",
+    "example": "He nagged me so much for a bike that eventually I gave in.",
+    "exampleVi": "Nó mè nheo đòi xe đạp nhiều quá nên cuối cùng tôi đành chịu thua.",
+    "level": "PV",
+    "family": "give"
+  },
+  {
+    "word": "go over",
+    "ipa": "/ɡəʊ ˈəʊvər/",
+    "partOfSpeech": "phr v",
+    "translation": "kiểm tra lại, đi qua",
+    "example": "Let's go over the plan once more to make sure we're ready.",
+    "exampleVi": "Chúng ta hãy cùng kiểm tra lại kế hoạch một lần nữa để chắc chắn rằng đã sẵn sàng.",
+    "level": "PV",
+    "family": "go"
+  },
+  {
+    "word": "give up",
+    "ipa": "/ɡɪv ʌp/",
+    "partOfSpeech": "phr v",
+    "translation": "từ bỏ",
+    "example": "You’ll never guess the answer – do you give up?",
+    "exampleVi": "Bạn sẽ không bao giờ đoán được câu trả lời đâu - bạn có bỏ cuộc không?",
+    "level": "PV",
+    "family": "give"
+  },
+  {
+    "word": "go up",
+    "ipa": "/ɡəʊ ʌp/",
+    "partOfSpeech": "phr v",
+    "translation": "tăng lên, đi lên",
+    "example": "The average cost of a new house has gone up by five percent.",
+    "exampleVi": "Giá trung bình của một ngôi nhà mới đã tăng lên 5%.",
+    "level": "PV",
+    "family": "go"
+  },
+  {
+    "word": "get about",
+    "ipa": "/ɡet əˈbaʊt/",
+    "partOfSpeech": "phr v",
+    "translation": "đi lại, lan truyền",
+    "example": "I get about a lot with my job- last year I visited eleven countries.",
+    "exampleVi": "Tôi đi lại rất nhiều vì công việc - năm ngoái tôi đã đi thăm mười một quốc gia.",
+    "level": "PV",
+    "family": "get"
+  },
+  {
+    "word": "get by",
+    "ipa": "/ɡet baɪ/",
+    "partOfSpeech": "phr v",
+    "translation": "xoay xở, sống sót",
+    "example": "They're finding it increasingly difficult to get by lately.",
+    "exampleVi": "Dạo gần đây họ đang cảm thấy ngày càng khó khăn để xoay xở cuộc sống.",
+    "level": "PV",
+    "family": "get"
+  },
+  {
+    "word": "get up",
+    "ipa": "/ɡet ʌp/",
+    "partOfSpeech": "phr v",
+    "translation": "thức dậy, đứng lên",
+    "example": "I get up at seven o'clock on weekdays.",
+    "exampleVi": "Tôi thức dậy lúc 7 giờ sáng vào các ngày trong tuần.",
+    "level": "PV",
+    "family": "get"
+  },
+  {
+    "word": "hold up",
+    "ipa": "/həʊld ʌp/",
+    "partOfSpeech": "phr v",
+    "translation": "trì hoãn, chống đỡ",
+    "example": "I hope the repairs hold up until we can get to a garage.",
+    "exampleVi": "Tôi hy vọng các mối sửa chữa sẽ chịu được cho đến khi chúng tôi tới tiệm sửa xe.",
+    "level": "PV",
+    "family": "hold"
+  },
+  {
+    "word": "hold on",
+    "ipa": "/həʊld ɒn/",
+    "partOfSpeech": "phr v",
+    "translation": "đợi một chút, giữ chặt",
+    "example": "Hold on. I’ll be ready in just a moment.",
+    "exampleVi": "Chờ chút. Tôi sẽ sẵn sàng ngay bây giờ.",
+    "level": "PV",
+    "family": "hold"
+  },
+  {
+    "word": "hold back",
+    "ipa": "/həʊld bæk/",
+    "partOfSpeech": "phr v",
+    "translation": "kiềm chế, giữ lại",
+    "example": "He held back, terrified of going into the dark room.",
+    "exampleVi": "Anh ấy dừng lại, sợ hãi không dám bước vào căn phòng tối.",
+    "level": "PV",
+    "family": "hold"
+  },
+  {
+    "word": "hope for",
+    "ipa": "/həʊp fɔːr/",
+    "partOfSpeech": "phr v",
+    "translation": "hy vọng về",
+    "example": "I’ve repaired it as well as I can – we’ll just have to hope for the best.",
+    "exampleVi": "Tôi đã sửa nó hết mức có thể rồi – chúng ta chỉ còn biết hy vọng vào điều tốt đẹp nhất.",
+    "level": "PV",
+    "family": "hope"
+  },
+  {
+    "word": "keep up",
+    "ipa": "/kiːp ʌp/",
+    "partOfSpeech": "phr v",
+    "translation": "duy trì, bắt kịp",
+    "example": "I read the papers to keep up with what’s happening.",
+    "exampleVi": "Tôi đọc báo để bắt kịp những gì đang xảy ra.",
+    "level": "PV",
+    "family": "keep"
+  },
+  {
+    "word": "keep around",
+    "ipa": "/kiːp əˈraʊnd/",
+    "partOfSpeech": "phr v",
+    "translation": "giữ bên mình",
+    "example": "I keep a dictionary around when I'm doing my homework.",
+    "exampleVi": "Tôi luôn để từ điển gần bên khi làm bài tập về nhà.",
+    "level": "PV",
+    "family": "keep"
+  },
+  {
+    "word": "keep away",
+    "ipa": "/kiːp əˈweɪ/",
+    "partOfSpeech": "phr v",
+    "translation": "tránh xa",
+    "example": "Medicines should be kept away from children.",
+    "exampleVi": "Thuốc nên được để tránh xa tầm tay trẻ em.",
+    "level": "PV",
+    "family": "keep"
+  },
+  {
+    "word": "keep back",
+    "ipa": "/kiːp bæk/",
+    "partOfSpeech": "phr v",
+    "translation": "lùi lại, giữ khoảng cách",
+    "example": "The police told the crowd to keep back from the fire.",
+    "exampleVi": "Cảnh sát đã yêu cầu đám đông đứng lùi lại khỏi đám cháy.",
+    "level": "PV",
+    "family": "keep"
+  },
+  {
+    "word": "look after",
+    "ipa": "/lʊk ˈɑːftər/",
+    "partOfSpeech": "phr v",
+    "translation": "chăm sóc",
+    "example": "I need someone dependable to look after the children while I’m at work.",
+    "exampleVi": "Tôi cần một người đáng tin cậy để chăm sóc lũ trẻ khi tôi đi làm.",
+    "level": "PV",
+    "family": "look"
+  },
+  {
+    "word": "look at",
+    "ipa": "/lʊk æt/",
+    "partOfSpeech": "phr v",
+    "translation": "nhìn vào, xem xét",
+    "example": "In this exercise, you have to guess the word by looking at the context.",
+    "exampleVi": "Trong bài tập này, bạn phải đoán từ bằng cách nhìn vào ngữ cảnh.",
+    "level": "PV",
+    "family": "look"
+  },
+  {
+    "word": "look up to",
+    "ipa": "/lʊk ʌp tuː/",
+    "partOfSpeech": "phr v",
+    "translation": "ngưỡng mộ, kính trọng",
+    "example": "He’d always looked up to his uncle.",
+    "exampleVi": "Anh ấy luôn tôn trọng chú của mình.",
+    "level": "PV",
+    "family": "look"
+  },
+  {
+    "word": "leave out",
+    "ipa": "/liːv aʊt/",
+    "partOfSpeech": "phr v",
+    "translation": "bỏ qua, bỏ sót",
+    "example": "You left out the best parts of the story.",
+    "exampleVi": "Bạn đã bỏ sót phần hay nhất của câu chuyện.",
+    "level": "PV",
+    "family": "leave"
+  },
+  {
+    "word": "move out",
+    "ipa": "/muːv aʊt/",
+    "partOfSpeech": "phr v",
+    "translation": "dọn đi",
+    "example": "Her landlord has given her a week to move out.",
+    "exampleVi": "Chủ nhà đã cho cô ấy một tuần để dọn đi.",
+    "level": "PV",
+    "family": "move"
+  },
+  {
+    "word": "move on",
+    "ipa": "/muːv ɒn/",
+    "partOfSpeech": "phr v",
+    "translation": "tiếp tục, chuyển sang",
+    "example": "I’ve lived in this town long enough – it’s time to move on.",
+    "exampleVi": "Tôi đã sống ở thị trấn này đủ lâu rồi – đã đến lúc phải đi nơi khác.",
+    "level": "PV",
+    "family": "move"
+  },
+  {
+    "word": "make after",
+    "ipa": "/meɪk ˈɑːftər/",
+    "partOfSpeech": "phr v",
+    "translation": "đuổi theo",
+    "example": "The police made after the stolen car.",
+    "exampleVi": "Cảnh sát đã đuổi theo chiếc ô tô bị đánh cắp.",
+    "level": "PV",
+    "family": "make"
+  },
+  {
+    "word": "make of",
+    "ipa": "/meɪk ɒv/",
+    "partOfSpeech": "phr v",
+    "translation": "nghĩ về, chế tạo từ",
+    "example": "What do you make of your new boss?",
+    "exampleVi": "Bạn nghĩ gì về người sếp mới của mình?",
+    "level": "PV",
+    "family": "make"
+  },
+  {
+    "word": "put forward",
+    "ipa": "/pʊt ˈfɔːwəd/",
+    "partOfSpeech": "phr v",
+    "translation": "đề xuất, đưa ra",
+    "example": "None of the ideas that I put forward have been accepted.",
+    "exampleVi": "Không có ý tưởng nào tôi đưa ra được chấp nhận.",
+    "level": "PV",
+    "family": "put"
+  },
+  {
+    "word": "pass away",
+    "ipa": "/pɑːs əˈweɪ/",
+    "partOfSpeech": "phr v",
+    "translation": "qua đời, mất",
+    "example": "She’s terribly upset because her father passed away last week.",
+    "exampleVi": "Cô ấy đang rất buồn vì cha cô ấy vừa qua đời tuần trước.",
+    "level": "PV",
+    "family": "pass"
+  },
+  {
+    "word": "pull back",
+    "ipa": "/pʊl bæk/",
+    "partOfSpeech": "phr v",
+    "translation": "rút lui, lùi lại",
+    "example": "Both parties indicate they will not pull back from a new peace deal.",
+    "exampleVi": "Cả hai bên đều cho thấy họ sẽ không rút lui khỏi một thỏa thuận hòa bình mới.",
+    "level": "PV",
+    "family": "pull"
+  },
+  {
+    "word": "run after",
+    "ipa": "/rʌn ˈɑːftər/",
+    "partOfSpeech": "phr v",
+    "translation": "đuổi theo",
+    "example": "Why do dogs run after cats?",
+    "exampleVi": "Tại sao loài chó lại cứ đuổi theo mèo nhỉ?",
+    "level": "PV",
+    "family": "run"
+  },
+  {
+    "word": "race off",
+    "ipa": "/reɪs ɒf/",
+    "partOfSpeech": "phr v",
+    "translation": "lao đi nhanh, rời đi vội vã",
+    "example": "They raced off when the police arrived.",
+    "exampleVi": "Chúng đã lao đi vội vã khi cảnh sát tới.",
+    "level": "PV",
+    "family": "race"
+  },
+  {
+    "word": "rain down on",
+    "ipa": "/reɪn daʊn ɒn/",
+    "partOfSpeech": "phr v",
+    "translation": "dội xuống, rơi xối xả",
+    "example": "Bombs rained down on the city all night.",
+    "exampleVi": "Bom đã dội xuống thành phố suốt cả đêm.",
+    "level": "PV",
+    "family": "rain"
+  },
+  {
+    "word": "rake over",
+    "ipa": "/reɪk ˈəʊvər/",
+    "partOfSpeech": "phr v",
+    "translation": "bới móc lại, đào bới",
+    "example": "They keep raking over the problems we experienced last year.",
+    "exampleVi": "Họ cứ bới móc lại những rắc rối mà chúng tôi đã trải qua năm ngoái.",
+    "level": "PV",
+    "family": "rake"
+  },
+  {
+    "word": "speed up",
+    "ipa": "/spiːd ʌp/",
+    "partOfSpeech": "phr v",
+    "translation": "tăng tốc, làm nhanh hơn",
+    "example": "The car suddenly sped up and went through a red light.",
+    "exampleVi": "Chiếc xe đột ngột tăng tốc và vượt đèn đỏ.",
+    "level": "PV",
+    "family": "speed"
+  },
+  {
+    "word": "slow down",
+    "ipa": "/sləʊ daʊn/",
+    "partOfSpeech": "phr v",
+    "translation": "chậm lại",
+    "example": "The car slowed down, then suddenly pulled away.",
+    "exampleVi": "Chiếc xe chạy chậm lại, sau đó đột ngột phóng đi.",
+    "level": "PV",
+    "family": "slow"
+  },
+  {
+    "word": "show up",
+    "ipa": "/ʃəʊ ʌp/",
+    "partOfSpeech": "phr v",
+    "translation": "xuất hiện, đến",
+    "example": "How many people showed up to the meeting?",
+    "exampleVi": "Có bao nhiêu người đã đến tham dự cuộc họp?",
+    "level": "PV",
+    "family": "show"
+  },
+  {
+    "word": "stand for",
+    "ipa": "/stænd fɔːr/",
+    "partOfSpeech": "phr v",
+    "translation": "viết tắt của, tượng trưng cho",
+    "example": "She explained that DIN stands for “do it now.”",
+    "exampleVi": "Cô ấy giải thích rằng chữ DIN viết tắt của “do it now”.",
+    "level": "PV",
+    "family": "stand"
+  },
+  {
+    "word": "stay behind",
+    "ipa": "/steɪ bɪˈhaɪnd/",
+    "partOfSpeech": "phr v",
+    "translation": "ở lại sau",
+    "example": "I stayed behind after class to ask the teacher a question.",
+    "exampleVi": "Tôi đã ở lại sau giờ học để hỏi giáo viên một câu hỏi.",
+    "level": "PV",
+    "family": "stay"
+  },
+  {
+    "word": "stand out",
+    "ipa": "/stænd aʊt/",
+    "partOfSpeech": "phr v",
+    "translation": "nổi bật",
+    "example": "The black lettering really stands out on that orange background.",
+    "exampleVi": "Dòng chữ đen thực sự nổi bật trên nền màu cam đó.",
+    "level": "PV",
+    "family": "stand"
+  },
+  {
+    "word": "show off",
+    "ipa": "/ʃəʊ ɒf/",
+    "partOfSpeech": "phr v",
+    "translation": "khoe khoang",
+    "example": "She only bought that sports car to show off.",
+    "exampleVi": "Cô ấy mua chiếc xe thể thao đó chỉ để khoe khoang.",
+    "level": "PV",
+    "family": "show"
+  },
+  {
+    "word": "set off",
+    "ipa": "/set ɒf/",
+    "partOfSpeech": "phr v",
+    "translation": "khởi hành, làm phát nổ",
+    "example": "What time do we set off tomorrow?",
+    "exampleVi": "Ngày mai mấy giờ chúng ta bắt đầu khởi hành?",
+    "level": "PV",
+    "family": "set"
+  },
+  {
+    "word": "turn off",
+    "ipa": "/tɜːn ɒf/",
+    "partOfSpeech": "phr v",
+    "translation": "tắt (thiết bị), rẽ hướng",
+    "example": "You need to turn off left just before you get to the village.",
+    "exampleVi": "Bạn cần rẽ sang bên trái ngay trước khi vào làng.",
+    "level": "PV",
+    "family": "turn"
+  },
+  {
+    "word": "turn down",
+    "ipa": "/tɜːn daʊn/",
+    "partOfSpeech": "phr v",
+    "translation": "từ chối, vặn nhỏ âm lượng",
+    "example": "She turned down the job offer because the salary was too low.",
+    "exampleVi": "Cô ấy đã từ chối lời mời làm việc vì mức lương quá thấp.",
+    "level": "PV",
+    "family": "turn"
+  },
+  {
+    "word": "talk over",
+    "ipa": "/tɔːk ˈəʊvər/",
+    "partOfSpeech": "phr v",
+    "translation": "thảo luận, bàn luận",
+    "example": "We should get together and talk this over.",
+    "exampleVi": "Chúng ta nên gặp nhau và thảo luận kỹ về việc này.",
+    "level": "PV",
+    "family": "talk"
+  },
+  {
+    "word": "think over",
+    "ipa": "/θɪŋk ˈəʊvər/",
+    "partOfSpeech": "phr v",
+    "translation": "suy nghĩ kỹ, cân nhắc",
+    "example": "I’ll think it over and give you an answer next week.",
+    "exampleVi": "Tôi sẽ suy nghĩ kỹ và trả lời bạn vào tuần tới.",
+    "level": "PV",
+    "family": "think"
+  },
+  {
+    "word": "turn away",
+    "ipa": "/tɜːn əˈweɪ/",
+    "partOfSpeech": "phr v",
+    "translation": "quay đi, ngoảnh mặt đi",
+    "example": "When they show an operation on TV, I have to turn away.",
+    "exampleVi": "Khi tivi chiếu cảnh một ca phẫu thuật, tôi phải ngoảnh mặt đi chỗ khác.",
+    "level": "PV",
+    "family": "turn"
+  },
+  {
+    "word": "tie down",
+    "ipa": "/taɪ daʊn/",
+    "partOfSpeech": "phr v",
+    "translation": "ràng buộc, buộc chặt",
+    "example": "Tie down anything that might blow away in the storm.",
+    "exampleVi": "Hãy buộc chặt tất cả những thứ gì có thể bị thổi bay trong cơn bão.",
+    "level": "PV",
+    "family": "tie"
+  },
+  {
+    "word": "wake up",
+    "ipa": "/weɪk ʌp/",
+    "partOfSpeech": "phr v",
+    "translation": "thức dậy, đánh thức",
+    "example": "I go to sleep on my back but I always wake up on my side.",
+    "exampleVi": "Tôi đi ngủ nằm ngửa nhưng khi tỉnh giấc luôn nằm nghiêng.",
+    "level": "PV",
+    "family": "wake"
+  },
+  {
+    "word": "warm up",
+    "ipa": "/wɔːm ʌp/",
+    "partOfSpeech": "phr v",
+    "translation": "khởi động, làm ấm lên",
+    "example": "The athletes are warming up on the field.",
+    "exampleVi": "Các vận động viên đang khởi động trên sân.",
+    "level": "PV",
+    "family": "warm"
+  },
+  {
+    "word": "work out",
+    "ipa": "/wɜːk aʊt/",
+    "partOfSpeech": "phr v",
+    "translation": "tập thể dục, tính toán ra",
+    "example": "I try to work out at the gym twice a week.",
+    "exampleVi": "Tôi cố gắng tập thể dục ở phòng gym hai lần một tuần.",
+    "level": "PV",
+    "family": "work"
+  },
+  {
+    "word": "write down",
+    "ipa": "/raɪt daʊn/",
+    "partOfSpeech": "phr v",
+    "translation": "viết xuống, ghi lại",
+    "example": "If I don’t write it down, I’ll forget it.",
+    "exampleVi": "Nếu tôi không viết nó ra giấy, tôi sẽ quên mất.",
+    "level": "PV",
+    "family": "write"
+  },
+  {
+    "word": "look forward to",
+    "ipa": "/lʊk ˈfɔːwəd tuː/",
+    "partOfSpeech": "phr v",
+    "translation": "trông mong, mong đợi",
+    "example": "I look forward to hearing from you.",
+    "exampleVi": "Tôi rất mong sớm nhận được phản hồi từ bạn.",
+    "level": "PV",
+    "family": "look"
+  },
+  {
+    "word": "get along with",
+    "ipa": "/ɡet əˈlɒŋ wɪð/",
+    "partOfSpeech": "phr v",
+    "translation": "hòa hợp với",
+    "example": "I get along with my new classmates very well.",
+    "exampleVi": "Tôi hòa hợp rất tốt với những người bạn cùng lớp mới của mình.",
+    "level": "PV",
+    "family": "get"
+  },
+  {
+    "word": "take care of",
+    "ipa": "/teɪk keər ɒv/",
+    "partOfSpeech": "phr v",
+    "translation": "chăm sóc",
+    "example": "She takes care of her younger brother when her parents are away.",
+    "exampleVi": "Cô ấy chăm sóc em trai mình khi bố mẹ đi vắng.",
+    "level": "PV",
+    "family": "take"
+  },
+  {
+    "word": "make up",
+    "ipa": "/meɪk ʌp/",
+    "partOfSpeech": "phr v",
+    "translation": "làm hòa, trang điểm, bịa chuyện",
+    "example": "They had a fight but they made up yesterday.",
+    "exampleVi": "Họ đã cãi nhau nhưng ngày hôm qua họ đã làm hòa.",
+    "level": "PV",
+    "family": "make"
+  }
 ];
