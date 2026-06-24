@@ -26,6 +26,18 @@ class App {
   }
 
   init() {
+    // Warm up speech synthesis voices list
+    if (typeof window !== 'undefined' && window.speechSynthesis) {
+      window.speechSynthesis.getVoices();
+      if (window.speechSynthesis.onvoiceschanged !== undefined) {
+        const oldHandler = window.speechSynthesis.onvoiceschanged;
+        window.speechSynthesis.onvoiceschanged = () => {
+          window.speechSynthesis.getVoices();
+          if (oldHandler) oldHandler();
+        };
+      }
+    }
+
     // Apply theme
     if (this.theme === 'dark') {
       document.body.classList.add('dark-mode');
@@ -544,34 +556,83 @@ class App {
     utterance.pitch = 1.0;
 
     const voices = window.speechSynthesis.getVoices();
-    const enVoices = voices.filter(v => v.lang.startsWith('en'));
+    const enVoices = voices.filter(v => v.lang.startsWith('en') || v.lang.startsWith('en-'));
     
     if (enVoices.length > 0) {
-      const genderTerm = this.voiceGender === 'male' ? 'male' : 'female';
+      const targetGender = this.voiceGender === 'male' ? 'male' : 'female';
+      
+      const getVoiceGender = (v) => {
+        const name = v.name.toLowerCase();
+        if (name.includes('female')) return 'female';
+        if (name.includes('male')) return 'male';
+        
+        const femaleNames = [
+          'samantha', 'zira', 'karen', 'moira', 'tessa', 'veena', 'siri', 'hazel', 
+          'flo', 'grandma', 'kathy', 'sandy', 'shelley', 'tara', 'susan', 'heera', 
+          'fiona', 'victoria', 'claire', 'laura', 'alice', 'anna', 'melina', 'serena', 
+          'zoe', 'luciana', 'helena', 'joana', 'lisa', 'tracey', 'stephanie', 'linda', 
+          'mary', 'katherine', 'cathy', 'jessica', 'emily', 'charlotte', 'elizabeth', 
+          'sophie', 'chloe', 'sara', 'sarah', 'amy'
+        ];
+        const maleNames = [
+          'david', 'mark', 'alex', 'daniel', 'rishi', 'james', 'albert', 'aman', 
+          'eddy', 'fred', 'grandpa', 'ralph', 'reed', 'rocko', 'george', 'ravi', 
+          'tom', 'ollie', 'harry', 'nathan', 'sam', 'evan', 'victor', 'charles', 
+          'andrew', 'robert', 'john', 'william', 'richard', 'thomas', 'jeffrey', 
+          'steve', 'peter', 'paul', 'brian', 'kevin', 'michael', 'jason', 'ian', 
+          'oliver', 'jack', 'charlie', 'noah', 'jacob', 'leo', 'oscar', 'simon', 
+          'todd', 'reky', 'al'
+        ];
+        
+        if (femaleNames.some(fName => name.includes(fName))) return 'female';
+        if (maleNames.some(mName => name.includes(mName))) return 'male';
+        return 'unknown';
+      };
+
+      const femaleVoices = enVoices.filter(v => getVoiceGender(v) === 'female');
+      const maleVoices = enVoices.filter(v => getVoiceGender(v) === 'male');
+      const unknownVoices = enVoices.filter(v => getVoiceGender(v) === 'unknown');
+
       const scoreVoice = (v) => {
         let score = 0;
         const name = v.name.toLowerCase();
-        
-        // Match gender
-        if (name.includes(genderTerm)) score += 10;
-        else if (genderTerm === 'female' && (name.includes('samantha') || name.includes('zira') || name.includes('karen') || name.includes('moira') || name.includes('tessa') || name.includes('veena') || name.includes('siri') || name.includes('hazel'))) score += 5;
-        else if (genderTerm === 'male' && (name.includes('david') || name.includes('mark') || name.includes('alex') || name.includes('daniel') || name.includes('rishi') || name.includes('james'))) score += 5;
-        
-        // Premium voice indicators
         if (name.includes('natural')) score += 100;
         if (name.includes('google')) score += 80;
         if (name.includes('siri')) score += 70;
         if (name.includes('enhanced')) score += 50;
         if (name.includes('premium')) score += 40;
-        
-        // Accents
         if (v.lang === 'en-US' || v.lang === 'en-GB') score += 20;
-        
         return score;
       };
-      
-      enVoices.sort((a, b) => scoreVoice(b) - scoreVoice(a));
-      utterance.voice = enVoices[0];
+
+      let selectedVoice = null;
+      if (targetGender === 'male') {
+        if (maleVoices.length > 0) {
+          maleVoices.sort((a, b) => scoreVoice(b) - scoreVoice(a));
+          selectedVoice = maleVoices[0];
+        } else if (unknownVoices.length > 0) {
+          unknownVoices.sort((a, b) => scoreVoice(b) - scoreVoice(a));
+          selectedVoice = unknownVoices[0];
+        }
+      } else {
+        if (femaleVoices.length > 0) {
+          femaleVoices.sort((a, b) => scoreVoice(b) - scoreVoice(a));
+          selectedVoice = femaleVoices[0];
+        } else if (unknownVoices.length > 0) {
+          unknownVoices.sort((a, b) => scoreVoice(b) - scoreVoice(a));
+          selectedVoice = unknownVoices[0];
+        }
+      }
+
+      if (!selectedVoice) {
+        enVoices.sort((a, b) => {
+          const genderScoreA = getVoiceGender(a) === targetGender ? 50 : 0;
+          const genderScoreB = getVoiceGender(b) === targetGender ? 50 : 0;
+          return (scoreVoice(b) + genderScoreB) - (scoreVoice(a) + genderScoreA);
+        });
+        selectedVoice = enVoices[0];
+      }
+      utterance.voice = selectedVoice;
     }
 
     window.speechSynthesis.speak(utterance);
