@@ -393,37 +393,61 @@ class App {
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = (e) => {
+    reader.onload = async (e) => {
       try {
         const importedData = JSON.parse(e.target.result);
         if (importedData && typeof importedData === 'object') {
-          this.progress = {
-            wordsLearned: Array.isArray(importedData.wordsLearned) ? importedData.wordsLearned : [],
-            testsPassed: typeof importedData.testsPassed === 'number' ? importedData.testsPassed : 0,
-            listeningCompleted: Array.isArray(importedData.listeningCompleted) ? importedData.listeningCompleted : [],
-            readingCompleted: Array.isArray(importedData.readingCompleted) ? importedData.readingCompleted : [],
-            speakingCompleted: Array.isArray(importedData.speakingCompleted) ? importedData.speakingCompleted : [],
-            writingCompleted: Array.isArray(importedData.writingCompleted) ? importedData.writingCompleted : [],
-            vocabProgress: importedData.vocabProgress || { "A1": 1, "A2": 1, "B1": 1, "B2": 1 }
-          };
+          const action = confirm(
+            "Bạn có muốn GỘP dữ liệu sao lưu này vào tiến trình học hiện tại không?\n\n" +
+            "- Nhấn OK để GỘP (giữ lại cả hai).\n" +
+            "- Nhấn Cancel để GHI ĐÈ hoàn toàn bằng dữ liệu sao lưu."
+          );
           
+          if (action) {
+            // Merge
+            this.progress = this.mergeProgress(this.progress, importedData);
+          } else {
+            // Overwrite
+            this.progress = {
+              wordsLearned: Array.isArray(importedData.wordsLearned) ? importedData.wordsLearned : [],
+              testsPassed: typeof importedData.testsPassed === 'number' ? importedData.testsPassed : 0,
+              listeningCompleted: Array.isArray(importedData.listeningCompleted) ? importedData.listeningCompleted : [],
+              readingCompleted: Array.isArray(importedData.readingCompleted) ? importedData.readingCompleted : [],
+              speakingCompleted: Array.isArray(importedData.speakingCompleted) ? importedData.speakingCompleted : [],
+              writingCompleted: Array.isArray(importedData.writingCompleted) ? importedData.writingCompleted : [],
+              vocabProgress: importedData.vocabProgress || { "A1": 1, "A2": 1, "B1": 1, "B2": 1 },
+              dailyLog: importedData.dailyLog || {}
+            };
+          }
+
+          const progressKey = this.currentUser ? 'ef_progress_' + this.currentUser : 'ef_progress';
+          localStorage.setItem(progressKey, JSON.stringify(this.progress));
           this.updateProgress();
-          this.showToast('Khôi phục tiến trình học thành công! Đang tải lại...', 'success');
+          this.renderStudyHistory();
           
-          setTimeout(() => {
-            location.reload();
-          }, 1500);
+          // Reload views
+          if (this.currentTab === 'vocab') vocab.resetView();
+          else if (this.currentTab === 'listening') listening.resetView();
+          else if (this.currentTab === 'reading') reading.resetView();
+
+          this.showToast(action ? 'Gộp tiến trình học thành công!' : 'Khôi phục tiến trình học thành công!', 'success');
+          
+          // Sync with Gist if configured
+          if (this.gitHubToken) {
+            this.syncProgressWithGist(true);
+          }
         } else {
           this.showToast('Tệp tiến trình học không hợp lệ!', 'error');
         }
       } catch (err) {
         console.error(err);
-        this.showToast('Định dạng tệp không hợp lệ (phải là JSON)!', 'error');
+        this.showToast('Lỗi định dạng file! Vui lòng chọn file JSON sao lưu hợp lệ.', 'error');
       }
-      event.target.value = '';
+      event.target.value = ''; // Reset file input
     };
     reader.readAsText(file);
   }
+
 
   resetProgress() {
     if (confirm('Bạn có chắc chắn muốn xóa toàn bộ tiến trình học? Hành động này sẽ đặt lại tất cả các bài học và bài kiểm tra đã hoàn thành về trạng thái ban đầu.')) {
@@ -713,52 +737,6 @@ class App {
     return merged;
   }
 
-  exportProgress() {
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.progress, null, 2));
-    const downloadAnchor = document.createElement('a');
-    downloadAnchor.setAttribute("href", dataStr);
-    downloadAnchor.setAttribute("download", `englishfree_progress_${this.currentUser || 'user'}.json`);
-    document.body.appendChild(downloadAnchor);
-    downloadAnchor.click();
-    downloadAnchor.remove();
-    this.showToast('Đã tải xuống file sao lưu tiến trình!', 'success');
-  }
-
-  importProgress(event) {
-    const file = event.target.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = async (e) => {
-      try {
-        const importedData = JSON.parse(e.target.result);
-        if (confirm('Bạn có muốn gộp dữ liệu từ file sao lưu này với tiến trình học hiện tại không?')) {
-          this.progress = this.mergeProgress(this.progress, importedData);
-          const progressKey = this.currentUser ? 'ef_progress_' + this.currentUser : 'ef_progress';
-          localStorage.setItem(progressKey, JSON.stringify(this.progress));
-          
-          this.updateProgress();
-          this.renderStudyHistory();
-          
-          // Reload views
-          if (this.currentTab === 'vocab') vocab.resetView();
-          else if (this.currentTab === 'listening') listening.resetView();
-          else if (this.currentTab === 'reading') reading.resetView();
-
-          this.showToast('Gộp tiến trình học thành công!', 'success');
-          
-          // Sync with Gist if configured
-          if (this.gitHubToken) {
-            this.syncProgressWithGist(true);
-          }
-        }
-      } catch (err) {
-        alert('Lỗi định dạng file! Vui lòng chọn file JSON sao lưu hợp lệ.');
-      }
-    };
-    reader.readAsText(file);
-    event.target.value = ''; // Reset file input
-  }
 }
 
 // Global App instance
