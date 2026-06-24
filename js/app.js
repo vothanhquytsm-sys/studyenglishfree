@@ -453,6 +453,7 @@ class App {
   async callAI(systemPrompt, userPrompt, maxTokens = 1000) {
     const endpoint = 'https://text.pollinations.ai/';
     
+    // 1. Try POST request (supports full message history and larger payloads)
     try {
       const response = await fetch(endpoint, {
         method: 'POST',
@@ -468,15 +469,38 @@ class App {
         })
       });
 
-      if (!response.ok) {
-        throw new Error('AI Response was not OK');
+      if (response.ok) {
+        return await response.text();
       }
+      console.warn(`POST request failed with status: ${response.status}. Retrying via GET...`);
+    } catch (postErr) {
+      console.warn("POST request network error, retrying via GET...", postErr);
+    }
 
-      const text = await response.text();
-      return text;
-    } catch (e) {
-      console.error("AI API error:", e);
-      this.showToast('Lỗi kết nối máy chủ AI. Vui lòng kiểm tra lại mạng.', 'error');
+    // 2. Try GET request (simple request, bypasses OPTIONS preflight and blocks)
+    const getUrl = `${endpoint}${encodeURIComponent(userPrompt)}?model=openai&system=${encodeURIComponent(systemPrompt)}`;
+    
+    try {
+      const response = await fetch(getUrl);
+      if (response.ok) {
+        return await response.text();
+      }
+      console.warn(`GET fallback failed with status: ${response.status}. Trying final retry...`);
+    } catch (getErr) {
+      console.warn("GET fallback network error, trying final retry...", getErr);
+    }
+
+    // 3. Final Retry (Wait 1.2s and retry GET request once more)
+    await new Promise(resolve => setTimeout(resolve, 1200));
+    try {
+      const response = await fetch(getUrl);
+      if (response.ok) {
+        return await response.text();
+      }
+      throw new Error(`Final GET status: ${response.status}`);
+    } catch (finalErr) {
+      console.error("AI API all attempts failed:", finalErr);
+      this.showToast('Máy chủ AI đang bận hoặc quá tải. Vui lòng thử lại sau vài giây.', 'warning');
       return null;
     }
   }
