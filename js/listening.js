@@ -1,4 +1,4 @@
-// EnglishFree - Listening Module with Ello and IELTS sub-categories and premium TTS engine
+// EnglishFree - Listening Module with Ello and IELTS sub-categories and multi-voice, rhythmic TTS engine
 class ListeningModule {
   constructor() {
     this.currentLesson = null;
@@ -12,8 +12,14 @@ class ListeningModule {
     // TTS engine parameters
     this.ttsUtterance = null;
     this.ttsInterval = null;
+    this.ttsDelayTimeout = null;
+    
+    this.ttsLines = [];
+    this.ttsTotalChars = 0;
+    this.ttsCurrentLineIndex = 0;
     this.ttsCurrentTime = 0;
     this.ttsDuration = 0;
+    
     this.audioFinished = false;
     this.quizGradedSubmit = false;
     this.quizScore = 0;
@@ -104,6 +110,26 @@ class ListeningModule {
     const durTime = document.getElementById('player-time-duration');
     
     if (lesson.audioFile.startsWith('TTS_')) {
+      // Parse transcript into dialogue turns
+      this.ttsLines = [];
+      let totalChars = 0;
+      const rawLines = lesson.transcript.split('\n');
+      rawLines.forEach(line => {
+        if (!line.trim()) return;
+        const match = line.match(/^([A-Za-z\s]+):(.*)/);
+        if (match) {
+          const speaker = match[1].trim();
+          const text = match[2].trim();
+          this.ttsLines.push({ speaker, text, charOffset: totalChars });
+          totalChars += text.length;
+        } else {
+          this.ttsLines.push({ speaker: "", text: line.trim(), charOffset: totalChars });
+          totalChars += line.trim().length;
+        }
+      });
+      this.ttsTotalChars = totalChars;
+      this.ttsCurrentLineIndex = 0;
+
       // Setup TTS simulated timings
       const wordsCount = lesson.transcript.split(/\s+/).length;
       const speedVal = parseFloat(document.getElementById('player-speed-select').value) || 1.0;
@@ -182,6 +208,53 @@ class ListeningModule {
     return `${m}:${s}`;
   }
 
+  getSpeakerVoice(speaker) {
+    const voices = window.speechSynthesis.getVoices();
+    const enVoices = voices.filter(v => v.lang.startsWith('en'));
+    if (enVoices.length === 0) return null;
+    
+    // Determine target gender for this speaker
+    let targetGender = 'female'; // default
+    const speakerLower = speaker.toLowerCase().trim();
+    
+    if (this.currentLesson) {
+      if (this.currentLesson.id === 'ielts_001') {
+        if (speakerLower === 'customer') targetGender = 'male';
+        else targetGender = 'female';
+      } else if (this.currentLesson.id === 'ielts_002') {
+        if (speakerLower === 'customer') targetGender = 'female';
+        else targetGender = 'male';
+      } else if (this.currentLesson.id === 'ielts_003') {
+        if (speakerLower === 'customer') targetGender = 'male';
+        else targetGender = 'female';
+      } else {
+        // Monologues - use preferred settings
+        targetGender = app.voiceGender;
+      }
+    }
+    
+    // Score voices based on gender
+    const scoreVoice = (v) => {
+      let score = 0;
+      const name = v.name.toLowerCase();
+      
+      if (name.includes(targetGender)) score += 10;
+      else if (targetGender === 'female' && (name.includes('samantha') || name.includes('zira') || name.includes('karen') || name.includes('moira') || name.includes('tessa') || name.includes('veena') || name.includes('siri') || name.includes('hazel'))) score += 5;
+      else if (targetGender === 'male' && (name.includes('david') || name.includes('mark') || name.includes('alex') || name.includes('daniel') || name.includes('rishi') || name.includes('james'))) score += 5;
+      
+      if (name.includes('natural')) score += 100;
+      if (name.includes('google')) score += 80;
+      if (name.includes('siri')) score += 70;
+      if (name.includes('enhanced')) score += 50;
+      if (name.includes('premium')) score += 40;
+      if (v.lang === 'en-US' || v.lang === 'en-GB') score += 20;
+      return score;
+    };
+    
+    enVoices.sort((a, b) => scoreVoice(b) - scoreVoice(a));
+    return enVoices[0];
+  }
+
   togglePlay() {
     if (!this.currentLesson) return;
     
@@ -192,74 +265,10 @@ class ListeningModule {
       if (this.isPlaying) {
         this.pauseAudio();
       } else {
-        // If we are currently paused inside SpeechSynthesis, resume
-        if (window.speechSynthesis.speaking && window.speechSynthesis.paused) {
-          window.speechSynthesis.resume();
-          this.isPlaying = true;
-          btn.innerHTML = '<svg viewBox="0 0 24 24" id="pause-svg" style="width:20px;height:20px;fill:currentColor;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
-          this.startTtsTimer();
-          return;
-        }
-        
-        // Start speech from current time position
-        window.speechSynthesis.cancel();
-        
-        // Filter out speaker names for natural narration
-        const fullText = this.currentLesson.transcript.replace(/\w+:\s*/g, '');
-        const ratio = this.ttsCurrentTime / this.ttsDuration;
-        const startChar = Math.round(fullText.length * ratio);
-        const speechText = fullText.substring(startChar);
-        
-        const speedVal = parseFloat(document.getElementById('player-speed-select').value) || 1.0;
-        this.ttsUtterance = new SpeechSynthesisUtterance(speechText);
-        this.ttsUtterance.lang = 'en-US';
-        this.ttsUtterance.rate = speedVal;
-        
-        // Apply premium voice based on preferences
-        const voices = window.speechSynthesis.getVoices();
-        const enVoices = voices.filter(v => v.lang.startsWith('en'));
-        if (enVoices.length > 0) {
-          const genderTerm = app.voiceGender === 'male' ? 'male' : 'female';
-          const scoreVoice = (v) => {
-            let score = 0;
-            const name = v.name.toLowerCase();
-            if (name.includes(genderTerm)) score += 10;
-            else if (genderTerm === 'female' && (name.includes('samantha') || name.includes('zira') || name.includes('karen') || name.includes('moira') || name.includes('tessa') || name.includes('veena') || name.includes('siri') || name.includes('hazel'))) score += 5;
-            else if (genderTerm === 'male' && (name.includes('david') || name.includes('mark') || name.includes('alex') || name.includes('daniel') || name.includes('rishi') || name.includes('james'))) score += 5;
-            if (name.includes('natural')) score += 100;
-            if (name.includes('google')) score += 80;
-            if (name.includes('siri')) score += 70;
-            if (name.includes('enhanced')) score += 50;
-            if (name.includes('premium')) score += 40;
-            if (v.lang === 'en-US' || v.lang === 'en-GB') score += 20;
-            return score;
-          };
-          enVoices.sort((a, b) => scoreVoice(b) - scoreVoice(a));
-          this.ttsUtterance.voice = enVoices[0];
-        }
-
-        this.ttsUtterance.onend = () => {
-          // If ended naturally without pausing
-          if (this.isPlaying) {
-            this.isPlaying = false;
-            this.audioFinished = true;
-            clearInterval(this.ttsInterval);
-            btn.innerHTML = '<svg viewBox="0 0 24 24" id="play-svg"><path d="M8 5v14l11-7z"/></svg>';
-            document.getElementById('player-timeline-slider').value = this.ttsDuration;
-            document.getElementById('player-time-current').textContent = this.formatTime(this.ttsDuration);
-            this.checkCompletionStatus();
-          }
-        };
-
-        this.ttsUtterance.onerror = (err) => {
-          console.error("SpeechSynthesis error:", err);
-          clearInterval(this.ttsInterval);
-        };
-
-        window.speechSynthesis.speak(this.ttsUtterance);
         this.isPlaying = true;
         btn.innerHTML = '<svg viewBox="0 0 24 24" id="pause-svg" style="width:20px;height:20px;fill:currentColor;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
         this.startTtsTimer();
+        this.speakTtsLine();
       }
     } else {
       if (this.isPlaying) {
@@ -274,6 +283,52 @@ class ListeningModule {
         });
       }
     }
+  }
+
+  speakTtsLine() {
+    if (!this.isPlaying) return;
+    
+    // Check if we reached the end of the script
+    if (this.ttsCurrentLineIndex >= this.ttsLines.length) {
+      this.isPlaying = false;
+      this.audioFinished = true;
+      clearInterval(this.ttsInterval);
+      document.getElementById('player-btn-play').innerHTML = '<svg viewBox="0 0 24 24" id="play-svg"><path d="M8 5v14l11-7z"/></svg>';
+      document.getElementById('player-timeline-slider').value = this.ttsDuration;
+      document.getElementById('player-time-current').textContent = this.formatTime(this.ttsDuration);
+      this.checkCompletionStatus();
+      return;
+    }
+    
+    const currentLine = this.ttsLines[this.ttsCurrentLineIndex];
+    const speedVal = parseFloat(document.getElementById('player-speed-select').value) || 1.0;
+    
+    this.ttsUtterance = new SpeechSynthesisUtterance(currentLine.text);
+    this.ttsUtterance.lang = 'en-US';
+    this.ttsUtterance.rate = speedVal;
+    
+    // Choose appropriate voice
+    const voice = this.getSpeakerVoice(currentLine.speaker);
+    if (voice) {
+      this.ttsUtterance.voice = voice;
+    }
+    
+    this.ttsUtterance.onend = () => {
+      if (this.isPlaying) {
+        this.ttsCurrentLineIndex++;
+        // Natural pause between speakers (900ms / speedVal)
+        const pauseDuration = 900 / speedVal;
+        this.ttsDelayTimeout = setTimeout(() => {
+          this.speakTtsLine();
+        }, pauseDuration);
+      }
+    };
+    
+    this.ttsUtterance.onerror = (e) => {
+      console.warn("SpeechSynthesis line stopped/cancelled.");
+    };
+    
+    window.speechSynthesis.speak(this.ttsUtterance);
   }
 
   startTtsTimer() {
@@ -292,12 +347,11 @@ class ListeningModule {
 
   pauseAudio() {
     clearInterval(this.ttsInterval);
+    clearTimeout(this.ttsDelayTimeout);
     
     if (this.currentLesson && this.currentLesson.audioFile.startsWith('TTS_')) {
-      if (window.speechSynthesis.speaking) {
-        window.speechSynthesis.pause();
-      }
       this.isPlaying = false;
+      window.speechSynthesis.cancel();
     } else {
       const audio = document.getElementById('main-audio-element');
       if (audio) {
@@ -331,11 +385,25 @@ class ListeningModule {
       this.ttsCurrentTime = val;
       document.getElementById('player-time-current').textContent = this.formatTime(val);
       
+      // Calculate target character offset based on seek time
+      const ratio = val / (this.ttsDuration || 1);
+      const targetChar = ratio * this.ttsTotalChars;
+      
+      // Find matching line index
+      let lineIndex = 0;
+      for (let i = 0; i < this.ttsLines.length; i++) {
+        if (this.ttsLines[i].charOffset <= targetChar) {
+          lineIndex = i;
+        } else {
+          break;
+        }
+      }
+      this.ttsCurrentLineIndex = lineIndex;
+      
       if (this.isPlaying) {
-        // Force restart speech from new position
-        this.isPlaying = false;
+        clearTimeout(this.ttsDelayTimeout);
         window.speechSynthesis.cancel();
-        this.togglePlay();
+        this.speakTtsLine();
       }
     } else {
       const audio = document.getElementById('main-audio-element');
@@ -344,27 +412,26 @@ class ListeningModule {
   }
 
   changeSpeed() {
+    const slider = document.getElementById('player-timeline-slider');
     const speed = document.getElementById('player-speed-select').value;
     
     if (this.currentLesson && this.currentLesson.audioFile.startsWith('TTS_')) {
       const wordsCount = this.currentLesson.transcript.split(/\s+/).length;
       const speedVal = parseFloat(speed) || 1.0;
-      
-      // Calculate current percentage progress and update estimated total duration
       const oldDuration = this.ttsDuration;
       const progressRatio = this.ttsCurrentTime / (oldDuration || 1);
       
       this.ttsDuration = Math.max(1, Math.round(wordsCount / (2.2 * speedVal)));
       this.ttsCurrentTime = Math.round(this.ttsDuration * progressRatio);
       
-      document.getElementById('player-timeline-slider').max = this.ttsDuration;
-      document.getElementById('player-timeline-slider').value = this.ttsCurrentTime;
+      slider.max = this.ttsDuration;
+      slider.value = this.ttsCurrentTime;
       document.getElementById('player-time-duration').textContent = this.formatTime(this.ttsDuration);
       
       if (this.isPlaying) {
-        this.isPlaying = false;
+        clearTimeout(this.ttsDelayTimeout);
         window.speechSynthesis.cancel();
-        this.togglePlay();
+        this.speakTtsLine();
       }
     } else {
       const audio = document.getElementById('main-audio-element');
