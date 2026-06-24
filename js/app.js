@@ -388,11 +388,7 @@ class App {
     }
   }
 
-  importProgress() {
-    document.getElementById('import-progress-file').click();
-  }
-
-  handleImportProgress(event) {
+  importProgress(event) {
     const file = event.target.files[0];
     if (!file) return;
 

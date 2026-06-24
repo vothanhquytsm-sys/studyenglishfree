@@ -12,6 +12,77 @@ class VocabularyModule {
     this.quizCurrentIndex = 0;
     this.quizScore = 0;
     this.quizAnswered = false;
+
+    this.topicsList = [
+      "Gia đình & Mối quan hệ (Family & Relationships)",
+      "Giáo dục & Trường học (Education & Learning)",
+      "Công việc & Kinh doanh (Jobs & Business)",
+      "Sức khỏe & Thể thao (Health & Sports)",
+      "Ẩm thực & Ăn uống (Food & Dining)",
+      "Du lịch & Thiên nhiên (Travel & Nature)",
+      "Công nghệ & Truyền thông (Technology & Media)",
+      "Hành động & Động từ (Actions & Verbs)",
+      "Mô tả & Tính từ (Describing & Adjectives)",
+      "Đời sống & Danh từ chung (General Nouns)",
+      "Từ loại khác & Giao tiếp (Grammar & Others)"
+    ];
+  }
+
+  getWordTopic(wordObj) {
+    const word = wordObj.word.toLowerCase();
+    const trans = wordObj.translation.toLowerCase();
+    
+    const TOPIC_KEYWORDS = {
+      "Gia đình & Mối quan hệ (Family & Relationships)": {
+        en: ["family", "parent", "father", "mother", "child", "baby", "adult", "born", "marry", "cousin", "uncle", "aunt", "friend", "love", "brother", "sister", "son", "daughter", "grand", "relationship", "neighbor", "meet", "wedding", "wife", "husband"],
+        vi: ["gia đình", "bố", "mẹ", "cha", "con", "trẻ", "người lớn", "sinh", "kết hôn", "bạn", "yêu", "anh", "chị", "em", "họ hàng", "vợ", "chồng", "đám cưới", "hàng xóm"]
+      },
+      "Giáo dục & Trường học (Education & Learning)": {
+        en: ["school", "study", "learn", "teach", "class", "student", "university", "lesson", "exam", "book", "write", "read", "homework", "subject", "science", "history", "geography", "chemistry", "biology", "math", "language", "vocabulary", "dictionary", "grammar", "college", "course", "degree", "academy", "educate", "knowledge", "pencil", "paper"],
+        vi: ["trường", "học", "dạy", "lớp", "học sinh", "sinh viên", "đại học", "bài học", "thi", "sách", "viết", "đọc", "môn", "khoa học", "ngôn ngữ", "từ vựng", "ngữ pháp", "kiến thức", "giáo dục"]
+      },
+      "Công việc & Kinh doanh (Jobs & Business)": {
+        en: ["job", "work", "office", "employ", "boss", "company", "business", "manager", "career", "salary", "money", "pay", "buy", "sell", "shop", "customer", "market", "cost", "price", "finance", "industry", "bank", "trade", "deal", "earn", "wage", "hire", "worker", "profession", "commercial", "economic"],
+        vi: ["công việc", "làm việc", "văn phòng", "sếp", "công ty", "kinh doanh", "quản lý", "sự nghiệp", "lương", "tiền", "thanh toán", "mua", "bán", "cửa hàng", "khách hàng", "chợ", "giá", "tài chính", "ngân hàng", "thương mại", "thu nhập"]
+      },
+      "Sức khỏe & Thể thao (Health & Sports)": {
+        en: ["health", "sick", "pain", "medicine", "hospital", "doctor", "nurse", "body", "foot", "hand", "eye", "face", "hair", "run", "play", "game", "sport", "tennis", "football", "swim", "active", "exercise", "fit", "energy", "heart", "breath", "ill", "disease", "treatment", "clinic", "muscle", "workout"],
+        vi: ["sức khỏe", "ốm", "đau", "thuốc", "bệnh viện", "bác sĩ", "y tá", "cơ thể", "chân", "tay", "mắt", "mặt", "tóc", "chạy", "chơi", "thể thao", "bơi", "tập thể dục", "bệnh", "điều trị", "phòng khám"]
+      },
+      "Ẩm thực & Ăn uống (Food & Dining)": {
+        en: ["food", "drink", "eat", "restaurant", "chef", "cook", "meal", "dinner", "lunch", "breakfast", "water", "milk", "coffee", "tea", "apple", "bread", "cheese", "meat", "vegetable", "fruit", "sugar", "sweet", "kitchen", "recipe", "delicious", "hungry", "taste", "salt", "pepper", "bowl", "plate"],
+        vi: ["thức ăn", "nước uống", "ăn", "uống", "nhà hàng", "đầu bếp", "nấu", "bữa ăn", "bữa tối", "bữa trưa", "bữa sáng", "nước", "sữa", "cà phê", "trà", "táo", "bánh mì", "phô mai", "thịt", "rau", "trái cây", "đường", "ngọt", "bếp", "ngon", "đói", "vị"]
+      },
+      "Du lịch & Thiên nhiên (Travel & Nature)": {
+        en: ["travel", "trip", "hotel", "tour", "flight", "plane", "bus", "train", "road", "street", "city", "country", "world", "map", "nature", "land", "water", "river", "lake", "sea", "ocean", "mountain", "tree", "flower", "plant", "animal", "dog", "cat", "bird", "fish", "weather", "sun", "rain", "cloud", "wind", "snow", "summer", "winter", "spring", "autumn", "visit", "destination", "forest", "wild", "beach", "island"],
+        vi: ["du lịch", "chuyến đi", "khách sạn", "chuyến bay", "máy bay", "xe buýt", "tàu", "đường", "phố", "thành phố", "quốc gia", "thế giới", "bản đồ", "tự nhiên", "đất", "sông", "hồ", "biển", "đại dương", "núi", "cây", "hoa", "thực vật", "động vật", "chó", "mèo", "chim", "cá", "thời tiết", "mặt trời", "mưa", "mây", "gió", "tuyết", "mùa hè", "mùa đông", "mùa xuân", "mùa thu", "rừng", "bãi biển", "đảo"]
+      },
+      "Công nghệ & Truyền thông (Technology & Media)": {
+        en: ["computer", "phone", "internet", "website", "email", "chat", "app", "online", "screen", "video", "audio", "media", "news", "radio", "television", "movie", "film", "photo", "camera", "electric", "digital", "device", "software", "network", "system", "blog", "data", "post", "social media"],
+        vi: ["máy tính", "điện thoại", "mạng", "trang web", "trực tuyến", "màn hình", "tin tức", "phim", "ảnh", "điện", "kỹ thuật số", "thiết bị", "phần mềm", "hệ thống", "dữ liệu"]
+      }
+    };
+
+    for (const [topic, kw] of Object.entries(TOPIC_KEYWORDS)) {
+      for (const k of kw.en) {
+        if (word.includes(k)) return topic;
+      }
+      for (const k of kw.vi) {
+        if (trans.includes(k)) return topic;
+      }
+    }
+
+    // Fallback based on part of speech
+    const pos = (wordObj.partOfSpeech || '').toLowerCase();
+    if (pos.includes('v')) {
+      return "Hành động & Động từ (Actions & Verbs)";
+    } else if (pos.includes('adj') || pos === 'a') {
+      return "Mô tả & Tính từ (Describing & Adjectives)";
+    } else if (pos.includes('n')) {
+      return "Đời sống & Danh từ chung (General Nouns)";
+    } else {
+      return "Từ loại khác & Giao tiếp (Grammar & Others)";
+    }
   }
 
   init() {
@@ -91,18 +162,26 @@ class VocabularyModule {
     listContainer.innerHTML = '';
 
     const levelWords = VOCABULARY_DATA.filter(w => w.level === this.currentLevel);
-    const batchSize = 10;
-    const totalBatches = Math.ceil(levelWords.length / batchSize);
     
+    // Group level words by topic
+    const wordsByTopic = {};
+    this.topicsList.forEach(t => wordsByTopic[t] = []);
+    levelWords.forEach(w => {
+      const topic = this.getWordTopic(w);
+      if (wordsByTopic[topic]) {
+        wordsByTopic[topic].push(w);
+      } else {
+        wordsByTopic["Đời sống & Danh từ chung (General Nouns)"].push(w);
+      }
+    });
+
     const unlockedHighest = app.progress.vocabProgress[this.currentLevel] || 1;
 
-    for (let i = 0; i < totalBatches; i++) {
-      const startIdx = i * batchSize;
-      const endIdx = Math.min((i + 1) * batchSize, levelWords.length);
-      const batchWords = levelWords.slice(startIdx, endIdx);
-      const wordRangeText = `${batchWords[0].word} ... ${batchWords[batchWords.length - 1].word}`;
-      
-      const isUnlocked = (i + 1) <= unlockedHighest;
+    this.topicsList.forEach((topicName, idx) => {
+      const topicWords = wordsByTopic[topicName];
+      if (topicWords.length === 0) return; // Skip if empty
+
+      const isUnlocked = (idx + 1) <= unlockedHighest;
       
       const card = document.createElement('div');
       card.className = `topic-card ${isUnlocked ? '' : 'locked-topic'}`;
@@ -113,48 +192,65 @@ class VocabularyModule {
       
       card.onclick = () => {
         if (isUnlocked) {
-          this.selectBatch(i);
+          this.selectTopic(topicName, topicWords, idx);
         } else {
-          app.showToast(`Bạn cần đạt 100% điểm bài test của Cụm ${i} để mở khóa cụm này!`, 'warning');
+          app.showToast(`Bạn cần đạt 100% điểm bài test của Chủ đề "${this.topicsList[idx - 1].split(' (')[0]}" để mở khóa chủ đề này!`, 'warning');
         }
       };
 
-      const learnedCount = batchWords.filter(w => app.progress.wordsLearned.includes(w.word)).length;
+      const learnedCount = topicWords.filter(w => app.progress.wordsLearned.includes(w.word)).length;
 
       let statusHtml = "";
       if (!isUnlocked) {
         statusHtml = `<span style="color:var(--text-muted);">🔒 Đang khóa</span>`;
-      } else if (learnedCount === batchWords.length) {
+      } else if (learnedCount === topicWords.length) {
         statusHtml = `<span style="color:var(--success-color); font-weight:700;">✓ Hoàn thành</span>`;
       } else {
         statusHtml = `<span style="color:var(--primary-color); font-weight:600;">Sẵn sàng học</span>`;
       }
 
+      const displayName = topicName.split(' (')[0];
+      const englishName = topicName.split('(')[1]?.replace(')', '') || '';
+      
+      const topicIcons = {
+        "Gia đình & Mối quan hệ": "👨‍👩‍👧‍👦",
+        "Giáo dục & Trường học": "🏫",
+        "Công việc & Kinh doanh": "💼",
+        "Sức khỏe & Thể thao": "⚽",
+        "Ẩm thực & Ăn uống": "🍔",
+        "Du lịch & Thiên nhiên": "✈️",
+        "Công nghệ & Truyền thông": "📱",
+        "Hành động & Động từ": "🏃",
+        "Mô tả & Tính từ": "🎨",
+        "Đời sống & Danh từ chung": "📦",
+        "Từ loại khác & Giao tiếp": "💬"
+      };
+      const icon = isUnlocked ? (topicIcons[displayName] || "📦") : "🔒";
+
       card.innerHTML = `
-        <div class="topic-card-icon" style="font-size: 2rem;">${isUnlocked ? "📦" : "🔒"}</div>
-        <h3 class="topic-card-title" style="font-size: 1.25rem;">Cụm ${i + 1}</h3>
-        <p style="font-size: 0.8rem; color: var(--text-muted); font-style: italic; margin-top: 0.25rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100%; text-align: center;">${wordRangeText}</p>
+        <div class="topic-card-icon" style="font-size: 2rem;">${icon}</div>
+        <h3 class="topic-card-title" style="font-size: 1.15rem; line-height: 1.3;">${displayName}</h3>
+        <p style="font-size: 0.8rem; color: var(--text-muted); font-style: italic; margin-top: 0.25rem; text-align: center;">${englishName}</p>
         <div class="topic-card-stats" style="display:flex; justify-content:space-between; width:100%; border-top: 1px solid var(--border-color); padding-top: 0.5rem; margin-top: 0.5rem;">
-          <span>Tiến độ: ${learnedCount}/10 từ</span>
+          <span>Tiến độ: ${learnedCount}/${topicWords.length} từ</span>
           ${statusHtml}
         </div>
       `;
 
       listContainer.appendChild(card);
-    }
+    });
   }
 
-  selectBatch(batchIdx) {
-    this.currentBatchIndex = batchIdx;
-    const levelWords = VOCABULARY_DATA.filter(w => w.level === this.currentLevel);
-    const batchSize = 10;
-    this.currentWords = levelWords.slice(batchIdx * batchSize, (batchIdx + 1) * batchSize);
+  selectTopic(topicName, topicWords, topicIdx) {
+    this.currentBatchIndex = topicIdx;
+    this.currentWords = topicWords;
     this.currentIndex = 0;
 
     document.getElementById('vocab-batch-selector').style.display = 'none';
     document.getElementById('vocab-flashcard-view').style.display = 'flex';
     
-    document.getElementById('study-topic-title').textContent = `${this.currentLevel} - Cụm ${batchIdx + 1}`;
+    const displayName = topicName.split(' (')[0];
+    document.getElementById('study-topic-title').textContent = `${this.currentLevel} - ${displayName}`;
     this.renderCard();
   }
 
@@ -171,7 +267,8 @@ class VocabularyModule {
     const cardEl = document.getElementById('current-flashcard');
     cardEl.classList.remove('flipped');
 
-    document.getElementById('vocab-topic-badge').textContent = `${wordObj.level} - CỤM ${this.currentBatchIndex + 1}`;
+    const displayName = this.topicsList[this.currentBatchIndex].split(' (')[0];
+    document.getElementById('vocab-topic-badge').textContent = `${wordObj.level} - ${displayName.toUpperCase()}`;
     
     // Add part of speech badge next to the word
     const posSuffix = wordObj.partOfSpeech ? ` <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-muted); font-style: italic;">(${wordObj.partOfSpeech})</span>` : '';
@@ -216,7 +313,8 @@ class VocabularyModule {
       this.currentIndex++;
       this.renderCard();
     } else {
-      const confirmQuiz = confirm("Bạn đã học hết 10 từ vựng của Cụm này! Bấm OK để bắt đầu làm bài test 10 câu. Đạt 100% để mở khóa Cụm tiếp theo.");
+      const displayName = this.topicsList[this.currentBatchIndex].split(' (')[0];
+      const confirmQuiz = confirm(`Bạn đã học hết ${this.currentWords.length} từ vựng của chủ đề "${displayName}"! Bấm OK để bắt đầu làm bài test 10 câu. Đạt 100% để mở khóa chủ đề tiếp theo.`);
       if (confirmQuiz) {
         this.startQuiz();
       }
@@ -246,8 +344,9 @@ class VocabularyModule {
     this.quizCurrentIndex = 0;
     this.quizQuestions = [];
 
-    // Quiz strictly contains the 10 words of the current batch
-    this.currentWords.forEach((wordObj, index) => {
+    // Quiz contains at most 10 random words from this topic
+    const quizWords = [...this.currentWords].sort(() => 0.5 - Math.random()).slice(0, 10);
+    quizWords.forEach((wordObj, index) => {
       // Pick random question type
       const type = Math.floor(Math.random() * 3);
       
@@ -341,25 +440,25 @@ class VocabularyModule {
       this.renderQuizQuestion();
     } else {
       // Completed quiz
-      const passScore = this.quizQuestions.length; // Must score 10/10 (100% correct)
+      const passScore = this.quizQuestions.length; // Must score 100% correct
       
       if (this.quizScore === passScore) {
         app.progress.testsPassed++;
         
-        // Unlock next batch
-        const nextBatchNum = this.currentBatchIndex + 2; // e.g. current batch index 0 is Cụm 1. Next batch index 1 is Cụm 2.
+        // Unlock next topic
+        const nextBatchNum = this.currentBatchIndex + 2;
         const highestUnlocked = app.progress.vocabProgress[this.currentLevel] || 1;
         if (nextBatchNum > highestUnlocked) {
           app.progress.vocabProgress[this.currentLevel] = nextBatchNum;
         }
         app.updateProgress();
         
-        alert(`Chúc mừng! Bạn đã trả lời đúng ${this.quizScore}/${this.quizQuestions.length} câu (100%). Cụm tiếp theo đã được mở khóa!`);
+        alert(`Chúc mừng! Bạn đã đạt điểm tối đa ${this.quizScore}/${this.quizQuestions.length} (100%). Chủ đề tiếp theo đã được mở khóa!`);
         document.getElementById('vocab-quiz-view').style.display = 'none';
         document.getElementById('vocab-batch-selector').style.display = 'block';
         this.renderBatchSelector();
       } else {
-        alert(`Bạn đạt được ${this.quizScore}/${this.quizQuestions.length} câu đúng. Bạn cần trả lời đúng 100% (10/10 câu) để mở khóa cụm tiếp theo. Hãy ôn tập lại nhé!`);
+        alert(`Bạn đạt được ${this.quizScore}/${this.quizQuestions.length} câu đúng. Bạn cần trả lời đúng 100% để mở khóa chủ đề tiếp theo. Hãy ôn tập lại nhé!`);
         document.getElementById('vocab-quiz-view').style.display = 'none';
         document.getElementById('vocab-flashcard-view').style.display = 'flex';
         this.currentIndex = 0;
