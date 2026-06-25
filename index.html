@@ -179,8 +179,8 @@
           <!-- Area to pick a CEFR level -->
           <div id="vocab-topic-selector" style="width: 100%;">
             <div class="section-header">
-              <h2>Chọn trình độ từ vựng (CEFR)</h2>
-              <p>Học từ vựng theo chuẩn khung năng lượng ngoại ngữ châu Âu (CEFR). Đạt 100% bài test để mở khóa cụm tiếp theo.</p>
+              <h2>Từ vựng IELTS theo chủ đề</h2>
+              <p>Học từ vựng IELTS chất lượng cao phân loại theo các chủ đề thiết thực. Đạt 100% điểm bài test để mở khóa chủ đề tiếp theo.</p>
             </div>
             <div class="topic-grid" id="vocab-topics-list">
               <!-- Dynamically populated levels: A1, A2, B1, B2 -->
@@ -208,21 +208,39 @@
             </div>
             
             <div class="flashcard-deck" style="width: 100%; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
-              <div class="flashcard-container" onclick="vocab.flipCard()" style="cursor: pointer; perspective: 1000px; width: 100%; max-width: 500px; height: 320px;">
+              <div class="flashcard-container" onclick="vocab.flipCard()" style="cursor: pointer; perspective: 1000px; width: 100%; max-width: 500px; height: 440px;">
                 <div class="flashcard" id="current-flashcard" style="width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; position: relative;">
-                  <div class="card-front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: var(--panel-bg); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-md);">
-                    <div id="vocab-topic-badge" style="background: var(--bg-color); color: var(--primary-color); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem;">A1</div>
-                    <div class="vocab-word" id="vocab-word-en" style="font-size: 2.2rem; font-weight: 800; color: var(--text-color); margin-bottom: 0.5rem;">curriculum</div>
-                    <div class="vocab-ipa" id="vocab-word-ipa" style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem;">/kəˈrɪkjələm/</div>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">(Nhấp vào thẻ để lật xem nghĩa & ví dụ)</p>
+                  <div class="card-front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: var(--panel-bg); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow-md);">
+                    <div id="vocab-topic-badge" style="background: var(--bg-color); color: var(--primary-color); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.75rem;">EMOTION</div>
+                    
+                    <img id="vocab-word-img" src="" alt="word illustration" style="width: 100%; max-width: 320px; height: 170px; object-fit: cover; border-radius: var(--radius-md); margin-bottom: 0.75rem; border: 1px solid var(--border-color); display: none;">
+                    
+                    <div class="vocab-word" id="vocab-word-en" style="font-size: 2.2rem; font-weight: 800; color: var(--text-color); margin-bottom: 0.25rem;">curriculum</div>
+                    
+                    <div style="display: flex; gap: 1rem; justify-content: center; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap;">
+                      <div style="display: flex; align-items: center; gap: 0.25rem; background: var(--bg-color); padding: 2px 8px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+                        <span style="font-weight: 800; color: #ff4a4a; font-size: 0.75rem; border: 1px solid #ff4a4a; padding: 1px 3px; border-radius: 2px; line-height: 1;">UK</span>
+                        <span id="vocab-word-ipa-uk" style="font-size: 0.9rem; font-weight: 600; color: var(--text-muted);">/kəˈrɪkjələm/</span>
+                        <button class="btn-voice-inline" onclick="vocab.speakAccent(event, 'uk')" style="background: none; border: none; cursor: pointer; font-size: 1rem; padding: 2px; display: flex; align-items: center;" title="Phát âm UK">🔊</button>
+                      </div>
+                      <div style="display: flex; align-items: center; gap: 0.25rem; background: var(--bg-color); padding: 2px 8px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+                        <span style="font-weight: 800; color: #2196f3; font-size: 0.75rem; border: 1px solid #2196f3; padding: 1px 3px; border-radius: 2px; line-height: 1;">US</span>
+                        <span id="vocab-word-ipa-us" style="font-size: 0.9rem; font-weight: 600; color: var(--text-muted);">/kəˈrɪkjələm/</span>
+                        <button class="btn-voice-inline" onclick="vocab.speakAccent(event, 'us')" style="background: none; border: none; cursor: pointer; font-size: 1rem; padding: 2px; display: flex; align-items: center;" title="Phát âm US">🔊</button>
+                      </div>
+                    </div>
+                    
+                    <div class="vocab-ipa" id="vocab-word-ipa" style="display: none;">/kəˈrɪkjələm/</div>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0.25rem 0 0 0;">(Nhấp vào thẻ để lật xem nghĩa & ví dụ)</p>
                   </div>
                   <div class="card-back" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; transform: rotateY(180deg); display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: var(--panel-bg); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow-md); text-align: center;">
-                    <div style="width: 100%; max-height: 100%; overflow-y: auto; display: flex; flex-direction: column; gap: 0.8rem; align-items: center; justify-content: flex-start; padding: 0.25rem;">
-                      <div class="vocab-meaning" id="vocab-word-vi" style="font-size: 1.4rem; font-weight: 700; color: var(--primary-color);">chương trình giảng dạy</div>
-                      <div class="vocab-example" id="vocab-word-ex" style="font-size: 1.05rem; font-style: italic; color: var(--text-color); line-height: 1.4;">"The school board is reviewing the new science curriculum."</div>
-                      <div class="vocab-example-vi" id="vocab-word-ex-vi" style="font-size: 0.9rem; color: var(--text-muted);">Ban giám hiệu nhà trường đang xem xét chương trình giảng dạy mới.</div>
+                    <div style="width: 100%; max-height: 100%; overflow-y: auto; display: flex; flex-direction: column; gap: 0.75rem; align-items: center; justify-content: flex-start; padding: 0.25rem;">
+                      <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--border-color); width: 100%; padding-bottom: 0.25rem; margin-bottom: 0.25rem;">Ý nghĩa & Ví dụ</div>
+                      <div class="vocab-meaning" id="vocab-word-vi" style="font-size: 1.45rem; font-weight: 700; color: var(--primary-color);">chương trình giảng dạy</div>
+                      <div class="vocab-example" id="vocab-word-ex" style="font-size: 1.05rem; font-style: italic; color: var(--text-color); line-height: 1.4; max-width: 90%;">"The school board is reviewing the new science curriculum."</div>
+                      <div class="vocab-example-vi" id="vocab-word-ex-vi" style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.4; max-width: 90%;">Ban giám hiệu nhà trường đang xem xét chương trình giảng dạy mới.</div>
                       
-                      <div id="vocab-word-family" style="margin-top: 0.5rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem; font-size: 0.85rem; text-align: left; width: 100%;">
+                      <div id="vocab-word-family" style="margin-top: 0.5rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem; font-size: 0.85rem; text-align: left; width: 100%; display: none;">
                         <strong style="color: var(--primary-color);">Từ gia đình (Word Family):</strong>
                         <div id="vocab-word-family-list" style="color: var(--text-color); font-weight: 500; margin-top: 0.25rem;">active (adj), action (n)</div>
                       </div>

@@ -21,7 +21,7 @@ class App {
     this.progress.readingCompleted = this.progress.readingCompleted || [];
     this.progress.speakingCompleted = this.progress.speakingCompleted || [];
     this.progress.writingCompleted = this.progress.writingCompleted || [];
-    this.progress.vocabProgress = this.progress.vocabProgress || { "A1": 1, "A2": 1, "B1": 1, "B2": 1, "PV": 1 };
+    this.progress.vocabProgress = this.progress.vocabProgress || { "A1": 1, "A2": 1, "B1": 1, "B2": 1, "PV": 1, "ielts": 1 };
     this.progress.dailyLog = this.progress.dailyLog || {};
   }
 
@@ -117,7 +117,7 @@ class App {
     this.progress.readingCompleted = this.progress.readingCompleted || [];
     this.progress.speakingCompleted = this.progress.speakingCompleted || [];
     this.progress.writingCompleted = this.progress.writingCompleted || [];
-    this.progress.vocabProgress = this.progress.vocabProgress || { "A1": 1, "A2": 1, "B1": 1, "B2": 1, "PV": 1 };
+    this.progress.vocabProgress = this.progress.vocabProgress || { "A1": 1, "A2": 1, "B1": 1, "B2": 1, "PV": 1, "ielts": 1 };
     this.progress.dailyLog = this.progress.dailyLog || {};
 
     // Hide Login Overlay & render user profile details
@@ -177,7 +177,7 @@ class App {
     // Update Header title
     const titles = {
       'dashboard': 'Trang chủ',
-      'vocab': 'Từ vựng thông dụng (3000 từ)',
+      'vocab': 'Từ vựng IELTS theo chủ đề',
       'listening': 'Luyện nghe IELTS Listening',
       'reading': 'Luyện đọc IELTS Reading & Shadowing',
       'speaking': 'Trò chuyện & Luyện nói cùng Janet (AI)',
@@ -270,7 +270,7 @@ class App {
   }
 
   updateProgress() {
-    const totalWords = 3000;
+    const totalWords = (typeof VOCABULARY_DATA !== 'undefined') ? VOCABULARY_DATA.length : 145;
     const wordsLearnedCount = this.progress.wordsLearned.length;
     
     // Simple overall progress weight: 50% vocab, 12.5% listening, 12.5% reading, 12.5% speaking, 12.5% writing
@@ -427,7 +427,7 @@ class App {
               readingCompleted: Array.isArray(importedData.readingCompleted) ? importedData.readingCompleted : [],
               speakingCompleted: Array.isArray(importedData.speakingCompleted) ? importedData.speakingCompleted : [],
               writingCompleted: Array.isArray(importedData.writingCompleted) ? importedData.writingCompleted : [],
-              vocabProgress: importedData.vocabProgress || { "A1": 1, "A2": 1, "B1": 1, "B2": 1, "PV": 1 },
+              vocabProgress: importedData.vocabProgress || { "A1": 1, "A2": 1, "B1": 1, "B2": 1, "PV": 1, "ielts": 1 },
               dailyLog: importedData.dailyLog || {}
             };
           }
@@ -470,7 +470,7 @@ class App {
         readingCompleted: [],
         speakingCompleted: [],
         writingCompleted: [],
-        vocabProgress: { "A1": 1, "A2": 1, "B1": 1, "B2": 1, "PV": 1 }
+        vocabProgress: { "A1": 1, "A2": 1, "B1": 1, "B2": 1, "PV": 1, "ielts": 1 }
       };
       this.updateProgress();
       this.showToast('Đã đặt lại tiến trình học về ban đầu! Đang tải lại...', 'success');
@@ -543,7 +543,7 @@ class App {
   }
 
   // Global Text-to-Speech assistant with natural speed & premium voice prioritization
-  speak(text, rate = 0.88) {
+  speak(text, rate = 0.88, lang = 'en-US') {
     try {
       window.speechSynthesis.cancel();
     } catch (e) {
@@ -551,12 +551,18 @@ class App {
     }
 
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'en-US';
+    utterance.lang = lang;
     utterance.rate = rate;
     utterance.pitch = 1.0;
 
     const voices = window.speechSynthesis.getVoices();
-    const enVoices = voices.filter(v => v.lang.startsWith('en') || v.lang.startsWith('en-'));
+    // Filter voices matching the target locale (e.g., en-US or en-GB)
+    let enVoices = voices.filter(v => v.lang.toLowerCase() === lang.toLowerCase());
+    
+    // Fallback if no exact match for this accent
+    if (enVoices.length === 0) {
+      enVoices = voices.filter(v => v.lang.toLowerCase().startsWith('en'));
+    }
     
     if (enVoices.length > 0) {
       const targetGender = this.voiceGender === 'male' ? 'male' : 'female';
@@ -775,7 +781,7 @@ class App {
 
     // Merge vocabProgress
     merged.vocabProgress = {};
-    const levels = ['A1', 'A2', 'B1', 'B2', 'PV'];
+    const levels = ['A1', 'A2', 'B1', 'B2', 'PV', 'ielts'];
     levels.forEach(lvl => {
       const valLocal = (local.vocabProgress || {})[lvl] || 1;
       const valRemote = (remote.vocabProgress || {})[lvl] || 1;
