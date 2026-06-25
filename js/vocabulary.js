@@ -64,6 +64,30 @@ class VocabularyModule {
         words: []
       },
       {
+        id: "celebrities",
+        nameVi: "Người nổi tiếng & Giải trí",
+        nameEn: "Celebrities & Entertainment",
+        description: "Từ vựng học thuật về truyền thông, người nổi tiếng, phim ảnh, thời trang và giới giải trí.",
+        emoji: "⭐",
+        words: []
+      },
+      {
+        id: "travel",
+        nameVi: "Du lịch & Đô thị",
+        nameEn: "Travel & Urban Life",
+        description: "Các chủ đề về giao thông, điểm đến, chỗ ở và cuộc sống tại các thị trấn, thành phố lớn.",
+        emoji: "✈️",
+        words: []
+      },
+      {
+        id: "society",
+        nameVi: "Xã hội & Chính trị",
+        nameEn: "Society & Politics",
+        description: "Từ vựng nâng cao về chính phủ, luật pháp, các vấn đề xã hội và quan hệ hôn nhân gia đình.",
+        emoji: "👥",
+        words: []
+      },
+      {
         id: "phrasal-verbs",
         nameVi: "Cụm động từ thông dụng",
         nameEn: "Common Phrasal Verbs",
