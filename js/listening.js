@@ -32,6 +32,7 @@ class ListeningModule {
     this.mediaRecorder = null;
     this.recordedChunks = [];
     this.shadowingSentences = [];
+    this.segmentTimeUpdateListener = null;
   }
 
   init() {
@@ -472,6 +473,15 @@ class ListeningModule {
     clearInterval(this.ttsInterval);
     clearTimeout(this.ttsDelayTimeout);
     
+    // Clear any active shadowing segment listeners
+    if (this.segmentTimeUpdateListener) {
+      const audio = document.getElementById('main-audio-element');
+      if (audio) {
+        audio.removeEventListener('timeupdate', this.segmentTimeUpdateListener);
+      }
+      this.segmentTimeUpdateListener = null;
+    }
+    
     if (this.currentLesson && this.currentLesson.audioFile.startsWith('TTS_')) {
       this.isPlaying = false;
       window.speechSynthesis.cancel();
@@ -886,7 +896,7 @@ class ListeningModule {
 
       div.innerHTML = `
         <span style="font-size:1.1rem; font-weight:500; line-height:1.4;">${sentence}</span>
-        <button class="btn btn-secondary btn-icon" style="width:30px; height:30px; flex-shrink: 0; margin-left: 1rem;" onclick="event.stopPropagation(); listening.speakSentenceText('${sentence.replace(/'/g, "\\'")}')">
+        <button class="btn btn-secondary btn-icon" style="width:30px; height:30px; flex-shrink: 0; margin-left: 1rem;" onclick="event.stopPropagation(); listening.speakSentenceText(${idx})">
           <svg viewBox="0 0 24 24" style="width:16px; height:16px;"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
         </button>
       `;
@@ -914,8 +924,16 @@ class ListeningModule {
     document.getElementById('btn-listening-shadow-playback').style.display = 'none';
   }
 
-  speakSentenceText(text) {
-    app.speak(text, 0.88);
+  speakSentenceText(idx) {
+    if (idx === undefined || idx === null || idx < 0) return;
+    const text = this.shadowingSentences[idx];
+    
+    if (this.currentLesson && !this.currentLesson.audioFile.startsWith('TTS_')) {
+      const range = this.getSentenceTimeRange(idx);
+      this.playAudioSegment(range.start, range.end);
+    } else {
+      app.speak(text, 0.88);
+    }
   }
 
   speakSelectedSentence() {
@@ -923,8 +941,86 @@ class ListeningModule {
       alert("Vui lòng chọn một câu tiếng Anh trước!");
       return;
     }
-    const text = this.shadowingSentences[this.selectedSentenceIndex];
-    this.speakSentenceText(text);
+    this.speakSentenceText(this.selectedSentenceIndex);
+  }
+
+  getSentenceTimeRange(idx) {
+    const audio = document.getElementById('main-audio-element');
+    if (!audio || isNaN(audio.duration) || audio.duration === 0) {
+      return { start: 0, end: 0 };
+    }
+    
+    const duration = audio.duration;
+    
+    // Calculate cumulative character lengths
+    let totalChars = 0;
+    const sentenceLengths = this.shadowingSentences.map(s => {
+      const len = s.length;
+      totalChars += len;
+      return len;
+    });
+    
+    if (totalChars === 0) return { start: 0, end: 0 };
+    
+    let cumulativeChars = 0;
+    for (let i = 0; i < idx; i++) {
+      cumulativeChars += sentenceLengths[i];
+    }
+    
+    const startRatio = cumulativeChars / totalChars;
+    const endRatio = (cumulativeChars + sentenceLengths[idx]) / totalChars;
+    
+    // Linear approximation
+    let start = startRatio * duration;
+    let end = endRatio * duration;
+    
+    // Buffer margins to avoid cutting off words
+    start = Math.max(0, start - 0.4);
+    end = Math.min(duration, end + 0.5);
+    
+    return { start, end };
+  }
+
+  playAudioSegment(startTime, endTime) {
+    const audio = document.getElementById('main-audio-element');
+    if (!audio || isNaN(audio.duration)) {
+      app.showToast('Âm thanh chưa tải xong, vui lòng đợi một chút.', 'info');
+      return;
+    }
+    
+    this.pauseAudio(); // Reset states, clear existing listener
+    
+    audio.currentTime = startTime;
+    
+    // Set play state and sync Play/Pause button
+    this.isPlaying = true;
+    const playBtn = document.getElementById('player-btn-play');
+    if (playBtn) {
+      playBtn.innerHTML = '<svg viewBox="0 0 24 24" id="pause-svg" style="width:20px;height:20px;fill:currentColor;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+    }
+    
+    // Define the timeupdate listener
+    const onTimeUpdate = () => {
+      if (audio.currentTime >= endTime) {
+        audio.pause();
+        audio.removeEventListener('timeupdate', onTimeUpdate);
+        this.isPlaying = false;
+        if (playBtn) {
+          playBtn.innerHTML = '<svg viewBox="0 0 24 24" id="play-svg"><path d="M8 5v14l11-7z"/></svg>';
+        }
+      }
+    };
+    
+    audio.addEventListener('timeupdate', onTimeUpdate);
+    this.segmentTimeUpdateListener = onTimeUpdate;
+    
+    audio.play().catch(e => {
+      console.error("Segment playback error:", e);
+      this.isPlaying = false;
+      if (playBtn) {
+        playBtn.innerHTML = '<svg viewBox="0 0 24 24" id="play-svg"><path d="M8 5v14l11-7z"/></svg>';
+      }
+    });
   }
 
   initSpeechRecognition() {
