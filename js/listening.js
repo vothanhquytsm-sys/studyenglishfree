@@ -3,7 +3,7 @@ class ListeningModule {
   constructor() {
     this.currentLesson = null;
     this.isPlaying = false;
-    this.activeSubTab = 'transcript'; // 'transcript' or 'quiz'
+    this.activeSubTab = 'transcript'; // 'transcript', 'shadow' or 'quiz'
     this.quizGraded = false;
     
     // Categorization
@@ -23,11 +23,21 @@ class ListeningModule {
     this.audioFinished = false;
     this.quizGradedSubmit = false;
     this.quizScore = 0;
+
+    // Shadowing state variables
+    this.selectedSentenceIndex = -1;
+    this.isRecording = false;
+    this.recognition = null;
+    this.userAudioUrl = null;
+    this.mediaRecorder = null;
+    this.recordedChunks = [];
+    this.shadowingSentences = [];
   }
 
   init() {
     this.switchCategory('ello');
     this.setupAudioListeners();
+    this.initSpeechRecognition();
     
     // Warm up speech synthesis voices list
     if (typeof window !== 'undefined' && window.speechSynthesis) {
@@ -46,9 +56,15 @@ class ListeningModule {
     this.pauseAudio();
     this.activeSubTab = 'transcript';
     this.quizGraded = false;
+    this.selectedSentenceIndex = -1;
+    this.isRecording = false;
+    this.shadowingSentences = [];
+    
     document.getElementById('btn-tab-transcript').className = 'btn btn-primary';
+    document.getElementById('btn-tab-shadow').className = 'btn btn-secondary';
     document.getElementById('btn-tab-quiz').className = 'btn btn-secondary';
     document.getElementById('listening-transcript-pane').style.display = 'block';
+    document.getElementById('listening-shadow-pane').style.display = 'none';
     document.getElementById('listening-quiz-pane').style.display = 'none';
   }
 
@@ -113,6 +129,13 @@ class ListeningModule {
     this.quizGradedSubmit = false;
     this.quizScore = 0;
     
+    // Reset shadowing states
+    this.selectedSentenceIndex = -1;
+    document.getElementById('listening-shadow-selected-status').innerHTML = "Chọn một câu tiếng Anh ở trên để tập nói.";
+    document.getElementById('listening-shadow-score-display').innerHTML = '';
+    document.getElementById('listening-shadow-feedback-pane').style.display = 'none';
+    document.getElementById('btn-listening-shadow-playback').style.display = 'none';
+    
     // Reset player elements & cancel ongoing speech synthesis
     this.pauseAudio();
     
@@ -175,8 +198,17 @@ class ListeningModule {
     // Render transcript
     this.renderTranscript();
 
+    // Generate and render shadowing sentences
+    this.shadowingSentences = this.getShadowingSentences(lesson.transcript);
+    this.renderShadowingSentences();
+
     // Render Quiz Form
     this.renderQuiz();
+
+    // Restore saved dictionary annotations
+    if (typeof vocabDictionary !== 'undefined') {
+      vocabDictionary.applySavedAnnotations('listening-sentences-container', 'listening_' + lesson.id);
+    }
 
     // Reset sub tabs
     this.switchSubTab('transcript');
@@ -534,17 +566,31 @@ class ListeningModule {
   switchSubTab(tabName) {
     this.activeSubTab = tabName;
     const btnTranscript = document.getElementById('btn-tab-transcript');
+    const btnShadow = document.getElementById('btn-tab-shadow');
     const btnQuiz = document.getElementById('btn-tab-quiz');
+
+    // Reset styles
+    btnTranscript.className = 'btn btn-secondary';
+    if (btnShadow) btnShadow.className = 'btn btn-secondary';
+    btnQuiz.className = 'btn btn-secondary';
+
+    // Hide panes
+    document.getElementById('listening-transcript-pane').style.display = 'none';
+    if (document.getElementById('listening-shadow-pane')) {
+      document.getElementById('listening-shadow-pane').style.display = 'none';
+    }
+    document.getElementById('listening-quiz-pane').style.display = 'none';
 
     if (tabName === 'transcript') {
       btnTranscript.className = 'btn btn-primary';
-      btnQuiz.className = 'btn btn-secondary';
       document.getElementById('listening-transcript-pane').style.display = 'block';
-      document.getElementById('listening-quiz-pane').style.display = 'none';
-    } else {
-      btnTranscript.className = 'btn btn-secondary';
+    } else if (tabName === 'shadow') {
+      if (btnShadow) btnShadow.className = 'btn btn-primary';
+      if (document.getElementById('listening-shadow-pane')) {
+        document.getElementById('listening-shadow-pane').style.display = 'flex';
+      }
+    } else if (tabName === 'quiz') {
       btnQuiz.className = 'btn btn-primary';
-      document.getElementById('listening-transcript-pane').style.display = 'none';
       document.getElementById('listening-quiz-pane').style.display = 'block';
     }
   }
@@ -759,6 +805,279 @@ class ListeningModule {
     } else if (this.audioFinished && !this.quizGradedSubmit) {
       app.showToast('Đã nghe hết file âm thanh! Hãy làm và nộp bài kiểm tra đạt từ 7/10 điểm trở lên để hoàn thành.', 'info');
     }
+  }
+
+  getShadowingSentences(transcript) {
+    if (!transcript) return [];
+    
+    const lines = transcript.split('\n');
+    const allSentences = [];
+    const abbreviations = ['mr', 'mrs', 'dr', 'ms', 'vs', 'prof', 'sr', 'jr', 'co', 'ltd', 'inc', 'approx', 'etc'];
+    
+    lines.forEach(line => {
+      let text = line.trim();
+      if (!text) return;
+      
+      // Strip speaker tag (e.g., "Jeannie: ")
+      const match = text.match(/^([A-Za-z0-9\s]+):(.*)/);
+      if (match) {
+        text = match[2].trim();
+      }
+      
+      if (!text) return;
+      
+      // Split into sentences, respecting abbreviations
+      const parts = text.split(/(?<=[.!?])\s+/);
+      let current = "";
+      
+      for (let i = 0; i < parts.length; i++) {
+        const part = parts[i].trim();
+        if (!part) continue;
+        
+        if (current) {
+          current += " " + part;
+        } else {
+          current = part;
+        }
+        
+        // Check if current sentence ends with an abbreviation
+        const lastWordMatch = current.match(/(\b\w+)\.$/i);
+        if (lastWordMatch) {
+          const lastWord = lastWordMatch[1].toLowerCase();
+          if (abbreviations.includes(lastWord)) {
+            continue; // Keep concatenating next part
+          }
+        }
+        
+        // Clean trailing/leading symbols and check if it contains actual words
+        const cleaned = current.replace(/^["'“”‘]+|["'“”’]+$/g, '').trim();
+        if (cleaned && cleaned.match(/[a-zA-Z]/)) {
+          allSentences.push(cleaned);
+        }
+        current = "";
+      }
+      
+      if (current) {
+        const cleaned = current.replace(/^["'“”‘]+|["'“”’]+$/g, '').trim();
+        if (cleaned && cleaned.match(/[a-zA-Z]/)) {
+          allSentences.push(cleaned);
+        }
+      }
+    });
+    
+    return allSentences;
+  }
+
+  renderShadowingSentences() {
+    const container = document.getElementById('listening-sentences-container');
+    if (!container) return;
+    container.innerHTML = '';
+
+    if (this.shadowingSentences.length === 0) {
+      container.innerHTML = '<p style="text-align:center; padding: 2rem; color:var(--text-muted);">Không tìm thấy câu nào phù hợp để Shadowing.</p>';
+      return;
+    }
+
+    this.shadowingSentences.forEach((sentence, idx) => {
+      const div = document.createElement('div');
+      div.className = 'sentence-shadow-item';
+      div.id = `listening-sentence-item-${idx}`;
+      div.onclick = () => this.selectSentence(idx);
+
+      div.innerHTML = `
+        <span style="font-size:1.1rem; font-weight:500; line-height:1.4;">${sentence}</span>
+        <button class="btn btn-secondary btn-icon" style="width:30px; height:30px; flex-shrink: 0; margin-left: 1rem;" onclick="event.stopPropagation(); listening.speakSentenceText('${sentence.replace(/'/g, "\\'")}')">
+          <svg viewBox="0 0 24 24" style="width:16px; height:16px;"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+        </button>
+      `;
+
+      container.appendChild(div);
+    });
+  }
+
+  selectSentence(index) {
+    this.selectedSentenceIndex = index;
+    
+    // Highlight UI
+    document.querySelectorAll('.sentence-shadow-item').forEach(el => el.classList.remove('active'));
+    
+    const activeItem = document.getElementById(`listening-sentence-item-${index}`);
+    if (activeItem) activeItem.classList.add('active');
+
+    // Update Shadow panel text
+    const text = this.shadowingSentences[index];
+    document.getElementById('listening-shadow-selected-status').innerHTML = `Đang chọn câu ${index + 1}: <br><strong style="color:var(--text-color);">${text}</strong>`;
+    
+    // Clear feedback
+    document.getElementById('listening-shadow-score-display').innerHTML = '';
+    document.getElementById('listening-shadow-feedback-pane').style.display = 'none';
+    document.getElementById('btn-listening-shadow-playback').style.display = 'none';
+  }
+
+  speakSentenceText(text) {
+    app.speak(text, 0.88);
+  }
+
+  speakSelectedSentence() {
+    if (this.selectedSentenceIndex === -1) {
+      alert("Vui lòng chọn một câu tiếng Anh trước!");
+      return;
+    }
+    const text = this.shadowingSentences[this.selectedSentenceIndex];
+    this.speakSentenceText(text);
+  }
+
+  initSpeechRecognition() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRecognition) {
+      this.recognition = new SpeechRecognition();
+      this.recognition.lang = 'en-US';
+      this.recognition.interimResults = false;
+      this.recognition.maxAlternatives = 1;
+
+      this.recognition.onstart = () => {
+        this.isRecording = true;
+        document.getElementById('btn-listening-shadow-record').textContent = '⏹️ Đang ghi âm...';
+        document.getElementById('btn-listening-shadow-record').style.backgroundColor = 'var(--danger-color)';
+      };
+
+      this.recognition.onend = () => {
+        this.isRecording = false;
+        document.getElementById('btn-listening-shadow-record').textContent = '🎙️ Bắt đầu nói';
+        document.getElementById('btn-listening-shadow-record').style.backgroundColor = '';
+      };
+
+      this.recognition.onresult = (event) => {
+        const resultText = event.results[0][0].transcript;
+        this.analyzePronunciation(resultText);
+      };
+
+      this.recognition.onerror = (e) => {
+        console.error("Speech recognition error", e);
+        this.isRecording = false;
+        document.getElementById('btn-listening-shadow-record').textContent = '🎙️ Bắt đầu nói';
+        app.showToast('Không nhận dạng được giọng nói. Hãy nói rõ ràng hơn hoặc sử dụng trình duyệt Chrome/Safari.', 'error');
+      };
+    } else {
+      console.warn("Web SpeechRecognition not supported in this browser.");
+    }
+  }
+
+  toggleRecording() {
+    if (this.selectedSentenceIndex === -1) {
+      alert("Vui lòng chọn một câu tiếng Anh để ghi âm shadowing!");
+      return;
+    }
+
+    // Pause main player to avoid mic capturing the playing audio
+    this.pauseAudio();
+
+    if (this.isRecording) {
+      this.stopSpeechRecognition();
+    } else {
+      this.startSpeechRecognition();
+    }
+  }
+
+  startSpeechRecognition() {
+    if (this.recognition) {
+      try {
+        this.recognition.start();
+      } catch (e) {
+        console.error("Recognition start failed", e);
+      }
+    } else {
+      // Audio Recording fallback if SpeechRecognition API is unavailable
+      this.startAudioRecordingFallback();
+    }
+  }
+
+  stopSpeechRecognition() {
+    if (this.recognition) {
+      this.recognition.stop();
+    } else if (this.mediaRecorder) {
+      this.mediaRecorder.stop();
+    }
+  }
+
+  // Fallback voice recorder
+  startAudioRecordingFallback() {
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+      this.recordedChunks = [];
+      this.mediaRecorder = new MediaRecorder(stream);
+      
+      this.mediaRecorder.ondataavailable = (e) => {
+        if (e.data.size > 0) this.recordedChunks.push(e.data);
+      };
+
+      this.mediaRecorder.onstop = () => {
+        const blob = new Blob(this.recordedChunks, { type: 'audio/webm' });
+        this.userAudioUrl = URL.createObjectURL(blob);
+        document.getElementById('btn-listening-shadow-playback').style.display = 'inline-flex';
+        app.showToast('Đã lưu ghi âm! Hãy bấm nút Nghe lại để đối chiếu.', 'success');
+        
+        this.isRecording = false;
+        document.getElementById('btn-listening-shadow-record').textContent = '🎙️ Bắt đầu nói';
+      };
+
+      this.mediaRecorder.start();
+      this.isRecording = true;
+      document.getElementById('btn-listening-shadow-record').textContent = '⏹️ Đang ghi âm...';
+    }).catch(err => {
+      console.error("Microphone access error:", err);
+      app.showToast('Không truy cập được Micro. Vui lòng cấp quyền micro cho trình duyệt.', 'error');
+    });
+  }
+
+  playbackVoice() {
+    if (this.userAudioUrl) {
+      const audioObj = new Audio(this.userAudioUrl);
+      audioObj.play();
+    }
+  }
+
+  analyzePronunciation(spokenText) {
+    const targetText = this.shadowingSentences[this.selectedSentenceIndex];
+    
+    // Normalize texts (lowercase, remove punctuation)
+    const normalize = (t) => t.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, "").trim().split(/\s+/);
+    
+    const targetWords = normalize(targetText);
+    const spokenWords = normalize(spokenText);
+
+    let matchCount = 0;
+    const feedbackHtml = targetWords.map(tWord => {
+      const foundIdx = spokenWords.indexOf(tWord);
+      if (foundIdx !== -1) {
+        matchCount++;
+        // Remove it so it doesn't match double words twice
+        spokenWords.splice(foundIdx, 1);
+        return `<span class="feedback-word correct">${tWord}</span>`;
+      }
+      return `<span class="feedback-word incorrect">${tWord}</span>`;
+    });
+
+    const scorePct = Math.round((matchCount / targetWords.length) * 100);
+
+    // Render results
+    let scoreColor = "var(--danger-color)";
+    let rating = "Chưa đạt";
+    if (scorePct >= 80) {
+      scoreColor = "var(--success-color)";
+      rating = "Xuất sắc!";
+    } else if (scorePct >= 50) {
+      scoreColor = "var(--warning-color)";
+      rating = "Khá tốt";
+    }
+
+    document.getElementById('listening-shadow-score-display').innerHTML = `
+      <span>Điểm phát âm:</span>
+      <span style="color:${scoreColor}; font-size:1.4rem;">${scorePct}%</span>
+      <span style="font-size:0.9rem; color:var(--text-muted);">(${rating})</span>
+    `;
+
+    document.getElementById('listening-shadow-feedback-pane').style.display = 'block';
+    document.getElementById('listening-shadow-feedback-words').innerHTML = feedbackHtml.join(' ') + `<br><p style="font-size:0.9rem; margin-top:0.5rem; color:var(--text-muted);">Bạn đã nói: "${spokenText}"</p>`;
   }
 }
 

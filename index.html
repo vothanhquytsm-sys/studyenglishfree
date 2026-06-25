@@ -325,6 +325,7 @@
               <!-- Tabs between Transcript and Quizzes -->
               <div style="display: flex; gap: 1rem; margin-top: 1rem;">
                 <button class="btn btn-primary" id="btn-tab-transcript" onclick="listening.switchSubTab('transcript')">📜 Transcript</button>
+                <button class="btn btn-secondary" id="btn-tab-shadow" onclick="listening.switchSubTab('shadow')">🎙️ Shadowing</button>
                 <button class="btn btn-secondary" id="btn-tab-quiz" onclick="listening.switchSubTab('quiz')">✍️ Bài tập kiểm tra (10 câu)</button>
               </div>
 
@@ -335,6 +336,38 @@
                 </div>
                 <div class="transcript-content" id="listening-transcript-content">
                   <!-- Dynamically populated script lines -->
+                </div>
+              </div>
+
+              <!-- Shadowing Tab Pane -->
+              <div id="listening-shadow-pane" style="display: none; flex-direction: column; gap: 1.5rem;">
+                <div class="story-pane" style="height: 380px; width: 100%; box-sizing: border-box;">
+                  <h3>Danh sách câu nói (Nhấp vào câu để tập nói)</h3>
+                  <div id="listening-sentences-container" style="margin-top: 1rem;">
+                    <!-- Sentences -->
+                  </div>
+                </div>
+
+                <!-- Shadowing Control Center -->
+                <div class="shadowing-controls-bar" style="width: 100%; box-sizing: border-box; grid-column: auto;">
+                  <div style="display: flex; flex-direction: column; gap: 0.25rem; max-width: 50%;">
+                    <span style="font-weight: 700; color: var(--primary-color);">Luyện phát âm (Shadowing)</span>
+                    <span id="listening-shadow-selected-status" style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.4;">Hãy chọn 1 câu ở phía trên để tập nói.</span>
+                  </div>
+                  <div style="display: flex; gap: 1rem; align-items: center;">
+                    <button class="btn btn-secondary" id="btn-listening-shadow-listen" onclick="listening.speakSelectedSentence()">🔊 Nghe AI</button>
+                    <button class="btn btn-danger" id="btn-listening-shadow-record" onclick="listening.toggleRecording()">🎙️ Bắt đầu nói</button>
+                    <button class="btn btn-secondary" id="btn-listening-shadow-playback" onclick="listening.playbackVoice()" style="display: none;">▶️ Nghe lại bạn nói</button>
+                  </div>
+                  <div id="listening-shadow-score-display" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 1.1rem;">
+                    <!-- Pronunciation scores -->
+                  </div>
+                </div>
+                
+                <!-- Feedback block -->
+                <div class="card-panel" id="listening-shadow-feedback-pane" style="display: none; background: var(--bg-color); width: 100%; box-sizing: border-box;">
+                  <h4>Từ vựng được nhận dạng:</h4>
+                  <div id="listening-shadow-feedback-words" style="font-size: 1.1rem; margin-top: 0.5rem; line-height: 1.8;"></div>
                 </div>
               </div>
 
@@ -374,45 +407,12 @@
               <h2 id="reading-title">Tiêu đề bài đọc</h2>
               <div style="display: flex; gap: 1rem;">
                 <button class="btn btn-primary" id="btn-reading-tab-read" onclick="reading.switchSubTab('read')">📖 Đọc bài</button>
-                <button class="btn btn-secondary" id="btn-reading-tab-shadow" onclick="reading.switchSubTab('shadow')">🎙️ Shadowing</button>
                 <button class="btn btn-secondary" id="btn-reading-tab-quiz" onclick="reading.switchSubTab('quiz')">✍️ Trắc nghiệm</button>
               </div>
 
               <!-- Read Tab Pane -->
               <div class="card-panel" id="reading-read-pane" style="display: none; padding: 2.5rem; font-size: 1.15rem; line-height: 1.8; max-height: 520px; overflow-y: auto;">
                 <!-- Full story text will be rendered here -->
-              </div>
-
-              <!-- Shadowing Tab Pane -->
-              <div id="reading-shadow-pane" style="display: none; flex-direction: column; gap: 1.5rem;">
-                <div class="story-pane" id="reading-english-pane" style="height: 380px; width: 100%; box-sizing: border-box;">
-                  <h3>Danh sách câu nói (Nhấp vào câu để tập nói)</h3>
-                  <div id="reading-sentences-container" style="margin-top: 1rem;">
-                    <!-- Sentences -->
-                  </div>
-                </div>
-
-                <!-- Shadowing Control Center -->
-                <div class="shadowing-controls-bar" style="width: 100%; box-sizing: border-box; grid-column: auto;">
-                  <div style="display: flex; flex-direction: column; gap: 0.25rem; max-width: 50%;">
-                    <span style="font-weight: 700; color: var(--primary-color);">Luyện phát âm (Shadowing)</span>
-                    <span id="shadow-selected-status" style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.4;">Hãy chọn 1 câu ở phía trên để tập nói.</span>
-                  </div>
-                  <div style="display: flex; gap: 1rem; align-items: center;">
-                    <button class="btn btn-secondary" id="btn-shadow-listen" onclick="reading.speakSelectedSentence()">🔊 Nghe AI</button>
-                    <button class="btn btn-danger" id="btn-shadow-record" onclick="reading.toggleRecording()">🎙️ Bắt đầu nói</button>
-                    <button class="btn btn-secondary" id="btn-shadow-playback" onclick="reading.playbackVoice()" style="display: none;">▶️ Nghe lại bạn nói</button>
-                  </div>
-                  <div id="shadow-score-display" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 1.1rem;">
-                    <!-- Pronunciation scores -->
-                  </div>
-                </div>
-                
-                <!-- Feedback block -->
-                <div class="card-panel" id="shadow-feedback-pane" style="display: none; background: var(--bg-color); width: 100%; box-sizing: border-box;">
-                  <h4>Từ vựng được nhận dạng:</h4>
-                  <div id="shadow-feedback-words" style="font-size: 1.1rem; margin-top: 0.5rem; line-height: 1.8;"></div>
-                </div>
               </div>
 
               <!-- Comprehension Quiz pane -->
@@ -617,8 +617,8 @@
   
   <script src="js/app.js?v=1.0.9"></script>
   <script src="js/vocabulary.js?v=1.0.9"></script>
-  <script src="js/listening.js?v=1.0.8"></script>
-  <script src="js/reading.js?v=1.0.8"></script>
+  <script src="js/listening.js?v=1.1.0"></script>
+  <script src="js/reading.js?v=1.1.0"></script>
   <script src="js/chatbot.js?v=1.0.8"></script>
   <script src="js/writing.js?v=1.0.8"></script>
 </body>
