@@ -21,12 +21,12 @@ const VOCABULARY_DATA = [
     "translation": "Lo lắng, e ngại (về tương lai)",
     "example": "Many students feel apprehensive about their upcoming IELTS exams.",
     "exampleVi": "Nhiều học sinh cảm thấy lo lắng về kỳ thi IELTS sắp tới của họ.",
-    "imageId": "photo-1516321497487-e288fb19713f",
+    "imageId": "photo-1518495973542-4542c06a5843",
     "topic": "emotion"
   },
   {
     "word": "Melancholy",
-    "partOfSpeech": "noun / adjective",
+    "partOfSpeech": "noun / adj",
     "ipaUk": "/ˈmel.əŋ.kɒl.i/",
     "ipaUs": "/ˈmel.əŋ.kɑːl.i/",
     "translation": "Sự u sầu, u uất",
@@ -120,7 +120,7 @@ const VOCABULARY_DATA = [
     "translation": "Sự lo âu, mối lo ngại",
     "example": "Prolonged exposure to high-pressure environments can trigger severe anxiety.",
     "exampleVi": "Tiếp xúc lâu dài với môi trường áp lực cao có thể dẫn đến chứng lo âu nghiêm trọng.",
-    "imageId": "photo-1518495973542-4542c06a5843",
+    "imageId": "photo-1506126613408-eca07ce68773",
     "topic": "emotion"
   },
   {
@@ -168,6 +168,171 @@ const VOCABULARY_DATA = [
     "topic": "emotion"
   },
   {
+    "word": "Nostalgic",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/nɒsˈtæl.dʒɪk/",
+    "ipaUs": "/nɑːˈstæl.dʒɪk/",
+    "translation": "Hoài niệm, nhớ quê hương",
+    "example": "Listening to those old songs made him feel nostalgic.",
+    "exampleVi": "Nghe những bài hát cũ đó khiến anh cảm thấy hoài niệm.",
+    "imageId": "photo-1509198397868-475647b2a1e5",
+    "topic": "emotion"
+  },
+  {
+    "word": "Optimistic",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/ˌɒp.tɪˈmɪs.tɪk/",
+    "ipaUs": "/ˌɑːp.təˈmɪs.tɪk/",
+    "translation": "Lạc quan",
+    "example": "She is optimistic about her chances of winning the contest.",
+    "exampleVi": "Cô ấy lạc quan về cơ hội chiến thắng cuộc thi của mình.",
+    "imageId": "photo-1506784983877-45594efa4cbe",
+    "topic": "emotion"
+  },
+  {
+    "word": "Pessimistic",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/ˌpes.ɪˈmɪs.tɪk/",
+    "ipaUs": "/ˌpes.əˈmɪs.tɪk/",
+    "translation": "Bi quan",
+    "example": "Doctors are pessimistic about his chances of a full recovery.",
+    "exampleVi": "Các bác sĩ bi quan về cơ hội hồi phục hoàn toàn của anh ấy.",
+    "imageId": "photo-1513151233558-d860c5398176",
+    "topic": "emotion"
+  },
+  {
+    "word": "Agitated",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/ˈædʒ.ɪ.teɪ.tɪd/",
+    "ipaUs": "/ˈædʒ.ə.t̬eɪ.t̬ɪd/",
+    "translation": "Bối rối, kích động",
+    "example": "He grew increasingly agitated as the deadline approached.",
+    "exampleVi": "Anh ấy ngày càng trở nên kích động khi thời hạn đến gần.",
+    "imageId": "photo-1534528741775-53994a69daeb",
+    "topic": "emotion"
+  },
+  {
+    "word": "Devastated",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/ˈdev.ə.steɪ.tɪd/",
+    "ipaUs": "/ˈdev.ə.steɪ.t̬ɪd/",
+    "translation": "Suy sụp, hoàn toàn thất vọng",
+    "example": "She was devastated by the loss of her beloved pet.",
+    "exampleVi": "Cô ấy bị suy sụp vì sự ra đi của thú cưng yêu quý.",
+    "imageId": "photo-1489440543286-a69330151c0b",
+    "topic": "emotion"
+  },
+  {
+    "word": "Hostile",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/ˈhɒs.taɪl/",
+    "ipaUs": "/ˈhɑː.stəl/",
+    "translation": "Thù địch, căm ghét",
+    "example": "The speaker faced a hostile audience.",
+    "exampleVi": "Diễn giả đã phải đối mặt với một khán giả thù địch.",
+    "imageId": "photo-1552053831-71594a27632d",
+    "topic": "emotion"
+  },
+  {
+    "word": "Serene",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/sɪˈriːn/",
+    "ipaUs": "/sɪˈriːn/",
+    "translation": "Thanh bình, yên tĩnh",
+    "example": "The valley looked serene in the morning mist.",
+    "exampleVi": "Thung lũng trông thanh bình trong làn sương mai.",
+    "imageId": "photo-1507525428034-b723cf961d3e",
+    "topic": "emotion"
+  },
+  {
+    "word": "Skeptical",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/ˈskep.tɪ.kəl/",
+    "ipaUs": "/ˈskep.tɪ.kəl/",
+    "translation": "Hoài nghi, nghi ngờ",
+    "example": "Many experts remain skeptical about the new claims.",
+    "exampleVi": "Nhiều chuyên gia vẫn hoài nghi về những tuyên bố mới.",
+    "imageId": "photo-1507679799987-c73779587ccf",
+    "topic": "emotion"
+  },
+  {
+    "word": "Apathetic",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/ˌæp.əˈθet.ɪk/",
+    "ipaUs": "/ˌæp.əˈθet̬.ɪk/",
+    "translation": "Lãnh đạm, thờ ơ",
+    "example": "Young people are often accused of being apathetic about politics.",
+    "exampleVi": "Người trẻ thường bị cáo buộc là thờ ơ với chính trị.",
+    "imageId": "photo-1506126613408-eca07ce68773",
+    "topic": "emotion"
+  },
+  {
+    "word": "Ecstatic",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/ɪkˈstæt.ɪk/",
+    "ipaUs": "/ɪkˈstæt̬.ɪk/",
+    "translation": "Vô cùng phấn khích, ngây ngất",
+    "example": "Sally was ecstatic about her new job.",
+    "exampleVi": "Sally đã vô cùng phấn khích về công việc mới của mình.",
+    "imageId": "photo-1516450360452-9312f5e86fc7",
+    "topic": "emotion"
+  },
+  {
+    "word": "Cynical",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/ˈsɪn.ɪ.kəl/",
+    "ipaUs": "/ˈsɪn.ɪ.kəl/",
+    "translation": "Hoài nghi (động cơ người khác)",
+    "example": "He has a cynical view of human nature.",
+    "exampleVi": "Anh ấy có một cái nhìn hoài nghi về bản chất con người.",
+    "imageId": "photo-1507679799987-c73779587ccf",
+    "topic": "emotion"
+  },
+  {
+    "word": "Mournful",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/ˈmɔːn.fəl/",
+    "ipaUs": "/ˈmɔːrn.fəl/",
+    "translation": "Tang thương, buồn thảm",
+    "example": "A mournful cry echoed through the dark woods.",
+    "exampleVi": "Một tiếng khóc than thảm thiết vang vọng qua khu rừng tối.",
+    "imageId": "photo-1498330177096-689e3fb901ca",
+    "topic": "emotion"
+  },
+  {
+    "word": "Resigned",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/rɪˈzaɪnd/",
+    "ipaUs": "/rɪˈzaɪnd/",
+    "translation": "Cam chịu, chấp nhận số phận",
+    "example": "He gave a resigned sigh and went back to work.",
+    "exampleVi": "Anh thở dài cam chịu và quay trở lại làm việc.",
+    "imageId": "photo-1489440543286-a69330151c0b",
+    "topic": "emotion"
+  },
+  {
+    "word": "Vulnerable",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/ˈvʌl.nər.ə.bəl/",
+    "ipaUs": "/ˈvʌl.nɚ.ə.bəl/",
+    "translation": "Dễ bị tổn thương",
+    "example": "Old people are particularly vulnerable to the flu.",
+    "exampleVi": "Người già đặc biệt dễ bị tổn thương bởi bệnh cúm.",
+    "imageId": "photo-1521791136064-7986c2920216",
+    "topic": "emotion"
+  },
+  {
+    "word": "Zealous",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/ˈzel.əs/",
+    "ipaUs": "/ˈzel.əs/",
+    "translation": "Hăng hái, sốt sắng",
+    "example": "The detective was zealous in his pursuit of the truth.",
+    "exampleVi": "Thám tử đã rất sốt sắng trong việc theo đuổi sự thật.",
+    "imageId": "photo-1516450360452-9312f5e86fc7",
+    "topic": "emotion"
+  },
+  {
     "word": "Biodiversity",
     "partOfSpeech": "noun",
     "ipaUk": "/ˌbaɪ.əʊ.daɪˈvɜː.sə.ti/",
@@ -181,7 +346,7 @@ const VOCABULARY_DATA = [
   {
     "word": "Conservation",
     "partOfSpeech": "noun",
-    "ipaUk": "/ˌɒn.səˈveɪ.ʃən/",
+    "ipaUk": "/ˌkɒn.səˈveɪ.ʃən/",
     "ipaUs": "/ˌkɑːn.sɚˈveɪ.ʃən/",
     "translation": "Sự bảo tồn (thiên nhiên)",
     "example": "Environmental conservation requires international cooperation and funding.",
@@ -270,7 +435,7 @@ const VOCABULARY_DATA = [
     "word": "Catastrophic",
     "partOfSpeech": "adjective",
     "ipaUk": "/ˌcæt.əˈstrɒf.ɪk/",
-    "ipaUs": "/ˌkæt̬.əˈstrɑː.fɪk/",
+    "ipaUs": "/ˌcæt̬.əˈstrɑː.fɪk/",
     "translation": "Thảm khốc, thảm họa",
     "example": "Rising sea levels could have catastrophic consequences for coastal cities.",
     "exampleVi": "Mực nước biển dâng cao có thể gây ra những hậu quả thảm khốc cho các thành phố ven biển.",
@@ -330,6 +495,171 @@ const VOCABULARY_DATA = [
     "example": "The melting of permafrost releases large amounts of methane gas.",
     "exampleVi": "Sự tan chảy của tầng đất đóng băng vĩnh cửu giải phóng một lượng lớn khí mê-tan.",
     "imageId": "photo-1551818255-e6e10975bc17",
+    "topic": "environment"
+  },
+  {
+    "word": "Deforestation",
+    "partOfSpeech": "noun",
+    "ipaUk": "/diːˌfɒr.ɪˈsteɪ.ʃən/",
+    "ipaUs": "/diːˌfɔːr.əˈsteɪ.ʃən/",
+    "translation": "Nạn phá rừng",
+    "example": "Deforestation is destroying the habitats of many animals.",
+    "exampleVi": "Nạn phá rừng đang hủy hoại môi trường sống của nhiều loài động vật.",
+    "imageId": "photo-1500485035595-cbe6f645feb1",
+    "topic": "environment"
+  },
+  {
+    "word": "Greenhouse",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈɡriːn.haʊs/",
+    "ipaUs": "/ˈɡriːn.haʊs/",
+    "translation": "Hiệu ứng nhà kính",
+    "example": "Carbon dioxide is the main greenhouse gas.",
+    "exampleVi": "Khí carbon dioxide là khí gây hiệu ứng nhà kính chủ yếu.",
+    "imageId": "photo-1618477388954-7852f32655ec",
+    "topic": "environment"
+  },
+  {
+    "word": "Pollution",
+    "partOfSpeech": "noun",
+    "ipaUk": "/pəˈluː.ʃən/",
+    "ipaUs": "/pəˈluː.ʃən/",
+    "translation": "Sự ô nhiễm",
+    "example": "Air pollution is a major health hazard in big cities.",
+    "exampleVi": "Ô nhiễm không khí là mối nguy hại lớn cho sức khỏe ở các thành phố lớn.",
+    "imageId": "photo-1618477388954-7852f32655ec",
+    "topic": "environment"
+  },
+  {
+    "word": "Renewable",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/rɪˈnjuː.ə.bəl/",
+    "ipaUs": "/rɪˈnuː.ə.bəl/",
+    "translation": "Có thể tái tạo (năng lượng)",
+    "example": "Wind and solar power are renewable sources of energy.",
+    "exampleVi": "Năng lượng gió và năng lượng mặt trời là các nguồn năng lượng có thể tái tạo.",
+    "imageId": "photo-1468245856972-a0333f3f8293",
+    "topic": "environment"
+  },
+  {
+    "word": "Erosion",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ɪˈrəʊ.ʒən/",
+    "ipaUs": "/ɪˈroʊ.ʒən/",
+    "translation": "Sự xói mòn, bào mòn",
+    "example": "Soil erosion can lead to bad agricultural yields.",
+    "exampleVi": "Xói mòn đất có thể dẫn đến năng suất nông nghiệp kém.",
+    "imageId": "photo-1504384308090-c894fdcc538d",
+    "topic": "environment"
+  },
+  {
+    "word": "Emission",
+    "partOfSpeech": "noun",
+    "ipaUk": "/iˈmɪʃ.ən/",
+    "ipaUs": "/iˈmɪʃ.ən/",
+    "translation": "Sự phát thải, khí thải",
+    "example": "Reducing carbon emissions is vital to save our climate.",
+    "exampleVi": "Giảm lượng khí thải carbon là cực kỳ quan trọng để bảo vệ khí hậu của chúng ta.",
+    "imageId": "photo-1618477388954-7852f32655ec",
+    "topic": "environment"
+  },
+  {
+    "word": "Habitat",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈhæb.ɪ.tæt/",
+    "ipaUs": "/ˈhæb.ə.tæt/",
+    "translation": "Môi trường sống",
+    "example": "The forest is the natural habitat of the brown bear.",
+    "exampleVi": "Rừng là môi trường sống tự nhiên của loài gấu nâu.",
+    "imageId": "photo-1500485035595-cbe6f645feb1",
+    "topic": "environment"
+  },
+  {
+    "word": "Glacial",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/ˈɡleɪ.si.əl/",
+    "ipaUs": "/ˈɡleɪ.ʃəl/",
+    "translation": "Thuộc về băng hà, sông băng",
+    "example": "Glacial retreat is a clear indicator of global warming.",
+    "exampleVi": "Sự rút lui của sông băng là một chỉ báo rõ ràng của sự nóng lên toàn cầu.",
+    "imageId": "photo-1551818255-e6e10975bc17",
+    "topic": "environment"
+  },
+  {
+    "word": "Disposable",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/dɪˈspəʊ.zə.bəl/",
+    "ipaUs": "/dɪˈspoʊ.zə.bəl/",
+    "translation": "Dùng một lần",
+    "example": "People are encouraged to avoid disposable plastic cups.",
+    "exampleVi": "Mọi người được khuyến khích tránh sử dụng cốc nhựa dùng một lần.",
+    "imageId": "photo-1532601224476-15c79f2f7a51",
+    "topic": "environment"
+  },
+  {
+    "word": "Biodegradable",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/ˌbaɪ.əʊ.dɪˈɡreɪ.də.bəl/",
+    "ipaUs": "/ˌbaɪ.oʊ.dɪˈɡreɪ.də.bəl/",
+    "translation": "Phân hủy sinh học",
+    "example": "Paper is biodegradable, whereas plastic is not.",
+    "exampleVi": "Giấy có thể phân hủy sinh học, trong khi nhựa thì không.",
+    "imageId": "photo-1532601224476-15c79f2f7a51",
+    "topic": "environment"
+  },
+  {
+    "word": "Carbon footprint",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈkɑː.bən ˈfʊt.prɪnt/",
+    "ipaUs": "/ˈkɑːr.bən ˈfʊt.prɪnt/",
+    "translation": "Dấu chân carbon (lượng khí thải)",
+    "example": "Flying increases your carbon footprint significantly.",
+    "exampleVi": "Đi máy bay làm tăng đáng kể dấu chân carbon của bạn.",
+    "imageId": "photo-1618477388954-7852f32655ec",
+    "topic": "environment"
+  },
+  {
+    "word": "Fossil fuel",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈfɒs.əl ˌfjʊəl/",
+    "ipaUs": "/ˈfɑː.səl ˌfjʊəl/",
+    "translation": "Nhiên liệu hóa thạch",
+    "example": "Coal and oil are fossil fuels.",
+    "exampleVi": "Than đá và dầu mỏ là nhiên liệu hóa thạch.",
+    "imageId": "photo-1518152006812-edab29b069ac",
+    "topic": "environment"
+  },
+  {
+    "word": "Acid rain",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˌæs.ɪd ˈreɪn/",
+    "ipaUs": "/ˌæs.ɪd ˈreɪn/",
+    "translation": "Mưa axit",
+    "example": "Acid rain has damaged lakes and forests across Northern Europe.",
+    "exampleVi": "Mưa axit đã làm hư hại các hồ và khu rừng trên khắp Bắc Âu.",
+    "imageId": "photo-1534274988757-a28bf1a57c17",
+    "topic": "environment"
+  },
+  {
+    "word": "Sanctuary",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈsæŋk.tʃu.ə.ri/",
+    "ipaUs": "/ˈsæŋk.tʃu.er.i/",
+    "translation": "Khu bảo tồn động vật hoang dã",
+    "example": "This island is a bird sanctuary.",
+    "exampleVi": "Hòn đảo này là một khu bảo tồn loài chim.",
+    "imageId": "photo-1500485035595-cbe6f645feb1",
+    "topic": "environment"
+  },
+  {
+    "word": "Drought",
+    "partOfSpeech": "noun",
+    "ipaUk": "/draʊt/",
+    "ipaUs": "/draʊt/",
+    "translation": "Hạn hán",
+    "example": "A severe drought has ruined crops in the region.",
+    "exampleVi": "Một trận hạn hán nghiêm trọng đã tàn phá mùa màng trong khu vực.",
+    "imageId": "photo-1504384308090-c894fdcc538d",
     "topic": "environment"
   },
   {
@@ -433,7 +763,7 @@ const VOCABULARY_DATA = [
   },
   {
     "word": "Demographic",
-    "partOfSpeech": "noun / adjective",
+    "partOfSpeech": "noun / adj",
     "ipaUk": "/ˌdem.əˈɡræf.ɪk/",
     "ipaUs": "/ˌdem.əˈɡræf.ɪk/",
     "translation": "Nhóm dân số, nhân khẩu học",
@@ -498,6 +828,1161 @@ const VOCABULARY_DATA = [
     "topic": "technology"
   },
   {
+    "word": "Digitalize",
+    "partOfSpeech": "verb",
+    "ipaUk": "/ˈdɪdʒ.ɪ.təl.aɪz/",
+    "ipaUs": "/ˈdɪdʒ.ə.t̬əl.aɪz/",
+    "translation": "Số hóa",
+    "example": "Many companies are trying to digitalize their traditional services.",
+    "exampleVi": "Nhiều công ty đang cố gắng số hóa các dịch vụ truyền thống của họ.",
+    "imageId": "photo-1516321307823-f06f85e504b3",
+    "topic": "technology"
+  },
+  {
+    "word": "Artificial intelligence",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˌɑː.tɪˈfɪʃ.əl ɪnˈtel.ɪ.dʒəns/",
+    "ipaUs": "/ˌɑːr.t̬əˈfɪʃ.əl ɪnˈtel.ə.dʒəns/",
+    "translation": "Trí tuệ nhân tạo (AI)",
+    "example": "Artificial intelligence is reshaping the future of healthcare.",
+    "exampleVi": "Trí tuệ nhân tạo đang tái định hình tương lai của y tế.",
+    "imageId": "photo-1485827404703-89b55fcc595e",
+    "topic": "technology"
+  },
+  {
+    "word": "Algorithm",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈæl.ɡə.rɪ.ðəm/",
+    "ipaUs": "/ˈæl.ɡə.rɪ.ðəm/",
+    "translation": "Thuật toán",
+    "example": "Social media sites use algorithms to recommend content.",
+    "exampleVi": "Các trang mạng xã hội sử dụng các thuật toán để gợi ý nội dung.",
+    "imageId": "photo-1550751827-4bd374c3f58b",
+    "topic": "technology"
+  },
+  {
+    "word": "Database",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈdeɪ.tə.beɪs/",
+    "ipaUs": "/ˈdeɪ.t̬ə.beɪs/",
+    "translation": "Cơ sở dữ liệu",
+    "example": "We need to update our client database regularly.",
+    "exampleVi": "Chúng tôi cần cập nhật cơ sở dữ liệu khách hàng thường xuyên.",
+    "imageId": "photo-1550751827-4bd374c3f58b",
+    "topic": "technology"
+  },
+  {
+    "word": "Telecom",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈtel.ɪ.kɒm/",
+    "ipaUs": "/ˈtel.ə.kɑːm/",
+    "translation": "Viễn thông",
+    "example": "The telecom industry has grown rapidly in the last decade.",
+    "exampleVi": "Ngành viễn thông đã phát triển nhanh chóng trong thập kỷ qua.",
+    "imageId": "photo-1519389950473-47ba0277781c",
+    "topic": "technology"
+  },
+  {
+    "word": "Software",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈsɒft.weər/",
+    "ipaUs": "/ˈsɑːft.wer/",
+    "translation": "Phần mềm",
+    "example": "He writes software program for mobile phones.",
+    "exampleVi": "Anh ấy viết chương trình phần mềm cho điện thoại di động.",
+    "imageId": "photo-1516321307823-f06f85e504b3",
+    "topic": "technology"
+  },
+  {
+    "word": "Hardware",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈhɑːd.weər/",
+    "ipaUs": "/ˈhɑːrd.wer/",
+    "translation": "Phần cứng",
+    "example": "Computer hardware components include CPU, RAM, and monitor.",
+    "exampleVi": "Các thành phần phần cứng máy tính bao gồm CPU, RAM và màn hình.",
+    "imageId": "photo-1544006659-f0b21f02473c",
+    "topic": "technology"
+  },
+  {
+    "word": "Biotech",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˌbaɪ.əʊˈtek/",
+    "ipaUs": "/ˌbaɪ.oʊˈtek/",
+    "translation": "Công nghệ sinh học",
+    "example": "Biotech advances have led to new medical discoveries.",
+    "exampleVi": "Những tiến bộ công nghệ sinh học đã dẫn đến các phát minh y tế mới.",
+    "imageId": "photo-1522071820081-009f0129c71c",
+    "topic": "technology"
+  },
+  {
+    "word": "Interface",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈɪn.tə.feɪs/",
+    "ipaUs": "/ˈɪn.t̬ɚ.feɪs/",
+    "translation": "Giao diện",
+    "example": "The app has a user-friendly interface.",
+    "exampleVi": "Ứng dụng này có giao diện thân thiện với người dùng.",
+    "imageId": "photo-1516321307823-f06f85e504b3",
+    "topic": "technology"
+  },
+  {
+    "word": "Nanotech",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈnæn.əʊ.tek/",
+    "ipaUs": "/ˈnæn.oʊ.tek/",
+    "translation": "Công nghệ nano",
+    "example": "Nanotech deals with structures at the atomic level.",
+    "exampleVi": "Công nghệ nano giải quyết các cấu trúc ở cấp độ nguyên tử.",
+    "imageId": "photo-1541888946425-d81bb19240f5",
+    "topic": "technology"
+  },
+  {
+    "word": "Smart device",
+    "partOfSpeech": "noun",
+    "ipaUk": "/smɑːt dɪˈvaɪs/",
+    "ipaUs": "/smɑːrt dɪˈvaɪs/",
+    "translation": "Thiết bị thông minh",
+    "example": "Smart devices allow users to control their homes remotely.",
+    "exampleVi": "Các thiết bị thông minh cho phép người dùng điều khiển nhà của họ từ xa.",
+    "imageId": "photo-1519389950473-47ba0277781c",
+    "topic": "technology"
+  },
+  {
+    "word": "Integration",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˌɪn.tɪˈɡreɪ.ʃən/",
+    "ipaUs": "/ˌɪn.t̬əˈɡreɪ.ʃən/",
+    "translation": "Sự tích hợp, hội nhập",
+    "example": "The integration of technology in classrooms has boosted engagement.",
+    "exampleVi": "Sự tích hợp công nghệ trong lớp học đã thúc đẩy sự tương tác.",
+    "imageId": "photo-1516321307823-f06f85e504b3",
+    "topic": "technology"
+  },
+  {
+    "word": "Connectivity",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˌkɒn.ekˈtɪv.ə.ti/",
+    "ipaUs": "/ˌkɑː.nekˈtɪv.ə.t̬i/",
+    "translation": "Khả năng kết nối",
+    "example": "5G technology offers high-speed mobile connectivity.",
+    "exampleVi": "Công nghệ 5G cung cấp khả năng kết nối di động tốc độ cao.",
+    "imageId": "photo-1519389950473-47ba0277781c",
+    "topic": "technology"
+  },
+  {
+    "word": "Breakthrough",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈbreɪk.θruː/",
+    "ipaUs": "/ˈbreɪk.θruː/",
+    "translation": "Bước đột phá",
+    "example": "This drug represents a major breakthrough in cancer treatment.",
+    "exampleVi": "Loại thuốc này thể hiện một bước đột phá lớn trong điều trị ung thư.",
+    "imageId": "photo-1451187580459-43490279c0fa",
+    "topic": "technology"
+  },
+  {
+    "word": "Encryption",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ɪnˈkrɪp.ʃən/",
+    "ipaUs": "/ɪnˈkrɪp.ʃən/",
+    "translation": "Sự mã hóa (thông tin)",
+    "example": "Data encryption prevents unauthorized access.",
+    "exampleVi": "Mã hóa dữ liệu ngăn chặn sự truy cập trái phép.",
+    "imageId": "photo-1550751827-4bd374c3f58b",
+    "topic": "technology"
+  },
+  {
+    "word": "Curriculum",
+    "partOfSpeech": "noun",
+    "ipaUk": "/kəˈrɪk.jə.ləm/",
+    "ipaUs": "/kəˈrɪk.jə.ləm/",
+    "translation": "Chương trình giảng dạy",
+    "example": "The school board is reviewing the new science curriculum.",
+    "exampleVi": "Ban giám hiệu nhà trường đang xem xét chương trình giảng dạy khoa học mới.",
+    "imageId": "photo-1451187580459-43490279c0fa",
+    "topic": "education"
+  },
+  {
+    "word": "Pedagogy",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈped.ə.ɡɒdʒ.i/",
+    "ipaUs": "/ˈped.ə.ɡɑː.dʒi/",
+    "translation": "Sư phạm, phương pháp giáo dục",
+    "example": "Modern pedagogy emphasizes student-centered learning.",
+    "exampleVi": "Sư phạm hiện đại nhấn mạnh vào việc học tập lấy người học làm trung tâm.",
+    "imageId": "photo-1517245386807-bb43f82c33c4",
+    "topic": "education"
+  },
+  {
+    "word": "Literacy",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈlɪt.ər.ə.si/",
+    "ipaUs": "/ˈlɪt̬.ɚ.ə.si/",
+    "translation": "Sự biết chữ, trình độ học vấn",
+    "example": "The government is trying to increase the adult literacy rate.",
+    "exampleVi": "Chính phủ đang cố gắng tăng tỷ lệ biết chữ ở người lớn.",
+    "imageId": "photo-1506784983877-45594efa4cbe",
+    "topic": "education"
+  },
+  {
+    "word": "Academic",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/ˌæk.əˈdem.ɪk/",
+    "ipaUs": "/ˌæk.əˈdem.ɪk/",
+    "translation": "Thuộc về học thuật",
+    "example": "The school year is divided into three academic terms.",
+    "exampleVi": "Năm học được chia thành ba học kỳ học thuật.",
+    "imageId": "photo-1451187580459-43490279c0fa",
+    "topic": "education"
+  },
+  {
+    "word": "Tuition",
+    "partOfSpeech": "noun",
+    "ipaUk": "/tʃuːˈɪʃ.ən/",
+    "ipaUs": "/tuːˈɪʃ.ən/",
+    "translation": "Học phí",
+    "example": "High tuition fees prevent many poor students from attending college.",
+    "exampleVi": "Học phí cao ngăn cản nhiều học sinh nghèo vào đại học.",
+    "imageId": "photo-1450133064473-71024230f91b",
+    "topic": "education"
+  },
+  {
+    "word": "Scholarship",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈskɒl.ə.ʃɪp/",
+    "ipaUs": "/ˈskɑː.lɚ.ʃɪp/",
+    "translation": "Học bổng",
+    "example": "She won a scholarship to study abroad.",
+    "exampleVi": "Cô ấy đã giành được học bổng đi du học.",
+    "imageId": "photo-1506784983877-45594efa4cbe",
+    "topic": "education"
+  },
+  {
+    "word": "Faculty",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈfæk.əl.ti/",
+    "ipaUs": "/ˈfæk.əl.t̬i/",
+    "translation": "Khoa, tập thể giảng viên",
+    "example": "He joined the medical school faculty last year.",
+    "exampleVi": "Anh ấy đã gia nhập đội ngũ giảng viên trường y vào năm ngoái.",
+    "imageId": "photo-1517245386807-bb43f82c33c4",
+    "topic": "education"
+  },
+  {
+    "word": "Discipline",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈdɪs.ə.plɪn/",
+    "ipaUs": "/ˈdɪs.ə.plɪn/",
+    "translation": "Kỷ luật, môn học học thuật",
+    "example": "Good classroom discipline is essential for learning.",
+    "exampleVi": "Kỷ luật tốt trong lớp học là điều cần thiết để học tập.",
+    "imageId": "photo-1517245386807-bb43f82c33c4",
+    "topic": "education"
+  },
+  {
+    "word": "Assessment",
+    "partOfSpeech": "noun",
+    "ipaUk": "/əˈses.mənt/",
+    "ipaUs": "/əˈses.mənt/",
+    "translation": "Sự đánh giá, bài kiểm tra",
+    "example": "Teachers use various types of assessment to grade students.",
+    "exampleVi": "Giáo viên sử dụng nhiều loại hình đánh giá khác nhau để xếp loại học sinh.",
+    "imageId": "photo-1507679799987-c73779587ccf",
+    "topic": "education"
+  },
+  {
+    "word": "Cognitive",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/ˈkɒɡ.nə.tɪv/",
+    "ipaUs": "/ˈkɑːɡ.nə.t̬ɪv/",
+    "translation": "Thuộc về nhận thức, tư duy",
+    "example": "Play helps children develop cognitive skills.",
+    "exampleVi": "Vui chơi giúp trẻ phát triển các kỹ năng nhận thức.",
+    "imageId": "photo-1506126613408-eca07ce68773",
+    "topic": "education"
+  },
+  {
+    "word": "Lecture",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈlek.tʃər/",
+    "ipaUs": "/ˈlek.tʃɚ/",
+    "translation": "Bài giảng, thuyết trình",
+    "example": "The professor gave an interesting lecture on history.",
+    "exampleVi": "Giáo sư đã đưa ra một bài giảng thú vị về lịch sử.",
+    "imageId": "photo-1517245386807-bb43f82c33c4",
+    "topic": "education"
+  },
+  {
+    "word": "Semester",
+    "partOfSpeech": "noun",
+    "ipaUk": "/sɪˈmes.tər/",
+    "ipaUs": "/sɪˈmes.tɚ/",
+    "translation": "Học kỳ (thường 2 kỳ/năm)",
+    "example": "I have final exams at the end of this semester.",
+    "exampleVi": "Tôi có kỳ thi cuối khóa vào cuối học kỳ này.",
+    "imageId": "photo-1506784983877-45594efa4cbe",
+    "topic": "education"
+  },
+  {
+    "word": "Syllabus",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈsɪl.ə.bəs/",
+    "ipaUs": "/ˈsɪl.ə.bəs/",
+    "translation": "Đề cương môn học",
+    "example": "Please read the syllabus carefully before the next class.",
+    "exampleVi": "Vui lòng đọc kỹ đề cương môn học trước buổi học tiếp theo.",
+    "imageId": "photo-1516321307823-f06f85e504b3",
+    "topic": "education"
+  },
+  {
+    "word": "Qualification",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˌkwɒl.ɪ.fɪˈkeɪ.ʃən/",
+    "ipaUs": "/ˌkwɑː.lə.fəˈkeɪ.ʃən/",
+    "translation": "Bằng cấp, trình độ chuyên môn",
+    "example": "You need professional qualifications to apply for this job.",
+    "exampleVi": "Bạn cần có trình độ chuyên môn để ứng tuyển cho công việc này.",
+    "imageId": "photo-1507679799987-c73779587ccf",
+    "topic": "education"
+  },
+  {
+    "word": "Enrollment",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ɪnˈrəʊl.mənt/",
+    "ipaUs": "/ɪnˈroʊl.mənt/",
+    "translation": "Sự ghi danh, tuyển sinh",
+    "example": "School enrollment has increased this year.",
+    "exampleVi": "Tỷ lệ tuyển sinh của trường đã tăng lên trong năm nay.",
+    "imageId": "photo-1517245386807-bb43f82c33c4",
+    "topic": "education"
+  },
+  {
+    "word": "Graduate",
+    "partOfSpeech": "verb / noun",
+    "ipaUk": "/ˈɡrædʒ.u.eɪt/",
+    "ipaUs": "/ˈɡrædʒ.u.eɪt/",
+    "translation": "Tốt nghiệp",
+    "example": "She hopes to graduate from university next summer.",
+    "exampleVi": "Cô ấy hy vọng sẽ tốt nghiệp đại học vào mùa hè tới.",
+    "imageId": "photo-1506784983877-45594efa4cbe",
+    "topic": "education"
+  },
+  {
+    "word": "Assignment",
+    "partOfSpeech": "noun",
+    "ipaUk": "/əˈsaɪn.mənt/",
+    "ipaUs": "/əˈsaɪn.mənt/",
+    "translation": "Bài tập, nhiệm vụ được giao",
+    "example": "Our chemistry assignment is due on Friday.",
+    "exampleVi": "Bài tập hóa học của chúng tôi phải nộp vào thứ Sáu.",
+    "imageId": "photo-1516321307823-f06f85e504b3",
+    "topic": "education"
+  },
+  {
+    "word": "Mentor",
+    "partOfSpeech": "noun / verb",
+    "ipaUk": "/ˈmen.tɔːr/",
+    "ipaUs": "/ˈmen.tɔːr/",
+    "translation": "Người hướng dẫn, cố vấn",
+    "example": "The senior engineer acted as a mentor to the new recruit.",
+    "exampleVi": "Kỹ sư cao cấp đóng vai trò là người cố vấn cho nhân viên mới.",
+    "imageId": "photo-1522071820081-009f0129c71c",
+    "topic": "education"
+  },
+  {
+    "word": "Institution",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˌɪn.stɪˈtʃuː.ʃən/",
+    "ipaUs": "/ˌɪn.stəˈtuː.ʃən/",
+    "translation": "Học viện, tổ chức giáo dục",
+    "example": "Harvard is a world-famous educational institution.",
+    "exampleVi": "Harvard là một tổ chức giáo dục nổi tiếng thế giới.",
+    "imageId": "photo-1517245386807-bb43f82c33c4",
+    "topic": "education"
+  },
+  {
+    "word": "Extracurricular",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/ˌek.strə.kəˈrɪk.jə.lər/",
+    "ipaUs": "/ˌek.strə.kəˈrɪk.jə.lɚ/",
+    "translation": "Ngoại khóa",
+    "example": "She is involved in many extracurricular activities.",
+    "exampleVi": "Cô ấy tham gia vào nhiều hoạt động ngoại khóa.",
+    "imageId": "photo-1516450360452-9312f5e86fc7",
+    "topic": "education"
+  },
+  {
+    "word": "Plagiarism",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈpleɪ.dʒər.ɪ.zəm/",
+    "ipaUs": "/ˈpleɪ.dʒɚ.ɪ.zəm/",
+    "translation": "Sự đạo văn",
+    "example": "The university has strict rules against plagiarism.",
+    "exampleVi": "Trường đại học có quy định nghiêm ngặt chống lại hành vi đạo văn.",
+    "imageId": "photo-1516321307823-f06f85e504b3",
+    "topic": "education"
+  },
+  {
+    "word": "Credentials",
+    "partOfSpeech": "noun",
+    "ipaUk": "/krɪˈden.ʃəlz/",
+    "ipaUs": "/krɪˈden.ʃəlz/",
+    "translation": "Chứng chỉ, giấy ủy quyền",
+    "example": "Please submit your academic credentials with your application.",
+    "exampleVi": "Vui lòng nộp chứng chỉ học thuật kèm theo đơn xin việc của bạn.",
+    "imageId": "photo-1507679799987-c73779587ccf",
+    "topic": "education"
+  },
+  {
+    "word": "E-learning",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈiːˌlɜː.nɪŋ/",
+    "ipaUs": "/ˈiːˌlɝː.nɪŋ/",
+    "translation": "Học trực tuyến",
+    "example": "E-learning has become much more popular after the pandemic.",
+    "exampleVi": "Học trực tuyến đã trở nên phổ biến hơn rất nhiều sau đại dịch.",
+    "imageId": "photo-1516321307823-f06f85e504b3",
+    "topic": "education"
+  },
+  {
+    "word": "Specialization",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˌspeʃ.əl.aɪˈzeɪ.ʃən/",
+    "ipaUs": "/ˌspeʃ.əl.əˈzeɪ.ʃən/",
+    "translation": "Chuyên ngành, sự chuyên môn hóa",
+    "example": "His specialization is organic chemistry.",
+    "exampleVi": "Chuyên ngành của anh ấy là hóa hữu cơ.",
+    "imageId": "photo-1507679799987-c73779587ccf",
+    "topic": "education"
+  },
+  {
+    "word": "Evaluation",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ɪˌvæl.juˈeɪ.ʃən/",
+    "ipaUs": "/ɪˌvæl.jəˈweɪ.ʃən/",
+    "translation": "Sự đánh giá (chất lượng)",
+    "example": "We need to make a careful evaluation of the program.",
+    "exampleVi": "Chúng tôi cần thực hiện một sự đánh giá cẩn thận về chương trình.",
+    "imageId": "photo-1507679799987-c73779587ccf",
+    "topic": "education"
+  },
+  {
+    "word": "Attendance",
+    "partOfSpeech": "noun",
+    "ipaUk": "/əˈten.dəns/",
+    "ipaUs": "/əˈten.dəns/",
+    "translation": "Sự đi học, chuyên cần",
+    "example": "The teacher keeps a record of daily attendance.",
+    "exampleVi": "Giáo viên giữ một hồ sơ theo dõi chuyên cần hàng ngày.",
+    "imageId": "photo-1517245386807-bb43f82c33c4",
+    "topic": "education"
+  },
+  {
+    "word": "Comprehend",
+    "partOfSpeech": "verb",
+    "ipaUk": "/ˌkɒm.prɪˈhend/",
+    "ipaUs": "/ˌkɑːm.prəˈhend/",
+    "translation": "Thấu hiểu, lĩnh hội",
+    "example": "He fails to comprehend the seriousness of the situation.",
+    "exampleVi": "Anh ấy không lĩnh hội được tính nghiêm trọng của tình huống.",
+    "imageId": "photo-1506126613408-eca07ce68773",
+    "topic": "education"
+  },
+  {
+    "word": "Rote learning",
+    "partOfSpeech": "noun",
+    "ipaUk": "/rəʊt ˈlɜː.nɪŋ/",
+    "ipaUs": "/roʊt ˈlɝː.nɪŋ/",
+    "translation": "Học vẹt, học thuộc lòng máy móc",
+    "example": "Rote learning does not encourage creative thinking.",
+    "exampleVi": "Học vẹt không khuyến khích tư duy sáng tạo.",
+    "imageId": "photo-1516321307823-f06f85e504b3",
+    "topic": "education"
+  },
+  {
+    "word": "Interactive",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/ˌɪn.təˈræk.tɪv/",
+    "ipaUs": "/ˌɪn.t̬ɚˈræk.tɪv/",
+    "translation": "Tương tác",
+    "example": "This online course uses interactive learning tools.",
+    "exampleVi": "Khóa học trực tuyến này sử dụng các công cụ học tập tương tác.",
+    "imageId": "photo-1516321307823-f06f85e504b3",
+    "topic": "education"
+  },
+  {
+    "word": "Undergrad",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˌʌn.dəˈɡræd.ju.ət/",
+    "ipaUs": "/ˌʌn.dɚˈɡræd.ju.ət/",
+    "translation": "Sinh viên đại học (chưa tốt nghiệp)",
+    "example": "The college offers housing for both undergrads and grads.",
+    "exampleVi": "Trường cung cấp nhà ở cho cả sinh viên chưa tốt nghiệp và sau đại học.",
+    "imageId": "photo-1506784983877-45594efa4cbe",
+    "topic": "education"
+  },
+  {
+    "word": "Employment",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ɪmˈplɔɪ.mənt/",
+    "ipaUs": "/ɪmˈplɔɪ.mənt/",
+    "translation": "Việc làm, sự thuê lao động",
+    "example": "It is difficult to find steady employment in rural areas.",
+    "exampleVi": "Rất khó để tìm kiếm việc làm ổn định ở các vùng nông thôn.",
+    "imageId": "photo-1507679799987-c73779587ccf",
+    "topic": "business"
+  },
+  {
+    "word": "Entrepreneur",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˌɒn.trə.prəˈnɜːr/",
+    "ipaUs": "/ˌɑːn.trə.prəˈnɝː/",
+    "translation": "Nhà khởi nghiệp",
+    "example": "He is a successful entrepreneur who started his business at 20.",
+    "exampleVi": "Anh ấy là một nhà khởi nghiệp thành công, người bắt đầu kinh doanh ở tuổi 20.",
+    "imageId": "photo-1522071820081-009f0129c71c",
+    "topic": "business"
+  },
+  {
+    "word": "Corporation",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˌkɔː.pərˈeɪ.ʃən/",
+    "ipaUs": "/ˌkɔːr.pəˈreɪ.ʃən/",
+    "translation": "Tập đoàn, tổng công ty",
+    "example": "He works for a multinational electronics corporation.",
+    "exampleVi": "Anh ấy làm việc cho một tập đoàn điện tử đa quốc gia.",
+    "imageId": "photo-1486406146926-c627a92ad1ab",
+    "topic": "business"
+  },
+  {
+    "word": "Revenue",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈrev.ən.juː/",
+    "ipaUs": "/ˈrev.ə.nuː/",
+    "translation": "Doanh thu",
+    "example": "The company's annual revenue rose by 10 percent.",
+    "exampleVi": "Doanh thu hàng năm của công ty đã tăng 10%.",
+    "imageId": "photo-1486406146926-c627a92ad1ab",
+    "topic": "business"
+  },
+  {
+    "word": "Expenditure",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ɪkˈspen.dɪ.tʃər/",
+    "ipaUs": "/ɪkˈspen.də.tʃɚ/",
+    "translation": "Chi phí, lượng chi tiêu",
+    "example": "The government is trying to limit public expenditure.",
+    "exampleVi": "Chính phủ đang cố gắng giới hạn chi tiêu công.",
+    "imageId": "photo-1450133064473-71024230f91b",
+    "topic": "business"
+  },
+  {
+    "word": "Negotiation",
+    "partOfSpeech": "noun",
+    "ipaUk": "/nɪˌɡəʊ.ʃiˈeɪ.ʃən/",
+    "ipaUs": "/nɪˌɡoʊ.ʃiˈeɪ.ʃən/",
+    "translation": "Sự đàm phán, thương lượng",
+    "example": "The contract is currently under negotiation.",
+    "exampleVi": "Hợp đồng hiện đang được đàm phán.",
+    "imageId": "photo-1522071820081-009f0129c71c",
+    "topic": "business"
+  },
+  {
+    "word": "Strategy",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈstræt.ə.dʒi/",
+    "ipaUs": "/ˈstræt̬.ə.dʒi/",
+    "translation": "Chiến lược",
+    "example": "The board met to discuss the long-term strategy of the company.",
+    "exampleVi": "Hội đồng quản trị đã họp để thảo luận về chiến lược dài hạn của công ty.",
+    "imageId": "photo-1486406146926-c627a92ad1ab",
+    "topic": "business"
+  },
+  {
+    "word": "Marketing",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈmɑː.kɪ.tɪŋ/",
+    "ipaUs": "/ˈmɑːr.kɪ.t̬ɪŋ/",
+    "translation": "Tiếp thị, marketing",
+    "example": "We need to invest more in online marketing campaigns.",
+    "exampleVi": "Chúng tôi cần đầu tư nhiều hơn vào các chiến dịch tiếp thị trực tuyến.",
+    "imageId": "photo-1519389950473-47ba0277781c",
+    "topic": "business"
+  },
+  {
+    "word": "Recruitment",
+    "partOfSpeech": "noun",
+    "ipaUk": "/rɪˈkruːt.mənt/",
+    "ipaUs": "/rɪˈkruːt.mənt/",
+    "translation": "Sự tuyển dụng",
+    "example": "The recruitment process has become much more digitized.",
+    "exampleVi": "Quy trình tuyển dụng đã trở nên kỹ thuật số hóa hơn nhiều.",
+    "imageId": "photo-1507679799987-c73779587ccf",
+    "topic": "business"
+  },
+  {
+    "word": "Executive",
+    "partOfSpeech": "noun / adjective",
+    "ipaUk": "/ɪɡˈzek.jə.tɪv/",
+    "ipaUs": "/ɪɡˈzek.jə.t̬ɪv/",
+    "translation": "Giám đốc, người điều hành",
+    "example": "She is a top executive at a local bank.",
+    "exampleVi": "Cô ấy là một giám đốc điều hành cấp cao tại một ngân hàng địa phương.",
+    "imageId": "photo-1507679799987-c73779587ccf",
+    "topic": "business"
+  },
+  {
+    "word": "Resign",
+    "partOfSpeech": "verb",
+    "ipaUk": "/rɪˈzaɪn/",
+    "ipaUs": "/rɪˈzaɪn/",
+    "translation": "Từ chức",
+    "example": "He resigned from his post as general manager.",
+    "exampleVi": "Anh ấy đã từ chức tổng giám đốc.",
+    "imageId": "photo-1450133064473-71024230f91b",
+    "topic": "business"
+  },
+  {
+    "word": "Promotion",
+    "partOfSpeech": "noun",
+    "ipaUk": "/prəˈməʊ.ʃən/",
+    "ipaUs": "/prəˈmoʊ.ʃən/",
+    "translation": "Sự thăng chức, quảng cáo",
+    "example": "He is hoping to get a promotion next year.",
+    "exampleVi": "Anh ấy hy vọng sẽ được thăng chức vào năm tới.",
+    "imageId": "photo-1507679799987-c73779587ccf",
+    "topic": "business"
+  },
+  {
+    "word": "Retirement",
+    "partOfSpeech": "noun",
+    "ipaUk": "/rɪˈtaɪə.mənt/",
+    "ipaUs": "/rɪˈtaɪr.mənt/",
+    "translation": "Sự nghỉ hưu",
+    "example": "He plans to travel a lot after his retirement.",
+    "exampleVi": "Anh ấy lên kế hoạch đi du lịch nhiều sau khi nghỉ hưu.",
+    "imageId": "photo-1470240731273-7821a6eeb6bd",
+    "topic": "business"
+  },
+  {
+    "word": "Productivity",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˌprɒd.ʌkˈtɪv.ə.ti/",
+    "ipaUs": "/ˌproʊ.dəkˈtɪv.ə.t̬i/",
+    "translation": "Năng suất",
+    "example": "High stress levels can reduce worker productivity.",
+    "exampleVi": "Mức độ căng thẳng cao có thể làm giảm năng suất của công nhân.",
+    "imageId": "photo-1522071820081-009f0129c71c",
+    "topic": "business"
+  },
+  {
+    "word": "Overtime",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈəʊ.və.taɪm/",
+    "ipaUs": "/ˈoʊ.vɚ.taɪm/",
+    "translation": "Tăng ca, ngoài giờ",
+    "example": "They are working overtime to finish the project on time.",
+    "exampleVi": "Họ đang làm việc tăng ca để hoàn thành dự án đúng hạn.",
+    "imageId": "photo-1522071820081-009f0129c71c",
+    "topic": "business"
+  },
+  {
+    "word": "Outsource",
+    "partOfSpeech": "verb",
+    "ipaUk": "/ˈaʊt.sɔːs/",
+    "ipaUs": "/ˈaʊt.sɔːrs/",
+    "translation": "Thuê ngoài",
+    "example": "We decide to outsource our software development tasks.",
+    "exampleVi": "Chúng tôi quyết định thuê ngoài các tác vụ phát triển phần mềm.",
+    "imageId": "photo-1516321307823-f06f85e504b3",
+    "topic": "business"
+  },
+  {
+    "word": "Merger",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈmɜː.dʒər/",
+    "ipaUs": "/ˈmɝː.dʒɚ/",
+    "translation": "Sự sáp nhập (hai công ty)",
+    "example": "The merger of the two telecom giants was approved.",
+    "exampleVi": "Sự sáp nhập của hai gã khổng lồ viễn thông đã được phê duyệt.",
+    "imageId": "photo-1486406146926-c627a92ad1ab",
+    "topic": "business"
+  },
+  {
+    "word": "Acquisition",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˌæk.wɪˈzɪʃ.ən/",
+    "ipaUs": "/ˌæk.wəˈzɪʃ.ən/",
+    "translation": "Sự thâu tóm, mua lại",
+    "example": "The company's latest acquisition is a small tech startup.",
+    "exampleVi": "Thương vụ mua lại mới nhất của công ty là một công ty công nghệ khởi nghiệp nhỏ.",
+    "imageId": "photo-1522071820081-009f0129c71c",
+    "topic": "business"
+  },
+  {
+    "word": "Profit margin",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈprɒf.ɪt ˌmɑː.dʒɪn/",
+    "ipaUs": "/ˈprɑː.fɪt ˌmɑːr.dʒɪn/",
+    "translation": "Biên lợi nhuận",
+    "example": "Low-cost airlines operate on a very tight profit margin.",
+    "exampleVi": "Các hãng hàng không giá rẻ hoạt động trên một biên lợi nhuận rất hẹp.",
+    "imageId": "photo-1486406146926-c627a92ad1ab",
+    "topic": "business"
+  },
+  {
+    "word": "Investment",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ɪnˈvest.mənt/",
+    "ipaUs": "/ɪnˈvest.mənt/",
+    "translation": "Sự đầu tư, khoản đầu tư",
+    "example": "Buying a house is a long-term investment.",
+    "exampleVi": "Mua nhà là một khoản đầu tư dài hạn.",
+    "imageId": "photo-1486406146926-c627a92ad1ab",
+    "topic": "business"
+  },
+  {
+    "word": "Stakeholder",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈsteɪk.həʊl.dər/",
+    "ipaUs": "/ˈsteɪk.hoʊl.dɚ/",
+    "translation": "Bên liên quan, cổ đông",
+    "example": "We need to involve all stakeholders in the decision-making process.",
+    "exampleVi": "Chúng tôi cần lôi kéo tất cả các bên liên quan tham gia vào quá trình ra quyết định.",
+    "imageId": "photo-1522071820081-009f0129c71c",
+    "topic": "business"
+  },
+  {
+    "word": "Resume",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈrez.juː.meɪ/",
+    "ipaUs": "/ˈrez.ə.meɪ/",
+    "translation": "Sơ yếu lý lịch, CV",
+    "example": "She sent her resume to several local companies.",
+    "exampleVi": "Cô ấy đã gửi sơ yếu lý lịch của mình cho một vài công ty địa phương.",
+    "imageId": "photo-1507679799987-c73779587ccf",
+    "topic": "business"
+  },
+  {
+    "word": "Interview",
+    "partOfSpeech": "noun / verb",
+    "ipaUk": "/ˈɪn.tə.vjuː/",
+    "ipaUs": "/ˈɪn.t̬ɚ.vjuː/",
+    "translation": "Phỏng vấn",
+    "example": "He has a job interview tomorrow morning.",
+    "exampleVi": "Anh ấy có một buổi phỏng vấn xin việc vào sáng mai.",
+    "imageId": "photo-1507679799987-c73779587ccf",
+    "topic": "business"
+  },
+  {
+    "word": "Resignation",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˌrez.ɪɡˈneɪ.ʃən/",
+    "ipaUs": "/ˌrez.ɪɡˈneɪ.ʃən/",
+    "translation": "Đơn xin thôi việc",
+    "example": "He handed in his resignation yesterday.",
+    "exampleVi": "Anh ấy đã nộp đơn xin thôi việc vào ngày hôm qua.",
+    "imageId": "photo-1450133064473-71024230f91b",
+    "topic": "business"
+  },
+  {
+    "word": "Redundancy",
+    "partOfSpeech": "noun",
+    "ipaUk": "/rɪˈdʌn.dən.si/",
+    "ipaUs": "/rɪˈdʌn.dən.si/",
+    "translation": "Sự cắt giảm nhân sự (do dư thừa)",
+    "example": "The economic crisis led to thousands of redundancies.",
+    "exampleVi": "Cuộc khủng hoảng kinh tế dẫn đến hàng ngàn người bị sa thải.",
+    "imageId": "photo-1450133064473-71024230f91b",
+    "topic": "business"
+  },
+  {
+    "word": "Turnover",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈtɜːn.əʊ.vər/",
+    "ipaUs": "/ˈtɝː.noʊ.vɚ/",
+    "translation": "Doanh thu / sự luân chuyển nhân sự",
+    "example": "A high employee turnover is bad for the company's morale.",
+    "exampleVi": "Sự luân chuyển nhân sự cao là không tốt cho tinh thần của công ty.",
+    "imageId": "photo-1522071820081-009f0129c71c",
+    "topic": "business"
+  },
+  {
+    "word": "Overhead",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈəʊ.və.hed/",
+    "ipaUs": "/ˈoʊ.vɚ.hed/",
+    "translation": "Chi phí vận hành cố định",
+    "example": "Renting a larger office space will increase our overhead.",
+    "exampleVi": "Thuê một văn phòng lớn hơn sẽ làm tăng chi phí vận hành cố định của chúng tôi.",
+    "imageId": "photo-1486406146926-c627a92ad1ab",
+    "topic": "business"
+  },
+  {
+    "word": "Subsidiary",
+    "partOfSpeech": "noun",
+    "ipaUk": "/səbˈsɪd.i.ə.ri/",
+    "ipaUs": "/səbˈsɪd.i.er.i/",
+    "translation": "Công ty con",
+    "example": "The company operates as a subsidiary of a larger group.",
+    "exampleVi": "Công ty hoạt động như một công ty con của một tập đoàn lớn hơn.",
+    "imageId": "photo-1522071820081-009f0129c71c",
+    "topic": "business"
+  },
+  {
+    "word": "Asset",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈæs.et/",
+    "ipaUs": "/ˈæs.et/",
+    "translation": "Tài sản",
+    "example": "The company's assets include factories, land, and machinery.",
+    "exampleVi": "Tài sản của công ty bao gồm nhà máy, đất đai và máy móc.",
+    "imageId": "photo-1486406146926-c627a92ad1ab",
+    "topic": "business"
+  },
+  {
+    "word": "Liability",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˌbaɪ.əˈbɪl.ə.ti/",
+    "ipaUs": "/ˌlaɪ.əˈbɪl.ə.t̬i/",
+    "translation": "Nợ phải trả, nghĩa vụ pháp lý",
+    "example": "We need to clear our current liabilities before taking another loan.",
+    "exampleVi": "Chúng tôi cần xóa sạch các khoản nợ phải trả hiện tại trước khi vay thêm khoản khác.",
+    "imageId": "photo-1450133064473-71024230f91b",
+    "topic": "business"
+  },
+  {
+    "word": "Nutrition",
+    "partOfSpeech": "noun",
+    "ipaUk": "/njuːˈtrɪʃ.ən/",
+    "ipaUs": "/nuːˈtrɪʃ.ən/",
+    "translation": "Dinh dưỡng",
+    "example": "Poor nutrition can lead to many health problems.",
+    "exampleVi": "Dinh dưỡng kém có thể dẫn đến nhiều vấn đề sức khỏe.",
+    "imageId": "photo-1470240731273-7821a6eeb6bd",
+    "topic": "health"
+  },
+  {
+    "word": "Infection",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ɪnˈfek.ʃən/",
+    "ipaUs": "/ɪnˈfek.ʃən/",
+    "translation": "Sự truyền nhiễm, nhiễm trùng",
+    "example": "Wash your hands regularly to prevent the spread of infection.",
+    "exampleVi": "Rửa tay thường xuyên để ngăn ngừa sự lây lan của nhiễm trùng.",
+    "imageId": "photo-1521791136064-7986c2920216",
+    "topic": "health"
+  },
+  {
+    "word": "Vaccine",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈvæk.siːn/",
+    "ipaUs": "/vækˈsiːn/",
+    "translation": "Vắc-xin",
+    "example": "Scientists developed a new vaccine against the virus.",
+    "exampleVi": "Các nhà khoa học đã phát triển một loại vắc-xin mới chống lại vi-rút.",
+    "imageId": "photo-1522071820081-009f0129c71c",
+    "topic": "health"
+  },
+  {
+    "word": "Diagnosis",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˌdaɪ.əɡˈnəʊ.sɪs/",
+    "ipaUs": "/ˌdaɪ.əɡˈnoʊ.sɪs/",
+    "translation": "Sự chẩn đoán",
+    "example": "An early diagnosis increases the chances of a successful cure.",
+    "exampleVi": "Chẩn đoán sớm làm tăng cơ hội điều trị thành công.",
+    "imageId": "photo-1506126613408-eca07ce68773",
+    "topic": "health"
+  },
+  {
+    "word": "Therapy",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈθer.ə.pi/",
+    "ipaUs": "/ˈθer.ə.pi/",
+    "translation": "Trị liệu, liệu pháp",
+    "example": "Physical therapy helped him walk again after the accident.",
+    "exampleVi": "Vật lý trị liệu đã giúp anh ấy đi lại được sau tai nạn.",
+    "imageId": "photo-1506126613408-eca07ce68773",
+    "topic": "health"
+  },
+  {
+    "word": "Symptom",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈsɪmp.təm/",
+    "ipaUs": "/ˈsɪmp.təm/",
+    "translation": "Triệu chứng",
+    "example": "A high fever is a common symptom of the flu.",
+    "exampleVi": "Sốt cao là một triệu chứng phổ biến của bệnh cúm.",
+    "imageId": "photo-1506126613408-eca07ce68773",
+    "topic": "health"
+  },
+  {
+    "word": "Chronic",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/ˈkrɒn.ɪk/",
+    "ipaUs": "/ˈkrɑː.nɪk/",
+    "translation": "Mãn tính",
+    "example": "He suffers from chronic back pain.",
+    "exampleVi": "Anh ấy bị đau lưng mãn tính.",
+    "imageId": "photo-1506126613408-eca07ce68773",
+    "topic": "health"
+  },
+  {
+    "word": "Acute",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/əˈkjuːt/",
+    "ipaUs": "/əˈkjuːt/",
+    "translation": "Cấp tính, nghiêm trọng",
+    "example": "She was admitted to the hospital with acute appendicitis.",
+    "exampleVi": "Cô ấy đã nhập viện vì viêm ruột thừa cấp tính.",
+    "imageId": "photo-1506126613408-eca07ce68773",
+    "topic": "health"
+  },
+  {
+    "word": "Epidemic",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˌep.ɪˈdem.ɪk/",
+    "ipaUs": "/ˌep.əˈdem.ɪk/",
+    "translation": "Dịch bệnh",
+    "example": "The government is trying to control the cholera epidemic.",
+    "exampleVi": "Chính phủ đang cố gắng kiểm soát dịch bệnh tả.",
+    "imageId": "photo-1618477388954-7852f32655ec",
+    "topic": "health"
+  },
+  {
+    "word": "Immunity",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ɪˈmjuː.nə.ti/",
+    "ipaUs": "/ɪˈmjuː.nə.t̬i/",
+    "translation": "Sự miễn dịch, đề kháng",
+    "example": "Vaccines build immunity against severe diseases.",
+    "exampleVi": "Vắc-xin xây dựng khả năng miễn dịch chống lại các bệnh nghiêm trọng.",
+    "imageId": "photo-1521791136064-7986c2920216",
+    "topic": "health"
+  },
+  {
+    "word": "Obesity",
+    "partOfSpeech": "noun",
+    "ipaUk": "/əʊˈbiː.sə.ti/",
+    "ipaUs": "/oʊˈbiː.sə.t̬i/",
+    "translation": "Bệnh béo phì",
+    "example": "Obesity is a major risk factor for heart disease.",
+    "exampleVi": "Béo phì là yếu tố nguy cơ lớn dẫn đến bệnh tim.",
+    "imageId": "photo-1506126613408-eca07ce68773",
+    "topic": "health"
+  },
+  {
+    "word": "Wellness",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈwel.nəs/",
+    "ipaUs": "/ˈwel.nəs/",
+    "translation": "Sự khỏe mạnh, thể trạng tốt",
+    "example": "The spa offers various health and wellness programs.",
+    "exampleVi": "Spa cung cấp nhiều chương trình sức khỏe và thể trạng tốt khác nhau.",
+    "imageId": "photo-1507525428034-b723cf961d3e",
+    "topic": "health"
+  },
+  {
+    "word": "Exercise",
+    "partOfSpeech": "noun / verb",
+    "ipaUk": "/ˈek.sə.saɪz/",
+    "ipaUs": "/ˈek.sɚ.saɪz/",
+    "translation": "Tập thể dục, rèn luyện",
+    "example": "Regular exercise is important for cardiovascular health.",
+    "exampleVi": "Tập thể dục thường xuyên rất quan trọng đối với sức khỏe tim mạch.",
+    "imageId": "photo-1506784983877-45594efa4cbe",
+    "topic": "health"
+  },
+  {
+    "word": "Tournament",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈtʊə.nə.mənt/",
+    "ipaUs": "/ˈtʊr.nə.mənt/",
+    "translation": "Giải thi đấu",
+    "example": "He won the regional tennis tournament.",
+    "exampleVi": "Anh ấy đã giành chiến thắng trong giải đấu quần vợt khu vực.",
+    "imageId": "photo-1516450360452-9312f5e86fc7",
+    "topic": "health"
+  },
+  {
+    "word": "Athlete",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈæθ.liːt/",
+    "ipaUs": "/ˈæθ.liːt/",
+    "translation": "Vận động viên",
+    "example": "She is a world-class professional athlete.",
+    "exampleVi": "Cô ấy là một vận động viên chuyên nghiệp tầm cỡ thế giới.",
+    "imageId": "photo-1506784983877-45594efa4cbe",
+    "topic": "health"
+  },
+  {
+    "word": "Coach",
+    "partOfSpeech": "noun",
+    "ipaUk": "/kəʊtʃ/",
+    "ipaUs": "/koʊtʃ/",
+    "translation": "Huấn luyện viên",
+    "example": "The team hired a new basketball coach.",
+    "exampleVi": "Đội bóng đã thuê một huấn luyện viên bóng rổ mới.",
+    "imageId": "photo-1522071820081-009f0129c71c",
+    "topic": "health"
+  },
+  {
+    "word": "Stadium",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈsteɪ.di.əm/",
+    "ipaUs": "/ˈsteɪ.di.əm/",
+    "translation": "Sân vận động",
+    "example": "Thousands of fans flocked to the stadium.",
+    "exampleVi": "Hàng ngàn người hâm mộ đã đổ xô đến sân vận động.",
+    "imageId": "photo-1541888946425-d81bb19240f5",
+    "topic": "health"
+  },
+  {
+    "word": "Referee",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˌref.əˈriː/",
+    "ipaUs": "/ˌref.əˈriː/",
+    "translation": "Trọng tài",
+    "example": "The referee blew his whistle to end the match.",
+    "exampleVi": "Trọng tài đã thổi còi để kết thúc trận đấu.",
+    "imageId": "photo-1507679799987-c73779587ccf",
+    "topic": "health"
+  },
+  {
+    "word": "Gymnast",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈdʒɪm.næst/",
+    "ipaUs": "/ˈdʒɪm.næst/",
+    "translation": "Vận động viên thể dục dụng cụ",
+    "example": "She trained for years to become an Olympic gymnast.",
+    "exampleVi": "Cô ấy đã tập luyện trong nhiều năm để trở thành một vận động viên thể dục dụng cụ Olympic.",
+    "imageId": "photo-1506784983877-45594efa4cbe",
+    "topic": "health"
+  },
+  {
+    "word": "Marathon",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈmær.ə.θən/",
+    "ipaUs": "/ˈmær.ə.θɑːn/",
+    "translation": "Chạy marathon, việt dã",
+    "example": "He ran his first marathon in under four hours.",
+    "exampleVi": "Anh ấy đã chạy trận marathon đầu tiên của mình dưới bốn giờ.",
+    "imageId": "photo-1506784983877-45594efa4cbe",
+    "topic": "health"
+  },
+  {
+    "word": "Championship",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈtʃæm.pi.ən.ʃɪp/",
+    "ipaUs": "/ˈtʃæm.pi.ən.ʃɪp/",
+    "translation": "Chức vô địch, giải vô địch",
+    "example": "They won the national football championship.",
+    "exampleVi": "Họ đã giành được chức vô địch bóng đá quốc gia.",
+    "imageId": "photo-1516450360452-9312f5e86fc7",
+    "topic": "health"
+  },
+  {
+    "word": "Rehabilitation",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˌriː.hə.bɪl.ɪˈteɪ.ʃən/",
+    "ipaUs": "/ˌriː.hə.bɪl.əˈteɪ.ʃən/",
+    "translation": "Sự phục hồi chức năng",
+    "example": "He spent three months in rehabilitation after the stroke.",
+    "exampleVi": "Anh ấy đã dành ba tháng để phục hồi chức năng sau cơn đột quỵ.",
+    "imageId": "photo-1506126613408-eca07ce68773",
+    "topic": "health"
+  },
+  {
+    "word": "Preventative",
+    "partOfSpeech": "adjective",
+    "ipaUk": "/prɪˈven.tɪ.tɪv/",
+    "ipaUs": "/prɪˈven.t̬ɪ.t̬ɪv/",
+    "translation": "Phòng ngừa, phòng bệnh",
+    "example": "Regular check-ups are key preventative healthcare measures.",
+    "exampleVi": "Khám sức khỏe định kỳ là các biện pháp chăm sóc sức khỏe phòng ngừa chính.",
+    "imageId": "photo-1522071820081-009f0129c71c",
+    "topic": "health"
+  },
+  {
+    "word": "Hygiene",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈhaɪ.dʒiːn/",
+    "ipaUs": "/ˈhaɪ.dʒiːn/",
+    "translation": "Vệ sinh, sự giữ sạch sẽ",
+    "example": "Good personal hygiene is vital to stay healthy.",
+    "exampleVi": "Vệ sinh cá nhân tốt là rất quan trọng để duy trì sức khỏe.",
+    "imageId": "photo-1532601224476-15c79f2f7a51",
+    "topic": "health"
+  },
+  {
+    "word": "Prescription",
+    "partOfSpeech": "noun",
+    "ipaUk": "/prɪˈskrɪp.ʃən/",
+    "ipaUs": "/prɪˈskrɪp.ʃən/",
+    "translation": "Đơn thuốc, toa thuốc",
+    "example": "The doctor wrote a prescription for antibiotics.",
+    "exampleVi": "Bác sĩ đã viết một đơn thuốc kháng sinh.",
+    "imageId": "photo-1506126613408-eca07ce68773",
+    "topic": "health"
+  },
+  {
+    "word": "Pharmacy",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈfɑː.mə.si/",
+    "ipaUs": "/ˈfɑːr.mə.si/",
+    "translation": "Nhà thuốc, dược khoa",
+    "example": "You can buy this medicine at the local pharmacy.",
+    "exampleVi": "Bạn có thể mua loại thuốc này tại nhà thuốc địa phương.",
+    "imageId": "photo-1506126613408-eca07ce68773",
+    "topic": "health"
+  },
+  {
+    "word": "Allergy",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˈæl.ə.dʒi/",
+    "ipaUs": "/ˈæl.ɚ.dʒi/",
+    "translation": "Sự dị ứng",
+    "example": "He has a food allergy to peanuts.",
+    "exampleVi": "Anh ấy bị dị ứng thực phẩm với đậu phộng.",
+    "imageId": "photo-1506126613408-eca07ce68773",
+    "topic": "health"
+  },
+  {
+    "word": "Carbohydrate",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ˌkɑː.bəʊˈhaɪ.dreɪt/",
+    "ipaUs": "/ˌkɑːr.boʊˈhaɪ.dreɪt/",
+    "translation": "Tinh bột, carbohydrate",
+    "example": "Bread and rice are rich in carbohydrates.",
+    "exampleVi": "Bánh mì và gạo rất giàu tinh bột.",
+    "imageId": "photo-1470240731273-7821a6eeb6bd",
+    "topic": "health"
+  },
+  {
+    "word": "Metabolism",
+    "partOfSpeech": "noun",
+    "ipaUk": "/məˈtæb.əl.ɪ.zəm/",
+    "ipaUs": "/məˈtæb.əl.ɪ.zəm/",
+    "translation": "Sự trao đổi chất",
+    "example": "Regular exercise increases your metabolism rate.",
+    "exampleVi": "Tập thể dục thường xuyên làm tăng tỷ lệ trao đổi chất của bạn.",
+    "imageId": "photo-1506784983877-45594efa4cbe",
+    "topic": "health"
+  },
+  {
+    "word": "Endurance",
+    "partOfSpeech": "noun",
+    "ipaUk": "/ɪnˈdʒʊə.rəns/",
+    "ipaUs": "/ɪnˈdʊr.əns/",
+    "translation": "Sức chịu đựng, sự bền bỉ",
+    "example": "Running daily improves your muscle endurance.",
+    "exampleVi": "Chạy hàng ngày cải thiện sức bền cơ bắp của bạn.",
+    "imageId": "photo-1506784983877-45594efa4cbe",
+    "topic": "health"
+  },
+  {
     "word": "account for",
     "partOfSpeech": "phr v",
     "ipaUk": "/əˈkaʊnt fɔːr/",
@@ -505,7 +1990,7 @@ const VOCABULARY_DATA = [
     "translation": "giải thích, chiếm",
     "example": "All people who were working in the building have now been accounted for.",
     "exampleVi": "Tất cả những người làm việc trong tòa nhà hiện đã được xác nhận.",
-    "imageId": "photo-1516321318423-f06f85e504b3",
+    "imageId": "photo-1507679799987-c73779587ccf",
     "topic": "phrasal-verbs"
   },
   {
@@ -516,7 +2001,7 @@ const VOCABULARY_DATA = [
     "translation": "tính đến, xem xét đến",
     "example": "She allows for me to follow her.",
     "exampleVi": "Cô ấy cho phép tôi đi theo.",
-    "imageId": "photo-1516321318423-f06f85e504b3",
+    "imageId": "photo-1522071820081-009f0129c71c",
     "topic": "phrasal-verbs"
   },
   {
@@ -527,7 +2012,7 @@ const VOCABULARY_DATA = [
     "translation": "hỏi thăm sức khỏe",
     "example": "If you want to know how he is now, you should ask after him.",
     "exampleVi": "Nếu bạn muốn biết bây giờ anh ấy thế nào, bạn nên hỏi thăm anh ấy.",
-    "imageId": "photo-1507679799987-c73779587ccf",
+    "imageId": "photo-1521791136064-7986c2920216",
     "topic": "phrasal-verbs"
   },
   {
@@ -538,7 +2023,7 @@ const VOCABULARY_DATA = [
     "translation": "hỏi xin",
     "example": "I was driving, a man asking me for a lift.",
     "exampleVi": "Tôi đang lái xe thì một người đàn ông xin đi nhờ.",
-    "imageId": "photo-1507679799987-c73779587ccf",
+    "imageId": "photo-1544717305-2782549b5136",
     "topic": "phrasal-verbs"
   },
   {
@@ -549,7 +2034,7 @@ const VOCABULARY_DATA = [
     "translation": "tiến lên, tấn công",
     "example": "The army began to advance on the city.",
     "exampleVi": "Quân đội bắt đầu tiến về phía thành phố.",
-    "imageId": "photo-1516321318423-f06f85e504b3",
+    "imageId": "photo-1541888946425-d81bb19240f5",
     "topic": "phrasal-verbs"
   },
   {
@@ -582,7 +2067,7 @@ const VOCABULARY_DATA = [
     "translation": "chịu trách nhiệm về",
     "example": "You have to answer for your trouble at the meeting tomorrow.",
     "exampleVi": "Bạn sẽ phải chịu trách nhiệm về những rắc rối của mình tại cuộc họp ngày mai.",
-    "imageId": "photo-1516321318423-f06f85e504b3",
+    "imageId": "photo-1450133064473-71024230f91b",
     "topic": "phrasal-verbs"
   },
   {
@@ -593,7 +2078,7 @@ const VOCABULARY_DATA = [
     "translation": "chăm sóc, phục vụ",
     "example": "A nurse attended to his needs constantly.",
     "exampleVi": "Một y tá liên tục chăm sóc các nhu cầu của anh ấy.",
-    "imageId": "photo-1544717305-2782549b5136",
+    "imageId": "photo-1521791136064-7986c2920216",
     "topic": "phrasal-verbs"
   },
   {
@@ -615,7 +2100,7 @@ const VOCABULARY_DATA = [
     "translation": "mang lại, giới thiệu",
     "example": "She brings in about $600 a week.",
     "exampleVi": "Cô ấy kiếm được khoảng 600 đô la một tuần.",
-    "imageId": "photo-1513151233558-d860c5398176",
+    "imageId": "photo-1486406146926-c627a92ad1ab",
     "topic": "phrasal-verbs"
   },
   {
@@ -626,7 +2111,7 @@ const VOCABULARY_DATA = [
     "translation": "nuôi dưỡng, đề cập",
     "example": "An aunt brought him up.",
     "exampleVi": "Một người dì đã nuôi nấng anh ấy.",
-    "imageId": "photo-1513151233558-d860c5398176",
+    "imageId": "photo-1521791136064-7986c2920216",
     "topic": "phrasal-verbs"
   },
   {
@@ -637,7 +2122,7 @@ const VOCABULARY_DATA = [
     "translation": "ủng hộ, sao lưu",
     "example": "The traffic is starting to back up on the highway.",
     "exampleVi": "Giao thông đang bắt đầu ùn ứ trên đường cao tốc.",
-    "imageId": "photo-1521791136064-7986c2920216",
+    "imageId": "photo-1550751827-4bd374c3f58b",
     "topic": "phrasal-verbs"
   },
   {
@@ -692,7 +2177,7 @@ const VOCABULARY_DATA = [
     "translation": "chia tay, tan rã",
     "example": "He moved away after the break-up of his marriage.",
     "exampleVi": "Anh ấy đã chuyển đi nơi khác sau khi cuộc hôn nhân tan vỡ.",
-    "imageId": "photo-1521898284481-a5ec348cb555",
+    "imageId": "photo-1522075469751-3a6694fb2f61",
     "topic": "phrasal-verbs"
   },
   {
@@ -714,7 +2199,7 @@ const VOCABULARY_DATA = [
     "translation": "hạ xuống, đánh sập",
     "example": "The old building finally was brought down.",
     "exampleVi": "Tòa nhà cũ cuối cùng đã bị đánh sập.",
-    "imageId": "photo-1513151233558-d860c5398176",
+    "imageId": "photo-1541888946425-d81bb19240f5",
     "topic": "phrasal-verbs"
   },
   {
@@ -725,7 +2210,7 @@ const VOCABULARY_DATA = [
     "translation": "làm nổi bật, đưa ra",
     "example": "The artists' greatest wish was to bring out the best in their admirers.",
     "exampleVi": "Ước nguyện lớn nhất của các nghệ sĩ là khơi gợi điều tốt đẹp nhất ở những người ngưỡng mộ họ.",
-    "imageId": "photo-1513151233558-d860c5398176",
+    "imageId": "photo-1451187580459-43490279c0fa",
     "topic": "phrasal-verbs"
   },
   {
@@ -736,7 +2221,7 @@ const VOCABULARY_DATA = [
     "translation": "thành công, hoàn thành",
     "example": "England was close to victory, but they couldn't quite bring it off.",
     "exampleVi": "Nước Anh đã ở rất gần chiến thắng, nhưng họ đã không thể hoàn thành mục tiêu.",
-    "imageId": "photo-1513151233558-d860c5398176",
+    "imageId": "photo-1516450360452-9312f5e86fc7",
     "topic": "phrasal-verbs"
   },
   {
@@ -758,7 +2243,7 @@ const VOCABULARY_DATA = [
     "translation": "hủy bỏ",
     "example": "Union leaders called the strike off at the last minute.",
     "exampleVi": "Các nhà lãnh đạo công đoàn đã hủy bỏ cuộc đình công vào phút cuối.",
-    "imageId": "photo-1516321497487-e288fb19713f",
+    "imageId": "photo-1518495973542-4542c06a5843",
     "topic": "phrasal-verbs"
   },
   {
@@ -769,7 +2254,7 @@ const VOCABULARY_DATA = [
     "translation": "nghĩ ra, nảy ra",
     "example": "He came up with a great idea for the ad campaign.",
     "exampleVi": "Anh ấy đã nghĩ ra một ý tưởng tuyệt vời cho chiến dịch quảng cáo.",
-    "imageId": "photo-1588196749597-9ff075ee6b5b",
+    "imageId": "photo-1451187580459-43490279c0fa",
     "topic": "phrasal-verbs"
   },
   {
@@ -791,7 +2276,7 @@ const VOCABULARY_DATA = [
     "translation": "cắt giảm, chặt",
     "example": "She used to work 50 hours a week, but recently she’s cut down.",
     "exampleVi": "Cô ấy từng làm việc 50 giờ một tuần, nhưng gần đây cô ấy đã cắt giảm.",
-    "imageId": "photo-1541888946425-d81bb19240f5",
+    "imageId": "photo-1504384308090-c894fdcc538d",
     "topic": "phrasal-verbs"
   },
   {
@@ -813,7 +2298,7 @@ const VOCABULARY_DATA = [
     "translation": "xảy ra",
     "example": "How did the problem come about in the first place?",
     "exampleVi": "Làm thế nào mà vấn đề này lại xảy ra ngay từ đầu?",
-    "imageId": "photo-1588196749597-9ff075ee6b5b",
+    "imageId": "photo-1507679799987-c73779587ccf",
     "topic": "phrasal-verbs"
   },
   {
@@ -824,7 +2309,7 @@ const VOCABULARY_DATA = [
     "translation": "đăng ký vào, nhận phòng",
     "example": "Passengers are requested to check in two hours before the flight.",
     "exampleVi": "Hành khách được yêu cầu làm thủ tục trước chuyến bay hai giờ.",
-    "imageId": "photo-1550751827-4bd374c3f58b",
+    "imageId": "photo-1517245386807-bb43f82c33c4",
     "topic": "phrasal-verbs"
   },
   {
@@ -835,7 +2320,7 @@ const VOCABULARY_DATA = [
     "translation": "trả phòng, thanh toán",
     "example": "Please remember to leave your room keys at reception when you check out.",
     "exampleVi": "Xin nhớ để lại chìa khóa phòng tại quầy lễ tân khi bạn trả phòng.",
-    "imageId": "photo-1550751827-4bd374c3f58b",
+    "imageId": "photo-1517245386807-bb43f82c33c4",
     "topic": "phrasal-verbs"
   },
   {
@@ -857,7 +2342,7 @@ const VOCABULARY_DATA = [
     "translation": "thực hiện, tiến hành",
     "example": "I was elected to carry out a program, the governor said.",
     "exampleVi": "Thống đốc cho biết: \"Tôi được bầu ra để thực hiện một chương trình.\"",
-    "imageId": "photo-1486406146926-c627a92ad1ab",
+    "imageId": "photo-1541888946425-d81bb19240f5",
     "topic": "phrasal-verbs"
   },
   {
@@ -868,7 +2353,7 @@ const VOCABULARY_DATA = [
     "translation": "rã ra, vỡ vụn",
     "example": "I picked up the book and it came apart in my hands.",
     "exampleVi": "Tôi nhặt cuốn sách lên và nó rã ra trên tay tôi.",
-    "imageId": "photo-1588196749597-9ff075ee6b5b",
+    "imageId": "photo-1521898284481-a5ec348cb555",
     "topic": "phrasal-verbs"
   },
   {
@@ -890,7 +2375,7 @@ const VOCABULARY_DATA = [
     "translation": "ghé thăm, tạt qua",
     "example": "I dropped in on George on my way home from school.",
     "exampleVi": "Tôi đã ghé vào thăm George trên đường đi học về.",
-    "imageId": "photo-1498330177096-689e3fb901ca",
+    "imageId": "photo-1522071820081-009f0129c71c",
     "topic": "phrasal-verbs"
   },
   {
@@ -912,7 +2397,7 @@ const VOCABULARY_DATA = [
     "translation": "tắt dần, nhỏ dần",
     "example": "The last notes die away and the audience burst into applause.",
     "exampleVi": "Những nốt nhạc cuối cùng tắt dần và khán giả bùng nổ trong tiếng vỗ tay.",
-    "imageId": "photo-1504384308090-c894fdcc538d",
+    "imageId": "photo-1498330177096-689e3fb901ca",
     "topic": "phrasal-verbs"
   },
   {
@@ -934,7 +2419,7 @@ const VOCABULARY_DATA = [
     "translation": "rất muốn, thèm chết được",
     "example": "I'm dying for the weekend - this week's been so hard.",
     "exampleVi": "Tôi rất mong đợi đến cuối tuần - tuần này thật là vất vả.",
-    "imageId": "photo-1504384308090-c894fdcc538d",
+    "imageId": "photo-1470240731273-7821a6eeb6bd",
     "topic": "phrasal-verbs"
   },
   {
@@ -945,7 +2430,7 @@ const VOCABULARY_DATA = [
     "translation": "ngủ thiếp đi, giảm đi",
     "example": "I dropped off during the play and woke up when it ended.",
     "exampleVi": "Tôi ngủ thiếp đi trong suốt vở kịch và thức dậy khi nó kết thúc.",
-    "imageId": "photo-1498330177096-689e3fb901ca",
+    "imageId": "photo-1506126613408-eca07ce68773",
     "topic": "phrasal-verbs"
   },
   {
@@ -967,7 +2452,7 @@ const VOCABULARY_DATA = [
     "translation": "rút lui, lùi lại",
     "example": "The army fell back after losing the battle.",
     "exampleVi": "Quân đội đã rút lui sau khi thua trận.",
-    "imageId": "photo-1480074568708-e7b720bb3f09",
+    "imageId": "photo-1541888946425-d81bb19240f5",
     "topic": "phrasal-verbs"
   },
   {
@@ -978,7 +2463,7 @@ const VOCABULARY_DATA = [
     "translation": "yêu thích, bị lừa bởi",
     "example": "He fell for her the moment their eyes met.",
     "exampleVi": "Anh ấy đã yêu cô ấy ngay từ khoảnh khắc mắt họ chạm nhau.",
-    "imageId": "photo-1480074568708-e7b720bb3f09",
+    "imageId": "photo-1522075469751-3a6694fb2f61",
     "topic": "phrasal-verbs"
   },
   {
@@ -1033,7 +2518,7 @@ const VOCABULARY_DATA = [
     "translation": "chịu thua, nộp (bài)",
     "example": "He nagged me so much for a bike that eventually I gave in.",
     "exampleVi": "Nó mè nheo đòi xe đạp nhiều quá nên cuối cùng tôi đành chịu thua.",
-    "imageId": "photo-1544717305-2782549b5136",
+    "imageId": "photo-1489440543286-a69330151c0b",
     "topic": "phrasal-verbs"
   },
   {
@@ -1044,7 +2529,7 @@ const VOCABULARY_DATA = [
     "translation": "kiểm tra lại, đi qua",
     "example": "Let's go over the plan once more to make sure we're ready.",
     "exampleVi": "Chúng ta hãy cùng kiểm tra lại kế hoạch một lần nữa để chắc chắn rằng đã sẵn sàng.",
-    "imageId": "photo-1486406146926-c627a92ad1ab",
+    "imageId": "photo-1507679799987-c73779587ccf",
     "topic": "phrasal-verbs"
   },
   {
@@ -1055,7 +2540,7 @@ const VOCABULARY_DATA = [
     "translation": "từ bỏ",
     "example": "You’ll never guess the answer – do you give up?",
     "exampleVi": "Bạn sẽ không bao giờ đoán được câu trả lời đâu - bạn có bỏ cuộc không?",
-    "imageId": "photo-1544717305-2782549b5136",
+    "imageId": "photo-1489440543286-a69330151c0b",
     "topic": "phrasal-verbs"
   },
   {
@@ -1077,7 +2562,7 @@ const VOCABULARY_DATA = [
     "translation": "đi lại, lan truyền",
     "example": "I get about a lot with my job- last year I visited eleven countries.",
     "exampleVi": "Tôi đi lại rất nhiều vì công việc - năm ngoái tôi đã đi thăm mười một quốc gia.",
-    "imageId": "photo-1521791136064-7986c2920216",
+    "imageId": "photo-1507525428034-b723cf961d3e",
     "topic": "phrasal-verbs"
   },
   {
@@ -1088,7 +2573,7 @@ const VOCABULARY_DATA = [
     "translation": "xoay xở, sống sót",
     "example": "They're finding it increasingly difficult to get by lately.",
     "exampleVi": "Dạo gần đây họ đang cảm thấy ngày càng khó khăn để xoay xở cuộc sống.",
-    "imageId": "photo-1521791136064-7986c2920216",
+    "imageId": "photo-1506126613408-eca07ce68773",
     "topic": "phrasal-verbs"
   },
   {
@@ -1099,7 +2584,7 @@ const VOCABULARY_DATA = [
     "translation": "thức dậy, đứng lên",
     "example": "I get up at seven o'clock on weekdays.",
     "exampleVi": "Tôi thức dậy lúc 7 giờ sáng vào các ngày trong tuần.",
-    "imageId": "photo-1521791136064-7986c2920216",
+    "imageId": "photo-1518495973542-4542c06a5843",
     "topic": "phrasal-verbs"
   },
   {
@@ -1110,7 +2595,7 @@ const VOCABULARY_DATA = [
     "translation": "trì hoãn, chống đỡ",
     "example": "I hope the repairs hold up until we can get to a garage.",
     "exampleVi": "Tôi hy vọng các mối sửa chữa sẽ chịu được cho đến khi chúng tôi tới tiệm sửa xe.",
-    "imageId": "photo-1522071820081-009f0129c71c",
+    "imageId": "photo-1541888946425-d81bb19240f5",
     "topic": "phrasal-verbs"
   },
   {
@@ -1121,7 +2606,7 @@ const VOCABULARY_DATA = [
     "translation": "đợi một chút, giữ chặt",
     "example": "Hold on. I’ll be ready in just a moment.",
     "exampleVi": "Chờ chút. Tôi sẽ sẵn sàng ngay bây giờ.",
-    "imageId": "photo-1522071820081-009f0129c71c",
+    "imageId": "photo-1516321497487-e288fb19713f",
     "topic": "phrasal-verbs"
   },
   {
@@ -1132,7 +2617,7 @@ const VOCABULARY_DATA = [
     "translation": "kiềm chế, giữ lại",
     "example": "He held back, terrified of going into the dark room.",
     "exampleVi": "Anh ấy dừng lại, sợ hãi không dám bước vào căn phòng tối.",
-    "imageId": "photo-1522071820081-009f0129c71c",
+    "imageId": "photo-1506126613408-eca07ce68773",
     "topic": "phrasal-verbs"
   },
   {
@@ -1154,7 +2639,7 @@ const VOCABULARY_DATA = [
     "translation": "duy trì, bắt kịp",
     "example": "I read the papers to keep up with what’s happening.",
     "exampleVi": "Tôi đọc báo để bắt kịp những gì đang xảy ra.",
-    "imageId": "photo-1517245386807-bb43f82c33c4",
+    "imageId": "photo-1515187029135-18ee286d815b",
     "topic": "phrasal-verbs"
   },
   {
@@ -1165,7 +2650,7 @@ const VOCABULARY_DATA = [
     "translation": "giữ bên mình",
     "example": "I keep a dictionary around when I'm doing my homework.",
     "exampleVi": "Tôi luôn để từ điển gần bên khi làm bài tập về nhà.",
-    "imageId": "photo-1517245386807-bb43f82c33c4",
+    "imageId": "photo-1516321307823-f06f85e504b3",
     "topic": "phrasal-verbs"
   },
   {
@@ -1176,7 +2661,7 @@ const VOCABULARY_DATA = [
     "translation": "tránh xa",
     "example": "Medicines should be kept away from children.",
     "exampleVi": "Thuốc nên được để tránh xa tầm tay trẻ em.",
-    "imageId": "photo-1517245386807-bb43f82c33c4",
+    "imageId": "photo-1521791136064-7986c2920216",
     "topic": "phrasal-verbs"
   },
   {
@@ -1187,7 +2672,7 @@ const VOCABULARY_DATA = [
     "translation": "lùi lại, giữ khoảng cách",
     "example": "The police told the crowd to keep back from the fire.",
     "exampleVi": "Cảnh sát đã yêu cầu đám đông đứng lùi lại khỏi đám cháy.",
-    "imageId": "photo-1517245386807-bb43f82c33c4",
+    "imageId": "photo-1618477388954-7852f32655ec",
     "topic": "phrasal-verbs"
   },
   {
@@ -1198,7 +2683,7 @@ const VOCABULARY_DATA = [
     "translation": "chăm sóc",
     "example": "I need someone dependable to look after the children while I’m at work.",
     "exampleVi": "Tôi cần một người đáng tin cậy để chăm sóc lũ trẻ khi tôi đi làm.",
-    "imageId": "photo-1522071820081-009f0129c71c",
+    "imageId": "photo-1521791136064-7986c2920216",
     "topic": "phrasal-verbs"
   },
   {
@@ -1209,7 +2694,7 @@ const VOCABULARY_DATA = [
     "translation": "nhìn vào, xem xét",
     "example": "In this exercise, you have to guess the word by looking at the context.",
     "exampleVi": "Trong bài tập này, bạn phải đoán từ bằng cách nhìn vào ngữ cảnh.",
-    "imageId": "photo-1522071820081-009f0129c71c",
+    "imageId": "photo-1507679799987-c73779587ccf",
     "topic": "phrasal-verbs"
   },
   {
@@ -1253,7 +2738,7 @@ const VOCABULARY_DATA = [
     "translation": "tiếp tục, chuyển sang",
     "example": "I’ve lived in this town long enough – it’s time to move on.",
     "exampleVi": "Tôi đã sống ở thị trấn này đủ lâu rồi – đã đến lúc phải đi nơi khác.",
-    "imageId": "photo-1588196749597-9ff075ee6b5b",
+    "imageId": "photo-1507525428034-b723cf961d3e",
     "topic": "phrasal-verbs"
   },
   {
@@ -1264,7 +2749,7 @@ const VOCABULARY_DATA = [
     "translation": "đuổi theo",
     "example": "The police made after the stolen car.",
     "exampleVi": "Cảnh sát đã đuổi theo chiếc ô tô bị đánh cắp.",
-    "imageId": "photo-1451187580459-43490279c0fa",
+    "imageId": "photo-1515187029135-18ee286d815b",
     "topic": "phrasal-verbs"
   },
   {
@@ -1275,7 +2760,7 @@ const VOCABULARY_DATA = [
     "translation": "nghĩ về, chế tạo từ",
     "example": "What do you make of your new boss?",
     "exampleVi": "Bạn nghĩ gì về người sếp mới của mình?",
-    "imageId": "photo-1451187580459-43490279c0fa",
+    "imageId": "photo-1507679799987-c73779587ccf",
     "topic": "phrasal-verbs"
   },
   {
@@ -1286,7 +2771,7 @@ const VOCABULARY_DATA = [
     "translation": "đề xuất, đưa ra",
     "example": "None of the ideas that I put forward have been accepted.",
     "exampleVi": "Không có ý tưởng nào tôi đưa ra được chấp nhận.",
-    "imageId": "photo-1541888946425-d81bb19240f5",
+    "imageId": "photo-1451187580459-43490279c0fa",
     "topic": "phrasal-verbs"
   },
   {
@@ -1385,7 +2870,7 @@ const VOCABULARY_DATA = [
     "translation": "xuất hiện, đến",
     "example": "How many people showed up to the meeting?",
     "exampleVi": "Có bao nhiêu người đã đến tham dự cuộc họp?",
-    "imageId": "photo-1519389950473-47ba0277781c",
+    "imageId": "photo-1517245386807-bb43f82c33c4",
     "topic": "phrasal-verbs"
   },
   {
@@ -1440,7 +2925,7 @@ const VOCABULARY_DATA = [
     "translation": "khởi hành, làm phát nổ",
     "example": "What time do we set off tomorrow?",
     "exampleVi": "Ngày mai mấy giờ chúng ta bắt đầu khởi hành?",
-    "imageId": "photo-1516321318423-f06f85e504b3",
+    "imageId": "photo-1507525428034-b723cf961d3e",
     "topic": "phrasal-verbs"
   },
   {
@@ -1451,7 +2936,7 @@ const VOCABULARY_DATA = [
     "translation": "tắt (thiết bị), rẽ hướng",
     "example": "You need to turn off left just before you get to the village.",
     "exampleVi": "Bạn cần rẽ sang bên trái ngay trước khi vào làng.",
-    "imageId": "photo-1518152006812-edab29b069ac",
+    "imageId": "photo-1545128485-c400e7702796",
     "topic": "phrasal-verbs"
   },
   {
@@ -1462,7 +2947,7 @@ const VOCABULARY_DATA = [
     "translation": "từ chối, vặn nhỏ âm lượng",
     "example": "She turned down the job offer because the salary was too low.",
     "exampleVi": "Cô ấy đã từ chối lời mời làm việc vì mức lương quá thấp.",
-    "imageId": "photo-1518152006812-edab29b069ac",
+    "imageId": "photo-1507679799987-c73779587ccf",
     "topic": "phrasal-verbs"
   },
   {
@@ -1495,7 +2980,7 @@ const VOCABULARY_DATA = [
     "translation": "quay đi, ngoảnh mặt đi",
     "example": "When they show an operation on TV, I have to turn away.",
     "exampleVi": "Khi tivi chiếu cảnh một ca phẫu thuật, tôi phải ngoảnh mặt đi chỗ khác.",
-    "imageId": "photo-1518152006812-edab29b069ac",
+    "imageId": "photo-1506126613408-eca07ce68773",
     "topic": "phrasal-verbs"
   },
   {
@@ -1528,7 +3013,7 @@ const VOCABULARY_DATA = [
     "translation": "khởi động, làm ấm lên",
     "example": "The athletes are warming up on the field.",
     "exampleVi": "Các vận động viên đang khởi động trên sân.",
-    "imageId": "photo-1516450360452-9312f5e86fc7",
+    "imageId": "photo-1506784983877-45594efa4cbe",
     "topic": "phrasal-verbs"
   },
   {
@@ -1539,7 +3024,7 @@ const VOCABULARY_DATA = [
     "translation": "tập thể dục, tính toán ra",
     "example": "I try to work out at the gym twice a week.",
     "exampleVi": "Tôi cố gắng tập thể dục ở phòng gym hai lần một tuần.",
-    "imageId": "photo-1522071820081-009f0129c71c",
+    "imageId": "photo-1506784983877-45594efa4cbe",
     "topic": "phrasal-verbs"
   },
   {
@@ -1561,7 +3046,7 @@ const VOCABULARY_DATA = [
     "translation": "trông mong, mong đợi",
     "example": "I look forward to hearing from you.",
     "exampleVi": "Tôi rất mong sớm nhận được phản hồi từ bạn.",
-    "imageId": "photo-1522071820081-009f0129c71c",
+    "imageId": "photo-1502082553048-f009c37129b9",
     "topic": "phrasal-verbs"
   },
   {
@@ -1572,7 +3057,7 @@ const VOCABULARY_DATA = [
     "translation": "hòa hợp với",
     "example": "I get along with my new classmates very well.",
     "exampleVi": "Tôi hòa hợp rất tốt với những người bạn cùng lớp mới của mình.",
-    "imageId": "photo-1521791136064-7986c2920216",
+    "imageId": "photo-1522071820081-009f0129c71c",
     "topic": "phrasal-verbs"
   },
   {
@@ -1583,7 +3068,7 @@ const VOCABULARY_DATA = [
     "translation": "chăm sóc",
     "example": "She takes care of her younger brother when her parents are away.",
     "exampleVi": "Cô ấy chăm sóc em trai mình khi bố mẹ đi vắng.",
-    "imageId": "photo-1544717305-2782549b5136",
+    "imageId": "photo-1521791136064-7986c2920216",
     "topic": "phrasal-verbs"
   },
   {
@@ -1594,7 +3079,7 @@ const VOCABULARY_DATA = [
     "translation": "làm hòa, trang điểm, bịa chuyện",
     "example": "They had a fight but they made up yesterday.",
     "exampleVi": "Họ đã cãi nhau nhưng ngày hôm qua họ đã làm hòa.",
-    "imageId": "photo-1451187580459-43490279c0fa",
+    "imageId": "photo-1522071820081-009f0129c71c",
     "topic": "phrasal-verbs"
   }
 ];

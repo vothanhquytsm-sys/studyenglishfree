@@ -21,7 +21,8 @@ class App {
     this.progress.readingCompleted = this.progress.readingCompleted || [];
     this.progress.speakingCompleted = this.progress.speakingCompleted || [];
     this.progress.writingCompleted = this.progress.writingCompleted || [];
-    this.progress.vocabProgress = this.progress.vocabProgress || { "A1": 1, "A2": 1, "B1": 1, "B2": 1, "PV": 1, "ielts": 1 };
+    const defaultVocabProgress = { "A1": 1, "A2": 1, "B1": 1, "B2": 1, "PV": 1, "ielts": 1, "emotion": 1, "environment": 1, "technology": 1, "education": 1, "business": 1, "health": 1, "phrasal-verbs": 1 };
+    this.progress.vocabProgress = Object.assign({}, defaultVocabProgress, this.progress.vocabProgress || {});
     this.progress.dailyLog = this.progress.dailyLog || {};
   }
 
@@ -117,7 +118,8 @@ class App {
     this.progress.readingCompleted = this.progress.readingCompleted || [];
     this.progress.speakingCompleted = this.progress.speakingCompleted || [];
     this.progress.writingCompleted = this.progress.writingCompleted || [];
-    this.progress.vocabProgress = this.progress.vocabProgress || { "A1": 1, "A2": 1, "B1": 1, "B2": 1, "PV": 1, "ielts": 1 };
+    const defaultVocabProgress = { "A1": 1, "A2": 1, "B1": 1, "B2": 1, "PV": 1, "ielts": 1, "emotion": 1, "environment": 1, "technology": 1, "education": 1, "business": 1, "health": 1, "phrasal-verbs": 1 };
+    this.progress.vocabProgress = Object.assign({}, defaultVocabProgress, this.progress.vocabProgress || {});
     this.progress.dailyLog = this.progress.dailyLog || {};
 
     // Hide Login Overlay & render user profile details
@@ -427,7 +429,7 @@ class App {
               readingCompleted: Array.isArray(importedData.readingCompleted) ? importedData.readingCompleted : [],
               speakingCompleted: Array.isArray(importedData.speakingCompleted) ? importedData.speakingCompleted : [],
               writingCompleted: Array.isArray(importedData.writingCompleted) ? importedData.writingCompleted : [],
-              vocabProgress: importedData.vocabProgress || { "A1": 1, "A2": 1, "B1": 1, "B2": 1, "PV": 1, "ielts": 1 },
+              vocabProgress: Object.assign({ "A1": 1, "A2": 1, "B1": 1, "B2": 1, "PV": 1, "ielts": 1, "emotion": 1, "environment": 1, "technology": 1, "education": 1, "business": 1, "health": 1, "phrasal-verbs": 1 }, importedData.vocabProgress || {}),
               dailyLog: importedData.dailyLog || {}
             };
           }
@@ -470,7 +472,7 @@ class App {
         readingCompleted: [],
         speakingCompleted: [],
         writingCompleted: [],
-        vocabProgress: { "A1": 1, "A2": 1, "B1": 1, "B2": 1, "PV": 1, "ielts": 1 }
+        vocabProgress: { "A1": 1, "A2": 1, "B1": 1, "B2": 1, "PV": 1, "ielts": 1, "emotion": 1, "environment": 1, "technology": 1, "education": 1, "business": 1, "health": 1, "phrasal-verbs": 1 }
       };
       this.updateProgress();
       this.showToast('Đã đặt lại tiến trình học về ban đầu! Đang tải lại...', 'success');
@@ -781,8 +783,13 @@ class App {
 
     // Merge vocabProgress
     merged.vocabProgress = {};
-    const levels = ['A1', 'A2', 'B1', 'B2', 'PV', 'ielts'];
-    levels.forEach(lvl => {
+    const allKeys = new Set([
+      ...Object.keys(local.vocabProgress || {}),
+      ...Object.keys(remote.vocabProgress || {}),
+      'A1', 'A2', 'B1', 'B2', 'PV', 'ielts',
+      'emotion', 'environment', 'technology', 'education', 'business', 'health', 'phrasal-verbs'
+    ]);
+    allKeys.forEach(lvl => {
       const valLocal = (local.vocabProgress || {})[lvl] || 1;
       const valRemote = (remote.vocabProgress || {})[lvl] || 1;
       merged.vocabProgress[lvl] = Math.max(valLocal, valRemote);
