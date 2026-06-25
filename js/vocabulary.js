@@ -280,14 +280,6 @@ class VocabularyModule {
     const wordEnEl = document.getElementById('vocab-word-en');
     if (wordEnEl) wordEnEl.innerHTML = `${wordObj.word}${posSuffix}`;
     
-    // Set illustrative image on front card
-    const imgEl = document.getElementById('vocab-word-img');
-    if (imgEl) {
-      imgEl.src = `https://images.unsplash.com/${wordObj.imageId}?w=400&auto=format&fit=crop`;
-      imgEl.alt = wordObj.word;
-      imgEl.style.display = 'block';
-    }
-
     // Set separate US and UK pronunciations
     const ipaUkEl = document.getElementById('vocab-word-ipa-uk');
     const ipaUsEl = document.getElementById('vocab-word-ipa-us');
@@ -357,6 +349,14 @@ class VocabularyModule {
     if (wordObj) {
       const lang = accent === 'uk' ? 'en-GB' : 'en-US';
       app.speak(wordObj.word, 0.85, lang);
+    }
+  }
+
+  speakExample(event) {
+    if (event) event.stopPropagation();
+    const wordObj = this.currentWords[this.currentIndex];
+    if (wordObj && wordObj.example) {
+      app.speak(wordObj.example, 0.82, 'en-US');
     }
   }
 

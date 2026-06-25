@@ -556,6 +556,7 @@ class App {
     utterance.lang = lang;
     utterance.rate = rate;
     utterance.pitch = 1.0;
+    utterance.volume = 1.0; // Force maximum volume explicitly
 
     const voices = window.speechSynthesis.getVoices();
     // Filter voices matching the target locale (e.g., en-US or en-GB)
@@ -596,11 +597,11 @@ class App {
         if (maleNames.some(mName => name.includes(mName))) return 'male';
         return 'unknown';
       };
-
+ 
       const femaleVoices = enVoices.filter(v => getVoiceGender(v) === 'female');
       const maleVoices = enVoices.filter(v => getVoiceGender(v) === 'male');
       const unknownVoices = enVoices.filter(v => getVoiceGender(v) === 'unknown');
-
+ 
       const scoreVoice = (v) => {
         let score = 0;
         const name = v.name.toLowerCase();
@@ -610,6 +611,24 @@ class App {
         if (name.includes('enhanced')) score += 50;
         if (name.includes('premium')) score += 40;
         if (v.lang === 'en-US' || v.lang === 'en-GB') score += 20;
+        
+        // Toy, cartoon, or novelty voices that sound weird, tiny, or whispery
+        const toyVoices = [
+          'albert', 'bad news', 'bahh', 'bells', 'boing', 'bubbles', 'cellos', 
+          'jester', 'organ', 'superstar', 'wobble', 'whisper', 'zarvox', 
+          'grandma', 'grandpa', 'flo', 'reed', 'rocko', 'sandy', 'shelley', 'eddy',
+          'fred', 'ralph', 'good news', 'hysterical', 'deranged', 'trinoids', 'junior'
+        ];
+        if (toyVoices.some(tv => name.includes(tv))) {
+          score -= 150;
+        }
+        
+        // Daniel is a standard en-GB voice but is known to be quiet on some macOS systems.
+        // We give it a minor penalty so that high-quality Siri/Google UK voices are preferred,
+        // but it is still preferred over any weird cartoon/toy voices.
+        if (name.includes('daniel')) {
+          score -= 30;
+        }
         return score;
       };
 
