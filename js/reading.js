@@ -19,10 +19,20 @@ class ReadingModule {
     this.renderDashboard();
   }
 
+  // resetView() is called by app.js when switching to the reading tab
+  resetView() {
+    if (this.timerInterval) {
+      clearInterval(this.timerInterval);
+      this.timerInterval = null;
+    }
+    this._showView('dashboard');
+    this.renderDashboard();
+  }
+
   // ─── DASHBOARD ───────────────────────────────────────────────────────
   renderDashboard() {
     const grid = document.getElementById('reading-test-grid');
-    if (!grid || !window.IELTS_READING_TESTS) return;
+    if (!grid || typeof IELTS_READING_TESTS === 'undefined') return;
 
     grid.innerHTML = '';
 
@@ -108,9 +118,12 @@ class ReadingModule {
   // ─── VIEW MANAGEMENT ─────────────────────────────────────────────────
   _showView(view) {
     // 'dashboard', 'simulator', 'results'
-    document.getElementById('reading-dashboard-view').style.display = view === 'dashboard' ? '' : 'none';
-    document.getElementById('reading-simulator-view').style.display = view === 'simulator' ? 'flex' : 'none';
-    document.getElementById('reading-results-view').style.display = view === 'results' ? 'flex' : 'none';
+    const dashboard = document.getElementById('reading-dashboard-view');
+    const simulator = document.getElementById('reading-simulator-view');
+    const results = document.getElementById('reading-results-view');
+    if (dashboard) dashboard.style.display = view === 'dashboard' ? '' : 'none';
+    if (simulator) simulator.style.display = view === 'simulator' ? 'flex' : 'none';
+    if (results) results.style.display = view === 'results' ? 'flex' : 'none';
   }
 
   exitTest() {
