@@ -118,6 +118,7 @@ class App {
     this.progress.readingCompleted = this.progress.readingCompleted || [];
     this.progress.speakingCompleted = this.progress.speakingCompleted || [];
     this.progress.writingCompleted = this.progress.writingCompleted || [];
+    this.progress.reflexCompleted = this.progress.reflexCompleted || [];
     const defaultVocabProgress = { "A1": 1, "A2": 1, "B1": 1, "B2": 1, "PV": 1, "ielts": 1, "emotion": 1, "environment": 1, "technology": 1, "education": 1, "business": 1, "health": 1, "celebrities": 1, "travel": 1, "society": 1, "phrasal-verbs": 1 };
     this.progress.vocabProgress = Object.assign({}, defaultVocabProgress, this.progress.vocabProgress || {});
     this.progress.dailyLog = this.progress.dailyLog || {};
@@ -298,8 +299,11 @@ class App {
     this.progress.dailyLog[today] = this.progress.dailyLog[today] || {
       words: [],
       listening: [],
-      reading: []
+      reading: [],
+      reflex: []
     };
+    // ensure reflex array exists for today even on older log entries
+    this.progress.dailyLog[today].reflex = this.progress.dailyLog[today].reflex || [];
 
     if (type === 'vocab') {
       if (!this.progress.wordsLearned.includes(id)) {
@@ -326,6 +330,15 @@ class App {
       this.progress.speakingCompleted.push(id);
     } else if (type === 'writing' && !this.progress.writingCompleted.includes(id)) {
       this.progress.writingCompleted.push(id);
+    } else if (type === 'reflex') {
+      // id = sentence index (number). Store as string for consistency.
+      const sid = String(id);
+      if (!this.progress.reflexCompleted.includes(sid)) {
+        this.progress.reflexCompleted.push(sid);
+      }
+      if (!this.progress.dailyLog[today].reflex.includes(sid)) {
+        this.progress.dailyLog[today].reflex.push(sid);
+      }
     }
     
     this.updateProgress();
@@ -358,6 +371,7 @@ class App {
       const wordCount = entry.words ? entry.words.length : 0;
       const listeningCount = entry.listening ? entry.listening.length : 0;
       const readingCount = entry.reading ? entry.reading.length : 0;
+      const reflexCount = entry.reflex ? entry.reflex.length : 0;
 
       const dateParts = dateStr.split('-');
       const formattedDate = `Ngày ${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
@@ -377,6 +391,9 @@ class App {
             <span style="background: rgba(245, 158, 11, 0.1); color: var(--warning-color); border: 1px solid rgba(245, 158, 11, 0.2); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">
               📚 ${readingCount} bài đọc
             </span>
+            ${reflexCount > 0 ? `<span style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6; border: 1px solid rgba(139, 92, 246, 0.2); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">
+              ⚡ ${reflexCount} phản xạ
+            </span>` : ''}
           </div>
         </div>
       `;
@@ -472,6 +489,7 @@ class App {
         readingCompleted: [],
         speakingCompleted: [],
         writingCompleted: [],
+        reflexCompleted: [],
         vocabProgress: { "A1": 1, "A2": 1, "B1": 1, "B2": 1, "PV": 1, "ielts": 1, "emotion": 1, "environment": 1, "technology": 1, "education": 1, "business": 1, "health": 1, "celebrities": 1, "travel": 1, "society": 1, "phrasal-verbs": 1 }
       };
       this.updateProgress();
@@ -798,6 +816,7 @@ class App {
     merged.readingCompleted = Array.from(new Set([...(local.readingCompleted || []), ...(remote.readingCompleted || [])]));
     merged.speakingCompleted = Array.from(new Set([...(local.speakingCompleted || []), ...(remote.speakingCompleted || [])]));
     merged.writingCompleted = Array.from(new Set([...(local.writingCompleted || []), ...(remote.writingCompleted || [])]));
+    merged.reflexCompleted = Array.from(new Set([...(local.reflexCompleted || []), ...(remote.reflexCompleted || [])]));
     merged.testsPassed = Math.max(local.testsPassed || 0, remote.testsPassed || 0);
 
     // Merge vocabProgress
@@ -818,12 +837,13 @@ class App {
     merged.dailyLog = {};
     const dates = new Set([...Object.keys(local.dailyLog || {}), ...Object.keys(remote.dailyLog || {})]);
     dates.forEach(date => {
-      const logL = (local.dailyLog || {})[date] || { words: [], listening: [], reading: [] };
-      const logR = (remote.dailyLog || {})[date] || { words: [], listening: [], reading: [] };
+      const logL = (local.dailyLog || {})[date] || { words: [], listening: [], reading: [], reflex: [] };
+      const logR = (remote.dailyLog || {})[date] || { words: [], listening: [], reading: [], reflex: [] };
       merged.dailyLog[date] = {
         words: Array.from(new Set([...(logL.words || []), ...(logR.words || [])])),
         listening: Array.from(new Set([...(logL.listening || []), ...(logR.listening || [])])),
-        reading: Array.from(new Set([...(logL.reading || []), ...(logR.reading || [])]))
+        reading: Array.from(new Set([...(logL.reading || []), ...(logR.reading || [])])),
+        reflex: Array.from(new Set([...(logL.reflex || []), ...(logR.reflex || [])]))
       };
     });
 

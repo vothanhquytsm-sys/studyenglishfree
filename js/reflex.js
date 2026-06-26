@@ -157,11 +157,28 @@ class ReflexModule {
     this.currentIndex = 0;
     this.score = 0;
     this.answered = false;
+    this.lastWasWrong = false;
     document.getElementById('reflex-overlay').style.display = 'block';
     document.getElementById('reflex-main').style.display = 'flex';
     document.getElementById('reflex-finish').style.display = 'none';
     document.body.style.overflow = 'hidden';
+
+    // Jump to first unanswered sentence
+    const mastered = this._getMastered();
+    if (mastered.size > 0 && mastered.size < this.sentences.length) {
+      const firstNew = this.sentences.findIndex((_, i) => !mastered.has(String(i)));
+      this.currentIndex = firstNew >= 0 ? firstNew : 0;
+    }
+
     this._renderCard();
+  }
+
+  // Helper: returns Set of mastered sentence indices (as strings)
+  _getMastered() {
+    if (typeof app !== 'undefined' && app.progress && app.progress.reflexCompleted) {
+      return new Set(app.progress.reflexCompleted.map(String));
+    }
+    return new Set();
   }
 
   close() {
@@ -189,6 +206,8 @@ class ReflexModule {
   _renderCard() {
     const item = this.sentences[this.currentIndex];
     const total = this.sentences.length;
+    const mastered = this._getMastered();
+    const masteredThisSession = mastered.has(String(this.currentIndex));
 
     // Update header
     document.getElementById('reflex-progress-text').textContent = `Câu ${this.currentIndex + 1} / ${total}`;
@@ -198,6 +217,14 @@ class ReflexModule {
     // Update card content
     document.getElementById('reflex-card-num').textContent = `CÂU ${this.currentIndex + 1}`;
     document.getElementById('reflex-vi-text').textContent = item.vi;
+
+    // Show mastered badge inside the card number area if already correct before
+    const numBadge = document.getElementById('reflex-card-num');
+    if (masteredThisSession) {
+      numBadge.innerHTML = `CÂU ${this.currentIndex + 1} <span style="font-size:0.65rem; background:rgba(16,185,129,0.15); color:var(--success-color); border:1px solid rgba(16,185,129,0.3); border-radius:50px; padding:0.15rem 0.55rem; margin-left:0.35rem; letter-spacing:0.04em; vertical-align:middle;">✅ Đã thành thạo</span>`;
+    } else {
+      numBadge.textContent = `CÂU ${this.currentIndex + 1}`;
+    }
 
     // Reset input
     const input = document.getElementById('reflex-user-input');
@@ -237,7 +264,13 @@ class ReflexModule {
     const isCorrect = normalize(userText) === normalize(item.en);
     this.lastWasWrong = !isCorrect;
 
-    if (isCorrect) this.score++;
+    if (isCorrect) {
+      this.score++;
+      // 💾 Save to account progress
+      if (typeof app !== 'undefined') {
+        app.saveProgress('reflex', this.currentIndex);
+      }
+    }
 
     // Show user answer box
     const userAnswerBox = document.getElementById('reflex-user-answer-box');
@@ -378,10 +411,18 @@ class ReflexModule {
   }
 
   _showFinish() {
+    const mastered = this._getMastered();
     document.getElementById('reflex-main').style.display = 'none';
     document.getElementById('reflex-finish').style.display = 'block';
     document.getElementById('reflex-final-score').textContent = `${this.score} / ${this.sentences.length}`;
     document.getElementById('reflex-progress-bar').style.width = '100%';
+
+    // Show total mastered count across all sessions
+    const totalMastered = mastered.size;
+    const masteredEl = document.getElementById('reflex-total-mastered');
+    if (masteredEl) {
+      masteredEl.textContent = `✅ Tổng đã thành thạo: ${totalMastered} / ${this.sentences.length} câu`;
+    }
   }
 }
 

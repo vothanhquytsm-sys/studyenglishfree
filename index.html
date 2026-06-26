@@ -669,14 +669,18 @@
         <div id="reflex-finish" style="display:none; text-align:center; padding:4rem 2rem; max-width:500px; margin:0 auto;">
           <div style="font-size:4rem; margin-bottom:1rem;">🎉</div>
           <h2 style="font-size:2rem; margin-bottom:0.5rem;">Hoàn thành!</h2>
-          <p style="color:var(--text-muted); font-size:1.1rem; margin-bottom:2rem;">Bạn đã luyện xong 100 câu phản xạ tiếng Anh.</p>
-          <div id="reflex-final-score" style="font-size:3.5rem; font-weight:800; color:var(--primary-color); margin-bottom:0.5rem;"></div>
-          <p style="color:var(--text-muted); margin-bottom:2rem;">Số câu tự dịch đúng</p>
+          <p style="color:var(--text-muted); font-size:1.1rem; margin-bottom:1.5rem;">Bạn đã luyện xong phiên Phản xạ tiếng Anh.</p>
+          <!-- This session score -->
+          <div id="reflex-final-score" style="font-size:3.5rem; font-weight:800; color:var(--primary-color); margin-bottom:0.25rem;"></div>
+          <p style="color:var(--text-muted); margin-bottom:1.25rem;">Số câu tự dịch đúng phiên này</p>
+          <!-- Cumulative mastered count -->
+          <div id="reflex-total-mastered" style="font-size:1rem; font-weight:700; color:var(--success-color); background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.25); border-radius:50px; padding:0.55rem 1.5rem; display:inline-block; margin-bottom:2rem;"></div>
           <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
             <button class="btn btn-primary" onclick="reflex.restart()" style="padding:0.85rem 2rem; font-weight:700;">🔄 Luyện lại từ đầu</button>
             <button class="btn btn-secondary" onclick="reflex.close()" style="padding:0.85rem 2rem; font-weight:700;">← Trở về Speaking</button>
           </div>
         </div>
+
       </div>
 
       <!-- SECTION: WRITING -->
