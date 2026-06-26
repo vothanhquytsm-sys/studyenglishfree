@@ -695,50 +695,628 @@ h1, h2, h3, h4, h5, h6 {
   MODULE: READING & SHADOWING
 --------------------------------- */
 .reading-layout {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 2rem;
-}
-
-.reading-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  height: calc(100vh - 180px);
-  overflow-y: auto;
-}
-
-.story-item {
-  padding: 1rem;
-  border: 1px solid var(--border-color);
-  background-color: var(--panel-bg);
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.story-item:hover, .story-item.active {
-  border-color: var(--primary-color);
-  background-color: var(--bg-color);
-}
-
-.story-workspace {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
+  width: 100%;
 }
 
-.story-pane {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  height: 480px;
-  overflow-y: auto;
-  background-color: var(--panel-bg);
+/* IELTS Reading Dashboard Grid */
+.reading-test-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.test-card {
+  background: var(--panel-bg);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
 }
+
+.test-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-light);
+}
+
+.test-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary-gradient);
+  opacity: 0.8;
+}
+
+.test-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.test-card-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 50px;
+}
+
+.test-card-badge.todo {
+  background-color: var(--border-color);
+  color: var(--text-muted);
+}
+
+.test-card-badge.inprogress {
+  background-color: var(--warning-light);
+  color: var(--warning-color);
+}
+
+.test-card-badge.completed {
+  background-color: var(--success-light);
+  color: var(--success-color);
+}
+
+.test-card-body h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.test-card-body p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.test-card-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-color);
+  padding-top: 0.85rem;
+}
+
+.test-card-score {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Simulator Styles */
+.sim-passage-tabs button {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.sim-passage-tabs button.active {
+  background: var(--panel-bg);
+  color: var(--primary-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.passage-pane {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  position: relative;
+  scrollbar-width: thin;
+}
+
+.questions-pane {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  scrollbar-width: thin;
+}
+
+/* Font scale settings */
+.passage-pane.font-size-sm { font-size: 0.95rem; }
+.passage-pane.font-size-md { font-size: 1.1rem; }
+.passage-pane.font-size-lg { font-size: 1.25rem; }
+.passage-pane.font-size-xl { font-size: 1.4rem; }
+
+.passage-paragraph {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.paragraph-num {
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Navigator Buttons */
+.nav-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: var(--panel-bg);
+  color: var(--text-color);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.nav-btn.answered {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.nav-btn.flagged::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--warning-color);
+}
+
+.nav-btn.correct {
+  background: var(--success-color);
+  color: white;
+  border-color: var(--success-color);
+}
+
+.nav-btn.wrong {
+  background: var(--danger-color);
+  color: white;
+  border-color: var(--danger-color);
+}
+
+/* Question Panel Styling */
+.sim-q-group {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sim-q-group:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.sim-instruction {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+  white-space: pre-line;
+  line-height: 1.5;
+}
+
+.sim-q-item {
+  margin-bottom: 1.2rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  transition: var(--transition);
+  background: var(--bg-color);
+}
+
+.sim-q-item:hover {
+  border-color: var(--border-hover);
+}
+
+.sim-q-item.focused {
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  background: var(--panel-bg);
+}
+
+.sim-q-text {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+/* Input Fields for Gap Fill */
+.gap-fill-input {
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 0.3rem 0.6rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  width: 180px;
+  background: var(--panel-bg);
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+.gap-fill-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+}
+
+/* MCQ Option Labels */
+.mcq-option-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid var(--border-color);
+  background: var(--panel-bg);
+  margin-bottom: 0.4rem;
+}
+
+.mcq-option-label:hover {
+  background: var(--bg-color);
+  border-color: var(--border-hover);
+}
+
+.mcq-option-label.selected {
+  border-color: var(--primary-color);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+/* Review details */
+.review-explanation {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border-color);
+  font-size: 0.9rem;
+}
+
+.review-explanation h5 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Passage location highlight */
+.reading-highlight-active {
+  background-color: rgba(253, 224, 71, 0.6); /* bright yellow marker */
+  border-bottom: 2px solid var(--warning-color);
+  border-radius: 2px;
+  padding: 0.1rem 0.2rem;
+  animation: pulse-highlight 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-highlight {
+  0% { background-color: rgba(253, 224, 71, 0.4); }
+  100% { background-color: rgba(253, 224, 71, 0.85); }
+}
+
+/* ─── IELTS Reading Test Cards ─── */
+.reading-test-card {
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+
+.reading-test-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-light);
+}
+
+.reading-test-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary-gradient);
+}
+
+.test-card-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  opacity: 0.15;
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  line-height: 1;
+}
+
+.test-card-body {
+  position: relative;
+  z-index: 1;
+}
+
+.test-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  color: var(--text-color);
+}
+
+.test-card-subtitle {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.test-card-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.test-card-status {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  align-self: flex-start;
+}
+
+.test-card-status.new {
+  background: var(--border-color);
+  color: var(--text-muted);
+}
+
+.test-card-status.completed {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--success-color);
+}
+
+.test-card-btn {
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0.6rem 1.2rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: auto;
+}
+
+.test-card-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-primary);
+}
+
+/* ─── Question Items ─── */
+.passage-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.75rem;
+}
+
+.q-section-header {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  background: var(--bg-color);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.q-item {
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-color);
+  transition: var(--transition);
+  scroll-margin-top: 1rem;
+}
+
+.q-item:hover {
+  border-color: var(--primary-light);
+}
+
+.q-number {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.4rem;
+}
+
+.q-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.q-gapfill-text {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.q-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.q-option {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: 1.5px solid var(--border-color);
+  background: var(--panel-bg);
+  transition: var(--transition);
+  font-size: 0.9rem;
+}
+
+.q-option:hover {
+  border-color: var(--primary-light);
+  background: rgba(99, 102, 241, 0.04);
+}
+
+.q-option.selected {
+  border-color: var(--primary-color);
+  background: rgba(99, 102, 241, 0.08);
+  font-weight: 600;
+}
+
+.q-option.correct {
+  border-color: var(--success-color) !important;
+  background: rgba(16, 185, 129, 0.12) !important;
+  color: var(--success-color) !important;
+  font-weight: 700;
+}
+
+.q-option.wrong {
+  border-color: var(--danger-color) !important;
+  background: rgba(239, 68, 68, 0.1) !important;
+  color: var(--danger-color) !important;
+  font-weight: 700;
+}
+
+.q-option input[type="radio"] {
+  accent-color: var(--primary-color);
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* Gap fill input */
+.gap-input {
+  border: 1.5px solid var(--primary-color);
+  border-radius: var(--radius-sm);
+  padding: 0.3rem 0.65rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  min-width: 140px;
+  max-width: 200px;
+  background: var(--panel-bg);
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+.gap-input:focus {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.gap-input.correct {
+  border-color: var(--success-color) !important;
+  background: rgba(16, 185, 129, 0.1) !important;
+  color: var(--success-color) !important;
+}
+
+.gap-input.wrong {
+  border-color: var(--danger-color) !important;
+  background: rgba(239, 68, 68, 0.08) !important;
+}
+
+.gap-input:disabled {
+  opacity: 0.85;
+  cursor: not-allowed;
+}
+
+/* Explanation Box */
+.q-explanation {
+  margin-top: 0.85rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  background: rgba(99, 102, 241, 0.06);
+  border-left: 3px solid var(--primary-color);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.q-explanation strong {
+  color: var(--primary-color);
+}
+
+/* Navigator: result states */
+.nav-btn.correct-nav {
+  background: var(--success-color);
+  color: white;
+  border-color: var(--success-color);
+}
+
+.nav-btn.wrong-nav {
+  background: var(--danger-color);
+  color: white;
+  border-color: var(--danger-color);
+}
+
+.nav-btn.unanswered {
+  background: var(--border-color);
+  color: var(--text-muted);
+}
+
+/* Passage content */
+.passage-content p {
+  margin-bottom: 1.25rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.flag-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.flag-button:hover, .flag-button.active {
+  color: var(--warning-color);
+}
+
 
 .sentence-shadow-item {
   padding: 0.75rem 1rem;
