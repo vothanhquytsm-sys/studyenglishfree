@@ -517,12 +517,16 @@
               <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Nói chuyện bằng tiếng Anh và nhận sửa lỗi ngữ pháp chi tiết.</p>
             </button>
             <button class="speaking-topic-btn" id="chatbot-topic-grammar" onclick="chatbot.selectTopic('grammar')">
-              <strong>✍️ Sửa lỗi & Giải thích</strong>
+              <strong>✍️ Sửa lỗi &amp; Giải thích</strong>
               <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Gửi bất kỳ câu tiếng Anh nào để Janet sửa lỗi ngữ pháp chi tiết.</p>
             </button>
             <button class="speaking-topic-btn" id="chatbot-topic-lesson" onclick="chatbot.selectTopic('lesson')">
-              <strong>📖 Tạo bài học & Bài tập</strong>
+              <strong>📖 Tạo bài học &amp; Bài tập</strong>
               <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Nhập chủ đề để tạo bài học từ vựng, hội thoại và bài tập ngắn.</p>
+            </button>
+            <button class="speaking-topic-btn" id="chatbot-topic-reflex" onclick="reflex.open()">
+              <strong>⚡ Phản xạ tiếng Anh</strong>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">100 câu tiếng Việt — dịch sang tiếng Anh, kiểm tra lỗi và học ngữ pháp tức thì.</p>
             </button>
           </div>
 
@@ -563,6 +567,100 @@
           </div>
         </div>
       </section>
+
+      <!-- SECTION: REFLEX (Phản xạ tiếng Anh) - Fullscreen overlay -->
+      <div id="reflex-overlay" style="display:none; position:fixed; inset:0; z-index:1000; background:var(--bg-color); overflow-y:auto;">
+        <!-- Header bar -->
+        <div class="reflex-header">
+          <button class="btn btn-secondary" onclick="reflex.close()" style="padding:0.4rem 1rem; display:flex; align-items:center; gap:0.5rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Trở lại
+          </button>
+          <div style="text-align:center;">
+            <h3 style="margin:0; font-size:1.15rem;">⚡ Phản xạ tiếng Anh</h3>
+            <div id="reflex-progress-text" style="font-size:0.8rem; color:var(--text-muted); margin-top:0.15rem;">Câu 1 / 100</div>
+          </div>
+          <div id="reflex-score-badge" style="font-size:0.85rem; font-weight:700; color:var(--success-color); background:rgba(16,185,129,0.1); padding:0.3rem 0.85rem; border-radius:50px; white-space:nowrap;">✓ 0 đúng</div>
+        </div>
+
+        <!-- Progress bar -->
+        <div style="height:4px; background:var(--border-color);">
+          <div id="reflex-progress-bar" style="height:100%; background:var(--primary-gradient); width:1%; transition:width 0.4s;"></div>
+        </div>
+
+        <!-- Main card area -->
+        <div class="reflex-main" id="reflex-main">
+          <!-- Câu số -->
+          <div id="reflex-card-num" class="reflex-num-badge">CÂU 1</div>
+
+          <!-- Vietnamese sentence -->
+          <div class="reflex-vi-box">
+            <div id="reflex-vi-text">Đang tải câu hỏi...</div>
+          </div>
+
+          <!-- Hint -->
+          <div class="reflex-hint" id="reflex-hint-text">
+            <span>📝 Suy nghĩ trước khi xem đáp án...</span>
+          </div>
+
+          <!-- User input area -->
+          <div id="reflex-input-area" style="display:flex; flex-direction:column; gap:0.75rem; width:100%; max-width:600px;">
+            <textarea id="reflex-user-input"
+              class="reflex-textarea"
+              rows="2"
+              placeholder="Viết câu tiếng Anh của bạn vào đây..."
+              onkeydown="reflex.handleKey(event)"></textarea>
+            <div style="display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
+              <button class="btn btn-primary" onclick="reflex.check()" style="padding:0.65rem 2rem; font-weight:700; font-size:1rem;">
+                ✅ Kiểm tra
+              </button>
+              <button class="btn btn-secondary" onclick="reflex.showAnswer()" style="padding:0.65rem 1.5rem; font-weight:600;">
+                👁 Xem đáp án
+              </button>
+              <button class="btn btn-secondary" onclick="reflex.skip()" style="padding:0.65rem 1.25rem; font-weight:600; color:var(--text-muted);">
+                Bỏ qua →
+              </button>
+            </div>
+          </div>
+
+          <!-- Answer reveal panel (hidden initially) -->
+          <div id="reflex-answer-panel" class="reflex-answer-panel" style="display:none; width:100%; max-width:600px;">
+            <!-- Result badge -->
+            <div id="reflex-result-badge" class="reflex-result-badge"></div>
+
+            <!-- User's answer if given -->
+            <div id="reflex-user-answer-box" style="display:none;">
+              <div style="font-size:0.72rem; font-weight:700; text-transform:uppercase; color:var(--text-muted); letter-spacing:0.06em; margin-bottom:0.35rem;">Câu của bạn:</div>
+              <div id="reflex-user-answer-text" class="reflex-user-answer"></div>
+            </div>
+
+            <!-- Correct answer badge -->
+            <div style="font-size:0.72rem; font-weight:700; text-transform:uppercase; color:var(--success-color); letter-spacing:0.06em; margin-bottom:0.35rem; margin-top:0.75rem;">ĐÁP ÁN ✓</div>
+            <div id="reflex-en-answer" class="reflex-en-box"></div>
+
+            <!-- Grammar tip -->
+            <div id="reflex-grammar-tip" class="reflex-grammar-tip"></div>
+
+            <!-- Next button -->
+            <button class="btn btn-primary" onclick="reflex.next()" style="width:100%; padding:0.85rem; font-size:1.05rem; font-weight:700; margin-top:0.5rem; border-radius:var(--radius-lg);">
+              Câu tiếp theo →
+            </button>
+          </div>
+        </div>
+
+        <!-- Finish screen (hidden) -->
+        <div id="reflex-finish" style="display:none; text-align:center; padding:4rem 2rem; max-width:500px; margin:0 auto;">
+          <div style="font-size:4rem; margin-bottom:1rem;">🎉</div>
+          <h2 style="font-size:2rem; margin-bottom:0.5rem;">Hoàn thành!</h2>
+          <p style="color:var(--text-muted); font-size:1.1rem; margin-bottom:2rem;">Bạn đã luyện xong 100 câu phản xạ tiếng Anh.</p>
+          <div id="reflex-final-score" style="font-size:3.5rem; font-weight:800; color:var(--primary-color); margin-bottom:0.5rem;"></div>
+          <p style="color:var(--text-muted); margin-bottom:2rem;">Số câu tự dịch đúng</p>
+          <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="reflex.restart()" style="padding:0.85rem 2rem; font-weight:700;">🔄 Luyện lại từ đầu</button>
+            <button class="btn btn-secondary" onclick="reflex.close()" style="padding:0.85rem 2rem; font-weight:700;">← Trở về Speaking</button>
+          </div>
+        </div>
+      </div>
 
       <!-- SECTION: WRITING -->
       <section id="section-writing" class="app-section">
@@ -697,5 +795,6 @@
   <script src="js/reading.js?v=2.0.2"></script>
   <script src="js/chatbot.js?v=1.0.8"></script>
   <script src="js/writing.js?v=1.0.8"></script>
+  <script src="js/reflex.js?v=1.0.0"></script>
 </body>
 </html>
