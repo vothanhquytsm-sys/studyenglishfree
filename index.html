@@ -634,18 +634,35 @@
               <div id="reflex-user-answer-text" class="reflex-user-answer"></div>
             </div>
 
-            <!-- Correct answer badge -->
-            <div style="font-size:0.72rem; font-weight:700; text-transform:uppercase; color:var(--success-color); letter-spacing:0.06em; margin-bottom:0.35rem; margin-top:0.75rem;">ĐÁP ÁN ✓</div>
+            <!-- Correct answer label + TTS replay -->
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.75rem; margin-bottom:0.35rem;">
+              <div style="font-size:0.72rem; font-weight:700; text-transform:uppercase; color:var(--success-color); letter-spacing:0.06em;">ĐÁP ÁN ✓</div>
+              <button onclick="reflex.speakAnswer()" title="Nghe lại đáp án"
+                style="background:rgba(99,102,241,0.12); border:none; border-radius:50%; width:32px; height:32px; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:1rem; transition:background 0.2s;"
+                onmouseover="this.style.background='rgba(99,102,241,0.25)'" onmouseout="this.style.background='rgba(99,102,241,0.12)'">
+                🔊
+              </button>
+            </div>
             <div id="reflex-en-answer" class="reflex-en-box"></div>
 
             <!-- Grammar tip -->
             <div id="reflex-grammar-tip" class="reflex-grammar-tip"></div>
 
-            <!-- Next button -->
-            <button class="btn btn-primary" onclick="reflex.next()" style="width:100%; padding:0.85rem; font-size:1.05rem; font-weight:700; margin-top:0.5rem; border-radius:var(--radius-lg);">
-              Câu tiếp theo →
-            </button>
+            <!-- Action buttons row -->
+            <div style="display:flex; flex-direction:column; gap:0.6rem; margin-top:0.5rem;">
+              <!-- Retry button: only shown when wrong (JS controlled) -->
+              <button id="reflex-retry-btn" onclick="reflex.retry()"
+                style="display:none; width:100%; padding:0.8rem; font-size:1rem; font-weight:700; border-radius:var(--radius-lg); background:rgba(239,68,68,0.1); color:var(--danger-color); border:1.5px solid rgba(239,68,68,0.3); cursor:pointer; transition:all 0.2s;"
+                onmouseover="this.style.background='rgba(239,68,68,0.18)'" onmouseout="this.style.background='rgba(239,68,68,0.1)'">
+                🔄 Làm lại câu này
+              </button>
+              <!-- Next button -->
+              <button class="btn btn-primary" onclick="reflex.next()" style="width:100%; padding:0.85rem; font-size:1.05rem; font-weight:700; border-radius:var(--radius-lg);">
+                Câu tiếp theo →
+              </button>
+            </div>
           </div>
+
         </div>
 
         <!-- Finish screen (hidden) -->

@@ -149,6 +149,7 @@ class ReflexModule {
     this.currentIndex = 0;
     this.score = 0;
     this.answered = false;
+    this.lastWasWrong = false; // track if last answer was wrong (for retry)
     this.sentences = [...REFLEX_SENTENCES];
   }
 
@@ -234,6 +235,7 @@ class ReflexModule {
       .trim();
 
     const isCorrect = normalize(userText) === normalize(item.en);
+    this.lastWasWrong = !isCorrect;
 
     if (isCorrect) this.score++;
 
@@ -249,12 +251,13 @@ class ReflexModule {
     resultBadge.textContent = isCorrect ? '✅ Chính xác!' : '❌ Chưa đúng — xem đáp án bên dưới';
     resultBadge.className = 'reflex-result-badge ' + (isCorrect ? 'result-correct' : 'result-wrong');
 
-    this._showAnswerPanel(item);
+    this._showAnswerPanel(item, isCorrect);
   }
 
   showAnswer() {
     if (this.answered) return;
     this.answered = true;
+    this.lastWasWrong = false; // viewing answer = no retry button
 
     const item = this.sentences[this.currentIndex];
 
@@ -266,10 +269,10 @@ class ReflexModule {
     resultBadge.textContent = '👁 Xem đáp án';
     resultBadge.className = 'reflex-result-badge result-neutral';
 
-    this._showAnswerPanel(item);
+    this._showAnswerPanel(item, null);
   }
 
-  _showAnswerPanel(item) {
+  _showAnswerPanel(item, isCorrect) {
     // Render the correct English answer with highlight
     const enEl = document.getElementById('reflex-en-answer');
     let highlighted = item.en;
@@ -288,12 +291,70 @@ class ReflexModule {
     // Update score badge
     document.getElementById('reflex-score-badge').textContent = `✓ ${this.score} đúng`;
 
+    // Show/hide retry button (only when user answered wrong)
+    const retryBtn = document.getElementById('reflex-retry-btn');
+    if (retryBtn) {
+      retryBtn.style.display = (isCorrect === false) ? 'block' : 'none';
+    }
+
     // Hide input, show answer panel
     document.getElementById('reflex-input-area').style.display = 'none';
     document.getElementById('reflex-answer-panel').style.display = 'flex';
 
+    // 🔊 Auto TTS: read the correct English answer
+    this._speakAnswer(item.en);
+
     // Scroll to answer on mobile
     document.getElementById('reflex-answer-panel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // ─── TTS ───────────────────────────────────────────────────────────────
+  _speakAnswer(text) {
+    if (!window.speechSynthesis) return;
+    // Cancel any ongoing speech
+    window.speechSynthesis.cancel();
+
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'en-GB';
+    utter.rate = 0.88;   // slightly slower for clarity
+    utter.pitch = 1.0;
+    utter.volume = 1.0;
+
+    // Try to pick a natural en-GB or en-US voice
+    const voices = window.speechSynthesis.getVoices();
+    const preferred = voices.find(v =>
+      v.lang === 'en-GB' && !v.name.toLowerCase().includes('google')
+    ) || voices.find(v => v.lang === 'en-GB')
+      || voices.find(v => v.lang.startsWith('en-'));
+    if (preferred) utter.voice = preferred;
+
+    window.speechSynthesis.speak(utter);
+  }
+
+  // Public TTS button (🔊 button next to answer box)
+  speakAnswer() {
+    const item = this.sentences[this.currentIndex];
+    if (item) this._speakAnswer(item.en);
+  }
+
+  // ─── RETRY current wrong card ─────────────────────────────────────────
+  retry() {
+    this.answered = false;
+    this.lastWasWrong = false;
+    window.speechSynthesis && window.speechSynthesis.cancel();
+
+    // Reset input
+    const input = document.getElementById('reflex-user-input');
+    input.value = '';
+    input.disabled = false;
+    input.classList.remove('reflex-correct', 'reflex-wrong');
+
+    // Show input, hide answer
+    document.getElementById('reflex-input-area').style.display = 'flex';
+    document.getElementById('reflex-answer-panel').style.display = 'none';
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => input.focus(), 150);
   }
 
   skip() {
