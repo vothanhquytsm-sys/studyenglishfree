@@ -176,44 +176,96 @@
       <!-- SECTION: VOCABULARY -->
       <section id="section-vocab" class="app-section">
         <div class="vocab-layout">
-          <!-- Area to pick a CEFR level -->
+
+          <!-- View 1: Topic Selector -->
           <div id="vocab-topic-selector" style="width: 100%;">
-            <div class="section-header">
-              <h2>Từ vựng          <div id="vocab-batch-selector" style="display: none; width: 100%;">
+            <div class="section-header" style="margin-bottom: 1.5rem;">
+              <h2>Từ vựng IELTS theo chủ đề</h2>
+              <p style="color: var(--text-muted); margin-top: 0.25rem;">Học từ vựng theo chủ đề IELTS, phân nhóm 10 từ mỗi cụm, kiểm tra sau mỗi cụm.</p>
+            </div>
+            <div class="topic-grid" id="vocab-topics-list">
+              <!-- Dynamically populated topics -->
+            </div>
+          </div>
+
+          <!-- View 2: Batch Selector (inside a topic) -->
+          <div id="vocab-batch-selector" style="display: none; width: 100%;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; width: 100%;">
-              <button class="btn btn-secondary" onclick="vocab.exitLevelSelect()">← Trở lại Trình độ</button>
-              <h2 id="study-level-title" style="margin: 0; font-size: 1.8rem; color: var(--primary-color);">Trình độ A1</h2>
-              <div style="width: 120px;"></div> <!-- Spacer -->
+              <button class="btn btn-secondary" onclick="vocab.exitLevelSelect()">← Trở lại Chủ đề</button>
+              <h2 id="study-level-title" style="margin: 0; font-size: 1.8rem; color: var(--primary-color);">Chủ đề</h2>
+              <div style="width: 120px;"></div>
             </div>
             <div class="topic-grid" id="vocab-batches-list">
               <!-- Dynamically populated batches -->
             </div>
           </div>
 
-          <!-- Batch Study View (Grid of 10 words) -->
-          <div id="vocab-study-view" style="display: none; flex-direction: column; align-items: center; width: 100%;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; width: 100%;">
+          <!-- View 3: Flashcard Study View -->
+          <div id="vocab-flashcard-view" style="display: none; flex-direction: column; align-items: center; width: 100%; gap: 1.5rem;">
+            <!-- Header -->
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
               <button class="btn btn-secondary" onclick="vocab.exitStudyMode()">← Danh sách cụm từ</button>
-              <h2 id="study-topic-title" style="margin: 0; font-size: 1.8rem; color: var(--primary-color);">Cảm xúc - Cụm 1</h2>
-              <div style="width: 120px;"></div> <!-- Spacer -->
+              <h2 id="study-topic-title" style="margin: 0; font-size: 1.5rem; color: var(--primary-color);">Cảm xúc - Cụm 1</h2>
+              <span id="study-progress-counter" style="font-size: 1rem; font-weight: 700; color: var(--text-muted);">1/10</span>
             </div>
-            
-            <div id="vocab-study-list" style="width: 100%; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
-              <!-- Dynamically populated with 10 word panels -->
-            </div>
-            
-            <button class="btn btn-primary" onclick="vocab.startQuiz()" style="padding: 1rem 3rem; font-size: 1.15rem; font-weight: 700; border-radius: 30px; box-shadow: var(--shadow-lg);">
-              🎯 Bắt đầu làm bài test cụm từ (10 câu)
-            </button>
-          </div>   <div class="flashcard-nav" style="display: flex; gap: 1rem; justify-content: center;">
-                <button class="btn btn-secondary" onclick="vocab.prevCard()">&lt; Trước</button>
-                <button class="btn btn-primary" id="btn-speak-word" onclick="vocab.speakCurrentWord(event)">🔊 Phát âm</button>
-                <button class="btn btn-secondary" onclick="vocab.nextCard()">Tiếp theo &gt;</button>
+
+            <!-- Word Card -->
+            <div id="current-flashcard" class="vocab-card card-panel" style="width: 100%; max-width: 680px; padding: 2.5rem; display: flex; flex-direction: column; gap: 1rem; position: relative; min-height: 380px;">
+              <!-- Topic Badge -->
+              <div id="vocab-topic-badge" style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary-color); background: rgba(99,102,241,0.1); padding: 0.3rem 0.75rem; border-radius: 50px; align-self: flex-start;">EMOTION</div>
+
+              <!-- Word & POS -->
+              <div id="vocab-word-en" style="font-size: 2.8rem; font-weight: 800; color: var(--text-color); line-height: 1.1;">word</div>
+
+              <!-- IPA Pronunciations -->
+              <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <button class="btn btn-secondary" onclick="vocab.speakAccent(event,'uk')" style="padding: 0.3rem 0.75rem; font-size: 0.8rem; font-weight: 700;">🇬🇧 UK</button>
+                  <span id="vocab-word-ipa-uk" style="font-family: monospace; font-size: 1rem; color: var(--text-muted);">/wɜːd/</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <button class="btn btn-secondary" onclick="vocab.speakAccent(event,'us')" style="padding: 0.3rem 0.75rem; font-size: 0.8rem; font-weight: 700;">🇺🇸 US</button>
+                  <span id="vocab-word-ipa-us" style="font-family: monospace; font-size: 1rem; color: var(--text-muted);">/wɜːrd/</span>
+                </div>
               </div>
+              <!-- hidden fallback IPA -->
+              <span id="vocab-word-ipa" style="display:none;"></span>
+
+              <!-- Divider -->
+              <hr style="border: none; border-top: 1px solid var(--border-color); margin: 0.25rem 0;">
+
+              <!-- Translation -->
+              <div id="vocab-word-vi" style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color);">nghĩa tiếng Việt</div>
+
+              <!-- Example sentence -->
+              <div style="background: var(--bg-color); border-radius: var(--radius-md); padding: 1rem 1.25rem; border-left: 3px solid var(--primary-light);">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;">
+                  <div style="flex: 1;">
+                    <div id="vocab-word-ex" style="font-size: 0.95rem; color: var(--text-color); font-style: italic; line-height: 1.6; margin-bottom: 0.4rem;">"Example sentence"</div>
+                    <div id="vocab-word-ex-vi" style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">Dịch nghĩa ví dụ</div>
+                  </div>
+                  <button onclick="vocab.speakExample(event)" style="background: none; border: none; cursor: pointer; font-size: 1.3rem; color: var(--primary-color); flex-shrink: 0; padding: 0.25rem;" title="Nghe ví dụ">🔊</button>
+                </div>
+              </div>
+
+              <!-- Word Family (hidden by JS for IELTS mode) -->
+              <div id="vocab-word-family" style="display: none;"></div>
             </div>
+
+            <!-- Navigation Buttons -->
+            <div class="flashcard-nav" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+              <button class="btn btn-secondary" onclick="vocab.prevCard()">&#x3c; Trước</button>
+              <button class="btn btn-primary" id="btn-speak-word" onclick="vocab.speakCurrentWord(event)">🔊 Phát âm</button>
+              <button class="btn btn-secondary" onclick="vocab.nextCard()">Tiếp theo &#x3e;</button>
+            </div>
+
+            <!-- Start quiz button -->
+            <button class="btn btn-primary" onclick="vocab.startQuiz()" style="padding: 0.85rem 2.5rem; font-size: 1.05rem; font-weight: 700; border-radius: 30px; box-shadow: var(--shadow-primary); margin-top: 0.5rem;">
+              🎯 Làm bài test cụm từ (10 câu)
+            </button>
           </div>
 
-          <!-- Quiz View -->
+          <!-- View 4: Quiz View -->
           <div id="vocab-quiz-view" style="display: none;">
             <div class="quiz-box card-panel" style="max-width: 600px; margin: 0 auto;">
               <div class="quiz-header">
@@ -227,14 +279,12 @@
               <div class="progress-bar-container" style="width: 100%; height: 8px; background-color: var(--border-color); border-radius: 4px; overflow: hidden; margin-bottom: 2rem;">
                 <div class="progress-bar-fill" id="vocab-quiz-progress-fill" style="width: 10%; height: 100%; background-color: var(--primary-color); transition: width 0.3s;"></div>
               </div>
-              
               <div id="vocab-quiz-question-box">
                 <h3 id="vocab-quiz-question-text" style="font-size: 1.3rem; margin-bottom: 1.5rem; line-height: 1.5;">Câu hỏi ở đây</h3>
                 <div class="quiz-options" id="vocab-quiz-options-list" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;">
                   <!-- Dynamically populated options -->
                 </div>
               </div>
-              
               <div style="display: flex; justify-content: flex-end;">
                 <button class="btn btn-primary" id="btn-next-quiz-question" onclick="vocab.nextQuizQuestion()" style="display: none;">Câu tiếp theo</button>
               </div>
