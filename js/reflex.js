@@ -163,6 +163,11 @@ class ReflexModule {
     document.getElementById('reflex-finish').style.display = 'none';
     document.body.style.overflow = 'hidden';
 
+    // Attach global Enter key listener (remove any old one first)
+    document.removeEventListener('keydown', this._boundKeyHandler);
+    this._boundKeyHandler = (e) => this.handleKey(e);
+    document.addEventListener('keydown', this._boundKeyHandler);
+
     // Jump to first unanswered sentence
     const mastered = this._getMastered();
     if (mastered.size > 0 && mastered.size < this.sentences.length) {
@@ -184,6 +189,8 @@ class ReflexModule {
   close() {
     document.getElementById('reflex-overlay').style.display = 'none';
     document.body.style.overflow = '';
+    // Remove global key listener
+    document.removeEventListener('keydown', this._boundKeyHandler);
   }
 
   restart() {
@@ -196,10 +203,15 @@ class ReflexModule {
   }
 
   handleKey(e) {
-    // Ctrl+Enter or Shift+Enter to check
-    if ((e.ctrlKey || e.shiftKey) && e.key === 'Enter') {
-      e.preventDefault();
-      this.check();
+    // Plain Enter = check (prevent textarea newline)
+    // Shift+Enter = allow newline in textarea
+    if (e.key === 'Enter' && !e.shiftKey && !e.ctrlKey) {
+      // Only act when the input area is visible (not answer panel)
+      const inputArea = document.getElementById('reflex-input-area');
+      if (inputArea && inputArea.style.display !== 'none') {
+        e.preventDefault();
+        this.check();
+      }
     }
   }
 
