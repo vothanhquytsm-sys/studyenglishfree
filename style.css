@@ -2008,6 +2008,20 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@keyframes reflexShake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-8px); }
+  40%       { transform: translateX(8px); }
+  60%       { transform: translateX(-5px); }
+  80%       { transform: translateX(5px); }
+}
+
+.reflex-shake {
+  animation: reflexShake 0.45s ease;
+  border-color: var(--danger-color) !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.18) !important;
+}
+
 /* Mobile responsive */
 @media (max-width: 600px) {
   .reflex-header {

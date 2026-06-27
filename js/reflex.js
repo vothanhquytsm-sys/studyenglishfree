@@ -230,7 +230,17 @@ class ReflexModule {
     const input = document.getElementById('reflex-user-input');
     input.value = '';
     input.disabled = false;
-    input.classList.remove('reflex-correct', 'reflex-wrong');
+    input.classList.remove('reflex-correct', 'reflex-wrong', 'reflex-shake');
+    input.placeholder = 'Viết câu tiếng Anh của bạn vào đây...';
+
+    // Reset hint text to default
+    const hintEl = document.getElementById('reflex-hint-text');
+    if (hintEl) {
+      hintEl.innerHTML = '✨ Viết câu dịch rồi bấm Kiểm tra, hoặc bấm Gợi ý nếu cần.';
+      hintEl.style.color = '';
+      hintEl.style.fontStyle = 'italic';
+      hintEl.style.fontWeight = '';
+    }
 
     // Show input area, hide answer panel
     document.getElementById('reflex-input-area').style.display = 'flex';
@@ -248,8 +258,16 @@ class ReflexModule {
     const item = this.sentences[this.currentIndex];
     const userText = document.getElementById('reflex-user-input').value.trim();
 
+    // Empty input: shake the textarea and warn
     if (!userText) {
-      this.showAnswer();
+      const ta = document.getElementById('reflex-user-input');
+      ta.classList.add('reflex-shake');
+      ta.placeholder = 'Hãy viết câu dịch trước khi kiểm tra!';
+      setTimeout(() => {
+        ta.classList.remove('reflex-shake');
+        ta.placeholder = 'Viết câu tiếng Anh của bạn vào đây...';
+      }, 700);
+      ta.focus();
       return;
     }
 
@@ -257,7 +275,7 @@ class ReflexModule {
 
     // Flexible comparison: normalize punctuation, case, extra spaces
     const normalize = (s) => s.toLowerCase()
-      .replace(/[.,!?;:'"]/g, '')
+      .replace(/[.,!?;:'"\-]/g, '')
       .replace(/\s+/g, ' ')
       .trim();
 
@@ -287,22 +305,26 @@ class ReflexModule {
     this._showAnswerPanel(item, isCorrect);
   }
 
-  showAnswer() {
+  // Show a hint: reveal only the keyword structure, not the full answer
+  showHint() {
     if (this.answered) return;
-    this.answered = true;
-    this.lastWasWrong = false; // viewing answer = no retry button
 
     const item = this.sentences[this.currentIndex];
+    const hintEl = document.getElementById('reflex-hint-text');
+    if (!hintEl) return;
 
-    // Hide user answer box
-    document.getElementById('reflex-user-answer-box').style.display = 'none';
+    // Build hint: show the structure keyword with blanks around
+    const hint = item.highlight
+      ? `💡 Gợi ý: câu có chứa cụm <strong style="color:var(--primary-color);">&ldquo;${item.highlight}&rdquo;</strong>`
+      : `💡 Gợi ý: ${item.en.split(' ').slice(0, 3).join(' ')}...`;
 
-    // Show result badge as hint
-    const resultBadge = document.getElementById('reflex-result-badge');
-    resultBadge.textContent = '👁 Xem đáp án';
-    resultBadge.className = 'reflex-result-badge result-neutral';
+    hintEl.innerHTML = hint;
+    hintEl.style.color = 'var(--primary-color)';
+    hintEl.style.fontStyle = 'normal';
+    hintEl.style.fontWeight = '600';
 
-    this._showAnswerPanel(item, null);
+    // Focus textarea so user can continue typing
+    document.getElementById('reflex-user-input').focus();
   }
 
   _showAnswerPanel(item, isCorrect) {
