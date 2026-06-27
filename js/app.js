@@ -105,11 +105,11 @@ class App {
     }
   }
 
-  login(username) {
+  async login(username) {
     this.currentUser = username;
     localStorage.setItem('ef_current_user', username);
     
-    // Load student-specific progress
+    // Load student-specific progress from localStorage
     const progressKey = 'ef_progress_' + username;
     this.progress = JSON.parse(localStorage.getItem(progressKey)) || {};
     this.progress.wordsLearned = this.progress.wordsLearned || [];
@@ -149,12 +149,30 @@ class App {
     // Activate the current tab section
     this.switchTab(this.currentTab);
 
-    // Sync on login
-    if (this.gitHubToken) {
-      this.syncProgressWithGist();
+    this.showToast(`Chào mừng ${username} đã đăng nhập thành công!`, 'success');
+
+    // ☁️ Cloud Sync: init + pull remote progress and merge
+    if (typeof CloudSync !== 'undefined') {
+      try {
+        const remoteProgress = await CloudSync.init(username);
+        if (remoteProgress) {
+          this.progress = CloudSync.merge(this.progress, remoteProgress);
+          localStorage.setItem(progressKey, JSON.stringify(this.progress));
+          this.updateProgress();
+          this.renderStudyHistory();
+          if (this.currentTab === 'vocab') vocab.resetView();
+          const lastSync = CloudSync.lastSyncTime();
+          this.showToast(`☁️ Tiến độ đã được đồng bộ${lastSync ? ' (lần cuối: ' + lastSync + ')' : ''}`, 'success');
+        }
+      } catch (e) {
+        console.warn('[CloudSync] Login sync error', e);
+      }
     }
 
-    this.showToast(`Chào mừng ${username} đã đăng nhập thành công!`, 'success');
+    // Legacy GitHub Gist sync (still works as fallback if token configured)
+    if (this.gitHubToken) {
+      this.syncProgressWithGist(true);
+    }
   }
 
   logout() {
@@ -343,6 +361,11 @@ class App {
     
     this.updateProgress();
     this.renderStudyHistory();
+
+    // ☁️ Push to cloud (debounced)
+    if (typeof CloudSync !== 'undefined') {
+      CloudSync.push(this.progress);
+    }
 
     // Auto-sync to Gist if token is configured
     if (this.gitHubToken) {

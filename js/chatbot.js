@@ -273,6 +273,11 @@ Cấu trúc JSON bắt buộc:
     // Add to history
     this.dialogueHistory.push({ role: 'user', content: text });
 
+    // ☁️ Save user message to cloud
+    if (typeof CloudSync !== 'undefined') {
+      CloudSync.saveChatMessage('user', text);
+    }
+
     if (this.isRecording) {
       this.recognition.stop();
     }
@@ -337,6 +342,11 @@ Cấu trúc JSON bắt buộc:
       this.addChatBubble(aiResult, 'ai');
       this.dialogueHistory.push({ role: 'ai', content: aiResult.response_english });
       app.speak(aiResult.response_english, 0.88);
+
+      // ☁️ Save AI reply to cloud
+      if (typeof CloudSync !== 'undefined') {
+        CloudSync.saveChatMessage('assistant', aiResult.response_english);
+      }
 
     } catch (err) {
       console.error("Error sending message to Chatbot:", err);
