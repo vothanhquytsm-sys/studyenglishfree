@@ -76,7 +76,21 @@ class App {
     // Activate the current tab section
     this.switchTab(this.currentTab);
 
-    // Silent sync on startup
+    // ☁️ Auto cloud sync on every page load (silent, background)
+    if (typeof CloudSync !== 'undefined') {
+      const progressKey = 'ef_progress_' + this.currentUser;
+      CloudSync.init(this.currentUser).then(remoteProgress => {
+        if (remoteProgress) {
+          this.progress = CloudSync.merge(this.progress, remoteProgress);
+          localStorage.setItem(progressKey, JSON.stringify(this.progress));
+          this.updateProgress();
+          this.renderStudyHistory();
+        }
+        this.updateSyncStatusText();
+      }).catch(e => console.warn('[CloudSync] Init error on startup', e));
+    }
+
+    // Legacy GitHub Gist sync (optional, if token configured)
     if (this.gitHubToken) {
       this.syncProgressWithGist(true);
     }
@@ -164,6 +178,7 @@ class App {
           const lastSync = CloudSync.lastSyncTime();
           this.showToast(`☁️ Tiến độ đã được đồng bộ${lastSync ? ' (lần cuối: ' + lastSync + ')' : ''}`, 'success');
         }
+        this.updateSyncStatusText();
       } catch (e) {
         console.warn('[CloudSync] Login sync error', e);
       }
@@ -709,6 +724,19 @@ class App {
   updateSyncStatusText() {
     const el = document.getElementById('sync-status-text');
     if (!el) return;
+
+    if (typeof CloudSync !== 'undefined' && CloudSync.isConfigured()) {
+      const lastSync = CloudSync.lastSyncTime();
+      if (lastSync) {
+        el.textContent = `Đã đồng bộ tự động. Lần cuối: lúc ${lastSync}`;
+        el.style.color = 'var(--success-color)';
+      } else {
+        el.textContent = 'Sẵn sàng đồng bộ cloud tự động.';
+        el.style.color = 'var(--primary-color)';
+      }
+      return;
+    }
+
     if (!this.gitHubToken) {
       el.textContent = 'Chưa cấu hình đồng bộ cloud.';
       el.style.color = 'var(--text-muted)';
@@ -719,8 +747,23 @@ class App {
       el.textContent = `Đồng bộ lần cuối: ${lastSync}`;
       el.style.color = 'var(--success-color)';
     } else {
-      el.textContent = 'Sẵn sàng đồng bộ. Nhấp để đồng bộ ngay.';
+      el.textContent = 'Sẵn sàng đồng bộ Gist. Nhấp để đồng bộ ngay.';
       el.style.color = 'var(--primary-color)';
+    }
+  }
+
+  async forceCloudSync() {
+    if (typeof CloudSync !== 'undefined' && CloudSync.isConfigured()) {
+      this.showToast('Đang đồng bộ dữ liệu lên cloud...', 'info');
+      const ok = await CloudSync.push(this.progress, true);
+      if (ok) {
+        this.showToast('Đồng bộ cloud thành công!', 'success');
+      } else {
+        this.showToast('Lỗi đồng bộ cloud. Vui lòng kiểm tra lại!', 'error');
+      }
+      this.updateSyncStatusText();
+    } else {
+      this.showToast('Đồng bộ cloud chưa được cấu hình!', 'warning');
     }
   }
 

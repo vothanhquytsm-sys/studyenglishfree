@@ -117,7 +117,6 @@ const CloudSync = (() => {
 
   function _setStatus(state, detail = '') {
     const el = document.getElementById('cloud-sync-badge');
-    if (!el) return;
     const map = {
       ready:   { icon: '☁️',  text: 'Đã lưu cloud',   color: 'var(--success-color)' },
       syncing: { icon: '⏳', text: 'Đang lưu...',      color: 'var(--primary-color)' },
@@ -125,8 +124,17 @@ const CloudSync = (() => {
       offline: { icon: '📴', text: 'Chưa cấu hình',    color: 'var(--text-muted)'    },
     };
     const s = map[state] || map.offline;
-    el.innerHTML = `${s.icon} <span style="font-size:0.72rem;">${detail || s.text}</span>`;
-    el.style.color = s.color;
+    
+    if (el) {
+      el.innerHTML = `${s.icon} <span style="font-size:0.72rem;">${detail || s.text}</span>`;
+      el.style.color = s.color;
+    }
+    
+    const el2 = document.getElementById('sync-status-text');
+    if (el2) {
+      el2.textContent = detail || s.text;
+      el2.style.color = s.color;
+    }
   }
 
   // ── Merge helpers ─────────────────────────────────────────────────────
@@ -257,22 +265,31 @@ const CloudSync = (() => {
    * Upload progress lên cloud (debounced 3s để tránh spam).
    * @param {object} progress
    */
-  function push(progress) {
+  function push(progress, force = false) {
     if (!_ready || !_progressBin || _keyMissing) return;
 
     _setStatus('syncing', 'Đang lưu...');
 
     clearTimeout(_pushTimer);
-    _pushTimer = setTimeout(async () => {
+    
+    const saveFn = async () => {
       const ok = await _writeBin(_progressBin, { ...progress, _user: _username, _updated: Date.now() });
       const timeStr = new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
       if (ok) {
         _setStatus('ready', `Đã lưu lúc ${timeStr}`);
         localStorage.setItem(`ef_cloud_last_sync_${_username}`, timeStr);
+        return true;
       } else {
         _setStatus('error');
+        return false;
       }
-    }, 3000);
+    };
+
+    if (force) {
+      return saveFn();
+    } else {
+      _pushTimer = setTimeout(saveFn, 3000);
+    }
   }
 
   /**

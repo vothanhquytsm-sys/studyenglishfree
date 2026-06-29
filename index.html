@@ -769,17 +769,25 @@
       </div>
 
       <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; margin-bottom: 1rem;">
-        <h4 style="margin-bottom: 0.5rem; color: var(--primary-color);">☁️ Tự động Đồng bộ (GitHub Gist)</h4>
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.8rem; line-height: 1.4;">Đồng bộ tiến trình học tập của bạn qua GitHub Gist riêng tư để tránh mất dữ liệu khi đổi trình duyệt/thiết bị.</p>
-        <div class="form-group">
-          <label for="settings-github-token">GitHub Personal Access Token (PAT)</label>
-          <input type="password" id="settings-github-token" class="input-field" placeholder="Nhập GitHub PAT của bạn (ghp_...)">
-          <p style="font-size: 0.8rem; color: var(--text-muted);">Cần quyền `gist`. <a href="https://github.com/settings/tokens/new?scopes=gist&description=EnglishFree%20Sync" target="_blank" style="color: var(--primary-color);">Tạo Token nhanh tại đây</a></p>
+        <h4 style="margin-bottom: 0.5rem; color: var(--primary-color);">☁️ Đồng bộ tự động (Cloud)</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.8rem; line-height: 1.5;">
+          Tiến độ học của bạn được <strong>tự động lưu lên cloud</strong> mỗi khi bạn học — không cần cấu hình gì thêm.
+          Đăng nhập trên bất kỳ thiết bị nào, xóa cache → vẫn học tiếp được.
+        </p>
+        <div style="background: rgba(99,102,241,0.07); border: 1px solid rgba(99,102,241,0.2); border-radius: var(--radius-md); padding: 0.85rem 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
+          <div style="display:flex; align-items:center; gap: 0.6rem; font-size: 0.85rem;">
+            <span style="font-size:1.1rem;">☁️</span>
+            <div>
+              <div style="font-weight:700; color: var(--text-color);">Trạng thái đồng bộ</div>
+              <div id="sync-status-text" style="font-size: 0.8rem; color: var(--text-muted);">Đang kiểm tra...</div>
+            </div>
+          </div>
         </div>
-        <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
-          <button class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;" onclick="app.syncProgressWithGist()">🔄 Đồng bộ ngay</button>
-          <span id="sync-status-text" style="font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center;">Chưa cấu hình đồng bộ cloud.</span>
+        <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap;">
+          <button class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem;" onclick="app.forceCloudSync()">🔄 Đồng bộ ngay</button>
         </div>
+        <!-- Hidden legacy GitHub PAT input (kept for backward compat) -->
+        <input type="hidden" id="settings-github-token">
       </div>
 
       <div>
