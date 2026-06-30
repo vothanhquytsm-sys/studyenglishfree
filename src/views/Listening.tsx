@@ -119,6 +119,13 @@ export const Listening: React.FC = () => {
       setIsPlaying(false);
       setCurrentTime(0);
 
+      // Force reload audio element with new src
+      setTimeout(() => {
+        if (audioRef.current) {
+          audioRef.current.load();
+        }
+      }, 0);
+
       // Reset dictation states
       setDictationSentenceIdx(0);
       setDictationFillLevel(100);
@@ -583,6 +590,7 @@ export const Listening: React.FC = () => {
               ref={audioRef}
               src={`${import.meta.env.BASE_URL}${selectedLesson.audioFile.startsWith('audio/') ? selectedLesson.audioFile : 'audio/' + selectedLesson.audioFile}`}
               onLoadedMetadata={handleAudioLoaded}
+              onDurationChange={handleAudioLoaded}
               onTimeUpdate={handleAudioTimeUpdate}
               onEnded={handleAudioEnded}
               className="hidden"
