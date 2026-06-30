@@ -928,7 +928,7 @@ export const Listening: React.FC = () => {
             )}
 
             {/* ── Tab Content: Dictation (Chép chính tả) ── */}
-            {activeSubTab === 'dictation' && activeSentences && activeSentences.length > 0 && (
+            {activeSubTab === 'dictation' && activeSentences && activeSentences.length > 0 && activeSentences[dictationSentenceIdx] && (
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
                 {/* Sentences list side-bar */}
                 <div className="border border-slate-200 dark:border-slate-700 rounded-2xl max-h-[450px] overflow-y-auto p-4 bg-slate-50/50 dark:bg-slate-900/20">
@@ -1026,7 +1026,7 @@ export const Listening: React.FC = () => {
                       <button
                         onClick={() => {
                           const activeSent = activeSentences[dictationSentenceIdx];
-                          playAudioSegment(activeSent.start / 1000, activeSent.end / 1000);
+                          playDictationSentence(activeSent);
                         }}
                         className="px-3 py-1.5 bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 rounded-lg text-xs font-bold flex items-center gap-1.5 cursor-pointer"
                       >
