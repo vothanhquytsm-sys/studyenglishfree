@@ -38,13 +38,14 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   const wordsLearnedCount = progress.wordsLearned?.length || 0;
   const totalWords = VOCABULARY_DATA ? VOCABULARY_DATA.length : 1000;
   
-  const vocabWeight = (wordsLearnedCount / totalWords) * 50;
-  const listeningWeight = Math.min(((progress.listeningCompleted?.length || 0) / 5) * 12.5, 12.5);
-  const readingWeight = Math.min(((progress.readingCompleted?.length || 0) / 5) * 12.5, 12.5);
-  const speakingWeight = Math.min(((progress.speakingCompleted?.length || 0) / 3) * 12.5, 12.5);
-  const writingWeight = Math.min(((progress.writingCompleted?.length || 0) / 3) * 12.5, 12.5);
+  const vocabWeight = (wordsLearnedCount / totalWords) * 40;
+  const listeningWeight = Math.min(((progress.listeningCompleted?.length || 0) / 5) * 12, 12);
+  const readingWeight = Math.min(((progress.readingCompleted?.length || 0) / 5) * 12, 12);
+  const speakingWeight = Math.min(((progress.speakingCompleted?.length || 0) / 3) * 12, 12);
+  const reflexWeight = Math.min(((progress.reflexCompleted?.length || 0) / 100) * 12, 12);
+  const writingWeight = Math.min(((progress.writingCompleted?.length || 0) / 3) * 12, 12);
 
-  const totalPercentage = Math.round(vocabWeight + listeningWeight + readingWeight + speakingWeight + writingWeight);
+  const totalPercentage = Math.round(vocabWeight + listeningWeight + readingWeight + speakingWeight + reflexWeight + writingWeight);
 
   const navItems = [
     { id: 'dashboard', name: 'Trang chủ', icon: Home },

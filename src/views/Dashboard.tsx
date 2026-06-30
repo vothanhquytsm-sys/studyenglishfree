@@ -32,10 +32,18 @@ export const Dashboard: React.FC = () => {
     {
       id: 'speaking',
       icon: '💬',
-      title: 'Speaking (Janet & Phản xạ)',
-      desc: 'Giao tiếp trực tiếp với Trợ lý AI Janet theo chủ đề thi nói IELTS hoặc rèn luyện phản xạ dịch 100 câu tiếng Anh.',
+      title: 'Speaking (Janet)',
+      desc: 'Giao tiếp trực tiếp với Trợ lý AI Janet theo chủ đề thi nói IELTS và nhận phản hồi, sửa lỗi chính tả ngữ pháp.',
       bg: 'bg-pink-50 dark:bg-pink-950/20',
       color: 'text-pink-600 dark:text-pink-400'
+    },
+    {
+      id: 'reflex',
+      icon: '🔊',
+      title: 'Luyện phản xạ',
+      desc: 'Rèn luyện phản xạ dịch 100 câu tiếng Anh giao tiếp thông dụng từ Việt sang Anh và luyện phát âm.',
+      bg: 'bg-rose-50 dark:bg-rose-950/20',
+      color: 'text-rose-600 dark:text-rose-400'
     },
     {
       id: 'writing',
