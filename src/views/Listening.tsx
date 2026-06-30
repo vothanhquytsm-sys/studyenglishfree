@@ -198,6 +198,13 @@ export const Listening: React.FC = () => {
     }
   }, []);
 
+  // Synchronize playback speed
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.playbackRate = playbackSpeed;
+    }
+  }, [playbackSpeed, selectedLesson, isPlaying]);
+
   // Update states when lesson changes
   useEffect(() => {
     if (selectedLesson) {
@@ -282,6 +289,7 @@ export const Listening: React.FC = () => {
     cleanListeners();
 
     audioRef.current.currentTime = start;
+    audioRef.current.playbackRate = playbackSpeed;
     setIsPlaying(true);
     audioRef.current.play().catch(console.error);
 
@@ -304,6 +312,7 @@ export const Listening: React.FC = () => {
       audioRef.current.pause();
       setIsPlaying(false);
     } else {
+      audioRef.current.playbackRate = playbackSpeed;
       audioRef.current.play().catch(console.error);
       setIsPlaying(true);
     }
@@ -332,6 +341,7 @@ export const Listening: React.FC = () => {
   const handleAudioLoaded = () => {
     if (audioRef.current) {
       setDuration(audioRef.current.duration);
+      audioRef.current.playbackRate = playbackSpeed;
     }
   };
 
@@ -515,13 +525,8 @@ export const Listening: React.FC = () => {
   const playDictationSentence = (activeSent: any) => {
     if (!activeSent) return;
     if (activeCategory === 'ello') {
-      if (window.speechSynthesis) {
-        window.speechSynthesis.cancel();
-        const utter = new SpeechSynthesisUtterance(activeSent.content);
-        utter.lang = 'en-US';
-        utter.rate = 0.85;
-        window.speechSynthesis.speak(utter);
-      }
+      const range = getSentenceTimeRange(dictationSentenceIdx);
+      playAudioSegment(range.start, range.end);
     } else {
       playAudioSegment(activeSent.start / 1000, activeSent.end / 1000);
     }
