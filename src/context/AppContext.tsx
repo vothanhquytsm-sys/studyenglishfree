@@ -92,8 +92,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   // Sync theme
   useEffect(() => {
     if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
       document.body.classList.add('dark-mode');
     } else {
+      document.documentElement.classList.remove('dark');
       document.body.classList.remove('dark-mode');
     }
     localStorage.setItem('ef_theme', theme);
