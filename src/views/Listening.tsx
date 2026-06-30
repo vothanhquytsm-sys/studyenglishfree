@@ -38,6 +38,48 @@ interface Lesson {
   quiz?: QuizQuestion[];
 }
 
+// Helper: Shadowing sentence splitter
+const getShadowingSentences = (transcript: string) => {
+  if (!transcript) return [];
+  const lines = transcript.split('\n');
+  const allSentences: string[] = [];
+  const abbreviations = ['mr', 'mrs', 'dr', 'ms', 'vs', 'prof', 'sr', 'jr', 'co', 'ltd', 'inc', 'etc'];
+
+  lines.forEach(line => {
+    let text = line.trim();
+    if (!text) return;
+    const match = text.match(/^([A-Za-z0-9\s]+):(.*)/);
+    if (match) text = match[2].trim();
+    if (!text) return;
+
+    const parts = text.split(/(?<=[.!?])\s+/);
+    let current = '';
+
+    for (let i = 0; i < parts.length; i++) {
+      const part = parts[i].trim();
+      if (!part) continue;
+      current = current ? current + ' ' + part : part;
+
+      const lastWordMatch = current.match(/(\b\w+)\.$/i);
+      if (lastWordMatch) {
+        const lastWord = lastWordMatch[1].toLowerCase();
+        if (abbreviations.includes(lastWord)) continue;
+      }
+
+      const cleaned = current.replace(/^[\"'“”‘]+|[\"'“”’]+$/g, '').trim();
+      if (cleaned && cleaned.match(/[a-zA-Z]/)) {
+        allSentences.push(cleaned);
+      }
+      current = '';
+    }
+    if (current) {
+      const cleaned = current.replace(/^[\"'“”‘]+|[\"'“”’]+$/g, '').trim();
+      if (cleaned && cleaned.match(/[a-zA-Z]/)) allSentences.push(cleaned);
+    }
+  });
+  return allSentences;
+};
+
 export const Listening: React.FC = () => {
   const { progress, saveProgress, showToast } = useApp();
   const [activeCategory, setActiveCategory] = useState<'ello' | 'ielts'>('ello');
@@ -307,47 +349,7 @@ export const Listening: React.FC = () => {
     }
   };
 
-  // Shadowing sentence splitter
-  const getShadowingSentences = (transcript: string) => {
-    if (!transcript) return [];
-    const lines = transcript.split('\n');
-    const allSentences: string[] = [];
-    const abbreviations = ['mr', 'mrs', 'dr', 'ms', 'vs', 'prof', 'sr', 'jr', 'co', 'ltd', 'inc', 'etc'];
 
-    lines.forEach(line => {
-      let text = line.trim();
-      if (!text) return;
-      const match = text.match(/^([A-Za-z0-9\s]+):(.*)/);
-      if (match) text = match[2].trim();
-      if (!text) return;
-
-      const parts = text.split(/(?<=[.!?])\s+/);
-      let current = '';
-
-      for (let i = 0; i < parts.length; i++) {
-        const part = parts[i].trim();
-        if (!part) continue;
-        current = current ? current + ' ' + part : part;
-
-        const lastWordMatch = current.match(/(\b\w+)\.$/i);
-        if (lastWordMatch) {
-          const lastWord = lastWordMatch[1].toLowerCase();
-          if (abbreviations.includes(lastWord)) continue;
-        }
-
-        const cleaned = current.replace(/^[\"'“”‘]+|[\"'“”’]+$/g, '').trim();
-        if (cleaned && cleaned.match(/[a-zA-Z]/)) {
-          allSentences.push(cleaned);
-        }
-        current = '';
-      }
-      if (current) {
-        const cleaned = current.replace(/^[\"'“”‘]+|[\"'“”’]+$/g, '').trim();
-        if (cleaned && cleaned.match(/[a-zA-Z]/)) allSentences.push(cleaned);
-      }
-    });
-    return allSentences;
-  };
 
   const speakSelectedSentence = () => {
     if (selectedSentenceIndex === -1) {
