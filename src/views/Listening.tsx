@@ -125,7 +125,7 @@ export const Listening: React.FC = () => {
   // Memoized active sentences list (resolves Ello transcripts dynamically or uses IELTS database list)
   const activeSentences = useMemo<any[]>(() => {
     if (!selectedLesson) return [];
-    if (selectedLesson.sentences && activeSentences.length > 0) {
+    if (selectedLesson.sentences && selectedLesson.sentences.length > 0) {
       return selectedLesson.sentences;
     }
 
