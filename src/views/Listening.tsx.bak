@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useApp } from '../context/AppContext';
 import { LISTENING_DATA } from '../data/listeningData';
 import { Play, Pause, RotateCcw, Volume2, Mic, CheckCircle, Eye, HelpCircle, ChevronLeft, ChevronRight, Trophy } from 'lucide-react';
@@ -43,7 +43,6 @@ export const Listening: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<'ello' | 'ielts'>('ello');
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
   const [activeSubTab, setActiveSubTab] = useState<'transcript' | 'shadow' | 'quiz' | 'dictation'>('transcript');
-  const [elloTranslations, setElloTranslations] = useState<Record<number, string>>({});
 
   // Audio player state
   const [isPlaying, setIsPlaying] = useState(false);
@@ -79,57 +78,6 @@ export const Listening: React.FC = () => {
 
   // Filter lessons
   const filteredLessons = LISTENING_DATA.filter(l => (l.category || 'ello') === activeCategory);
-
-  // Memoized active sentences list (resolves Ello transcripts dynamically or uses IELTS database list)
-  const activeSentences = useMemo<any[]>(() => {
-    if (!selectedLesson) return [];
-    if (selectedLesson.sentences && activeSentences.length > 0) {
-      return selectedLesson.sentences;
-    }
-
-    if (!selectedLesson.transcript) return [];
-    const rawSents = getShadowingSentences(selectedLesson.transcript);
-    
-    return rawSents.map((sentenceText, idx) => {
-      let speaker = "Speaker";
-      const lines = selectedLesson.transcript.split('\n');
-      for (const line of lines) {
-        if (line.includes(sentenceText)) {
-          const match = line.match(/^([A-Za-z0-9\s]+):/);
-          if (match) {
-            speaker = match[1].trim();
-            break;
-          }
-        }
-      }
-
-      // Split by alphanumeric words and keeping punctuation
-      const tokens = sentenceText.split(/(\b[a-zA-Z0-9']+\b|[^a-zA-Z0-9'\s]+)/);
-      let wordKeyCounter = 0;
-      const words = tokens
-        .map(tok => {
-          const t = tok.trim();
-          if (!t) return null;
-          const isPunct = !/^[a-zA-Z0-9']/.test(t);
-          return {
-            key: `w-${idx}-${wordKeyCounter++}`, // unique key string
-            value: t,
-            type: (isPunct ? 'PUNCTUATION' : 'BLANK') as 'BLANK' | 'TEXT' | 'PUNCTUATION'
-          };
-        })
-        .filter(Boolean);
-
-      return {
-        key: idx,
-        speaker,
-        start: 0,
-        end: 0,
-        content: sentenceText,
-        contentVi: "",
-        words
-      };
-    });
-  }, [selectedLesson]);
 
   // Initialize SpeechRecognition on mount
   useEffect(() => {
@@ -168,7 +116,6 @@ export const Listening: React.FC = () => {
       setUserAudioUrl('');
       setQuizGraded(false);
       setQuizAnswers({});
-      setElloTranslations({});
       setIsPlaying(false);
       setCurrentTime(0);
 
@@ -187,34 +134,18 @@ export const Listening: React.FC = () => {
       setDictationShowHint(false);
       setDictationSentenceStatus({});
 
-      // Set default sub tab for all categories
-      if (activeSentences && activeSentences.length > 0) {
-        setActiveSubTab('dictation');
+      // Set default sub tab for IELTS
+      if (activeCategory === 'ielts') {
+        if (selectedLesson.sentences && selectedLesson.sentences.length > 0) {
+          setActiveSubTab('dictation');
+        } else {
+          setActiveSubTab('transcript');
+        }
       } else {
         setActiveSubTab('transcript');
       }
     }
   }, [selectedLesson, activeCategory]);
-
-  // Fetch Ello sentence translation on-the-fly from Google Translate
-  useEffect(() => {
-    if (selectedLesson && !selectedLesson.sentences && activeSubTab === 'dictation') {
-      const activeSent = activeSentences[dictationSentenceIdx];
-      if (activeSent && !elloTranslations[dictationSentenceIdx]) {
-        const textToTranslate = activeSent.content;
-        const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&dt=t&q=${encodeURIComponent(textToTranslate)}`;
-        fetch(url)
-          .then(res => res.json())
-          .then(data => {
-            if (data?.[0]?.[0]?.[0]) {
-              const translation = data[0][0][0].trim();
-              setElloTranslations(prev => ({ ...prev, [dictationSentenceIdx]: translation }));
-            }
-          })
-          .catch(err => console.error("Translate error:", err));
-      }
-    }
-  }, [selectedLesson, activeSubTab, dictationSentenceIdx, activeSentences, elloTranslations]);
 
   // Reset inputs when active dictation sentence changes
   useEffect(() => {
@@ -510,25 +441,10 @@ export const Listening: React.FC = () => {
     return true;
   };
 
-  const playDictationSentence = (activeSent: any) => {
-    if (!activeSent) return;
-    if (activeCategory === 'ello') {
-      if (window.speechSynthesis) {
-        window.speechSynthesis.cancel();
-        const utter = new SpeechSynthesisUtterance(activeSent.content);
-        utter.lang = 'en-US';
-        utter.rate = 0.85;
-        window.speechSynthesis.speak(utter);
-      }
-    } else {
-      playAudioSegment(activeSent.start / 1000, activeSent.end / 1000);
-    }
-  };
-
   // Check Dictation Sentence Correctness
-  const checkSentenceCorrectness = (sent: any, inputs: Record<number, string>, fillLevel: number) => {
+  const checkSentenceCorrectness = (sent: SentenceItem, inputs: Record<number, string>, fillLevel: number) => {
     let allCorrect = true;
-    sent.words.forEach((word: any, wIdx: number) => {
+    sent.words.forEach((word, wIdx) => {
       if (isWordBlank(word, wIdx, fillLevel)) {
         const userVal = (inputs[word.key] || '').trim().toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, '');
         const correctVal = word.value.trim().toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, '');
@@ -543,7 +459,7 @@ export const Listening: React.FC = () => {
   // Handle Check Dictation Action
   const handleCheckDictation = () => {
     if (!selectedLesson?.sentences) return;
-    const activeSentence = activeSentences[dictationSentenceIdx];
+    const activeSentence = selectedLesson.sentences[dictationSentenceIdx];
     if (!activeSentence) return;
 
     if (dictationChecked) {
@@ -555,7 +471,7 @@ export const Listening: React.FC = () => {
     }
 
     let allCorrect = true;
-    activeSentence.words.forEach((word: any, wIdx: number) => {
+    activeSentence.words.forEach((word, wIdx) => {
       if (isWordBlank(word, wIdx, dictationFillLevel)) {
         const userVal = (dictationInputs[word.key] || '').trim().toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, '');
         const correctVal = word.value.trim().toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, '');
@@ -571,7 +487,7 @@ export const Listening: React.FC = () => {
       setDictationSentenceStatus(prev => ({ ...prev, [dictationSentenceIdx]: true }));
 
       // Update total completion
-      const totalSents = activeSentences.length;
+      const totalSents = selectedLesson.sentences.length;
       const completedCount = Object.keys(dictationSentenceStatus).filter(k => dictationSentenceStatus[parseInt(k)]).length + 1;
       if (completedCount === totalSents) {
         saveProgress('listening', selectedLesson.id);
@@ -583,7 +499,7 @@ export const Listening: React.FC = () => {
   };
 
   const handleNextDictationSentence = () => {
-    if (selectedLesson?.sentences && dictationSentenceIdx < activeSentences.length - 1) {
+    if (selectedLesson?.sentences && dictationSentenceIdx < selectedLesson.sentences.length - 1) {
       setDictationSentenceIdx(prev => prev + 1);
     }
   };
@@ -768,7 +684,7 @@ export const Listening: React.FC = () => {
                 </button>
               )}
 
-              {activeSentences && activeSentences.length > 0 && (
+              {selectedLesson.sentences && selectedLesson.sentences.length > 0 && (
                 <button
                   onClick={() => setActiveSubTab('dictation')}
                   className={`px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer ${
@@ -928,18 +844,18 @@ export const Listening: React.FC = () => {
             )}
 
             {/* ── Tab Content: Dictation (Chép chính tả) ── */}
-            {activeSubTab === 'dictation' && activeSentences && activeSentences.length > 0 && (
+            {activeSubTab === 'dictation' && selectedLesson.sentences && selectedLesson.sentences.length > 0 && (
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
                 {/* Sentences list side-bar */}
                 <div className="border border-slate-200 dark:border-slate-700 rounded-2xl max-h-[450px] overflow-y-auto p-4 bg-slate-50/50 dark:bg-slate-900/20">
                   <h4 className="text-xs font-black text-slate-500 dark:text-slate-400 mb-3 flex items-center justify-between">
-                    <span>DANH SÁCH CÂU (${activeSentences.length} câu)</span>
+                    <span>DANH SÁCH CÂU (${selectedLesson.sentences.length} câu)</span>
                     <span className="text-indigo-600 dark:text-indigo-400 font-extrabold">
-                      {Math.round((Object.keys(dictationSentenceStatus).filter(k => dictationSentenceStatus[parseInt(k)]).length / activeSentences.length) * 100)}%
+                      {Math.round((Object.keys(dictationSentenceStatus).filter(k => dictationSentenceStatus[parseInt(k)]).length / selectedLesson.sentences.length) * 100)}%
                     </span>
                   </h4>
                   <div className="space-y-2">
-                    {activeSentences.map((sent: any, idx: number) => {
+                    {selectedLesson.sentences.map((sent, idx) => {
                       const isCurrent = dictationSentenceIdx === idx;
                       const isDone = dictationSentenceStatus[idx];
                       return (
@@ -1005,11 +921,11 @@ export const Listening: React.FC = () => {
                         <ChevronLeft size={16} />
                       </button>
                       <span className="text-xs font-extrabold flex items-center text-slate-600 dark:text-slate-300">
-                        {dictationSentenceIdx + 1} / {activeSentences.length}
+                        {dictationSentenceIdx + 1} / {selectedLesson.sentences.length}
                       </span>
                       <button
                         onClick={handleNextDictationSentence}
-                        disabled={dictationSentenceIdx === activeSentences.length - 1}
+                        disabled={dictationSentenceIdx === selectedLesson.sentences.length - 1}
                         className="w-8 h-8 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/80 text-slate-500 hover:bg-slate-50 flex items-center justify-center cursor-pointer disabled:opacity-50"
                       >
                         <ChevronRight size={16} />
@@ -1025,7 +941,7 @@ export const Listening: React.FC = () => {
                       </span>
                       <button
                         onClick={() => {
-                          const activeSent = activeSentences[dictationSentenceIdx];
+                          const activeSent = selectedLesson.sentences![dictationSentenceIdx];
                           playAudioSegment(activeSent.start / 1000, activeSent.end / 1000);
                         }}
                         className="px-3 py-1.5 bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 rounded-lg text-xs font-bold flex items-center gap-1.5 cursor-pointer"
@@ -1037,7 +953,7 @@ export const Listening: React.FC = () => {
 
                     {/* Interactive Words Panel */}
                     <div className="flex flex-wrap items-baseline gap-y-3 gap-x-1.5 leading-loose">
-                      {activeSentences[dictationSentenceIdx].words.map((word: any, wIdx: number) => {
+                      {selectedLesson.sentences[dictationSentenceIdx].words.map((word, wIdx) => {
                         const isBlank = isWordBlank(word, wIdx, dictationFillLevel);
                         if (isBlank) {
                           const userVal = (dictationInputs[word.key] || '').trim().toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, '');
@@ -1112,7 +1028,7 @@ export const Listening: React.FC = () => {
                         </button>
                       )}
 
-                      {dictationSentenceIdx < activeSentences.length - 1 && (
+                      {dictationSentenceIdx < selectedLesson.sentences.length - 1 && (
                         <button
                           onClick={handleNextDictationSentence}
                           className="px-4 py-2 bg-slate-800 dark:bg-slate-700 hover:bg-slate-700 text-white rounded-lg text-xs font-bold flex items-center gap-1 cursor-pointer"
@@ -1130,7 +1046,7 @@ export const Listening: React.FC = () => {
                       DỊCH NGHĨA TIẾNG VIỆT
                     </span>
                     <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-350 italic">
-                      "{activeSentences[dictationSentenceIdx].contentVi || elloTranslations[dictationSentenceIdx] || (activeCategory === 'ello' ? 'Đang tải bản dịch...' : '')}"
+                      "{selectedLesson.sentences[dictationSentenceIdx].contentVi}"
                     </p>
                   </div>
                 </div>
@@ -1249,7 +1165,6 @@ export const Listening: React.FC = () => {
                           onClick={() => {
                             setQuizGraded(false);
                             setQuizAnswers({});
-      setElloTranslations({});
                           }}
                           className="px-6 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 rounded-lg text-xs font-bold cursor-pointer transition text-slate-700 dark:text-slate-300"
                         >
