@@ -581,7 +581,7 @@ export const Listening: React.FC = () => {
           <div className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm p-6 md:p-8 space-y-6">
             <audio
               ref={audioRef}
-              src={`${import.meta.env.BASE_URL}audio/${selectedLesson.audioFile}`}
+              src={`${import.meta.env.BASE_URL}${selectedLesson.audioFile.startsWith('audio/') ? selectedLesson.audioFile : 'audio/' + selectedLesson.audioFile}`}
               onLoadedMetadata={handleAudioLoaded}
               onTimeUpdate={handleAudioTimeUpdate}
               onEnded={handleAudioEnded}
