@@ -52,6 +52,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
     { id: 'listening', name: 'Listening', icon: Headphones },
     { id: 'reading', name: 'Reading', icon: FileText },
     { id: 'speaking', name: 'Speaking (Janet)', icon: MessageSquare },
+    { id: 'reflex', name: 'Luyện phản xạ', icon: Volume2 },
     { id: 'writing', name: 'Writing', icon: PenTool },
   ];
 
@@ -62,6 +63,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
       case 'listening': return 'Listening';
       case 'reading': return 'IELTS Reading Simulator';
       case 'speaking': return 'Speaking với Janet';
+      case 'reflex': return 'Luyện phản xạ dịch';
       case 'writing': return 'Writing với AI';
       default: return 'EnglishFree';
     }

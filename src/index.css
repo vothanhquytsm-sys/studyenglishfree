@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  font-size: 17.5px;
+}
+
 /* ─── Global Design Tokens ─── */
 :root {
   --primary-color: #4f46e5;

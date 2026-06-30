@@ -388,9 +388,9 @@ export const Listening: React.FC = () => {
       if (idx !== -1) {
         matchCount++;
         spokenWords.splice(idx, 1);
-        return `<span class="text-emerald-500 font-bold">\${tWord}</span>`;
+        return `<span class="text-emerald-500 font-bold">${tWord}</span>`;
       }
-      return `<span class="text-rose-500 font-bold line-through">\${tWord}</span>`;
+      return `<span class="text-rose-500 font-bold line-through">${tWord}</span>`;
     });
 
     const score = Math.round((matchCount / targetWords.length) * 100);
@@ -418,9 +418,9 @@ export const Listening: React.FC = () => {
 
     if (score >= 7) {
       saveProgress('listening', selectedLesson.id);
-      showToast(`🎉 Bài làm đạt \${score}/10 điểm! Bài học đã hoàn thành.`, 'success');
+      showToast(`🎉 Bài làm đạt ${score}/10 điểm! Bài học đã hoàn thành.`, 'success');
     } else {
-      showToast(`Bạn chỉ đạt \${score}/10 điểm. Cần đạt tối thiểu 7/10 để hoàn thành bài nghe.`, 'warning');
+      showToast(`Bạn chỉ đạt ${score}/10 điểm. Cần đạt tối thiểu 7/10 để hoàn thành bài nghe.`, 'warning');
     }
   };
 
@@ -516,7 +516,7 @@ export const Listening: React.FC = () => {
         <div className="p-4 border-b border-slate-200 dark:border-slate-700 flex gap-2 flex-shrink-0">
           <button
             onClick={() => { setActiveCategory('ello'); setSelectedLesson(null); }}
-            className={`flex-1 py-2 text-xs font-bold rounded-lg border transition cursor-pointer \${
+            className={`flex-1 py-2 text-xs font-bold rounded-lg border transition cursor-pointer ${
               activeCategory === 'ello'
                 ? 'bg-indigo-600 border-indigo-600 text-white shadow'
                 : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:bg-slate-50'
@@ -526,7 +526,7 @@ export const Listening: React.FC = () => {
           </button>
           <button
             onClick={() => { setActiveCategory('ielts'); setSelectedLesson(null); }}
-            className={`flex-1 py-2 text-xs font-bold rounded-lg border transition cursor-pointer \${
+            className={`flex-1 py-2 text-xs font-bold rounded-lg border transition cursor-pointer ${
               activeCategory === 'ielts'
                 ? 'bg-indigo-600 border-indigo-600 text-white shadow'
                 : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:bg-slate-50'
@@ -546,7 +546,7 @@ export const Listening: React.FC = () => {
               <button
                 key={lesson.id}
                 onClick={() => setSelectedLesson(lesson)}
-                className={`w-full text-left p-4 rounded-xl border transition flex flex-col gap-1 cursor-pointer \${
+                className={`w-full text-left p-4 rounded-xl border transition flex flex-col gap-1 cursor-pointer ${
                   isSelected
                     ? 'bg-indigo-50/50 dark:bg-indigo-950/20 border-indigo-500'
                     : 'bg-white dark:bg-slate-800 border-slate-100 dark:border-slate-800 hover:border-slate-200 dark:hover:border-slate-700'
@@ -654,7 +654,7 @@ export const Listening: React.FC = () => {
             <div className="flex gap-2 border-b border-slate-100 dark:border-slate-700 pb-2">
               <button
                 onClick={() => setActiveSubTab('transcript')}
-                className={`px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer 	h\${
+                className={`px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer ${
                   activeSubTab === 'transcript'
                     ? 'bg-indigo-50 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400'
                     : 'text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-850'
@@ -666,7 +666,7 @@ export const Listening: React.FC = () => {
               {activeCategory === 'ello' && (
                 <button
                   onClick={() => setActiveSubTab('shadow')}
-                  className={`px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer \${
+                  className={`px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer ${
                     activeSubTab === 'shadow'
                       ? 'bg-indigo-50 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400'
                       : 'text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-850'
@@ -679,7 +679,7 @@ export const Listening: React.FC = () => {
               {selectedLesson.sentences && selectedLesson.sentences.length > 0 && (
                 <button
                   onClick={() => setActiveSubTab('dictation')}
-                  className={`px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer \${
+                  className={`px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer ${
                     activeSubTab === 'dictation'
                       ? 'bg-indigo-50 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400'
                       : 'text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-850'
@@ -692,7 +692,7 @@ export const Listening: React.FC = () => {
               {selectedLesson.quiz && selectedLesson.quiz.length > 0 && (
                 <button
                   onClick={() => setActiveSubTab('quiz')}
-                  className={`px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer \${
+                  className={`px-4 py-2 text-xs font-bold rounded-lg transition cursor-pointer ${
                     activeSubTab === 'quiz'
                       ? 'bg-indigo-50 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400'
                       : 'text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-850'
@@ -744,7 +744,7 @@ export const Listening: React.FC = () => {
                           setFeedbackHtml('');
                           setUserAudioUrl('');
                         }}
-                        className={`w-full text-left p-3 rounded-xl border text-xs leading-relaxed transition \${
+                        className={`w-full text-left p-3 rounded-xl border text-xs leading-relaxed transition ${
                           isActive
                             ? 'bg-indigo-50/50 dark:bg-indigo-950/20 border-indigo-500 font-medium text-slate-800 dark:text-slate-100'
                             : 'bg-white dark:bg-slate-800 border-slate-100 dark:border-slate-800 hover:border-slate-200 text-slate-700 dark:text-slate-350'
@@ -783,7 +783,7 @@ export const Listening: React.FC = () => {
                     <button
                       onClick={toggleRecording}
                       disabled={selectedSentenceIndex === -1}
-                      className={`px-3.5 py-2 rounded-lg cursor-pointer text-xs font-bold flex items-center gap-1.5 transition \${
+                      className={`px-3.5 py-2 rounded-lg cursor-pointer text-xs font-bold flex items-center gap-1.5 transition ${
                         isRecording
                           ? 'bg-rose-600 text-white hover:bg-rose-500'
                           : 'bg-indigo-600 text-white hover:bg-indigo-500 shadow'
@@ -807,7 +807,7 @@ export const Listening: React.FC = () => {
                       <div className="flex items-baseline gap-2">
                         <span className="text-xs font-bold text-slate-600 dark:text-slate-300">Điểm phát âm:</span>
                         <span
-                          className={`text-2xl font-black \${
+                          className={`text-2xl font-black ${
                             pronunciationScore >= 80
                               ? 'text-emerald-500'
                               : pronunciationScore >= 50
@@ -841,7 +841,7 @@ export const Listening: React.FC = () => {
                 {/* Sentences list side-bar */}
                 <div className="border border-slate-200 dark:border-slate-700 rounded-2xl max-h-[450px] overflow-y-auto p-4 bg-slate-50/50 dark:bg-slate-900/20">
                   <h4 className="text-xs font-black text-slate-500 dark:text-slate-400 mb-3 flex items-center justify-between">
-                    <span>DANH SÁCH CÂU (\${selectedLesson.sentences.length} câu)</span>
+                    <span>DANH SÁCH CÂU (${selectedLesson.sentences.length} câu)</span>
                     <span className="text-indigo-600 dark:text-indigo-400 font-extrabold">
                       {Math.round((Object.keys(dictationSentenceStatus).filter(k => dictationSentenceStatus[parseInt(k)]).length / selectedLesson.sentences.length) * 100)}%
                     </span>
@@ -854,7 +854,7 @@ export const Listening: React.FC = () => {
                         <div
                           key={sent.key}
                           onClick={() => setDictationSentenceIdx(idx)}
-                          className={`w-full text-left p-3 rounded-xl border transition cursor-pointer flex items-center justify-between gap-3 \${
+                          className={`w-full text-left p-3 rounded-xl border transition cursor-pointer flex items-center justify-between gap-3 ${
                             isCurrent
                               ? 'bg-indigo-50/50 dark:bg-indigo-950/20 border-indigo-500 font-bold'
                               : 'bg-white dark:bg-slate-800 border-slate-100 dark:border-slate-800/80 hover:border-slate-200'
@@ -960,7 +960,7 @@ export const Listening: React.FC = () => {
                                 disabled={dictationChecked}
                                 onChange={(e) => setDictationInputs(prev => ({ ...prev, [word.key]: e.target.value }))}
                                 placeholder={dictationShowHint ? `${word.value[0]}...` : `(${wIdx + 1})`}
-                                className={`mx-0.5 px-2 py-1 rounded border text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500/20 text-center transition-all \${
+                                className={`mx-0.5 px-2 py-1 rounded border text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500/20 text-center transition-all ${
                                   dictationChecked
                                     ? isCorrect
                                       ? 'border-emerald-500 text-emerald-500 font-bold bg-emerald-50/20'
@@ -1079,10 +1079,10 @@ export const Listening: React.FC = () => {
                                   if (showFail) labelClass = 'text-rose-500 font-bold';
 
                                   return (
-                                    <label key={oIdx} className={`flex items-center gap-2.5 text-xs cursor-pointer \${labelClass}`}>
+                                    <label key={oIdx} className={`flex items-center gap-2.5 text-xs cursor-pointer ${labelClass}`}>
                                       <input
                                         type="radio"
-                                        name={`quiz-q-\${q.id}`}
+                                        name={`quiz-q-${q.id}`}
                                         disabled={quizGraded}
                                         checked={isSelected}
                                         onChange={() => setQuizAnswers(prev => ({ ...prev, [q.id]: oIdx }))}
@@ -1107,7 +1107,7 @@ export const Listening: React.FC = () => {
                                           value={String(quizAnswers[q.id] || '')}
                                           onChange={(e) => setQuizAnswers(prev => ({ ...prev, [q.id]: e.target.value }))}
                                           placeholder="Nhập từ..."
-                                          className={`mx-1.5 px-2.5 py-1 rounded border bg-white dark:bg-slate-900 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500/20 max-w-[120px] transition \${
+                                          className={`mx-1.5 px-2.5 py-1 rounded border bg-white dark:bg-slate-900 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500/20 max-w-[120px] transition ${
                                             quizGraded
                                               ? isCorrect
                                                 ? 'border-emerald-500 text-emerald-500 font-bold bg-emerald-50/20'

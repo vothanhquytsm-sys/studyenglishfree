@@ -8,6 +8,7 @@ import Vocabulary from './views/Vocabulary';
 import Listening from './views/Listening';
 import Reading from './views/Reading';
 import Speaking from './views/Speaking';
+import Reflex from './views/Reflex';
 import Writing from './views/Writing';
 import { X } from 'lucide-react';
 
@@ -21,6 +22,7 @@ const AppContent: React.FC = () => {
       case 'listening': return <Listening />;
       case 'reading': return <Reading />;
       case 'speaking': return <Speaking />;
+      case 'reflex': return <Reflex />;
       case 'writing': return <Writing />;
       default: return <Dashboard />;
     }
